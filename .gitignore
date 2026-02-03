@@ -137,3 +137,14 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# ---- Runtime / Secrets ----
+phase2/data/
+phase2/reports/
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# ---- Node ----
+node_modules/
