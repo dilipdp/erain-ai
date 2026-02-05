@@ -8,13 +8,14 @@ from typing import Optional
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import PlainTextResponse
+from pydantic import BaseModel
+from core.persistence import persist_audit, persist_lead, update_lead_status
 
 from core.audit_engine import run_audit
-from core.persistence import persist_audit
 from reports.pdf_generator import generate_pdf
 from schemas.input import AuditRequest
 from schemas.output import AuditResponse
-from core.emailer import send_followup_email
 
 # Resolve project root deterministically
 PHASE2_ROOT = Path(__file__).resolve().parents[1]  # .../erain-ai/phase2
@@ -61,17 +62,9 @@ def _require_admin(x_admin_token: Optional[str]) -> None:
         raise HTTPException(status_code=401, detail="Unauthorized")
 
 
-# Helper: build WhatsApp follow-up message for a lead
-def _build_whatsapp_message(request_id: str, contact: dict, pdf_path: str) -> str:
-    name = contact.get("name") or "there"
-    msg = (
-        f"Hi {name},\n\n"
-        f"Thanks for requesting a free AI Business Assessment from EraIn AI.\n\n"
-        f"Your Request ID: {request_id}\n"
-        f"Download your report: {pdf_path}\n\n"
-        f"We’ll review this and follow up with next steps shortly."
-    )
-    return msg
+class LeadStatusUpdate(BaseModel):
+    status: str
+    note: str = ""
 
 
 @app.post("/audit", response_model=AuditResponse)
@@ -90,77 +83,11 @@ def audit(req: AuditRequest):
     # Persist audit trail (will raise if it fails)
     persist_audit(req, report)
 
+    # Persist lead + communication templates
+    persist_lead(req, report)
+
     # Debug marker: proves persist_audit returned successfully
     (AUDITS_DIR / ".persist_ok").write_text("ok\n", encoding="utf-8")
-
-    # Lead capture (optional)
-    if getattr(req, "contact", None) is not None and req.contact is not None:
-
-        lead_payload = {
-            "request_id": report.request_id,
-            "generated_at_utc": report.generated_at_utc,
-            "contact": req.contact.model_dump(),
-            "business": req.business.model_dump(),
-        }
-
-        # Auto WhatsApp follow-up (message generation only)
-        wa_message = _build_whatsapp_message(
-            report.request_id,
-            lead_payload.get("contact", {}),
-            report.pdf_path,
-        )
-
-        # Persist WhatsApp message for ops / future automation
-        wa_path = LEADS_DIR / f"{report.request_id}.whatsapp.txt"
-        wa_path.write_text(wa_message, encoding="utf-8")
-
-        # Auto email follow-up (non-blocking, silent if SMTP not configured)
-        email_body = (
-            f"Hello {req.contact.name or ''},\n\n"
-            f"Thank you for requesting a free AI Business Assessment from EraIn AI.\n\n"
-            f"Your Request ID: {report.request_id}\n"
-            f"You can download your report here:\n"
-            f"{report.pdf_path}\n\n"
-            f"Our team will review your assessment and contact you shortly."
-        )
-
-        send_followup_email(
-            to_email=req.contact.email or "",
-            subject="Your EraIn AI Business Assessment",
-            body=email_body,
-        )
-
-        # Per-lead file
-        lead_path = LEADS_DIR / f"{report.request_id}.json"
-        lead_path.write_text(
-            json.dumps(lead_payload, indent=2, ensure_ascii=False),
-            encoding="utf-8",
-        )
-
-        # Append to leads_index.json (best-effort)
-        idx_path = LEADS_DIR / "leads_index.json"
-        try:
-            if idx_path.exists():
-                idx = json.loads(idx_path.read_text(encoding="utf-8"))
-                if not isinstance(idx, list):
-                    idx = []
-            else:
-                idx = []
-
-            idx.append({
-                "request_id": report.request_id,
-                "name": req.contact.name or "",
-                "phone": req.contact.phone or "",
-                "email": req.contact.email or "",
-                "company": req.business.company_name,
-                "ts": report.generated_at_utc,
-            })
-            idx_path.write_text(
-                json.dumps(idx, indent=2, ensure_ascii=False),
-                encoding="utf-8",
-            )
-        except Exception:
-            pass
 
     return report
 
@@ -187,6 +114,20 @@ def admin_get_lead(request_id: str, x_admin_token: Optional[str] = Header(defaul
     return json.loads(lead_path.read_text(encoding="utf-8"))
 
 
+@app.patch("/admin/leads/{request_id}/status")
+def admin_update_lead_status(
+    request_id: str,
+    body: LeadStatusUpdate,
+    x_admin_token: Optional[str] = Header(default=None, alias="X-Admin-Token"),
+):
+    _require_admin(x_admin_token)
+    try:
+        updated = update_lead_status(request_id=request_id, status=body.status, note=body.note)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Not found")
+    return {"ok": True, "lead": updated}
+
+
 @app.get("/admin/audits")
 def admin_list_audits(x_admin_token: Optional[str] = Header(default=None, alias="X-Admin-Token")):
     _require_admin(x_admin_token)
@@ -206,3 +147,49 @@ def admin_get_audit_bundle(request_id: str, x_admin_token: Optional[str] = Heade
     if not bundle_path.exists():
         raise HTTPException(status_code=404, detail="Not found")
     return json.loads(bundle_path.read_text(encoding="utf-8"))
+
+
+@app.get("/admin/leads/{request_id}/whatsapp", response_class=PlainTextResponse)
+def admin_lead_whatsapp(request_id: str, x_admin_token: Optional[str] = Header(default=None, alias="X-Admin-Token")):
+    _require_admin(x_admin_token)
+    p = LEADS_DIR / f"{request_id}.whatsapp.txt"
+    if not p.exists():
+        raise HTTPException(status_code=404, detail="whatsapp template not found")
+    return p.read_text(encoding="utf-8")
+
+
+@app.get("/admin/leads/{request_id}/email", response_class=PlainTextResponse)
+def admin_lead_email(request_id: str, x_admin_token: Optional[str] = Header(default=None, alias="X-Admin-Token")):
+    _require_admin(x_admin_token)
+    p = LEADS_DIR / f"{request_id}.email.txt"
+    if not p.exists():
+        raise HTTPException(status_code=404, detail="email template not found")
+    return p.read_text(encoding="utf-8")
+
+@app.get("/admin/metrics")
+def admin_metrics(x_admin_token: Optional[str] = Header(default=None, alias="X-Admin-Token")):
+    _require_admin(x_admin_token)
+
+    leads = []
+    if (LEADS_DIR / "leads_index.json").exists():
+        try:
+            leads = json.loads((LEADS_DIR / "leads_index.json").read_text())
+        except Exception:
+            leads = []
+
+    total_leads = len(leads)
+
+    by_status = {}
+    for l in leads:
+        status = l.get("status", "new")
+        by_status[status] = by_status.get(status, 0) + 1
+
+    audits = []
+    if AUDITS_DIR.exists():
+        audits = [p for p in AUDITS_DIR.iterdir() if p.is_dir() and p.name.startswith("AR-")]
+
+    return {
+        "total_leads": total_leads,
+        "leads_by_status": by_status,
+        "total_audits": len(audits),
+    }
