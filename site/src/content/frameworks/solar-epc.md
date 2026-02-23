@@ -2,6 +2,7 @@
 
 ---
 title: Solar & EPC Project Execution Framework™
+slug: solar-epc-draft-v1
 version: 1.0
 status: Draft
 last_updated: 2026-02-16
