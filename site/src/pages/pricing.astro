@@ -118,7 +118,10 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">Free entry audit</div>
           </div>
           <div class="price">
-            <div class="priceValue"><span>₹0</span><small>$0</small></div>
+            <div class="priceValue">
+              <span class="moneyMain">₹0</span>
+              <span class="moneyAlt">USD 0</span>
+            </div>
             <div class="priceNote">No credit card</div>
           </div>
         </div>
@@ -147,7 +150,10 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">One-time engagement</div>
           </div>
           <div class="price">
-            <div class="priceValue"><span>₹75,000</span><small>$900</small></div>
+            <div class="priceValue">
+              <span class="moneyMain">₹75,000</span>
+              <span class="moneyAlt">Approx USD 900</span>
+            </div>
             <div class="priceNote">7–10 days delivery</div>
           </div>
         </div>
@@ -175,7 +181,10 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">Monthly operating cadence</div>
           </div>
           <div class="price">
-            <div class="priceValue"><span>₹1,50,000+</span><small>$1,800+</small></div>
+            <div class="priceValue">
+              <span class="moneyMain">₹1,50,000+</span>
+              <span class="moneyAlt">Approx USD 1,800+</span>
+            </div>
             <div class="priceNote">per month</div>
           </div>
         </div>
@@ -203,7 +212,10 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">Enterprise / Scale</div>
           </div>
           <div class="price">
-            <div class="priceValue"><span>Custom</span><small>INR / USD</small></div>
+            <div class="priceValue">
+              <span class="moneyMain">Custom</span>
+              <span class="moneyAlt">Billing in INR or USD</span>
+            </div>
             <div class="priceNote">VPC / on-prem</div>
           </div>
         </div>
@@ -652,25 +664,36 @@ const faqJsonLd = JSON.stringify({
   }
 
   .priceValue {
-    display: grid;
-    justify-items: end;
-    gap: 2px;
-    line-height: 1.05;
-    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    min-width: 0;
+    line-height: 1;
   }
 
-  .priceValue span {
+  .moneyMain {
     font-size: clamp(24px, 2.2vw, 32px);
     font-weight: 950;
     letter-spacing: -0.03em;
     color: var(--primary);
+    white-space: nowrap;
   }
 
-  .priceValue small {
-    font-size: 13px;
-    font-weight: 840;
-    letter-spacing: -0.01em;
-    color: rgba(13, 43, 95, 0.82);
+  .moneyAlt {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(37, 99, 235, 0.18);
+    border-radius: 999px;
+    padding: 4px 9px;
+    background: rgba(37, 99, 235, 0.08);
+    color: rgba(13, 43, 95, 0.84);
+    font-size: 10px;
+    font-weight: 860;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    white-space: nowrap;
   }
 
   .priceNote {
@@ -813,6 +836,10 @@ const faqJsonLd = JSON.stringify({
       margin-left: 0;
       justify-items: start;
       text-align: left;
+    }
+
+    .priceValue {
+      align-items: flex-start;
     }
   }
 
