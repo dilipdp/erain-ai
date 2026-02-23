@@ -52,3 +52,28 @@ class ROIAttributionOut(BaseModel):
     created_at: datetime
 
     model_config = {"from_attributes": True}
+
+
+class ROIByCategoryOut(BaseModel):
+    category: ROICategory
+    count: int
+    raw_impact_value: float
+    confidence_adjusted_impact_value: float
+
+
+class ROIByDecisionOut(BaseModel):
+    decision_id: UUID
+    count: int
+    raw_impact_value: float
+    confidence_adjusted_impact_value: float
+
+
+class ROISummaryOut(BaseModel):
+    organization_id: UUID
+    decision_id: UUID | None
+    total_records: int
+    total_raw_impact_value: float
+    total_confidence_adjusted_impact_value: float
+    average_confidence_score: float | None
+    by_category: list[ROIByCategoryOut]
+    by_decision: list[ROIByDecisionOut]

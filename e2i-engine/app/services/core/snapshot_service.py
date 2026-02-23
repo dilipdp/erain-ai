@@ -1,16 +1,25 @@
 from uuid import UUID
 
 from fastapi import HTTPException
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app.models.core.organization import Organization
 from app.models.core.snapshot import DatasetSnapshot
 from app.schemas.core.snapshot import SnapshotCreate
+from app.services.core.audit_event_service import AuditEventService
 
 
 class SnapshotService:
     @staticmethod
-    def create(db: Session, payload: SnapshotCreate) -> DatasetSnapshot:
+    def create(
+        db: Session,
+        payload: SnapshotCreate,
+        *,
+        actor_id: str,
+        correlation_id: str,
+        causation_id: str | None = None,
+    ) -> DatasetSnapshot:
         org = db.get(Organization, payload.organization_id)
         if org is None:
             raise HTTPException(status_code=404, detail="organization not found")
@@ -29,7 +38,33 @@ class SnapshotService:
             **snapshot_kwargs,
         )
         db.add(snapshot)
-        db.commit()
+        db.flush()
+
+        AuditEventService.create_record(
+            db,
+            organization_id=payload.organization_id,
+            event_type="data.dataset.snapshot.created",
+            actor_id=actor_id,
+            correlation_id=correlation_id,
+            causation_id=causation_id,
+            snapshot_id=snapshot.id,
+            entity_type="dataset_snapshot",
+            entity_id=str(snapshot.id),
+            payload={
+                "source_system": snapshot.source_system,
+                "scope_summary": snapshot.scope_summary,
+                "hash_sha256": snapshot.hash_sha256,
+                "data_reliability_score": snapshot.data_reliability_score,
+                "captured_at": snapshot.captured_at.isoformat() if snapshot.captured_at else None,
+            },
+            commit=False,
+        )
+
+        try:
+            db.commit()
+        except IntegrityError as exc:
+            db.rollback()
+            raise HTTPException(status_code=409, detail="snapshot already exists or is invalid") from exc
         db.refresh(snapshot)
         return snapshot
 

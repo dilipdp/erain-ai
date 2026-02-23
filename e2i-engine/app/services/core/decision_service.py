@@ -2,12 +2,14 @@ from datetime import datetime, UTC
 from uuid import UUID
 
 from fastapi import HTTPException
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from app.models.core.decision_record import DecisionRecord
 from app.models.core.organization import Organization
 from app.models.core.snapshot import DatasetSnapshot
 from app.schemas.core.decision_record import DecisionApproveIn, DecisionCreate
+from app.services.core.audit_event_service import AuditEventService
 
 APPROVAL_MATRIX: dict[str, set[str]] = {
     "FOUNDER": {"FOUNDER"},
@@ -20,7 +22,14 @@ APPROVAL_MATRIX: dict[str, set[str]] = {
 
 class DecisionService:
     @staticmethod
-    def create(db: Session, payload: DecisionCreate) -> DecisionRecord:
+    def create(
+        db: Session,
+        payload: DecisionCreate,
+        *,
+        actor_id: str,
+        correlation_id: str,
+        causation_id: str | None = None,
+    ) -> DecisionRecord:
         org = db.get(Organization, payload.organization_id)
         if org is None:
             raise HTTPException(status_code=404, detail="organization not found")
@@ -39,7 +48,51 @@ class DecisionService:
             status="PROPOSED",
         )
         db.add(decision)
-        db.commit()
+        db.flush()
+
+        logged_event = AuditEventService.create_record(
+            db,
+            organization_id=payload.organization_id,
+            event_type="governance.decision.logged",
+            actor_id=actor_id,
+            correlation_id=correlation_id,
+            causation_id=causation_id,
+            decision_id=decision.id,
+            snapshot_id=decision.snapshot_id,
+            entity_type="decision_record",
+            entity_id=str(decision.id),
+            payload={
+                "authority_tier": decision.authority_tier,
+                "status": decision.status,
+                "title": decision.title,
+            },
+            commit=False,
+        )
+        db.flush()
+
+        AuditEventService.create_record(
+            db,
+            organization_id=payload.organization_id,
+            event_type="governance.approval.requested",
+            actor_id=actor_id,
+            correlation_id=correlation_id,
+            causation_id=str(logged_event.id),
+            decision_id=decision.id,
+            snapshot_id=decision.snapshot_id,
+            entity_type="decision_record",
+            entity_id=str(decision.id),
+            payload={
+                "required_authority_tier": decision.authority_tier,
+                "decision_status": decision.status,
+            },
+            commit=False,
+        )
+
+        try:
+            db.commit()
+        except IntegrityError as exc:
+            db.rollback()
+            raise HTTPException(status_code=409, detail="decision could not be recorded") from exc
         db.refresh(decision)
         return decision
 
@@ -50,6 +103,8 @@ class DecisionService:
         payload: DecisionApproveIn,
         actor_id: str,
         actor_role: str,
+        correlation_id: str,
+        causation_id: str | None = None,
     ) -> DecisionRecord:
         decision = db.get(DecisionRecord, decision_id)
         if decision is None:
@@ -75,7 +130,34 @@ class DecisionService:
         decision.approved_at = datetime.now(UTC)
 
         db.add(decision)
-        db.commit()
+        AuditEventService.create_record(
+            db,
+            organization_id=decision.organization_id,
+            event_type=(
+                "governance.approval.granted"
+                if decision.status == "APPROVED"
+                else "governance.approval.denied"
+            ),
+            actor_id=actor_id,
+            correlation_id=correlation_id,
+            causation_id=causation_id,
+            decision_id=decision.id,
+            snapshot_id=decision.snapshot_id,
+            entity_type="decision_record",
+            entity_id=str(decision.id),
+            payload={
+                "approved": payload.approved,
+                "approver_role": payload.approver_role,
+                "decision_status": decision.status,
+                "approval_note": decision.approval_note,
+            },
+            commit=False,
+        )
+        try:
+            db.commit()
+        except IntegrityError as exc:
+            db.rollback()
+            raise HTTPException(status_code=409, detail="decision approval could not be recorded") from exc
         db.refresh(decision)
         return decision
 
