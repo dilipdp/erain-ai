@@ -302,3 +302,4 @@ Done when:
 - `7205b6d` phase 14: launch analytics mapping completion
 - `1d7f15d` phase 15: accessibility and mobile polish
 - `365c09c` phase 16: proof ledger and tracking hardening
+- `4c20ff1` phase 17: launch QA automation + readiness runbook
