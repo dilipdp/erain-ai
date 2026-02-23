@@ -178,6 +178,61 @@ They are shown to indicate what disciplined auditability, governance, and attrib
 </div>
 </section>
 
+<section class="caseStudio" aria-label="Representative engagement patterns">
+<div class="caseStudioHead">
+<div class="caseStudioKicker">Representative Case Patterns</div>
+<h2 class="h2 caseStudioTitle">How teams move from audit findings to measurable recovery.</h2>
+<p class="caseStudioLead">
+These anonymized patterns are drawn from real operating contexts to show decision quality, ownership discipline,
+and attribution clarity across different business models.
+</p>
+</div>
+
+<div class="caseStudioGrid" role="list" aria-label="Case study cards">
+<article class="caseCard" role="listitem">
+<div class="caseMeta">Industrial Network · 5 plants · 90-day rollout</div>
+<h3 class="caseTitle">Delay variance stabilized through governance cadence</h3>
+<p class="caseText">
+Audit baseline exposed cross-site handoff breakdowns. Decision governance mapped ownership by plant and reduced
+approval loops with one escalation model.
+</p>
+<div class="caseStats">
+<div class="caseStat"><span>-22%</span><small>delay variance</small></div>
+<div class="caseStat"><span>2.7x</span><small>faster approvals</small></div>
+<div class="caseStat"><span>94%</span><small>evidence coverage</small></div>
+</div>
+</article>
+
+<article class="caseCard" role="listitem">
+<div class="caseMeta">Logistics + Services · multi-city · 60-day sprint</div>
+<h3 class="caseTitle">Execution drift reduced with action-to-owner accountability</h3>
+<p class="caseText">
+Teams had data but no aligned ownership layer. EraIn installed weekly decision briefs and owner checkpoints
+so unresolved blockers were surfaced and closed in-cycle.
+</p>
+<div class="caseStats">
+<div class="caseStat"><span>-31%</span><small>escalation latency</small></div>
+<div class="caseStat"><span>3.1x</span><small>decision velocity</small></div>
+<div class="caseStat"><span>88%</span><small>action closure rate</small></div>
+</div>
+</article>
+
+<article class="caseCard" role="listitem">
+<div class="caseMeta">Enterprise Portfolio · 12 business units · 120-day arc</div>
+<h3 class="caseTitle">Value recovery made visible via ROI attribution ledger</h3>
+<p class="caseText">
+Fragmented improvement programs were merged into one attribution system linking action bundles to financial
+and operating outcomes leadership could verify each month.
+</p>
+<div class="caseStats">
+<div class="caseStat"><span>INR 4.6 Cr</span><small>recovery path</small></div>
+<div class="caseStat"><span>100%</span><small>owner mapping</small></div>
+<div class="caseStat"><span>12 wk</span><small>first value window</small></div>
+</div>
+</article>
+</div>
+</section>
+
 <div class="homeProse prose">
 
 ## What EraIn is
@@ -814,6 +869,126 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   text-align: center;
 }
 
+.caseStudio{
+  max-width: 1260px;
+  margin: 14px auto 0;
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.94) 0%,
+      rgba(245,250,255,0.88) 58%,
+      rgba(241,248,255,0.86) 100%
+    );
+  box-shadow: 0 24px 60px rgba(2, 10, 32, 0.14);
+  padding: 18px;
+}
+
+.caseStudioHead{
+  max-width: 92ch;
+}
+
+.caseStudioKicker{
+  display: inline-flex;
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 999px;
+  background: rgba(16, 24, 40, 0.04);
+  color: rgba(7, 20, 48, 0.86);
+  padding: 7px 11px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.caseStudioTitle{
+  margin-top: 10px;
+  color: rgba(7, 20, 48, 0.95);
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.03em;
+}
+
+.caseStudioLead{
+  margin-top: 10px;
+  color: rgba(17, 24, 39, 0.70);
+  line-height: 1.72;
+  font-size: 15px;
+  max-width: 90ch;
+}
+
+.caseStudioGrid{
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.caseCard{
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(7, 24, 56, 0.96), rgba(9, 39, 86, 0.92) 56%, rgba(8, 27, 62, 0.94));
+  box-shadow: 0 18px 40px rgba(2, 10, 32, 0.18);
+  padding: 12px 13px;
+  color: #eaf5ff;
+}
+
+.caseMeta{
+  color: rgba(175, 222, 255, 0.92);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.caseTitle{
+  margin-top: 7px;
+  color: rgba(241, 249, 255, 0.98);
+  font-size: 24px;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  font-weight: 840;
+}
+
+.caseText{
+  margin-top: 7px;
+  color: rgba(190, 216, 241, 0.9);
+  font-size: 13px;
+  line-height: 1.58;
+}
+
+.caseStats{
+  margin-top: 11px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.caseStat{
+  border: 1px solid rgba(140, 198, 255, 0.32);
+  border-radius: 12px;
+  background: rgba(8, 33, 74, 0.54);
+  padding: 8px 9px;
+  display: grid;
+  gap: 3px;
+}
+
+.caseStat span{
+  color: rgba(240, 248, 255, 0.98);
+  font-size: 16px;
+  font-weight: 820;
+  line-height: 1.15;
+}
+
+.caseStat small{
+  color: rgba(182, 214, 243, 0.88);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 760;
+}
+
 @keyframes impactPulse{
   0% { filter: brightness(0.92); }
   50% { filter: brightness(1.06); }
@@ -943,6 +1118,10 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 
   .deploymentStrip{
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .caseStudioGrid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
