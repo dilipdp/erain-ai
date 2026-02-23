@@ -581,6 +581,15 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
           ...payload,
         };
 
+        try {
+          if (typeof window.erainTrack === "function") {
+            window.erainTrack(eventName, eventPayload);
+            return;
+          }
+        } catch (_) {}
+
+        if (window.erainAnalyticsEnabled === false) return;
+
         if (window.gtag) {
           window.gtag("event", eventName, eventPayload);
         }

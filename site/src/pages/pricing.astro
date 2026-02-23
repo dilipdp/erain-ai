@@ -343,6 +343,9 @@ const faqJsonLd = JSON.stringify({
               return;
             }
           } catch (_) {}
+
+          if (window.erainAnalyticsEnabled === false) return;
+
           try {
             if (window.gtag) {
               window.gtag("event", eventName, payload);

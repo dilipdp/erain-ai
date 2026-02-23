@@ -383,6 +383,15 @@ const loginPath = import.meta.env.PUBLIC_CLIENT_LOGIN_API_PATH ?? "/client/acces
           ...payload,
         };
 
+        try {
+          if (typeof window.erainTrack === "function") {
+            window.erainTrack(eventName, eventPayload);
+            return;
+          }
+        } catch (_) {}
+
+        if (window.erainAnalyticsEnabled === false) return;
+
         if (window.gtag) {
           window.gtag("event", eventName, eventPayload);
         }

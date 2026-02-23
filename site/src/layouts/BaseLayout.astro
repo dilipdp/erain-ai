@@ -549,6 +549,64 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
         border: 1px solid rgba(11, 31, 66, 0.14);
       }
 
+      .cookieBanner {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 85;
+        max-width: 920px;
+        margin: 0 auto;
+        border: 1px solid rgba(11, 31, 66, 0.2);
+        border-radius: 18px;
+        background: rgba(248, 252, 255, 0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 18px 44px rgba(2, 10, 32, 0.18);
+        padding: 12px;
+        display: grid;
+        gap: 10px;
+        transition: transform 220ms ease, opacity 220ms ease;
+      }
+
+      .cookieBanner.hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(24px);
+      }
+
+      .cookieBannerBody {
+        color: rgba(17, 24, 39, 0.76);
+        font-size: 13px;
+        line-height: 1.62;
+      }
+
+      .cookieBannerTitle {
+        color: rgba(7, 20, 48, 0.9);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 880;
+      }
+
+      .cookieBannerBody p {
+        margin: 6px 0 0;
+      }
+
+      .cookieBannerActions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .cookieBannerActions .btn {
+        padding: 10px 14px;
+      }
+
+      body.cookieBannerVisible .mobileQuickCta {
+        display: none !important;
+      }
+
       @media (max-width: 768px) {
         .mobileQuickCta {
           display: flex;
@@ -556,6 +614,14 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
 
         body {
           padding-bottom: 84px;
+        }
+
+        .cookieBanner {
+          bottom: 14px;
+        }
+
+        body.cookieBannerVisible {
+          padding-bottom: 138px;
         }
       }
 
@@ -988,11 +1054,56 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
       <a class="secondary" href="/results" data-track="mobile_quick_results">Results</a>
     </div>
 
+    <div class="cookieBanner hidden" id="cookieBanner" role="dialog" aria-label="Cookie preferences" aria-live="polite">
+      <div class="cookieBannerBody">
+        <div class="cookieBannerTitle">Cookie preferences</div>
+        <p>
+          We use essential cookies for site operation and optional analytics cookies to improve performance and conversion quality.
+          Review details in our <a href="/cookie-policy">Cookie Policy</a>.
+        </p>
+      </div>
+      <div class="cookieBannerActions" aria-label="Cookie actions">
+        <button type="button" class="btn" id="cookieEssentialBtn">Essential only</button>
+        <button type="button" class="btn btnPrimary" id="cookieAcceptBtn">Accept analytics</button>
+      </div>
+    </div>
+
     <script is:inline>
       (function () {
         function $(id) { return document.getElementById(id); }
         const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const CONSENT_KEY = "erain_cookie_consent_v1";
+        const CONSENT_GRANTED = "granted";
+        const CONSENT_ESSENTIAL = "essential";
+
+        const parseConsent = (value) => {
+          if (value === CONSENT_GRANTED || value === CONSENT_ESSENTIAL) return value;
+          return "";
+        };
+
+        const banner = $("cookieBanner");
+        const btnEssential = $("cookieEssentialBtn");
+        const btnAccept = $("cookieAcceptBtn");
+
+        let consentState = "";
+        try {
+          consentState = parseConsent(localStorage.getItem(CONSENT_KEY) || "");
+        } catch (_) {
+          consentState = "";
+        }
+
+        const setBannerVisibility = (show) => {
+          if (!banner) return;
+          banner.classList.toggle("hidden", !show);
+          document.body.classList.toggle("cookieBannerVisible", show);
+        };
+
+        const analyticsAllowed = () => consentState === CONSENT_GRANTED;
+        try {
+          window.erainAnalyticsEnabled = analyticsAllowed();
+        } catch (_) {}
         const emitAnalyticsEvent = (eventName, payload = {}) => {
+          if (!analyticsAllowed()) return false;
           try {
             if (window.gtag) {
               window.gtag("event", eventName, payload);
@@ -1002,9 +1113,45 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({ event: eventName, ...payload });
           } catch (_) {}
+          return true;
         };
         try {
           window.erainTrack = emitAnalyticsEvent;
+        } catch (_) {}
+
+        const saveConsent = (nextState, source) => {
+          consentState = parseConsent(nextState);
+          if (!consentState) return;
+          try {
+            window.erainAnalyticsEnabled = analyticsAllowed();
+          } catch (_) {}
+          try {
+            localStorage.setItem(CONSENT_KEY, consentState);
+          } catch (_) {}
+
+          setBannerVisibility(false);
+
+          if (analyticsAllowed()) {
+            window.dispatchEvent(new CustomEvent("erain-consent-granted", { detail: { source } }));
+            emitAnalyticsEvent("site_cookie_consent_granted", {
+              source,
+              page_path: window.location.pathname,
+            });
+          } else {
+            window.dispatchEvent(new CustomEvent("erain-consent-essential", { detail: { source } }));
+          }
+        };
+
+        try {
+          const cookiesOpen = new URL(window.location.href).searchParams.get("cookies") === "open";
+          setBannerVisibility(cookiesOpen || !consentState);
+        } catch (_) {
+          setBannerVisibility(!consentState);
+        }
+
+        try {
+          btnEssential?.addEventListener("click", () => saveConsent(CONSENT_ESSENTIAL, "banner"));
+          btnAccept?.addEventListener("click", () => saveConsent(CONSENT_GRANTED, "banner"));
         } catch (_) {}
 
         // Mobile menu: accessible toggle + close on outside click / Escape / link click
@@ -1085,8 +1232,15 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
             viewport: `${window.innerWidth}x${window.innerHeight}`,
             language: navigator.language || "unknown",
           };
-
-          emitAnalyticsEvent("site_page_view", shared);
+          let pageViewSent = false;
+          const sendPageView = () => {
+            if (pageViewSent) return;
+            const emitted = emitAnalyticsEvent("site_page_view", shared);
+            if (emitted) {
+              pageViewSent = true;
+            }
+          };
+          sendPageView();
 
           const sendVital = (name, value) => {
             if (!Number.isFinite(value)) return;
@@ -1167,6 +1321,9 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
             if (document.visibilityState === "hidden") flushVitals();
           });
           window.addEventListener("pagehide", flushVitals);
+          window.addEventListener("erain-consent-granted", () => {
+            sendPageView();
+          });
         } catch (_) {}
 
         // Launch telemetry for core conversion interactions
