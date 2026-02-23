@@ -234,6 +234,20 @@ Done when:
 - Primary download CTA events are captured
 - Build passes
 
+### Phase 15 - Accessibility + Mobile Polish (2026-02-23)
+
+Scope:
+
+- Add keyboard-first skip-to-content behavior
+- Prevent mobile quick-action rail from overlapping content
+- Improve readiness for accessibility-focused review
+
+Done when:
+
+- Main content is reachable quickly via keyboard navigation
+- Mobile viewport maintains comfortable scroll-end spacing
+- Build passes
+
 ## Execution Rules
 
 - One phase = one commit minimum
@@ -258,3 +272,4 @@ Done when:
 - `9761b70` phase 12: homepage case-study architecture
 - `962670b` phase 13: custom command-board media integration
 - `7205b6d` phase 14: launch analytics mapping completion
+- `1d7f15d` phase 15: accessibility and mobile polish
