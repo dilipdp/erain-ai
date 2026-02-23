@@ -54,6 +54,7 @@ const faqJsonLd = JSON.stringify({
         <span class="badge badgeSoft">Truth-first</span>
         <span class="badge badgeSoft">Proof-based</span>
         <span class="badge badgeSoft">Measurable ROI</span>
+        <span class="badge badgeSoft">INR + USD</span>
         <span class="badge badgeSoft">Month-to-month</span>
       </div>
 
@@ -117,7 +118,7 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">Free entry audit</div>
           </div>
           <div class="price">
-            <div class="priceValue">₹0</div>
+            <div class="priceValue"><span>₹0</span><small>$0</small></div>
             <div class="priceNote">No credit card</div>
           </div>
         </div>
@@ -146,14 +147,14 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">One-time engagement</div>
           </div>
           <div class="price">
-            <div class="priceValue">₹75,000</div>
+            <div class="priceValue"><span>₹75,000</span><small>$900</small></div>
             <div class="priceNote">7–10 days delivery</div>
           </div>
         </div>
 
         <ul class="tierList">
           <li><strong>Deep-dive analysis</strong> of your top operational leaks</li>
-          <li><strong>Quantified impact</strong> (₹ loss / recovery estimates)</li>
+          <li><strong>Quantified impact</strong> (₹ / $ loss and recovery estimates)</li>
           <li><strong>Root-cause mapping</strong> for the top 3 issues</li>
           <li><strong>90-day execution plan</strong> (owners, cadence, checkpoints)</li>
           <li><strong>CXO-ready report</strong> + deliverables you can execute</li>
@@ -174,7 +175,7 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">Monthly operating cadence</div>
           </div>
           <div class="price">
-            <div class="priceValue">₹1,50,000+</div>
+            <div class="priceValue"><span>₹1,50,000+</span><small>$1,800+</small></div>
             <div class="priceNote">per month</div>
           </div>
         </div>
@@ -202,7 +203,7 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">Enterprise / Scale</div>
           </div>
           <div class="price">
-            <div class="priceValue">Custom</div>
+            <div class="priceValue"><span>Custom</span><small>INR / USD</small></div>
             <div class="priceNote">VPC / on-prem</div>
           </div>
         </div>
@@ -258,8 +259,9 @@ const faqJsonLd = JSON.stringify({
         </div>
 
         <p class="footnote">
-          Prices shown are before GST. Enterprise pricing varies by plants/sites, integrations (ERP/Tally/Excel),
-          and deployment (cloud/VPC/on-prem).
+          Prices shown are before GST. USD values are indicative for global comparison at an FX reference of
+          1 USD = INR 83 (February 23, 2026). Final proposals/invoices can be issued in INR or USD by region.
+          Enterprise pricing varies by plants/sites, integrations (ERP/Tally/Excel), and deployment (cloud/VPC/on-prem).
         </p>
       </div>
 
@@ -650,12 +652,25 @@ const faqJsonLd = JSON.stringify({
   }
 
   .priceValue {
+    display: grid;
+    justify-items: end;
+    gap: 2px;
+    line-height: 1.05;
+    white-space: normal;
+  }
+
+  .priceValue span {
     font-size: clamp(24px, 2.2vw, 32px);
     font-weight: 950;
     letter-spacing: -0.03em;
     color: var(--primary);
-    line-height: 1.05;
-    white-space: nowrap;
+  }
+
+  .priceValue small {
+    font-size: 13px;
+    font-weight: 840;
+    letter-spacing: -0.01em;
+    color: rgba(13, 43, 95, 0.82);
   }
 
   .priceNote {
