@@ -1,0 +1,118 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">EraIn execution lens</title>
+  <desc id="desc">A visual map of auditability, decision governance, and ROI attribution connected to a central operational intelligence core.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="210" y1="64" x2="1402" y2="920" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#06112A"/>
+      <stop offset="0.45" stop-color="#0B1F46"/>
+      <stop offset="1" stop-color="#061126"/>
+    </linearGradient>
+
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 470) rotate(90) scale(360 540)">
+      <stop stop-color="#4EA8FF" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#4EA8FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(448 318) rotate(90) scale(220 260)">
+      <stop stop-color="#2ED3E6" stop-opacity="0.48"/>
+      <stop offset="1" stop-color="#2ED3E6" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1160 312) rotate(90) scale(220 280)">
+      <stop stop-color="#7BB6FF" stop-opacity="0.48"/>
+      <stop offset="1" stop-color="#7BB6FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowC" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 756) rotate(90) scale(240 280)">
+      <stop stop-color="#4FDAC7" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#4FDAC7" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="line" x1="389" y1="272" x2="1228" y2="692" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5FD7FF" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#63B6FF" stop-opacity="0.68"/>
+    </linearGradient>
+
+    <linearGradient id="card" x1="266" y1="194" x2="1326" y2="868" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.03"/>
+    </linearGradient>
+
+    <filter id="softBlur" x="0" y="0" width="1600" height="980" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+
+    <filter id="nodeShadow" x="191" y="124" width="1218" height="756" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="14"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.021 0 0 0 0 0.089 0 0 0 0 0.232 0 0 0 0.36 0"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+
+  <g opacity="0.28">
+    <path d="M140 132H1460" stroke="#D9EEFF" stroke-opacity="0.24"/>
+    <path d="M140 232H1460" stroke="#D9EEFF" stroke-opacity="0.2"/>
+    <path d="M140 332H1460" stroke="#D9EEFF" stroke-opacity="0.18"/>
+    <path d="M140 432H1460" stroke="#D9EEFF" stroke-opacity="0.16"/>
+    <path d="M140 532H1460" stroke="#D9EEFF" stroke-opacity="0.16"/>
+    <path d="M140 632H1460" stroke="#D9EEFF" stroke-opacity="0.18"/>
+    <path d="M140 732H1460" stroke="#D9EEFF" stroke-opacity="0.2"/>
+    <path d="M140 832H1460" stroke="#D9EEFF" stroke-opacity="0.22"/>
+
+    <path d="M190 82V898" stroke="#D9EEFF" stroke-opacity="0.2"/>
+    <path d="M340 82V898" stroke="#D9EEFF" stroke-opacity="0.16"/>
+    <path d="M490 82V898" stroke="#D9EEFF" stroke-opacity="0.16"/>
+    <path d="M640 82V898" stroke="#D9EEFF" stroke-opacity="0.18"/>
+    <path d="M790 82V898" stroke="#D9EEFF" stroke-opacity="0.2"/>
+    <path d="M940 82V898" stroke="#D9EEFF" stroke-opacity="0.18"/>
+    <path d="M1090 82V898" stroke="#D9EEFF" stroke-opacity="0.16"/>
+    <path d="M1240 82V898" stroke="#D9EEFF" stroke-opacity="0.16"/>
+    <path d="M1390 82V898" stroke="#D9EEFF" stroke-opacity="0.2"/>
+  </g>
+
+  <ellipse cx="800" cy="470" rx="620" ry="340" fill="url(#halo)"/>
+  <ellipse cx="448" cy="318" rx="250" ry="220" fill="url(#glowA)" filter="url(#softBlur)"/>
+  <ellipse cx="1160" cy="312" rx="260" ry="220" fill="url(#glowB)" filter="url(#softBlur)"/>
+  <ellipse cx="800" cy="756" rx="260" ry="220" fill="url(#glowC)" filter="url(#softBlur)"/>
+
+  <g filter="url(#nodeShadow)">
+    <rect x="256" y="160" width="1088" height="660" rx="34" fill="url(#card)" stroke="#CFE7FF" stroke-opacity="0.28"/>
+
+    <path d="M448 318L800 470" stroke="url(#line)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M1160 312L800 470" stroke="url(#line)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M800 756L800 470" stroke="url(#line)" stroke-width="3" stroke-linecap="round"/>
+
+    <circle cx="800" cy="470" r="120" fill="#071734" stroke="#94D5FF" stroke-opacity="0.85"/>
+    <circle cx="800" cy="470" r="86" fill="#0C2A58" stroke="#B9E4FF" stroke-opacity="0.62"/>
+    <circle cx="800" cy="470" r="56" fill="#11437F"/>
+
+    <circle cx="448" cy="318" r="76" fill="#072243" stroke="#8CD9FF" stroke-opacity="0.82"/>
+    <circle cx="1160" cy="312" r="76" fill="#0A2447" stroke="#9CCFFF" stroke-opacity="0.82"/>
+    <circle cx="800" cy="756" r="76" fill="#0A2946" stroke="#8EE8D9" stroke-opacity="0.82"/>
+
+    <rect x="350" y="198" width="196" height="48" rx="24" fill="#0F2E5E" stroke="#7ED8FF" stroke-opacity="0.78"/>
+    <text x="448" y="228" fill="#DDF3FF" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="18" font-weight="700" letter-spacing="0.02em">Auditability</text>
+
+    <rect x="1037" y="192" width="246" height="48" rx="24" fill="#10305E" stroke="#9CCFFF" stroke-opacity="0.78"/>
+    <text x="1160" y="222" fill="#E1F1FF" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="18" font-weight="700" letter-spacing="0.02em">Decision Governance</text>
+
+    <rect x="684" y="836" width="232" height="48" rx="24" fill="#10384F" stroke="#88E5D7" stroke-opacity="0.8"/>
+    <text x="800" y="866" fill="#E4FFF9" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="18" font-weight="700" letter-spacing="0.02em">ROI Attribution</text>
+
+    <text x="800" y="456" fill="#EAF6FF" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="28" font-weight="800" letter-spacing="0.06em">ERAIN CORE</text>
+    <text x="800" y="490" fill="#B7DBFF" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="16" font-weight="600" letter-spacing="0.04em">AUDIT  TO  DECISION  TO  OUTCOME</text>
+  </g>
+
+  <g opacity="0.8">
+    <circle cx="662" cy="408" r="5" fill="#A6DCFF"/>
+    <circle cx="748" cy="566" r="4" fill="#A9DCFF"/>
+    <circle cx="921" cy="392" r="5" fill="#A3D2FF"/>
+    <circle cx="807" cy="677" r="5" fill="#9DE9D8"/>
+    <circle cx="1023" cy="566" r="4" fill="#90CBFF"/>
+    <circle cx="580" cy="566" r="4" fill="#8AE4E5"/>
+  </g>
+</svg>

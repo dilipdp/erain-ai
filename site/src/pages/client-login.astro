@@ -1,0 +1,468 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Client Login • EraIn AI";
+const description =
+  "Secure client portal access for report download, status tracking, and follow-up actions.";
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? "";
+const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com";
+const loginPath = import.meta.env.PUBLIC_CLIENT_LOGIN_API_PATH ?? "/client/access/request";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="clientPortal">
+    <div class="portalHero">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Secure Access</span>
+        <span class="badge badgeSoft">Client Reports</span>
+        <span class="badge badgeSoft">Status Tracking</span>
+      </div>
+      <h1 class="h1">Client Access Portal</h1>
+      <p class="lead">
+        Existing clients can access assessment updates, retrieve reports, and continue implementation conversations
+        from one secure entry point.
+      </p>
+    </div>
+
+    <div class="portalGrid">
+      <aside class="portalSide">
+        <div class="portalVisualWrap">
+          <img
+            src="/execution-lens-hero.svg"
+            alt="Operational intelligence map highlighting audit, governance, and ROI flows."
+            width="1400"
+            height="840"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+
+        <div class="portalNotes">
+          <div class="portalNote">
+            <div class="portalNoteK">Access mode</div>
+            <div class="portalNoteV">Request ID + client email</div>
+          </div>
+          <div class="portalNote">
+            <div class="portalNoteK">For first-time visitors</div>
+            <div class="portalNoteV">Start with Free AI Audit</div>
+          </div>
+          <div class="portalNote">
+            <div class="portalNoteK">Need help</div>
+            <div class="portalNoteV">{supportEmail}</div>
+          </div>
+        </div>
+      </aside>
+
+      <article class="portalFormCard">
+        <div class="kicker">Secure Entry</div>
+        <h2 class="h2">Access your report workspace</h2>
+        <p class="muted">
+          Enter the details used during your audit request. If matched, we open or deliver your secure access link.
+        </p>
+
+        <form
+          id="clientLoginForm"
+          class="portalForm"
+          data-api-base={apiBase}
+          data-login-path={loginPath}
+          data-support-email={supportEmail}
+          novalidate
+        >
+          <input type="text" name="company_website" tabindex="-1" autocomplete="off" />
+
+          <div class="field">
+            <label for="request_id">Request ID *</label>
+            <input
+              id="request_id"
+              name="request_id"
+              required
+              placeholder="e.g., AR-2026-0012"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <label for="email">Email *</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="you@company.com"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="field">
+            <label for="company">Company (optional)</label>
+            <input
+              id="company"
+              name="company"
+              placeholder="Company name"
+              autocomplete="organization"
+            />
+          </div>
+
+          <div class="actions">
+            <button id="clientLoginBtn" type="submit" class="btn btnPrimary">
+              <span id="clientLoginBtnText">Continue</span>
+              <span id="clientLoginSpinner" class="hidden" aria-hidden="true">⟳</span>
+            </button>
+            <a class="btn" href="/request-assessment">Start Free AI Audit</a>
+          </div>
+
+          <p class="helper">
+            Don’t have a Request ID? Start a new audit request and we’ll issue one.
+          </p>
+
+          <div id="clientLoginStatus" class="portalStatus hidden" aria-live="polite"></div>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <style>
+    .clientPortal {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 0 10px;
+    }
+
+    .portalHero {
+      text-align: center;
+      max-width: 82ch;
+      margin: 0 auto 20px;
+    }
+
+    .portalHero .badgeRow {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .portalHero .lead {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 76ch;
+    }
+
+    .portalGrid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr;
+      align-items: stretch;
+    }
+
+    @media (min-width: 980px) {
+      .portalGrid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 20px;
+      }
+    }
+
+    .portalSide {
+      border: 1px solid rgba(17, 24, 39, 0.10);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.74) 100%);
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.05),
+        0 22px 68px rgba(2, 6, 23, 0.10);
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .portalVisualWrap {
+      border: 1px solid rgba(17, 24, 39, 0.10);
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 12px 36px rgba(2, 6, 23, 0.10);
+      animation: floatVisual 8s ease-in-out infinite;
+    }
+
+    .portalVisualWrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @keyframes floatVisual {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
+
+    .portalNotes {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 720px) {
+      .portalNotes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .portalNote {
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      border-radius: 16px;
+      background: rgba(16, 24, 40, 0.03);
+      padding: 10px 12px;
+    }
+
+    .portalNoteK {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(17, 24, 39, 0.56);
+    }
+
+    .portalNoteV {
+      margin-top: 6px;
+      color: rgba(2, 6, 23, 0.84);
+      font-weight: 800;
+      line-height: 1.35;
+      font-size: 14px;
+    }
+
+    .portalFormCard {
+      border: 1px solid rgba(17, 24, 39, 0.12);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.80) 100%);
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.05),
+        0 24px 72px rgba(2, 6, 23, 0.10);
+      padding: 22px;
+    }
+
+    .portalForm {
+      margin-top: 12px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-weight: 900;
+      color: rgba(17, 24, 39, 0.56);
+    }
+
+    .field input {
+      border: 1px solid rgba(17, 24, 39, 0.14);
+      border-radius: 14px;
+      padding: 12px 13px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 8px 22px rgba(2, 6, 23, 0.06);
+      transition: border-color 140ms ease, box-shadow 140ms ease;
+    }
+
+    .field input:focus {
+      outline: none;
+      border-color: rgba(37, 99, 235, 0.52);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12), 0 14px 30px rgba(2, 6, 23, 0.10);
+    }
+
+    .actions {
+      margin-top: 6px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .helper {
+      margin: 0;
+      font-size: 12px;
+      color: rgba(17, 24, 39, 0.58);
+      line-height: 1.5;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .portalStatus {
+      border: 1px solid rgba(17, 24, 39, 0.12);
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(17, 24, 39, 0.84);
+    }
+
+    .portalStatus.info {
+      border-color: rgba(59, 130, 246, 0.24);
+      background: rgba(59, 130, 246, 0.08);
+      color: #1e3a8a;
+    }
+
+    .portalStatus.success {
+      border-color: rgba(16, 185, 129, 0.24);
+      background: rgba(16, 185, 129, 0.10);
+      color: #065f46;
+    }
+
+    .portalStatus.error {
+      border-color: rgba(239, 68, 68, 0.24);
+      background: rgba(239, 68, 68, 0.09);
+      color: #991b1b;
+    }
+
+    input[name="company_website"] {
+      position: absolute !important;
+      left: -9999px !important;
+      top: auto !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    @media (max-width: 640px) {
+      .portalHero { text-align: left; }
+      .portalHero .badgeRow { justify-content: flex-start; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .actions .btn { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .portalVisualWrap {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      const form = document.getElementById("clientLoginForm");
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const submitBtn = document.getElementById("clientLoginBtn");
+      const submitText = document.getElementById("clientLoginBtnText");
+      const spinner = document.getElementById("clientLoginSpinner");
+      const statusEl = document.getElementById("clientLoginStatus");
+      const requestIdInput = document.getElementById("request_id");
+
+      const apiBaseRaw = (form.dataset.apiBase || "").trim();
+      const apiBase = apiBaseRaw.replace(/\/$/, "");
+      const supportEmail = (form.dataset.supportEmail || "hello@erainai.com").trim();
+      const configuredPath = (form.dataset.loginPath || "/client/access/request").trim();
+      const normalizedConfiguredPath = configuredPath.startsWith("/") ? configuredPath : `/${configuredPath}`;
+      const loginPaths = [...new Set([normalizedConfiguredPath, "/client/access/request", "/client/login", "/client/portal/login"])];
+
+      function setLoading(isLoading) {
+        if (submitBtn instanceof HTMLButtonElement) submitBtn.disabled = isLoading;
+        if (submitText) submitText.textContent = isLoading ? "Verifying..." : "Continue";
+        if (spinner) spinner.classList.toggle("hidden", !isLoading);
+      }
+
+      function setStatus(type, message) {
+        if (!statusEl) return;
+        statusEl.classList.remove("hidden", "info", "success", "error");
+        statusEl.classList.add(type);
+        statusEl.textContent = message;
+      }
+
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const requestId = params.get("request_id");
+        if (requestId && requestIdInput instanceof HTMLInputElement) {
+          requestIdInput.value = requestId;
+        }
+      } catch (_) {}
+
+      if (!apiBase) {
+        if (submitBtn instanceof HTMLButtonElement) submitBtn.disabled = true;
+        setStatus("error", `Portal is temporarily unavailable. Please email ${supportEmail}.`);
+        return;
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        if (data.company_website) {
+          setStatus("error", "Submission blocked.");
+          return;
+        }
+
+        const requestId = String(data.request_id || "").trim();
+        const email = String(data.email || "").trim();
+
+        if (!requestId || !email) {
+          setStatus("error", "Please enter Request ID and email.");
+          return;
+        }
+
+        setLoading(true);
+        setStatus("info", "Verifying your client access...");
+
+        const payload = {
+          request_id: requestId,
+          email,
+          company: String(data.company || "").trim(),
+          source: "client_login",
+          submitted_at_utc: new Date().toISOString(),
+        };
+
+        try {
+          let submitted = false;
+          let responsePayload = null;
+          let lastError = "";
+
+          for (const path of loginPaths) {
+            try {
+              const response = await fetch(`${apiBase}${path}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+              });
+
+              if (response.status === 404) continue;
+              if (!response.ok) {
+                lastError = await response.text().catch(() => "");
+                break;
+              }
+
+              responsePayload = await response.json().catch(() => null);
+              submitted = true;
+              break;
+            } catch (error) {
+              lastError = error instanceof Error ? error.message : String(error);
+            }
+          }
+
+          if (!submitted) {
+            throw new Error(lastError || "Access check failed.");
+          }
+
+          const redirectUrl = responsePayload?.redirect_url || responsePayload?.portal_url || null;
+          if (redirectUrl) {
+            window.location.href = redirectUrl;
+            return;
+          }
+
+          setStatus("success", "Access request received. If matched, your secure link will be sent shortly.");
+        } catch (_) {
+          setStatus("error", `Could not verify access right now. Please email ${supportEmail}.`);
+        } finally {
+          setLoading(false);
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

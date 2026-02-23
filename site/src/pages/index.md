@@ -35,6 +35,17 @@ layout: ../layouts/BaseLayout.astro
     <a class="btn btnGhost" href="/pricing">See Pricing</a>
   </div>
 
+  <div class="heroVisualShell">
+    <img
+      src="/execution-lens-hero.svg"
+      alt="EraIn core linking auditability, decision governance, and ROI attribution."
+      width="1600"
+      height="980"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
   <div class="heroTrust" aria-label="Trust and privacy">
     <div class="heroTrustItem">
       <div class="heroTrustK">Privacy-first</div>
@@ -305,6 +316,31 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   flex-wrap: wrap;
 }
 
+.heroVisualShell{
+  margin: 20px auto 0;
+  max-width: 1040px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.06),
+    0 24px 64px rgba(2, 10, 32, 0.2);
+  background: linear-gradient(180deg, rgba(7, 17, 42, 0.16), rgba(7, 17, 42, 0.02));
+  animation: heroVisualFloat 8s ease-in-out infinite;
+}
+
+.heroVisualShell img{
+  display:block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes heroVisualFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
 .heroTrust{
   margin: 20px auto 0;
   max-width: 94ch;
@@ -429,5 +465,12 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   .btn-row{ justify-content: flex-start; }
   .hero .lead{ margin-left: 0; margin-right: 0; }
   .heroEyebrow{ margin-left: 0; }
+  .heroVisualShell{ margin-top: 14px; border-radius: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .heroVisualShell{
+    animation: none !important;
+  }
 }
 </style>

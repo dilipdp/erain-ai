@@ -44,7 +44,7 @@ const isActive = (path) => currentPath === path;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#0b1220" />
+    <meta name="theme-color" content="#08142f" />
     <meta name="robots" content="index,follow" />
     <meta name="color-scheme" content="light dark" />
     <meta property="og:locale" content="en_US" />
@@ -55,7 +55,7 @@ const isActive = (path) => currentPath === path;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -80,24 +80,24 @@ const isActive = (path) => currentPath === path;
     <style is:global>
       :root {
         /* Brand */
-        --primary: #0b1220;
-        --secondary: #111827;
-        --accent: #2563eb;
+        --primary: #0a132b;
+        --secondary: #10244a;
+        --accent: #0f5ff0;
 
         /* Neutrals */
-        --bg: #ffffff;
-        --surface: rgba(255,255,255,0.92);
-        --surface-2: rgba(16, 24, 40, 0.03);
-        --border: rgba(17, 24, 39, 0.10);
-        --muted: rgba(17, 24, 39, 0.66);
-        --muted-2: rgba(17, 24, 39, 0.74);
+        --bg: #f7faff;
+        --surface: rgba(255, 255, 255, 0.9);
+        --surface-2: rgba(16, 24, 40, 0.045);
+        --border: rgba(12, 26, 56, 0.12);
+        --muted: rgba(17, 24, 39, 0.68);
+        --muted-2: rgba(17, 24, 39, 0.76);
 
         /* Radius / shadow */
         --radius-lg: 20px;
         --radius-md: 14px;
         --radius-sm: 12px;
         --shadow-sm: 0 1px 2px rgba(2, 6, 23, 0.06);
-        --shadow-md: 0 10px 30px rgba(2, 6, 23, 0.10);
+        --shadow-md: 0 14px 38px rgba(2, 10, 32, 0.12);
 
         /* Layout */
         --container: 1200px;
@@ -115,18 +115,23 @@ const isActive = (path) => currentPath === path;
 
       body {
         margin: 0;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         font-size: var(--text-size);
         color: var(--text);
         line-height: var(--leading);
         -webkit-text-size-adjust: 100%;
         background:
-          radial-gradient(1200px 600px at 18% -10%, rgba(37,99,235,0.10), transparent 60%),
-          radial-gradient(900px 500px at 92% 0%, rgba(15,23,42,0.06), transparent 55%),
-          var(--bg);
+          radial-gradient(900px 420px at 12% -10%, rgba(15, 95, 240, 0.2), transparent 62%),
+          radial-gradient(860px 380px at 90% -12%, rgba(6, 182, 212, 0.16), transparent 64%),
+          linear-gradient(180deg, #f9fbff 0%, #f3f8ff 48%, #f9fbff 100%);
+        background-color: var(--bg);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: geometricPrecision;
+      }
+
+      :where(h1, h2, h3, .h1, .h2, .kicker, .nav-links a, .brand) {
+        font-family: Sora, Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
       ::selection { background: rgba(37, 99, 235, 0.18); }
@@ -158,7 +163,7 @@ const isActive = (path) => currentPath === path;
         z-index: 50;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        background: rgba(255, 255, 255, 0.86);
+        background: rgba(248, 251, 255, 0.84);
         border-bottom: 1px solid var(--border);
       }
 
@@ -189,8 +194,8 @@ const isActive = (path) => currentPath === path;
       }
 
       .nav-links a {
-        color: rgba(17, 24, 39, 0.72);
-        font-weight: 700;
+        color: rgba(12, 28, 58, 0.78);
+        font-weight: 600;
         font-size: 14px;
         padding: 10px 12px;
         border-radius: 12px;
@@ -222,14 +227,14 @@ const isActive = (path) => currentPath === path;
 
       .nav-links a.cta {
         padding: 10px 14px;
-        background: linear-gradient(180deg, rgba(37,99,235,1) 0%, rgba(29,78,216,1) 100%);
+        background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
         color: #fff;
         border-radius: 14px;
-        font-weight: 800;
+        font-weight: 700;
         line-height: 1;
         white-space: nowrap;
-        box-shadow: 0 10px 24px rgba(2, 6, 23, 0.10);
-        border: 1px solid rgba(255,255,255,0.22);
+        box-shadow: 0 14px 30px rgba(15, 95, 240, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.28);
       }
 
       .nav-links a.cta:hover {
@@ -593,12 +598,12 @@ const isActive = (path) => currentPath === path;
       }
 
       .btnPrimary {
-        background: linear-gradient(180deg, rgba(37,99,235,1) 0%, rgba(29,78,216,1) 100%);
+        background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
         color: #fff;
-        border-color: rgba(255,255,255,0.22);
-        box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 16px 32px rgba(15, 95, 240, 0.26);
       }
-      .btnPrimary:hover { box-shadow: 0 18px 36px rgba(37, 99, 235, 0.30); }
+      .btnPrimary:hover { box-shadow: 0 20px 38px rgba(15, 95, 240, 0.34); }
 
       .btnGhost { background: transparent; box-shadow: none; }
 
@@ -633,9 +638,9 @@ const isActive = (path) => currentPath === path;
           <a href="/industries" class={isActive('/industries') ? 'active' : ''} aria-current={isActive('/industries') ? 'page' : undefined}>Industries</a>
           <a href="/pricing" class={isActive('/pricing') ? 'active' : ''} aria-current={isActive('/pricing') ? 'page' : undefined}>Pricing</a>
           <a href="/sample-report" class={isActive('/sample-report') ? 'active' : ''} aria-current={isActive('/sample-report') ? 'page' : undefined}>Sample Report</a>
+          <a href="/client-login" class={isActive('/client-login') ? 'active' : ''} aria-current={isActive('/client-login') ? 'page' : undefined}>Client Login</a>
           <a href="/contact" class={isActive('/contact') ? 'active' : ''} aria-current={isActive('/contact') ? 'page' : undefined}>Contact</a>
           <a href="/request-assessment" class={`cta ${isActive('/request-assessment') ? 'active' : ''}`} aria-current={isActive('/request-assessment') ? 'page' : undefined}>Start Free AI Audit</a>
-          <a id="adminNav" href="/admin" class={isActive('/admin') ? 'active' : ''} aria-current={isActive('/admin') ? 'page' : undefined} style="display:none">Admin</a>
         </div>
       </nav>
     </header>
@@ -662,7 +667,7 @@ const isActive = (path) => currentPath === path;
         <div><strong>EraIn AI</strong> — Profitability AI for Businesses</div>
         <div>Audit-first intelligence • Execution discipline • Measurable outcomes</div>
         <div>Email: hello@erainai.com</div>
-        <div><a href="/request-assessment">Start Free AI Audit</a> • <a href="/pricing">See Pricing</a> • <a href="/legal">Legal</a></div>
+        <div><a href="/request-assessment">Start Free AI Audit</a> • <a href="/client-login">Client Login</a> • <a href="/pricing">See Pricing</a> • <a href="/legal">Legal</a></div>
       </div>
     </footer>
 
@@ -703,13 +708,6 @@ const isActive = (path) => currentPath === path;
           }
         } catch (_) {}
 
-        // Admin nav visibility: convenience only (never security)
-        try {
-          const isDev = document.body?.dataset?.dev === "1";
-          const tok = localStorage.getItem("ERAIN_ADMIN_TOKEN") || localStorage.getItem("erain_admin_token");
-          const el = $("adminNav");
-          if (el && (isDev || (tok && tok.length > 0))) el.style.display = "";
-        } catch (_) {}
       })();
     </script>
   </body>
