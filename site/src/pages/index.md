@@ -8,74 +8,74 @@ layout: ../layouts/BaseLayout.astro
 <div class="heroGlow" aria-hidden="true"></div>
 
 <div class="heroPanel">
-  <div class="heroGrid">
-    <div class="heroCopy">
-      <div class="heroEyebrow">EraIn AI</div>
-      <div class="badgeRow">
-        <span class="badge badgeSoft">Audit‑first Intelligence</span>
-        <span class="badge badgeSoft">Execution‑grade Systems</span>
-        <span class="badge badgeSoft">ROI‑Verified Outcomes</span>
-      </div>
+<div class="heroGrid">
+<div class="heroCopy">
+<div class="heroEyebrow">EraIn AI</div>
+<div class="badgeRow">
+<span class="badge badgeSoft">Audit-first Intelligence</span>
+<span class="badge badgeSoft">Execution-grade Systems</span>
+<span class="badge badgeSoft">ROI-Verified Outcomes</span>
+</div>
 
-      <h1 class="h1">Intelligence that audits reality — and runs execution.</h1>
+<h1 class="h1">Intelligence that audits reality - and runs execution.</h1>
 
-      <p class="lead heroLead">
-        EraIn builds audit-first operational intelligence that exposes what is actually happening inside organizations,
-        across industries, geographies, and operating models.
-        We identify where value is leaking, what decisions matter most, and convert verified reality into
-        disciplined execution with provable ROI.
-      </p>
+<p class="lead heroLead">
+EraIn builds audit-first operational intelligence that exposes what is actually happening inside organizations,
+across industries, geographies, and operating models.
+We identify where value is leaking, what decisions matter most, and convert verified reality into
+disciplined execution with provable ROI.
+</p>
 
-      <p class="lead heroLead heroLeadSm">
-        Built to serve <strong>all industries</strong> — manufacturing, energy, EPC, logistics, retail, healthcare, finance,
-        public sector, technology, and complex multi-site enterprises — across India and worldwide.
-      </p>
+<p class="lead heroLead heroLeadSm">
+Built to serve <strong>all industries</strong> - manufacturing, energy, EPC, logistics, retail, healthcare, finance,
+public sector, technology, and complex multi-site enterprises - across India and worldwide.
+</p>
 
-      <div class="btn-row" aria-label="Primary actions">
-        <a class="btn btnPrimary" href="/request-assessment">Start Free AI Audit</a>
-        <a class="btn" href="/sample-report">View Sample Report</a>
-        <a class="btn btnGhost" href="/pricing">See Pricing</a>
-      </div>
+<div class="btn-row" aria-label="Primary actions">
+<a class="btn btnPrimary" href="/request-assessment">Start Free AI Audit</a>
+<a class="btn" href="/sample-report">View Sample Report</a>
+<a class="btn btnGhost" href="/pricing">See Pricing</a>
+</div>
 
-      <div class="proofStrip" aria-label="EraIn proof pillars">
-        <div class="proofItem">
-          <div class="proofK">Auditability</div>
-          <div class="proofV">Traceable findings and source-grounded decisions.</div>
-        </div>
-        <div class="proofItem">
-          <div class="proofK">Decision Governance</div>
-          <div class="proofV">Human-approved execution boundaries by design.</div>
-        </div>
-        <div class="proofItem">
-          <div class="proofK">ROI Attribution</div>
-          <div class="proofV">Action-to-outcome tracking with measurable impact loops.</div>
-        </div>
-      </div>
-    </div>
+<div class="proofStrip" aria-label="EraIn proof pillars">
+<div class="proofItem">
+<div class="proofK">Auditability</div>
+<div class="proofV">Traceable findings and source-grounded decisions.</div>
+</div>
+<div class="proofItem">
+<div class="proofK">Decision Governance</div>
+<div class="proofV">Human-approved execution boundaries by design.</div>
+</div>
+<div class="proofItem">
+<div class="proofK">ROI Attribution</div>
+<div class="proofV">Action-to-outcome tracking with measurable impact loops.</div>
+</div>
+</div>
+</div>
 
-    <aside class="heroMedia">
-      <div class="heroVisualShell">
-        <img
-          src="/execution-lens-hero.svg"
-          alt="EraIn core linking auditability, decision governance, and ROI attribution."
-          width="1600"
-          height="980"
-          loading="eager"
-          decoding="async"
-        />
-      </div>
-      <div class="heroSignalRow" aria-label="Signal cards">
-        <div class="heroSignal">
-          <div class="heroSignalK">Launch-ready</div>
-          <div class="heroSignalV">Start with audit, scale only on proof.</div>
-        </div>
-        <div class="heroSignal">
-          <div class="heroSignalK">Enterprise-safe</div>
-          <div class="heroSignalV">Access controls, governance, and clear owners.</div>
-        </div>
-      </div>
-    </aside>
-  </div>
+<aside class="heroMedia">
+<div class="heroVisualShell">
+<img
+src="/execution-lens-hero.svg"
+alt="EraIn core linking auditability, decision governance, and ROI attribution."
+width="1600"
+height="980"
+loading="eager"
+decoding="async"
+/>
+</div>
+<div class="heroSignalRow" aria-label="Signal cards">
+<div class="heroSignal">
+<div class="heroSignalK">Launch-ready</div>
+<div class="heroSignalV">Start with audit, scale only on proof.</div>
+</div>
+<div class="heroSignal">
+<div class="heroSignalK">Enterprise-safe</div>
+<div class="heroSignalV">Access controls, governance, and clear owners.</div>
+</div>
+</div>
+</aside>
+</div>
 </div>
 
 <div class="heroTrust" aria-label="Trust and privacy">

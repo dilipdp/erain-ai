@@ -1,53 +1,1292 @@
 %PDF-1.4
+%‚„œ”
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+<< /Type /Pages /Kids [ 5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R ] /Count 6 >>
 endobj
 4 0 obj
-<< /Length 220 >>
+<< /Length 2526 >>
 stream
+0.070 0.160 0.360 rg
+0.00 702.00 595.00 140.00 re f
 BT
-/F1 18 Tf
-72 780 Td
-(EraIn AI - Sample Report) Tj
-/F1 12 Tf
-72 740 Td
-(This is a placeholder PDF for website launch.) Tj
-72 720 Td
-(Replace with real sample report before going public.) Tj
-72 680 Td
-(Contents include:) Tj
-72 660 Td
-(- Executive summary) Tj
-72 640 Td
-(- Findings and cost leaks) Tj
-72 620 Td
-(- Recommendations) Tj
-72 600 Td
-(- ROI and 30/60/90 day roadmap) Tj
-72 560 Td
-(Contact: hello@erainai.com | WhatsApp: +91 99860 06006) Tj
+/F2 16 Tf
+1.000 1.000 1.000 rg
+1 0 0 1 56.00 790.00 Tm
+(ERAIN AI) Tj
 ET
+BT
+/F1 15 Tf
+0.790 0.880 1.000 rg
+1 0 0 1 152.00 790.00 Tm
+(Sample Audit Delivery) Tj
+ET
+BT
+/F2 28 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 56.00 654.00 Tm
+(Sample Pro Audit Report) Tj
+ET
+BT
+/F1 13 Tf
+0.150 0.220 0.360 rg
+1 0 0 1 56.00 624.00 Tm
+(Auditability, decision governance, and ROI attribution) Tj
+ET
+BT
+/F1 11 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 56.00 584.00 Tm
+(This document demonstrates the standard EraIn launch deliverable for mid-size and) Tj
+ET
+BT
+/F1 11 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 56.00 569.00 Tm
+(multi-site operators. Numbers are realistic but anonymized for public demonstration.) Tj
+ET
+0.950 0.970 1.000 rg
+56.00 422.00 153.00 98.00 re f
+0.90 w
+0.790 0.850 0.950 RG
+56.00 422.00 153.00 98.00 re S
+BT
+/F1 10 Tf
+0.300 0.380 0.530 rg
+1 0 0 1 68.00 496.00 Tm
+(Revenue at risk) Tj
+ET
+BT
+/F2 19 Tf
+0.060 0.120 0.250 rg
+1 0 0 1 68.00 470.00 Tm
+(INR 4.85 Cr) Tj
+ET
+BT
+/F1 9 Tf
+0.330 0.390 0.500 rg
+1 0 0 1 68.00 446.00 Tm
+(Annualized leakage estimate) Tj
+ET
+0.950 0.970 1.000 rg
+221.00 422.00 153.00 98.00 re f
+0.90 w
+0.790 0.850 0.950 RG
+221.00 422.00 153.00 98.00 re S
+BT
+/F1 10 Tf
+0.300 0.380 0.530 rg
+1 0 0 1 233.00 496.00 Tm
+(Recovery horizon) Tj
+ET
+BT
+/F2 19 Tf
+0.060 0.120 0.250 rg
+1 0 0 1 233.00 470.00 Tm
+(90 days) Tj
+ET
+BT
+/F1 9 Tf
+0.330 0.390 0.500 rg
+1 0 0 1 233.00 446.00 Tm
+(From first corrective sprint) Tj
+ET
+0.950 0.970 1.000 rg
+386.00 422.00 153.00 98.00 re f
+0.90 w
+0.790 0.850 0.950 RG
+386.00 422.00 153.00 98.00 re S
+BT
+/F1 10 Tf
+0.300 0.380 0.530 rg
+1 0 0 1 398.00 496.00 Tm
+(Priority actions) Tj
+ET
+BT
+/F2 19 Tf
+0.060 0.120 0.250 rg
+1 0 0 1 398.00 470.00 Tm
+(12) Tj
+ET
+BT
+/F1 9 Tf
+0.330 0.390 0.500 rg
+1 0 0 1 398.00 446.00 Tm
+(Ranked by impact and confidence) Tj
+ET
+0.970 0.980 1.000 rg
+56.00 168.00 483.00 86.00 re f
+0.80 w
+0.810 0.860 0.950 RG
+56.00 168.00 483.00 86.00 re S
+BT
+/F2 11 Tf
+0.140 0.210 0.340 rg
+1 0 0 1 70.00 230.00 Tm
+(Client snapshot) Tj
+ET
+BT
+/F1 10 Tf
+0.240 0.300 0.420 rg
+1 0 0 1 70.00 208.00 Tm
+(Sector: precision manufacturing | Sites: 4 | ERP: SAP + Excel overlays) Tj
+ET
+BT
+/F1 10 Tf
+0.240 0.300 0.420 rg
+1 0 0 1 70.00 188.00 Tm
+(Assessment window: 21 days | Data confidence: high in finance, medium in operations) Tj
+ET
+0.950 0.970 1.000 rg
+0.00 0.00 595.00 30.00 re f
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 56.00 12.00 Tm
+(EraIn AI - Sample Pro Audit Report) Tj
+ET
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 483.00 12.00 Tm
+(Page 1 / 6) Tj
+ET
+
 endstream
 endobj
 5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 2221 >>
+stream
+BT
+/F2 22 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 56.00 768.00 Tm
+(1. Executive summary) Tj
+ET
+BT
+/F1 11 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 56.00 734.00 Tm
+(Audit confirms structural value leakage across production planning, inventory turns,) Tj
+ET
+BT
+/F1 11 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 56.00 719.00 Tm
+(and escalation latency. No single issue is catastrophic; cumulative effect is) Tj
+ET
+BT
+/F1 11 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 56.00 704.00 Tm
+(substantial and recoverable with disciplined execution.) Tj
+ET
+BT
+/F2 13 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 56.00 679.00 Tm
+(Top observations) Tj
+ET
+BT
+/F2 12 Tf
+0.130 0.360 0.820 rg
+1 0 0 1 68.00 653.00 Tm
+(-) Tj
+ET
+BT
+/F1 11 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 82.00 653.00 Tm
+(OTIF slippage averages 14.2 percent due to ad hoc schedule overrides.) Tj
+ET
+BT
+/F2 12 Tf
+0.130 0.360 0.820 rg
+1 0 0 1 68.00 632.00 Tm
+(-) Tj
+ET
+BT
+/F1 11 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 82.00 632.00 Tm
+(Slow-moving inventory creates INR 1.62 Cr annual carrying drag.) Tj
+ET
+BT
+/F2 12 Tf
+0.130 0.360 0.820 rg
+1 0 0 1 68.00 611.00 Tm
+(-) Tj
+ET
+BT
+/F1 11 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 82.00 611.00 Tm
+(Quality escapes tied to late-stage checks add INR 0.74 Cr scrap and rework.) Tj
+ET
+BT
+/F2 12 Tf
+0.130 0.360 0.820 rg
+1 0 0 1 68.00 590.00 Tm
+(-) Tj
+ET
+BT
+/F1 11 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 82.00 590.00 Tm
+(Decision latency between operations and finance averages 9.5 days.) Tj
+ET
+0.950 0.970 1.000 rg
+56.00 128.00 483.00 96.00 re f
+0.90 w
+0.790 0.860 0.960 RG
+56.00 128.00 483.00 96.00 re S
+BT
+/F2 11 Tf
+0.120 0.220 0.400 rg
+1 0 0 1 70.00 200.00 Tm
+(Recommendation) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 182.00 Tm
+(Launch a 90-day recovery sprint with three workstreams: plan integrity, inventory) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 168.00 Tm
+(release, and quality-gate redesign. Governance cadence should be weekly at function) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 154.00 Tm
+(level and bi-weekly at leadership level.) Tj
+ET
+0.950 0.970 1.000 rg
+0.00 0.00 595.00 30.00 re f
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 56.00 12.00 Tm
+(EraIn AI - Sample Pro Audit Report) Tj
+ET
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 483.00 12.00 Tm
+(Page 2 / 6) Tj
+ET
+
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 4013 >>
+stream
+BT
+/F2 22 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 56.00 768.00 Tm
+(2. Ranked value leakage) Tj
+ET
+0.900 0.940 1.000 rg
+56.00 688.00 525.00 34.00 re f
+0.80 w
+0.720 0.800 0.930 RG
+56.00 688.00 525.00 34.00 re S
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 62.00 702.00 Tm
+(Leak category) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 242.00 702.00 Tm
+(Annual impact) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 337.00 702.00 Tm
+(Confidence) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 417.00 702.00 Tm
+(Owner) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 517.00 702.00 Tm
+(Priority) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 654.00 525.00 34.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 654.00 525.00 34.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 668.00 Tm
+(Production rescheduling) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 242.00 668.00 Tm
+(INR 1.44 Cr) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 337.00 668.00 Tm
+(High) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 417.00 668.00 Tm
+(Plant Ops) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 517.00 668.00 Tm
+(P1) Tj
+ET
+0.980 0.990 1.000 rg
+56.00 620.00 525.00 34.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 620.00 525.00 34.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 634.00 Tm
+(Slow-moving inventory) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 242.00 634.00 Tm
+(INR 1.62 Cr) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 337.00 634.00 Tm
+(High) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 417.00 634.00 Tm
+(Supply Chain) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 517.00 634.00 Tm
+(P1) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 586.00 525.00 34.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 586.00 525.00 34.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 600.00 Tm
+(Quality rework and scrap) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 242.00 600.00 Tm
+(INR 0.74 Cr) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 337.00 600.00 Tm
+(Medium) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 417.00 600.00 Tm
+(Quality) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 517.00 600.00 Tm
+(P1) Tj
+ET
+0.980 0.990 1.000 rg
+56.00 552.00 525.00 34.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 552.00 525.00 34.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 566.00 Tm
+(Freight premium and expediting) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 242.00 566.00 Tm
+(INR 0.58 Cr) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 337.00 566.00 Tm
+(High) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 417.00 566.00 Tm
+(Logistics) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 517.00 566.00 Tm
+(P2) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 518.00 525.00 34.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 518.00 525.00 34.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 532.00 Tm
+(Revenue leakage from delayed invoicing) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 242.00 532.00 Tm
+(INR 0.47 Cr) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 337.00 532.00 Tm
+(Medium) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 417.00 532.00 Tm
+(Finance) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 517.00 532.00 Tm
+(P2) Tj
+ET
+0.75 0.82 0.94 RG
+0.5 w
+236.00 722.00 m 236.00 518.00 l S
+0.75 0.82 0.94 RG
+0.5 w
+331.00 722.00 m 331.00 518.00 l S
+0.75 0.82 0.94 RG
+0.5 w
+411.00 722.00 m 411.00 518.00 l S
+0.75 0.82 0.94 RG
+0.5 w
+511.00 722.00 m 511.00 518.00 l S
+BT
+/F2 12 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 56.00 280.00 Tm
+(Interpretation) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 56.00 262.00 Tm
+(Leak profile indicates cross-functional drift rather than isolated process failure. Priority) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 56.00 248.00 Tm
+(should be assigned to interventions that collapse planning variance and improve inventory) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 56.00 234.00 Tm
+(decisions first.) Tj
+ET
+0.950 0.970 1.000 rg
+0.00 0.00 595.00 30.00 re f
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 56.00 12.00 Tm
+(EraIn AI - Sample Pro Audit Report) Tj
+ET
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 483.00 12.00 Tm
+(Page 3 / 6) Tj
+ET
+
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 3860 >>
+stream
+BT
+/F2 22 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 56.00 768.00 Tm
+(3. Decision governance map) Tj
+ET
+0.900 0.940 1.000 rg
+56.00 687.00 539.00 35.00 re f
+0.80 w
+0.720 0.800 0.930 RG
+56.00 687.00 539.00 35.00 re S
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 62.00 702.00 Tm
+(Decision trigger) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 237.00 702.00 Tm
+(Decision owner) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 357.00 702.00 Tm
+(Cadence) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 437.00 702.00 Tm
+(Escalation threshold) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 652.00 539.00 35.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 652.00 539.00 35.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 667.00 Tm
+(OTIF below 92%) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 237.00 667.00 Tm
+(COO + Plant Head) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 357.00 667.00 Tm
+(Weekly) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 437.00 667.00 Tm
+(2 consecutive cycles) Tj
+ET
+0.980 0.990 1.000 rg
+56.00 617.00 539.00 35.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 617.00 539.00 35.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 632.00 Tm
+(Inventory cover above 74 days) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 237.00 632.00 Tm
+(Supply Chain Head) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 357.00 632.00 Tm
+(Weekly) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 437.00 632.00 Tm
+(> 10 day increase) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 582.00 539.00 35.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 582.00 539.00 35.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 597.00 Tm
+(Scrap rate above 3.5%) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 237.00 597.00 Tm
+(Quality Lead) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 357.00 597.00 Tm
+(Daily) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 437.00 597.00 Tm
+(48-hour unresolved root cause) Tj
+ET
+0.980 0.990 1.000 rg
+56.00 547.00 539.00 35.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 547.00 539.00 35.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 562.00 Tm
+(Cash conversion above 64 days) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 237.00 562.00 Tm
+(CFO) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 357.00 562.00 Tm
+(Bi-weekly) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 437.00 562.00 Tm
+(5 day adverse trend) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 512.00 539.00 35.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 512.00 539.00 35.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 527.00 Tm
+(Capex spend variance above 8%) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 237.00 527.00 Tm
+(CEO + CFO) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 357.00 527.00 Tm
+(Monthly) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 437.00 527.00 Tm
+(Any single line item) Tj
+ET
+0.75 0.82 0.94 RG
+0.5 w
+231.00 722.00 m 231.00 512.00 l S
+0.75 0.82 0.94 RG
+0.5 w
+351.00 722.00 m 351.00 512.00 l S
+0.75 0.82 0.94 RG
+0.5 w
+431.00 722.00 m 431.00 512.00 l S
+0.960 0.980 1.000 rg
+56.00 120.00 483.00 130.00 re f
+0.80 w
+0.800 0.870 0.960 RG
+56.00 120.00 483.00 130.00 re S
+BT
+/F2 12 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 70.00 230.00 Tm
+(Control policy) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 212.00 Tm
+(All automation recommendations remain advisory until owner approval. Material-impact) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 198.00 Tm
+(decisions require documented rationale, sign-off by accountable leader, and post-) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 184.00 Tm
+(decision review after one cycle. This preserves traceability and avoids uncontrolled) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 170.00 Tm
+(execution drift.) Tj
+ET
+0.950 0.970 1.000 rg
+0.00 0.00 595.00 30.00 re f
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 56.00 12.00 Tm
+(EraIn AI - Sample Pro Audit Report) Tj
+ET
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 483.00 12.00 Tm
+(Page 4 / 6) Tj
+ET
+
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 3602 >>
+stream
+BT
+/F2 22 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 56.00 768.00 Tm
+(4. 30-60-90 execution roadmap) Tj
+ET
+0.900 0.940 1.000 rg
+56.00 678.00 539.00 44.00 re f
+0.80 w
+0.720 0.800 0.930 RG
+56.00 678.00 539.00 44.00 re S
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 62.00 702.00 Tm
+(Window) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 147.00 702.00 Tm
+(Primary outcomes) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 287.00 702.00 Tm
+(Key actions) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 527.00 702.00 Tm
+(Owner) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 634.00 539.00 44.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 634.00 539.00 44.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 658.00 Tm
+(Day 0-30) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 147.00 658.00 Tm
+(Stabilize planning) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 287.00 658.00 Tm
+(Freeze override rules; weekly OTIF council) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 527.00 658.00 Tm
+(COO) Tj
+ET
+0.980 0.990 1.000 rg
+56.00 590.00 539.00 44.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 590.00 539.00 44.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 614.00 Tm
+(Day 31-60) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 147.00 614.00 Tm
+(Release working capital) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 287.00 614.00 Tm
+(Inventory purge lanes; vendor cadence reset) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 527.00 614.00 Tm
+(SCM Head) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 546.00 539.00 44.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 546.00 539.00 44.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 570.00 Tm
+(Day 61-90) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 147.00 570.00 Tm
+(Lock quality gains) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 287.00 570.00 Tm
+(Shift quality checks upstream; close loop on scrap) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 527.00 570.00 Tm
+(Quality Lead) Tj
+ET
+0.980 0.990 1.000 rg
+56.00 502.00 539.00 44.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 502.00 539.00 44.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 526.00 Tm
+(Day 91+) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 147.00 526.00 Tm
+(Scale and standardize) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 287.00 526.00 Tm
+(Automate recurrent signals and action tracking) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 527.00 526.00 Tm
+(CEO Office) Tj
+ET
+0.75 0.82 0.94 RG
+0.5 w
+141.00 722.00 m 141.00 502.00 l S
+0.75 0.82 0.94 RG
+0.5 w
+281.00 722.00 m 281.00 502.00 l S
+0.75 0.82 0.94 RG
+0.5 w
+521.00 722.00 m 521.00 502.00 l S
+BT
+/F2 12 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 56.00 296.00 Tm
+(Milestones) Tj
+ET
+BT
+/F2 12 Tf
+0.130 0.360 0.820 rg
+1 0 0 1 64.00 274.00 Tm
+(-) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 78.00 274.00 Tm
+(Week 2: baseline KPIs validated by operations and finance.) Tj
+ET
+BT
+/F2 12 Tf
+0.130 0.360 0.820 rg
+1 0 0 1 64.00 256.00 Tm
+(-) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 78.00 256.00 Tm
+(Week 5: first recovery wave released with named owners.) Tj
+ET
+BT
+/F2 12 Tf
+0.130 0.360 0.820 rg
+1 0 0 1 64.00 238.00 Tm
+(-) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 78.00 238.00 Tm
+(Week 9: governance scorecard integrated into leadership reviews.) Tj
+ET
+BT
+/F2 12 Tf
+0.130 0.360 0.820 rg
+1 0 0 1 64.00 220.00 Tm
+(-) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 78.00 220.00 Tm
+(Week 13: ROI checkpoint and scale recommendation published.) Tj
+ET
+0.950 0.970 1.000 rg
+0.00 0.00 595.00 30.00 re f
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 56.00 12.00 Tm
+(EraIn AI - Sample Pro Audit Report) Tj
+ET
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 483.00 12.00 Tm
+(Page 5 / 6) Tj
+ET
+
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Length 3244 >>
+stream
+BT
+/F2 22 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 56.00 768.00 Tm
+(5. ROI attribution) Tj
+ET
+0.900 0.940 1.000 rg
+56.00 686.00 539.00 36.00 re f
+0.80 w
+0.720 0.800 0.930 RG
+56.00 686.00 539.00 36.00 re S
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 62.00 702.00 Tm
+(Metric) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 182.00 702.00 Tm
+(Baseline) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 262.00 702.00 Tm
+(Target \(Q+2\)) Tj
+ET
+BT
+/F2 9 Tf
+0.120 0.210 0.360 rg
+1 0 0 1 358.00 702.00 Tm
+(Attribution logic) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 650.00 539.00 36.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 650.00 539.00 36.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 666.00 Tm
+(OTIF) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 182.00 666.00 Tm
+(85.8%) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 262.00 666.00 Tm
+(95.0%) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 358.00 666.00 Tm
+(Planning controls + schedule compliance) Tj
+ET
+0.980 0.990 1.000 rg
+56.00 614.00 539.00 36.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 614.00 539.00 36.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 630.00 Tm
+(Inventory cover) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 182.00 630.00 Tm
+(78 days) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 262.00 630.00 Tm
+(58 days) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 358.00 630.00 Tm
+(Demand signal cleanup + release plan) Tj
+ET
+0.960 0.980 1.000 rg
+56.00 578.00 539.00 36.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 578.00 539.00 36.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 594.00 Tm
+(Scrap rate) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 182.00 594.00 Tm
+(4.2%) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 262.00 594.00 Tm
+(2.8%) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 358.00 594.00 Tm
+(Upstream quality gates) Tj
+ET
+0.980 0.990 1.000 rg
+56.00 542.00 539.00 36.00 re f
+0.50 w
+0.820 0.880 0.970 RG
+56.00 542.00 539.00 36.00 re S
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 62.00 558.00 Tm
+(Cash conversion) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 182.00 558.00 Tm
+(72 days) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 262.00 558.00 Tm
+(59 days) Tj
+ET
+BT
+/F1 9 Tf
+0.180 0.240 0.350 rg
+1 0 0 1 358.00 558.00 Tm
+(Inventory + invoice cycle discipline) Tj
+ET
+0.75 0.82 0.94 RG
+0.5 w
+176.00 722.00 m 176.00 542.00 l S
+0.75 0.82 0.94 RG
+0.5 w
+256.00 722.00 m 256.00 542.00 l S
+0.75 0.82 0.94 RG
+0.5 w
+352.00 722.00 m 352.00 542.00 l S
+0.950 0.970 1.000 rg
+56.00 146.00 483.00 112.00 re f
+0.90 w
+0.800 0.870 0.960 RG
+56.00 146.00 483.00 112.00 re S
+BT
+/F2 12 Tf
+0.060 0.110 0.210 rg
+1 0 0 1 70.00 234.00 Tm
+(Economics summary) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 214.00 Tm
+(Conservative annual recovery estimate: INR 2.7 Cr to INR 3.3 Cr. Expected payback window) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 200.00 Tm
+(for execution program: under 4 months. Attribution tracked through owner-confirmed) Tj
+ET
+BT
+/F1 10 Tf
+0.160 0.200 0.290 rg
+1 0 0 1 70.00 186.00 Tm
+(action logs linked to KPI movement.) Tj
+ET
+0.950 0.970 1.000 rg
+0.00 0.00 595.00 30.00 re f
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 56.00 12.00 Tm
+(EraIn AI - Sample Pro Audit Report) Tj
+ET
+BT
+/F1 9 Tf
+0.280 0.340 0.450 rg
+1 0 0 1 483.00 12.00 Tm
+(Page 6 / 6) Tj
+ET
+
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 14 0 R >>
+endobj
+16 0 obj
+<< /Type /Catalog /Pages 3 0 R >>
 endobj
 xref
-0 6
-0000000000 65535 f
-0000000010 00000 n
-0000000060 00000 n
-0000000117 00000 n
-0000000250 00000 n
-0000000520 00000 n
+0 17
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000000160 00000 n 
+0000000252 00000 n 
+0000002830 00000 n 
+0000002966 00000 n 
+0000005239 00000 n 
+0000005375 00000 n 
+0000009440 00000 n 
+0000009576 00000 n 
+0000013489 00000 n 
+0000013627 00000 n 
+0000017282 00000 n 
+0000017420 00000 n 
+0000020717 00000 n 
+0000020855 00000 n 
 trailer
-<< /Root 1 0 R /Size 6 >>
+<< /Size 17 /Root 16 0 R >>
 startxref
-590
+20905
 %%EOF
