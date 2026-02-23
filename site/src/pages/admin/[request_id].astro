@@ -1,0 +1,494 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL;
+const { request_id } = Astro.params;
+---
+
+<BaseLayout title={`Lead • ${request_id}`} description="Admin Lead Detail">
+  <section class="page">
+    <div class="container">
+      <div class="card" style="padding:22px">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap">
+          <div>
+            <a href="/admin" class="btn btnGhost" style="padding:8px 12px">← Back to Leads</a>
+            <div class="kicker" style="margin-top:14px">Admin</div>
+            <h1 class="h1" style="margin-top:8px; margin-bottom:6px">Lead Detail</h1>
+            <div class="badgeRow" style="margin-top:10px">
+              <span class="badge">{request_id}</span>
+              <span class="badge badgeSoft">Internal</span>
+            </div>
+            <p class="muted" style="margin-top:10px; font-size:14px; line-height:1.7">
+              If admin endpoints require a token, open once with <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">?token=YOUR_TOKEN</span> — it will be saved locally.
+            </p>
+          </div>
+
+          <div class="card cardSoft" style="padding:16px; min-width:280px">
+            <div class="kicker" style="margin-bottom:10px">Quick previews</div>
+            <div class="badgeRow" style="margin-bottom:10px">
+              <span class="badge badgeSoft">API</span>
+              <span class="badge" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">{apiBase}</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:10px">
+              <a href={`${apiBase}/admin/leads/${encodeURIComponent(request_id)}/whatsapp`} target="_blank" rel="noopener" class="btn">WhatsApp</a>
+              <a href={`${apiBase}/admin/leads/${encodeURIComponent(request_id)}/email`} target="_blank" rel="noopener" class="btn">Email</a>
+              <a href={`${apiBase}/admin/audits/${encodeURIComponent(request_id)}`} target="_blank" rel="noopener" class="btn">Audit JSON</a>
+              <a href={`${apiBase}/reports/${encodeURIComponent(request_id)}.pdf`} target="_blank" rel="noopener" class="btn">PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="content" style="margin-top:22px"></div>
+    </div>
+  </section>
+
+  <script is:inline>
+    const envApiBase = String(import.meta.env.PUBLIC_API_BASE_URL || ""); // client-side
+    const apiBase = envApiBase || (import.meta.env.DEV ? "http://127.0.0.1:8020" : "");
+
+    const requestId = /** @type {string} */ (${JSON.stringify(request_id)});
+    const container = document.getElementById("content");
+
+    function getAdminToken() {
+      // 1) Allow setting via query param once: /admin/<id>?token=...
+      const params = new URLSearchParams(window.location.search);
+      const qp = params.get("token");
+      if (qp) {
+        try { localStorage.setItem("erain_admin_token", qp); } catch (_) {}
+        params.delete("token");
+        const clean = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ""}`;
+        window.history.replaceState({}, "", clean);
+        return qp;
+      }
+      // 2) Persisted token
+      try { return localStorage.getItem("erain_admin_token") || ""; } catch (_) { return ""; }
+    }
+
+    function headersWithToken() {
+      const h = { "Accept": "application/json" };
+      const tok = getAdminToken();
+      if (tok) h["X-Admin-Token"] = tok;
+      return h;
+    }
+
+    function esc(s) {
+      return String(s ?? "").replace(/[&<>"']/g, (c) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      }[c]));
+    }
+
+    async function load() {
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="card" style="padding:18px">
+          <div class="kicker">Loading</div>
+          <p class="muted" style="margin:8px 0 0; font-size:14px">Fetching lead + audit…</p>
+          <div class="badgeRow" style="margin-top:10px">
+            <span class="badge badgeSoft">API</span>
+            <span class="badge" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">${esc(apiBase || "(not set)")}</span>
+          </div>
+        </div>
+      `;
+
+      try {
+        if (!apiBase) {
+          throw new Error("PUBLIC_API_BASE_URL is not set (and no dev fallback available). Set PUBLIC_API_BASE_URL or use dev fallback.");
+        }
+
+        const [leadRes, auditRes] = await Promise.all([
+          fetch(`${apiBase}/admin/leads/${requestId}`, { headers: headersWithToken() }),
+          fetch(`${apiBase}/admin/audits/${requestId}`, { headers: headersWithToken() }),
+        ]);
+
+        if (!leadRes.ok || !auditRes.ok) {
+          const leadTxt = await leadRes.text().catch(() => "");
+          const auditTxt = await auditRes.text().catch(() => "");
+          throw new Error(
+            `Fetch failed. lead=${leadRes.status} audit=${auditRes.status}` +
+            (leadTxt ? `\nlead body: ${leadTxt}` : "") +
+            (auditTxt ? `\naudit body: ${auditTxt}` : "")
+          );
+        }
+
+        const lead = await leadRes.json();
+        const audit = await auditRes.json();
+
+        const phoneDigits = String(lead?.contact?.phone || "").replace(/\D/g, "");
+        const pdfUrl = audit?.output?.pdf_path ? `${apiBase}${audit.output.pdf_path}` : "";
+
+        container.innerHTML = `
+          <div class="card" style="padding:18px">
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap">
+              <div>
+                <div class="muted" style="font-size:13px; margin-bottom:2px">Pipeline</div>
+                <div class="badgeRow" style="margin-top:2px">
+                  <div class="badge" id="statusBadge">${esc(lead?.status || "new")}</div>
+                  ${(() => {
+                    const s = (lead?.status || 'new');
+                    if (s === 'new') return `<span class="badge badgeSoft">Free Audit</span>`;
+                    if (s === 'pro_requested') return `<span class="badge badgeSoft" style="background:rgba(139,92,246,0.09); color:#7c3aed; border-color:rgba(139,92,246,0.22)">Pro Audit</span>`;
+                    if (s === 'converted') return `<span class="badge badgeSoft" style="background:rgba(16,185,129,0.10); color:#059669; border-color:rgba(16,185,129,0.22)">Ops Copilot</span>`;
+                    return `<span class="badge badgeSoft" style="background:rgba(59,130,246,0.09); color:#2563eb; border-color:rgba(59,130,246,0.22)">In Progress</span>`;
+                  })()}
+                </div>
+                ${lead?.status_note ? `<div class="muted" style="margin-top:8px; font-size:13px">Note: ${esc(lead.status_note)}</div>` : ``}
+              </div>
+              <div class="muted" style="font-size:13px">
+                Updated:
+                <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">${esc(lead?.status_updated_at_utc || "—")}</span>
+              </div>
+            </div>
+
+            <div style="margin-top:14px">
+              <div class="kicker" style="margin-bottom:8px">Journey</div>
+              <div class="erainSteps" style="display:grid; grid-template-columns:1fr; gap:10px">
+                <style>
+                  @media (min-width: 768px){ .erainSteps{ grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+                </style>
+                <div class="card cardSoft" style="padding:14px">
+                  <div class="kicker">Step 1</div>
+                  <div class="lead">Free Audit</div>
+                  <div class="muted" style="font-size:13px">Lead created</div>
+                </div>
+                <div class="card cardSoft" style="padding:14px">
+                  <div class="kicker">Step 2</div>
+                  <div class="lead">Contacted</div>
+                  <div class="muted" style="font-size:13px">Call / WhatsApp done</div>
+                </div>
+                <div class="card cardSoft" style="padding:14px">
+                  <div class="kicker">Step 3</div>
+                  <div class="lead">Pro Audit</div>
+                  <div class="muted" style="font-size:13px">Upgrade requested</div>
+                </div>
+                <div class="card cardSoft" style="padding:14px">
+                  <div class="kicker">Step 4</div>
+                  <div class="lead">Converted</div>
+                  <div class="muted" style="font-size:13px">Ops Copilot / Paid</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="erain2col" style="display:grid; grid-template-columns:1fr; gap:16px; margin-top:16px">
+            <style>
+              @media (min-width: 768px){ .erain2col{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+            </style>
+
+            <div class="card" style="padding:18px">
+              <h2 class="h2" style="margin:0 0 10px">Contact</h2>
+              <ul class="lead" style="font-size:15px; margin:0; list-style:none; padding-left:0; display:grid; gap:6px">
+                <li><strong>Name:</strong> ${esc(lead?.contact?.name || "—")}</li>
+                <li><strong>Phone:</strong> ${esc(lead?.contact?.phone || "—")}</li>
+                <li><strong>Email:</strong> ${esc(lead?.contact?.email || "—")}</li>
+                <li><strong>City:</strong> ${esc(lead?.contact?.city || "—")}</li>
+                <li><strong>State:</strong> ${esc(lead?.contact?.state || "—")}</li>
+              </ul>
+            </div>
+
+            <div class="card cardSoft" style="padding:18px">
+              <h2 class="h2" style="margin:0 0 14px; color:rgba(17,24,39,0.92)">Business Details</h2>
+              <div style="display:grid; grid-template-columns:1fr; gap:12px; font-size:15px">
+                <div>
+                  <div class="kicker">Company</div>
+                  <div style="font-weight:700; color:rgba(17,24,39,0.92)">${esc(lead?.business?.company_name || "—")}</div>
+                </div>
+                <div>
+                  <div class="kicker">Industry</div>
+                  <div style="font-weight:700; color:rgba(17,24,39,0.92)">${esc(lead?.business?.industry || "—")}</div>
+                </div>
+                <div>
+                  <div class="kicker">Employees</div>
+                  <div style="font-weight:700; color:rgba(17,24,39,0.92)">${esc(lead?.business?.employee_count ?? "—")}</div>
+                </div>
+                <div>
+                  <div class="kicker">Annual Revenue</div>
+                  <div style="font-weight:700; color:rgba(17,24,39,0.92)">
+                    ${lead?.business?.annual_revenue_inr != null
+                      ? `₹${Number(lead.business.annual_revenue_inr).toLocaleString()}`
+                      : "—"}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding:18px; margin-top:16px">
+            <h2 class="h2" style="margin:0 0 10px">Audit Summary</h2>
+            <p class="lead" style="font-size:15px; margin:0 0 10px">Health score: <strong>${esc(audit?.output?.summary?.overall_health_score ?? "—")}/100</strong></p>
+            <ul style="padding-left:20px; margin:0">
+              ${(audit?.output?.summary?.key_findings || []).map((f) => `<li class="muted" style="font-size:14px; margin:6px 0">${esc(f)}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="card" style="padding:18px; margin-top:16px">
+            <h2 class="h2" style="margin:0 0 10px">Next Step</h2>
+
+            <div class="card cardSoft" style="padding:16px; margin-bottom:14px">
+              <h3 class="lead" style="color:#7c3aed; margin:0 0 6px">Upgrade to Pro Audit</h3>
+              <p class="muted" style="color:#7c3aed; margin:0 0 10px">
+                Get deeper analysis, quantified impact estimates, and a 1-hour founder consultation.
+              </p>
+              <a href="/contact?upgrade=pro&request_id=${encodeURIComponent(requestId)}" class="btn btnPrimary">
+                Upgrade to Pro Audit
+              </a>
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; gap:10px">
+              ${pdfUrl ? `<a href="${pdfUrl}" target="_blank" rel="noopener" class="btn">Download PDF</a>` : ``}
+              ${phoneDigits ? `<a href="https://wa.me/${phoneDigits}" target="_blank" rel="noopener" class="btn">Open WhatsApp</a>` : ``}
+              <a href="${apiBase}/admin/leads/${encodeURIComponent(requestId)}/whatsapp" target="_blank" rel="noopener" class="btn">WhatsApp Text</a>
+              <a href="${apiBase}/admin/leads/${encodeURIComponent(requestId)}/email" target="_blank" rel="noopener" class="btn">Email Text</a>
+              <a href="${apiBase}/admin/audits/${encodeURIComponent(requestId)}" target="_blank" rel="noopener" class="btn">Raw Audit JSON</a>
+            </div>
+          </div>
+
+          <div class="card cardSoft" style="padding:16px; margin-top:16px">
+            <div class="lead" style="font-size:15px; margin:0 0 10px">Admin Actions</div>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center">
+              <button id="btnContacted" class="btn" type="button">Mark Contacted</button>
+              <button id="btnPro" class="btn" type="button">Mark Pro Upgrade Requested</button>
+              <button id="btnSendOffer" class="btn btnPrimary" type="button">Send Pro Audit Offer (₹75,000)</button>
+              <button id="btnWon" class="btn" type="button">Mark Converted</button>
+              <button id="btnCopy" class="btn" type="button">Copy Lead Summary</button>
+            </div>
+            <div class="muted" style="margin-top:8px; font-size:13px">
+              Tip: Use <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">?token=YOUR_TOKEN</span> once to enable admin actions.
+            </div>
+            <div style="margin-top:10px">
+              <label class="kicker" style="display:block; margin-bottom:4px" for="statusNote">Status note (optional)</label>
+              <input id="statusNote" class="input" placeholder="e.g., Call scheduled for Tue 4pm" />
+              <p id="statusMsg" class="muted" style="margin-top:8px; font-size:13px"></p>
+              <p id="offerMsg" class="muted" style="margin-top:6px; font-size:13px"></p>
+            </div>
+          </div>
+
+          <div class="card" style="padding:18px; margin-top:16px">
+            <h2 class="h2" style="margin:0">Internal Notes</h2>
+            <p class="muted" style="margin:8px 0 0; font-size:14px">Private notes for your pipeline. Saved locally in this browser and also sent to backend as a status note.</p>
+
+            <div style="margin-top:14px">
+              <label class="lead" style="display:block; margin-bottom:5px" for="noteInput">Add a note</label>
+              <textarea id="noteInput" rows="4" class="input textarea" placeholder="Example: Called ops head. Pain: high downtime. Wants Pro Audit next week."></textarea>
+              <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:10px; align-items:center">
+                <button id="btnSaveNote" class="btn btnPrimary" type="button">Save Note</button>
+                <button id="btnClearNote" class="btn" type="button">Clear</button>
+                <div id="noteMsg" class="muted" style="font-size:14px"></div>
+              </div>
+            </div>
+
+            <div style="margin-top:18px">
+              <h3 class="lead" style="font-size:15px; margin:0 0 6px">Timeline</h3>
+              <div id="notesTimeline"></div>
+            </div>
+          </div>
+
+          <div class="muted" style="margin-top:14px; font-size:13px">
+            <p style="margin:0 0 6px">API base: <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">${esc(apiBase)}</span></p>
+            <p style="margin:0">Tip: If admin endpoints are protected, open this page once with <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">?token=YOUR_TOKEN</span> to store the token locally (localStorage key: erain_admin_token).</p>
+          </div>
+        `;
+
+        async function setStatus(nextStatus, noteOverride) {
+          const msgEl = document.getElementById('statusMsg');
+          const noteEl = document.getElementById('statusNote');
+          const note = (typeof noteOverride === 'string')
+            ? noteOverride
+            : (noteEl ? String(noteEl.value || '') : '');
+
+          const body = (note && note.trim())
+            ? { status: nextStatus, note: note.trim() }
+            : { status: nextStatus };
+
+          try {
+            const r = await fetch(`${apiBase}/admin/leads/${encodeURIComponent(requestId)}/status`, {
+              method: 'PATCH',
+              headers: { ...headersWithToken(), 'Content-Type': 'application/json' },
+              body: JSON.stringify(body),
+            });
+            const txt = await r.text();
+            if (!r.ok) throw new Error(txt || `HTTP ${r.status}`);
+            const payload = JSON.parse(txt);
+            const badge = document.getElementById('statusBadge');
+            if (badge) badge.textContent = payload?.lead?.status || nextStatus;
+            if (msgEl) msgEl.textContent = `Updated: ${payload?.lead?.status || nextStatus}`;
+          } catch (err) {
+            if (msgEl) msgEl.textContent = `Failed to update: ${err && err.message ? err.message : String(err)}`;
+            throw err;
+          }
+        }
+
+        const btnContacted = document.getElementById('btnContacted');
+        const btnPro = document.getElementById('btnPro');
+        const btnWon = document.getElementById('btnWon');
+        if (btnContacted) btnContacted.addEventListener('click', () => setStatus('contacted'));
+        if (btnPro) btnPro.addEventListener('click', () => setStatus('pro_requested'));
+        if (btnWon) btnWon.addEventListener('click', () => setStatus('converted'));
+
+        const btnSendOffer = document.getElementById('btnSendOffer');
+        if (btnSendOffer) {
+          btnSendOffer.addEventListener('click', async () => {
+            const offerEl = document.getElementById('offerMsg');
+            if (offerEl) offerEl.textContent = 'Sending Pro Audit offer…';
+
+            try {
+              const r = await fetch(`${apiBase}/admin/leads/${encodeURIComponent(requestId)}/pro-offer`, {
+                method: 'POST',
+                headers: headersWithToken(),
+              });
+              const txt = await r.text();
+              if (!r.ok) throw new Error(txt || `HTTP ${r.status}`);
+              const offer = JSON.parse(txt);
+
+              // Update badge + message
+              const badge = document.getElementById('statusBadge');
+              if (badge) badge.textContent = 'pro_offered';
+
+              const msgEl = document.getElementById('statusMsg');
+              if (msgEl) msgEl.textContent = 'Pro Audit offer created. Next: send WhatsApp/email and schedule call.';
+
+              if (offerEl) {
+                offerEl.textContent = `Offer: ${offer.title} • ₹${Number(offer.price_inr).toLocaleString()} • Scope: ${(offer.scope || []).slice(0,3).join(' / ')}`;
+              }
+            } catch (err) {
+              if (offerEl) offerEl.textContent = `Failed to send offer: ${err && err.message ? err.message : String(err)}`;
+            }
+          });
+        }
+
+        const btnCopy = document.getElementById('btnCopy');
+        if (btnCopy) {
+          btnCopy.addEventListener('click', async () => {
+            const lines = [
+              `EraIn Lead: ${requestId}`,
+              `Status: ${lead?.status || 'new'}`,
+              `Name: ${lead?.contact?.name || ''}`,
+              `Phone: ${lead?.contact?.phone || ''}`,
+              `Email: ${lead?.contact?.email || ''}`,
+              `Company: ${lead?.business?.company_name || ''}`,
+              `Industry: ${lead?.business?.industry || ''}`,
+              `Score: ${audit?.output?.summary?.overall_health_score ?? ''}`,
+              `Top Findings: ${(audit?.output?.summary?.key_findings || []).slice(0,3).join(' | ')}`,
+              `PDF: ${pdfUrl || ''}`,
+            ].filter(Boolean);
+
+            const text = lines.join('\n');
+            try {
+              await navigator.clipboard.writeText(text);
+              const msgEl = document.getElementById('statusMsg');
+              if (msgEl) msgEl.textContent = 'Copied lead summary to clipboard.';
+            } catch (err) {
+              const msgEl = document.getElementById('statusMsg');
+              if (msgEl) msgEl.textContent = 'Copy failed. Please copy manually.';
+            }
+          });
+        }
+
+        function nowUtcIso() {
+          try { return new Date().toISOString(); } catch { return ''; }
+        }
+
+        function notesKey() {
+          return `erain_notes_${requestId}`;
+        }
+
+        function loadNotes() {
+          try {
+            const raw = localStorage.getItem(notesKey());
+            const arr = raw ? JSON.parse(raw) : [];
+            return Array.isArray(arr) ? arr : [];
+          } catch {
+            return [];
+          }
+        }
+
+        function saveNotes(arr) {
+          try { localStorage.setItem(notesKey(), JSON.stringify(arr)); } catch {}
+        }
+
+        function renderNotesTimeline() {
+          const el = document.getElementById('notesTimeline');
+          if (!el) return;
+          const notes = loadNotes();
+          if (!notes.length) {
+            el.innerHTML = `<div class="card cardSoft" style="padding:14px"><div class="muted" style="font-size:14px">No notes yet.</div></div>`;
+            return;
+          }
+
+          el.innerHTML = notes
+            .slice()
+            .reverse()
+            .map(n => `
+              <div class="card cardSoft" style="padding:14px">
+                <div class="muted" style="font-size:12px; font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">${esc(n.at || '')}</div>
+                <div class="lead" style="margin-top:6px; font-size:14px; white-space:pre-wrap">${esc(n.text || '')}</div>
+              </div>
+            `)
+            .join('');
+        }
+
+        const noteInput = document.getElementById('noteInput');
+        const btnSaveNote = document.getElementById('btnSaveNote');
+        const btnClearNote = document.getElementById('btnClearNote');
+        const noteMsg = document.getElementById('noteMsg');
+
+        if (btnClearNote && noteInput) {
+          btnClearNote.addEventListener('click', () => {
+            noteInput.value = '';
+            if (noteMsg) noteMsg.textContent = '';
+          });
+        }
+
+        if (btnSaveNote && noteInput) {
+          btnSaveNote.addEventListener('click', async () => {
+            const text = (noteInput.value || '').trim();
+            if (!text) {
+              if (noteMsg) noteMsg.textContent = 'Write a note first.';
+              return;
+            }
+
+            // Save locally
+            const notes = loadNotes();
+            notes.push({ at: nowUtcIso(), text });
+            saveNotes(notes);
+            noteInput.value = '';
+            renderNotesTimeline();
+
+            // Best-effort send to backend as status note (keeping current status)
+            try {
+              const currentStatus = (lead?.status || 'new');
+              await setStatus(currentStatus, text);
+              if (noteMsg) noteMsg.textContent = 'Saved. Note sent to backend.';
+            } catch {
+              if (noteMsg) noteMsg.textContent = 'Saved locally. Backend note send failed.';
+            }
+          });
+        }
+
+        renderNotesTimeline();
+
+      } catch (e) {
+        const msg = e && e.message ? e.message : String(e);
+        container.innerHTML = `
+          <div class="card" style="padding:18px; border-color: rgba(239,68,68,0.25); background: rgba(239,68,68,0.06)">
+            <div class="kicker">Error</div>
+            <p style="margin:8px 0 0; font-weight:700; color: rgba(185,28,28,0.92)">Failed to load lead details.</p>
+            <p class="muted" style="margin:10px 0 0; font-size:12px; white-space:pre-wrap; color: rgba(185,28,28,0.80)">${esc(msg)}</p>
+            <div class="badgeRow" style="margin-top:12px">
+              <span class="badge badgeSoft">API</span>
+              <span class="badge" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">${esc(apiBase || "(not set)")}</span>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    load();
+  </script>
+</BaseLayout>

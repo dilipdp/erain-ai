@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="120" viewBox="0 0 520 120" role="img" aria-label="EraIn AI logo">
+  <rect x="0" y="0" width="120" height="120" rx="24" fill="#0B1220"/>
+  <rect x="36" y="30" width="12" height="60" rx="6" fill="#FFFFFF"/>
+  <rect x="48" y="30" width="44" height="12" rx="6" fill="#FFFFFF"/>
+  <rect x="48" y="54" width="36" height="12" rx="6" fill="#FFFFFF"/>
+  <rect x="48" y="78" width="44" height="12" rx="6" fill="#FFFFFF"/>
+  <circle cx="96" cy="18" r="6" fill="#2563EB"/>
+
+  <text x="150" y="78" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="48" font-weight="700" fill="#0B1220">EraIn</text>
+  <text x="270" y="78" font-family="Inter, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="48" font-weight="700" fill="#2563EB">AI</text>
+</svg>

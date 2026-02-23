@@ -1,0 +1,422 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Contact — EraIn AI';
+const description =
+  'High‑signal contact for leaders seeking audit‑first clarity, quantified impact, and disciplined execution across industries.';
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? '';
+const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? 'hello@erainai.com';
+const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="contact">
+    <div class="wrap">
+      <!-- Hero -->
+      <header class="hero">
+        <div class="badgeRow" aria-label="Positioning pillars">
+          <span class="badge badgeSoft">Audit → Execution</span>
+          <span class="badge badgeSoft">All industries</span>
+          <span class="badge badgeSoft">ROI‑verified</span>
+          <span class="badge badgeSoft">24h response (if fit)</span>
+        </div>
+
+        <h1 class="h1">Contact EraIn</h1>
+        <p class="lead">
+          This is a <strong>high‑signal contact point</strong> for founders, CXOs, and operators who want
+          verified clarity, quantified impact, and a disciplined operating plan.
+          We work across manufacturing, services, logistics, EPC, healthcare, finance, and multi‑site operations.
+        </p>
+      </header>
+
+      <div class="grid">
+        <!-- Left: context -->
+        <aside class="side">
+          <div class="card">
+            <div class="kicker">Before you write</div>
+            <ul class="list">
+              <li>We start from <strong>reality</strong>: Excel, Tally, ERP, SOPs — not assumptions.</li>
+              <li>Audits focus on cost leakage, throughput constraints, and decision drift.</li>
+              <li>Execution is recommended only after impact is quantified.</li>
+              <li>If it’s a fit, you’ll hear back within <strong>24 hours</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="card soft">
+            <div class="kicker">Direct</div>
+            <div class="kv">
+              <div><span>Email</span><strong>{supportEmail}</strong></div>
+              <div><span>Response</span><strong>&lt; 24h (if fit)</strong></div>
+            </div>
+            <p class="hint">
+              References:
+              <a href="/sample-report">Sample report</a> ·
+              <a href="/pricing">Pricing</a>
+            </p>
+          </div>
+
+          <div class="card pro">
+            <div class="kicker">Pro Audit</div>
+            <p class="muted">
+              If you’re upgrading a Free Audit, include your Request ID and a preferred time window.
+            </p>
+            <p class="hint">
+              Tip: open with
+              <code>?upgrade=pro&amp;request_id=AR‑…</code>
+              to prefill.
+            </p>
+          </div>
+        </aside>
+
+        <!-- Right: form -->
+        <section class="main">
+          <div class="card">
+            <h2 class="h2">Send a message</h2>
+            <p class="muted">We reply within 24 hours if there’s a strong fit.</p>
+
+            <form
+              id="contactForm"
+              class="form"
+              data-api-base={apiBase}
+              data-support-email={supportEmail}
+              data-contact-path={contactPath}
+              novalidate
+            >
+              <input type="text" name="company_website" tabindex="-1" autocomplete="off" />
+
+              <div class="field">
+                <label for="intent">What do you need?</label>
+                <select id="intent" name="intent" required>
+                  <option value="general_inquiry">General inquiry</option>
+                  <option value="free_audit">Request Free Audit</option>
+                  <option value="pro_audit">Request Pro Audit</option>
+                  <option value="upgrade_existing">Upgrade an existing audit</option>
+                  <option value="deploy_ops">Deploy EraIn in operations</option>
+                </select>
+              </div>
+
+              <div class="row2">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" required placeholder="Your name" autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone (optional)</label>
+                  <input id="phone" name="phone" placeholder="+91…" inputmode="tel" autocomplete="tel" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email" />
+              </div>
+
+              <div class="row2">
+                <div class="field">
+                  <label for="company">Company</label>
+                  <input id="company" name="company" placeholder="Company name" autocomplete="organization" />
+                </div>
+                <div class="field">
+                  <label for="request_id">Request ID (if any)</label>
+                  <input id="request_id" name="request_id" placeholder="AR‑…" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="7"
+                  required
+                  placeholder="What outcome are you aiming for? Where is value leaking today? (No confidential data.)"
+                ></textarea>
+                <p class="help">Share context, not confidential data.</p>
+              </div>
+
+              <div class="actions">
+                <button id="contactSubmitBtn" class="btnPrimary" type="submit">
+                  <span id="contactBtnText">Send message</span>
+                  <span id="contactSpinner" class="hidden" aria-hidden="true">⟳</span>
+                </button>
+                <p class="help">Secure submit. No email app required.</p>
+              </div>
+
+              <div id="contactStatus" class="status hidden" aria-live="polite"></div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .contact {
+      background:
+        radial-gradient(900px 420px at 20% 0%, rgba(37,99,235,.08), transparent 60%),
+        radial-gradient(900px 420px at 80% 10%, rgba(99,102,241,.10), transparent 55%);
+    }
+
+    .hidden { display: none !important; }
+
+    /* BaseLayout already adds vertical padding; keep Contact page balanced */
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 64px 24px 76px; }
+
+    .hero { max-width: 78ch; margin: 0 auto 28px; text-align: center; position: relative; z-index: 1; }
+
+    .hero .badgeRow {
+      justify-content: center;
+      margin: 0 0 14px;
+      flex-wrap: wrap;
+    }
+
+    .grid {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+      .grid { grid-template-columns: 380px 1fr; }
+      /* Keep the sidebar from sliding under the sticky header */
+      .side { position: sticky; top: 112px; }
+    }
+
+    .card {
+      border: 1px solid rgba(17,24,39,.10);
+      border-radius: 22px;
+      padding: 22px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 18px 48px rgba(2,6,23,.08);
+    }
+
+    .soft { background: rgba(16,24,40,.03); }
+    .pro { border-color: rgba(37,99,235,.28); background: rgba(37,99,235,.08); }
+
+    .list { margin: 12px 0 0; padding-left: 18px; line-height: 1.7; }
+    .list li { margin: 8px 0; }
+
+    .kv { display: grid; gap: 10px; margin-top: 12px; }
+    .kv span { color: #64748b; font-size: 13px; }
+
+    .hint, .help, .muted {
+      color: #64748b;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .form { margin-top: 14px; display: grid; gap: 14px; }
+    .field { display: grid; gap: 6px; }
+    .row2 { display: grid; gap: 14px; }
+    @media (min-width: 640px) { .row2 { grid-template-columns: 1fr 1fr; } }
+
+    input, select, textarea {
+      border: 1px solid rgba(17,24,39,.16);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 14px;
+      background: rgba(255,255,255,.95);
+    }
+
+    textarea { resize: vertical; min-height: 160px; }
+
+    .actions { display: flex; gap: 16px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
+
+    .btnPrimary {
+      border-radius: 14px;
+      padding: 12px 20px;
+      font-weight: 900;
+      background: linear-gradient(180deg,#2563eb,#1d4ed8);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btnPrimary:disabled {
+      opacity: 0.66;
+      cursor: not-allowed;
+    }
+
+    .status {
+      margin-top: 6px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(17,24,39,.12);
+      font-size: 13px;
+      line-height: 1.6;
+      background: rgba(255,255,255,.9);
+      color: #111827;
+    }
+
+    .status.info {
+      border-color: rgba(59,130,246,.26);
+      background: rgba(59,130,246,.08);
+      color: #1e3a8a;
+    }
+
+    .status.success {
+      border-color: rgba(16,185,129,.3);
+      background: rgba(16,185,129,.09);
+      color: #065f46;
+    }
+
+    .status.error {
+      border-color: rgba(239,68,68,.3);
+      background: rgba(239,68,68,.08);
+      color: #991b1b;
+    }
+
+    input[name="company_website"] {
+      position: absolute !important;
+      left: -9999px !important;
+      top: auto !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  </style>
+
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const statusEl = document.getElementById('contactStatus');
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      const btnText = document.getElementById('contactBtnText');
+      const spinner = document.getElementById('contactSpinner');
+      const intentSelect = document.getElementById('intent');
+      const requestIdInput = document.getElementById('request_id');
+
+      const apiBaseRaw = (form.dataset.apiBase || '').trim();
+      const apiBase = apiBaseRaw.replace(/\/$/, '');
+      const supportEmail = (form.dataset.supportEmail || 'hello@erainai.com').trim();
+      const configuredPath = (form.dataset.contactPath || '/contact').trim();
+      const normalizedConfiguredPath = configuredPath.startsWith('/') ? configuredPath : `/${configuredPath}`;
+      const contactPaths = [...new Set([normalizedConfiguredPath, '/contact', '/contact/submit', '/inquiries'])];
+
+      function setLoading(isLoading) {
+        if (submitBtn instanceof HTMLButtonElement) submitBtn.disabled = isLoading;
+        if (btnText) btnText.textContent = isLoading ? 'Sending…' : 'Send message';
+        if (spinner) spinner.classList.toggle('hidden', !isLoading);
+      }
+
+      function setStatus(type, message) {
+        if (!statusEl) return;
+        statusEl.classList.remove('hidden', 'info', 'success', 'error');
+        statusEl.classList.add(type);
+        statusEl.textContent = message;
+      }
+
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('upgrade') === 'pro' && intentSelect instanceof HTMLSelectElement) {
+          intentSelect.value = 'upgrade_existing';
+        }
+        const requestId = params.get('request_id');
+        if (requestId && requestIdInput instanceof HTMLInputElement) {
+          requestIdInput.value = requestId;
+        }
+      } catch (_) {}
+
+      if (!apiBase) {
+        if (submitBtn instanceof HTMLButtonElement) submitBtn.disabled = true;
+        setStatus('error', `Contact service is temporarily unavailable. Please email ${supportEmail}.`);
+        return;
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = Object.fromEntries(new FormData(form).entries());
+        if (formData.company_website) {
+          setStatus('error', 'Submission blocked.');
+          return;
+        }
+
+        const message = String(formData.message || '').trim();
+        if (!message) {
+          setStatus('error', 'Please add a short message before submitting.');
+          return;
+        }
+
+        const payload = {
+          intent: String(formData.intent || 'general_inquiry'),
+          contact: {
+            name: String(formData.name || '').trim(),
+            email: String(formData.email || '').trim(),
+            phone: String(formData.phone || '').trim(),
+          },
+          company: String(formData.company || '').trim(),
+          request_id: String(formData.request_id || '').trim() || null,
+          message,
+          source: 'website_contact',
+          submitted_at_utc: new Date().toISOString(),
+          page: window.location.pathname,
+        };
+
+        if (!payload.contact.name || !payload.contact.email) {
+          setStatus('error', 'Name and email are required.');
+          return;
+        }
+
+        setLoading(true);
+        setStatus('info', 'Sending your message…');
+
+        try {
+          let successPayload = null;
+          let submitted = false;
+          let lastError = '';
+
+          for (const path of contactPaths) {
+            try {
+              const response = await fetch(`${apiBase}${path}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+              });
+
+              if (response.status === 404) {
+                continue;
+              }
+
+              if (!response.ok) {
+                lastError = await response.text().catch(() => '');
+                break;
+              }
+
+              successPayload = await response.json().catch(() => null);
+              submitted = true;
+              break;
+            } catch (error) {
+              lastError = error instanceof Error ? error.message : String(error);
+            }
+          }
+
+          if (!submitted) {
+            throw new Error(lastError || 'Unable to submit contact request.');
+          }
+
+          const reference = successPayload?.request_id || successPayload?.id || successPayload?.reference_id || null;
+          if (reference) {
+            setStatus('success', `Message sent. Reference: ${reference}. Our team will contact you shortly.`);
+          } else {
+            setStatus('success', 'Message sent. Our team will contact you shortly.');
+          }
+
+          form.reset();
+        } catch (_) {
+          setStatus('error', `Could not submit right now. Please email ${supportEmail}.`);
+        } finally {
+          setLoading(false);
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

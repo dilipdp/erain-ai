@@ -1,0 +1,53 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 220 >>
+stream
+BT
+/F1 18 Tf
+72 780 Td
+(EraIn AI - Sample Report) Tj
+/F1 12 Tf
+72 740 Td
+(This is a placeholder PDF for website launch.) Tj
+72 720 Td
+(Replace with real sample report before going public.) Tj
+72 680 Td
+(Contents include:) Tj
+72 660 Td
+(- Executive summary) Tj
+72 640 Td
+(- Findings and cost leaks) Tj
+72 620 Td
+(- Recommendations) Tj
+72 600 Td
+(- ROI and 30/60/90 day roadmap) Tj
+72 560 Td
+(Contact: hello@erainai.com | WhatsApp: +91 99860 06006) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f
+0000000010 00000 n
+0000000060 00000 n
+0000000117 00000 n
+0000000250 00000 n
+0000000520 00000 n
+trailer
+<< /Root 1 0 R /Size 6 >>
+startxref
+590
+%%EOF

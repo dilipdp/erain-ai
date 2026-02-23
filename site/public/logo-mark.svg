@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="EraIn AI mark">
+  <rect x="16" y="16" width="224" height="224" rx="44" fill="#0B1220"/>
+  <rect x="76" y="78" width="26" height="100" rx="10" fill="#FFFFFF"/>
+  <rect x="102" y="78" width="86" height="22" rx="11" fill="#FFFFFF"/>
+  <rect x="102" y="117" width="72" height="22" rx="11" fill="#FFFFFF"/>
+  <rect x="102" y="156" width="86" height="22" rx="11" fill="#FFFFFF"/>
+  <circle cx="196" cy="62" r="10" fill="#2563EB"/>
+</svg>

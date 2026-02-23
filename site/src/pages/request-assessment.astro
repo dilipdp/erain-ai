@@ -1,0 +1,558 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL;
+const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com";
+---
+
+<BaseLayout
+  title="Request EraIn Audit AI™ — Profitability Assessment"
+  description="Request EraIn Audit AI™ — an audit-first profitability assessment to uncover cost leaks, quantify impact, and deliver an executive-ready plan."
+>
+  <section class="page">
+    <div class="erainGrid">
+      <!-- Left: Value proposition -->
+      <div>
+        <div class="badgeRow">
+          <span class="badge">7–10 days</span>
+          <span class="badge badgeSoft">Leak detection</span>
+          <span class="badge badgeSoft">Executive-ready PDF</span>
+        </div>
+
+        <div class="kicker">EraIn Audit AI™</div>
+        <h1 class="h1">Profitability audit that becomes an execution plan.</h1>
+        <p class="lead">
+          Share a few details. We’ll run EraIn Audit AI™ to identify where value is leaking, what to fix first, and what impact to expect —
+          delivered as an executive-ready audit report within <strong>7–10 days</strong>.
+        </p>
+
+        <div class="section">
+          <div class="grid" style="gap:14px">
+            <div class="card">
+              <h2 class="h2">What you get</h2>
+              <ul class="muted bulletList">
+                <li>Hidden cost leaks across operations, quality, and decision flow</li>
+                <li>ROI-ranked fixes with confidence level and expected impact</li>
+                <li>30 / 60 / 90-day recovery roadmap with owners and cadence</li>
+              </ul>
+            </div>
+
+            <div class="card cardSoft">
+              <h2 class="h2">Next steps</h2>
+              <p class="muted">
+                Submit the form and we’ll follow up by email. If you want to share context (P&amp;L, process notes, SOPs, reports), send them to
+                <strong style="color:var(--primary)">{supportEmail}</strong>.
+              </p>
+            </div>
+
+            <div class="trustRow">
+              <div class="trustPill">
+                <span class="trustDot" aria-hidden="true"></span><span>Privacy-first • No spam</span>
+              </div>
+              <div class="trustPill">
+                <span class="trustDot" aria-hidden="true"></span><span>Exec-ready PDF</span>
+              </div>
+              <div class="trustPill">
+                <span class="trustDot" aria-hidden="true"></span><span>7–10 days delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form card -->
+      <div class="formCol">
+        <div class="card" style="padding:24px; box-shadow: var(--shadow-sm), 0 24px 60px rgba(2,6,23,0.08)">
+          <div class="badgeRow" style="margin-bottom:10px">
+            <span class="badge">~60 sec</span>
+            <span class="badge badgeSoft">Private</span>
+            <span class="badge badgeSoft">PDF</span>
+          </div>
+
+          <h2 class="h2" style="margin-bottom:6px">Business Details</h2>
+          <p class="muted" style="margin:0 0 14px">
+            Takes ~60 seconds. Your data stays private. You’ll receive an executive-ready PDF.
+          </p>
+
+          <form
+            id="auditForm"
+            class="form"
+            data-api-base={apiBase}
+            data-support-email={supportEmail}
+            data-is-dev={import.meta.env.DEV ? "1" : "0"}
+          >
+            <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="hidden" />
+
+            <!-- Contact -->
+            <div class="card cardSoft" style="padding:18px">
+              <div class="kicker" style="margin-bottom:10px">Contact</div>
+              <div class="grid2">
+                <div class="field">
+                  <label class="label" for="contact_name">Your Name *</label>
+                  <input id="contact_name" name="contact_name" required placeholder="e.g., Dilip" autocomplete="name" class="input" />
+                </div>
+                <div class="field">
+                  <label class="label" for="contact_city">City</label>
+                  <input id="contact_city" name="contact_city" placeholder="e.g., Bengaluru" class="input" />
+                </div>
+                <div class="field">
+                  <label class="label" for="contact_phone">Phone *</label>
+                  <input
+                    id="contact_phone"
+                    name="contact_phone"
+                    required
+                    placeholder="e.g., +91 90000 00000"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    class="input"
+                  />
+                </div>
+                <div class="field">
+                  <label class="label" for="contact_email">Email *</label>
+                  <input id="contact_email" name="contact_email" type="email" required placeholder="e.g., you@company.com" autocomplete="email" class="input" />
+                </div>
+                <div class="field" style="grid-column:1/-1">
+                  <label class="label" for="contact_state">State</label>
+                  <input id="contact_state" name="contact_state" placeholder="e.g., Karnataka" class="input" />
+                </div>
+              </div>
+              <p class="help">We’ll use this to reach you about the report.</p>
+            </div>
+
+            <!-- Company -->
+            <div class="card cardSoft" style="padding:18px">
+              <div class="kicker" style="margin-bottom:10px">Company</div>
+              <div class="grid" style="gap:14px">
+                <div class="field">
+                  <label class="label" for="company_name">Company Name *</label>
+                  <input
+                    id="company_name"
+                    name="company_name"
+                    required
+                    placeholder="e.g., ABC Manufacturing Pvt Ltd"
+                    autocomplete="organization"
+                    class="input"
+                  />
+                </div>
+                <div class="grid2">
+                  <div class="field">
+                    <label class="label" for="industry">Industry *</label>
+                    <input id="industry" name="industry" required placeholder="Manufacturing / Retail / Logistics" class="input" />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="employee_count">Employee Count *</label>
+                    <input
+                      id="employee_count"
+                      name="employee_count"
+                      type="number"
+                      required
+                      min="1"
+                      inputmode="numeric"
+                      placeholder="e.g., 120"
+                      class="input"
+                    />
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label" for="annual_revenue_inr">Annual Revenue (INR) *</label>
+                  <input
+                    id="annual_revenue_inr"
+                    name="annual_revenue_inr"
+                    type="number"
+                    required
+                    min="0"
+                    inputmode="numeric"
+                    placeholder="e.g., 250000000"
+                    class="input"
+                  />
+                  <p class="help">Approximate is fine. Helps estimate ROI.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Operations -->
+            <div class="card cardSoft" style="padding:18px">
+              <div class="kicker" style="margin-bottom:10px">Operations</div>
+              <div class="grid" style="gap:14px">
+                <div class="field">
+                  <label class="label" for="major_processes">Major Processes</label>
+                  <textarea
+                    id="major_processes"
+                    name="major_processes"
+                    rows="3"
+                    placeholder="Procurement, Production, Quality, Dispatch"
+                    class="input textarea"
+                  ></textarea>
+                </div>
+                <div class="field">
+                  <label class="label" for="known_issues">Known Issues / Pain Points</label>
+                  <textarea
+                    id="known_issues"
+                    name="known_issues"
+                    rows="3"
+                    placeholder="High rejection rate, downtime, procurement delays"
+                    class="input textarea"
+                  ></textarea>
+                </div>
+                <div class="field">
+                  <label class="label" for="systems_used">Systems Used (ERP, Excel, etc.)</label>
+                  <input id="systems_used" name="systems_used" placeholder="Excel, Tally, SAP, Zoho" class="input" />
+                </div>
+              </div>
+              <p class="help">Optional, but improves accuracy of findings.</p>
+            </div>
+
+            <div class="actions" style="margin-top:6px">
+              <button id="submitBtn" type="submit" class="btn btnPrimary" style="min-width:220px">
+                <span id="btnText">Run EraIn Audit AI™</span>
+                <span
+                  id="btnSpinner"
+                  class="hidden"
+                  aria-hidden="true"
+                  style="width:16px;height:16px;border-radius:999px;border:2px solid rgba(255,255,255,.55);border-top-color:#fff;display:inline-block;animation:erainspin 1s linear infinite"
+                ></span>
+              </button>
+              <a class="btn btnGhost" href="/pricing">See pricing</a>
+            </div>
+
+            <p class="help" style="margin-top:4px">
+              Takes ~60 seconds • 7–10 days delivery • Executive-ready report
+            </p>
+            <p class="help" style="margin-top:-2px">
+              By submitting, you agree we may contact you about this assessment.
+            </p>
+
+            <div id="statusWrap" class="hidden card" style="padding:16px" aria-live="polite">
+              <p id="status" class="muted" style="margin:0; font-size:14px"></p>
+              <div class="grid2" style="margin-top:12px">
+                <a id="pdfLink" class="btn" href="#" target="_blank" rel="noreferrer">Download PDF</a>
+                <button id="copyBtn" type="button" class="btn">Copy Request ID</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes erainspin { to { transform: rotate(360deg) } }
+
+    /* Larger, cleaner bullets + stronger lead typography */
+    .bulletList{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 10px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 1024px){
+      .bulletList{ font-size: 15.5px; }
+    }
+
+    .page .lead{
+      font-size: 18px;
+      line-height: 1.85;
+    }
+
+    /* ---------- Premium form controls (force Apple-grade look) ---------- */
+    #auditForm :where(input, textarea, select, button) {
+      font: inherit;
+      color: inherit;
+    }
+
+    #auditForm :where(input, textarea, select) {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    #auditForm .label {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: rgba(11, 18, 32, 0.92);
+    }
+
+    #auditForm .input {
+      width: 100%;
+      border: 1px solid rgba(2, 6, 23, 0.14);
+      border-radius: 16px;
+      padding: 13px 14px;
+      font-size: 14px;
+      line-height: 1.35;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow:
+        0 1px 1px rgba(2, 6, 23, 0.04),
+        0 10px 22px rgba(2, 6, 23, 0.06);
+      transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+    }
+
+    #auditForm .input::placeholder {
+      color: rgba(100, 116, 139, 0.85);
+    }
+
+    #auditForm .input:focus {
+      border-color: rgba(37, 99, 235, 0.55);
+      box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.14),
+        0 18px 38px rgba(2, 6, 23, 0.10);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    #auditForm textarea.input {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    #auditForm select.input {
+      background-image:
+        linear-gradient(45deg, transparent 50%, rgba(15, 23, 42, 0.55) 50%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.55) 50%, transparent 50%);
+      background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      padding-right: 40px;
+    }
+
+    /* Make section cards feel like the right-side premium panel */
+    #auditForm .card.cardSoft {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: rgba(2, 6, 23, 0.10);
+      box-shadow:
+        0 1px 2px rgba(2, 6, 23, 0.04),
+        0 18px 44px rgba(2, 6, 23, 0.06);
+    }
+
+    /* Improve internal spacing and readability */
+    #auditForm .kicker {
+      color: rgba(37, 99, 235, 0.78);
+    }
+
+    #auditForm .help {
+      color: rgba(17, 24, 39, 0.58);
+      font-size: 12px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    /* Mobile: reduce sticky constraints and keep the form comfy */
+    @media (max-width: 420px) {
+      #auditForm .input {
+        border-radius: 14px;
+        padding: 12px 12px;
+      }
+    }
+
+    .erainGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 34px;
+      align-items: start;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 1024px){
+      .erainGrid{
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+        gap: 44px;
+      }
+    }
+
+    .formCol{
+      width: 100%;
+      max-width: 560px;
+      margin-left: auto;
+      position: sticky;
+      top: 96px;
+      align-self: start;
+    }
+
+    @media (max-width: 1023px){
+      .formCol{
+        position: static;
+        top: auto;
+        max-width: 860px;
+        margin-left: 0;
+      }
+    }
+
+    .trustRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 12px;
+    }
+
+    .trustPill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      color: rgba(17, 24, 39, 0.62);
+      border: 1px solid rgba(17, 24, 39, 0.10);
+      background: rgba(255, 255, 255, 0.86);
+      border-radius: 999px;
+      padding: 7px 10px;
+    }
+
+    .trustDot{
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.9);
+      flex: 0 0 auto;
+    }
+
+    /* Honeypot must never be visible */
+    input[name="company_website"]{
+      position:absolute !important;
+      left:-9999px !important;
+      top:auto !important;
+      width:1px !important;
+      height:1px !important;
+      overflow:hidden !important;
+      opacity:0 !important;
+      pointer-events:none !important;
+    }
+  </style>
+
+  <script>
+    (function () {
+      const form = document.getElementById("auditForm");
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const btn = document.getElementById("submitBtn");
+      const btnText = document.getElementById("btnText");
+      const spinner = document.getElementById("btnSpinner");
+
+      const statusWrap = document.getElementById("statusWrap");
+      const status = document.getElementById("status");
+      const pdfLink = document.getElementById("pdfLink");
+      const copyBtn = document.getElementById("copyBtn");
+
+      const apiBaseRaw = (form.dataset.apiBase || "").trim();
+      const apiBase = apiBaseRaw.replace(/\/$/, "");
+      const supportEmail = (form.dataset.supportEmail || "hello@erainai.com").trim();
+
+      function setLoading(isLoading) {
+        if (btn instanceof HTMLButtonElement) btn.disabled = isLoading;
+        if (spinner) spinner.classList.toggle("hidden", !isLoading);
+        if (btnText) btnText.textContent = isLoading ? "Generating…" : "Run EraIn Audit AI™";
+      }
+
+      function setStatus(type, msg, requestId) {
+        if (!statusWrap || !status || !pdfLink || !copyBtn) return;
+
+        statusWrap.classList.remove("hidden");
+        statusWrap.style.borderColor = "rgba(17,24,39,0.10)";
+        statusWrap.style.background = "rgba(255,255,255,0.92)";
+
+        if (type === "success") {
+          status.className = "muted";
+
+          const pdfUrl = window.__lastPdfPath ? `${apiBase}${window.__lastPdfPath}` : "#";
+          pdfLink.href = pdfUrl;
+          pdfLink.textContent = "Download Audit PDF";
+          pdfLink.classList.remove("hidden");
+
+          copyBtn.classList.remove("hidden");
+          copyBtn.onclick = async () => {
+            try {
+              await navigator.clipboard.writeText(requestId);
+              copyBtn.textContent = "Copied ✓";
+              setTimeout(() => (copyBtn.textContent = "Copy Request ID"), 1500);
+            } catch (_) {
+              copyBtn.textContent = requestId;
+            }
+          };
+        } else {
+          status.className = "muted";
+          pdfLink.classList.add("hidden");
+          copyBtn.classList.add("hidden");
+        }
+
+        status.textContent = msg;
+      }
+
+      if (!apiBase) {
+        setStatus("error", `Assessment service is unavailable. Please email ${supportEmail}.`);
+        if (btn instanceof HTMLButtonElement) btn.disabled = true;
+        return;
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setStatus("info", "Submitting your details…");
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        if (data.company_website) {
+          setStatus("error", "Submission blocked.");
+          setLoading(false);
+          return;
+        }
+
+        const payload = {
+          contact: {
+            name: data.contact_name || "",
+            phone: data.contact_phone || "",
+            email: data.contact_email || "",
+            city: data.contact_city || "",
+            state: data.contact_state || "",
+          },
+          business: {
+            company_name: data.company_name,
+            industry: data.industry,
+            employee_count: Number(data.employee_count),
+            annual_revenue_inr: Number(data.annual_revenue_inr),
+          },
+          operations: {
+            major_processes: data.major_processes || "",
+            known_issues: data.known_issues || "",
+            systems_used: data.systems_used || "",
+          },
+        };
+
+        try {
+          const res = await fetch(`${apiBase}/audit`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!res.ok) throw new Error("API error");
+
+          const json = await res.json();
+          window.__lastPdfPath = json.pdf_path || "";
+          setStatus(
+            "success",
+            `Request received. Request ID: ${json.request_id}. We’ll email next steps shortly.`,
+            json.request_id
+          );
+
+          try {
+            localStorage.setItem("ERAIN_LAST_REQUEST_ID", json.request_id);
+            if (window.gtag) {
+              window.gtag("event", "assessment_submitted", { request_id: json.request_id });
+            }
+          } catch (_) {}
+
+          const isDev = (form.dataset.isDev || "0") === "1";
+          if (isDev) {
+            setTimeout(() => {
+              window.location.href = `/admin/${json.request_id}`;
+            }, 1200);
+          }
+          form.reset();
+        } catch (_) {
+          setStatus("error", `Something went wrong. Please try again or email ${supportEmail}.`);
+        } finally {
+          setLoading(false);
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

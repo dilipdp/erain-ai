@@ -1,0 +1,281 @@
+---
+export const prerender = false;
+// Admin Command Center – pipeline overview (leads list)
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL;
+---
+
+<BaseLayout title="Admin • Leads" description="EraIn AI Admin — Leads Pipeline">
+  <section class="page">
+    <div class="container">
+      <div class="card" style="padding:22px">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap">
+          <div>
+            <div class="kicker">Admin</div>
+            <h1 class="h1" style="margin-top:8px; margin-bottom:8px">Leads Pipeline</h1>
+            <p class="muted" style="margin:0; font-size:14px; line-height:1.7">
+              This page reads leads from the Phase2 API. Set your token once in
+              <span class="badge" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">localStorage.erain_admin_token</span>.
+            </p>
+          </div>
+
+          <div class="card cardSoft" style="padding:16px; min-width:280px">
+            <div class="kicker" style="margin-bottom:10px">Quick actions</div>
+            <div style="display:flex; flex-wrap:wrap; gap:10px">
+              <a href="/" class="btn">← Back to site</a>
+              <button id="btnRefresh" class="btn btnPrimary" type="button">Refresh</button>
+            </div>
+            <div class="badgeRow" style="margin-top:12px">
+              <span class="badge badgeSoft">API</span>
+              <span class="badge" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">{apiBase}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:18px">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+          <div>
+            <div class="kicker">KPIs</div>
+            <h2 class="h2" style="margin:6px 0 0">Pipeline snapshot</h2>
+          </div>
+          <div class="badgeRow">
+            <label class="muted" for="statusFilter" style="font-size:13px">Filter</label>
+            <select id="statusFilter" class="input" style="height:40px; min-width:180px">
+              <option value="all">All</option>
+              <option value="new">New</option>
+              <option value="contacted">Contacted</option>
+              <option value="pro_offered">Pro Offered</option>
+              <option value="pro_requested">Pro Requested</option>
+              <option value="converted">Converted</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="erainKpis" style="display:grid; grid-template-columns:1fr; gap:10px; margin-top:14px">
+          <style>
+            @media (min-width: 768px){
+              .erainKpis{ grid-template-columns: repeat(5, minmax(0, 1fr)); }
+            }
+          </style>
+
+          <div class="card cardSoft" style="padding:14px">
+            <div class="kicker">Total Leads</div>
+            <div id="kpiTotal" style="font-size:22px; font-weight:800; margin-top:6px">—</div>
+          </div>
+          <div class="card cardSoft" style="padding:14px">
+            <div class="kicker">New</div>
+            <div id="kpiNew" style="font-size:22px; font-weight:800; margin-top:6px">—</div>
+          </div>
+          <div class="card cardSoft" style="padding:14px">
+            <div class="kicker">Contacted</div>
+            <div id="kpiContacted" style="font-size:22px; font-weight:800; margin-top:6px">—</div>
+          </div>
+          <div class="card cardSoft" style="padding:14px">
+            <div class="kicker">Pro Offered</div>
+            <div id="kpiProOffered" style="font-size:22px; font-weight:800; margin-top:6px">—</div>
+          </div>
+          <div class="card cardSoft" style="padding:14px">
+            <div class="kicker">Converted</div>
+            <div id="kpiConverted" style="font-size:22px; font-weight:800; margin-top:6px">—</div>
+          </div>
+        </div>
+
+        <div id="statusMessage" class="muted" style="margin-top:14px; font-size:13px"></div>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:18px">
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap">
+          <div>
+            <div class="kicker">Leads</div>
+            <h2 class="h2" style="margin:6px 0 0">Latest requests</h2>
+            <p class="muted" style="margin:8px 0 0; font-size:13px">Open a lead to see audit summary, templates, and internal notes timeline.</p>
+          </div>
+          <div class="badgeRow">
+            <span class="badge badgeSoft">Tip</span>
+            <span class="badge">Use filter to focus pipeline stage</span>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; overflow-x:auto">
+          <table class="erainTable" style="min-width:980px; width:100%; border-collapse:separate; border-spacing:0">
+            <thead>
+              <tr>
+                <th>Request ID</th>
+                <th>Company</th>
+                <th>Industry</th>
+                <th>Contact</th>
+                <th>Status</th>
+                <th>PDF</th>
+                <th>Open</th>
+              </tr>
+            </thead>
+            <tbody id="leadsTbody">
+              <tr><td class="muted" colspan="7" style="padding:14px">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <style>
+          .erainTable th{
+            text-align:left;
+            font-size:12px;
+            font-weight:700;
+            letter-spacing:0.08em;
+            text-transform:uppercase;
+            color: rgba(17,24,39,0.56);
+            padding:12px 10px;
+            border-bottom: 1px solid rgba(17,24,39,0.10);
+            white-space:nowrap;
+          }
+          .erainTable td{
+            padding:12px 10px;
+            border-bottom: 1px solid rgba(17,24,39,0.08);
+            vertical-align:top;
+          }
+          .erainTable tr:hover td{
+            background: rgba(17,24,39,0.02);
+          }
+        </style>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const apiBase = "" + import.meta.env.PUBLIC_API_BASE_URL;
+
+    function esc(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function badge(status) {
+      const s = (status || 'new').toLowerCase();
+      const label = s.replace(/_/g, ' ').toUpperCase();
+
+      const theme =
+        s === 'converted'
+          ? { bg: 'rgba(16,185,129,0.10)', fg: 'rgba(6,95,70,0.95)', bd: 'rgba(16,185,129,0.22)' }
+          : s === 'contacted'
+          ? { bg: 'rgba(59,130,246,0.10)', fg: 'rgba(30,64,175,0.95)', bd: 'rgba(59,130,246,0.22)' }
+          : s === 'pro_offered' || s === 'pro_requested'
+          ? { bg: 'rgba(168,85,247,0.10)', fg: 'rgba(88,28,135,0.95)', bd: 'rgba(168,85,247,0.22)' }
+          : { bg: 'rgba(17,24,39,0.06)', fg: 'rgba(17,24,39,0.78)', bd: 'rgba(17,24,39,0.14)' };
+
+      return `<span class="badge badgeSoft" style="background:${theme.bg}; color:${theme.fg}; border-color:${theme.bd}; font-weight:800">${label}</span>`;
+    }
+
+    function updateKPIs(list) {
+      const total = list.length;
+      const byStatus = (s) => list.filter(l => (l.status || 'new') === s).length;
+
+      const set = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = String(val);
+      };
+
+      set('kpiTotal', total);
+      set('kpiNew', byStatus('new'));
+      set('kpiContacted', byStatus('contacted'));
+      set('kpiProOffered', byStatus('pro_offered'));
+      set('kpiConverted', byStatus('converted'));
+    }
+
+    function applyFilter(list, filter) {
+      if (!filter || filter === 'all') return list;
+      return list.filter(l => (l.status || 'new') === filter);
+    }
+
+    function renderTable(list) {
+      const tbody = document.getElementById('leadsTbody');
+      if (!tbody) return;
+
+      if (!list.length) {
+        tbody.innerHTML = `<tr><td class="muted" colspan="7" style="padding:14px">No leads yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = list.map(l => {
+        const rid = esc(l.request_id);
+        const company = esc(l.business?.company_name || '—');
+        const industry = esc(l.business?.industry || '—');
+        const contact = esc(l.contact?.name || l.contact?.email || l.contact?.phone || '—');
+        const status = badge(l.status || 'new');
+        const pdfHref = l.pdf_path ? esc(l.pdf_path) : '';
+        const pdfLink = pdfHref
+          ? `<a class="btn" style="padding:8px 10px" href="${pdfHref}" target="_blank" rel="noopener">PDF</a>`
+          : `<span class="muted">—</span>`;
+
+        return `
+          <tr>
+            <td style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">${rid}</td>
+            <td>${company}</td>
+            <td>${industry}</td>
+            <td>${contact}</td>
+            <td>${status}</td>
+            <td>${pdfLink}</td>
+            <td>
+              <a class="btn btnPrimary" style="padding:8px 10px" href="/admin/${rid}">Open</a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function loadLeads() {
+      const statusMessage = document.getElementById('statusMessage');
+      const filterEl = document.getElementById('statusFilter');
+      const filter = filterEl ? filterEl.value : 'all';
+
+      try {
+        const token = localStorage.getItem('erain_admin_token') || '';
+        const res = await fetch(`${apiBase}/admin/leads`, {
+          headers: token ? { 'X-Admin-Token': token } : {},
+        });
+
+        if (res.status === 401) {
+          if (statusMessage) {
+            statusMessage.innerHTML = `
+              <span class="badge" style="background: rgba(239,68,68,0.10); color: rgba(185,28,28,0.92); border-color: rgba(239,68,68,0.22); font-weight:800">UNAUTHORIZED</span>
+              <span class="muted" style="margin-left:10px">Set <span class="badge" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">localStorage.erain_admin_token</span> then refresh.</span>
+            `;
+          }
+          renderTable([]);
+          updateKPIs([]);
+          return;
+        }
+
+        if (!res.ok) throw new Error('Failed to load leads');
+
+        const list = await res.json();
+        const all = Array.isArray(list) ? list : (list?.leads || []);
+        updateKPIs(all);
+
+        const filtered = applyFilter(all, filter);
+        renderTable(filtered);
+
+        if (statusMessage) statusMessage.textContent = '';
+      } catch (e) {
+        console.error(e);
+        if (statusMessage) {
+          statusMessage.innerHTML = `<span class="badge" style="background: rgba(239,68,68,0.10); color: rgba(185,28,28,0.92); border-color: rgba(239,68,68,0.22); font-weight:800">ERROR</span> <span class="muted" style="margin-left:10px">Failed to load leads.</span>`;
+        }
+        renderTable([]);
+        updateKPIs([]);
+      }
+    }
+
+    const btnRefresh = document.getElementById('btnRefresh');
+    const statusFilter = document.getElementById('statusFilter');
+
+    if (btnRefresh) btnRefresh.addEventListener('click', loadLeads);
+    if (statusFilter) statusFilter.addEventListener('change', loadLeads);
+
+    loadLeads();
+  </script>
+</BaseLayout>

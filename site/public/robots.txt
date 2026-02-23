@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block admin and API paths from indexing
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://erainai.com/sitemap.xml

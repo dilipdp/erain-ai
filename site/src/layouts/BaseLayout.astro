@@ -1,0 +1,716 @@
+---
+const {
+  title = 'EraIn AI — Intelligence That Runs Your Business',
+  description =
+    'EraIn builds execution-grade AI systems that audit reality, guide decisions, and drive measurable business outcomes. Start with EraIn Audit AI™.',
+  /**
+   * Layout controls (optional):
+   * - mainPadding: 'default' | 'tight' | 'none'
+   * - pageClass: extra class appended to the page wrapper
+   */
+  mainPadding = 'default',
+  pageClass = '',
+} = Astro.props;
+
+const site = (import.meta.env.SITE || 'https://erainai.com').replace(/\/$/, '');
+const canonical = new URL(Astro.url.pathname, site).href;
+const isDev = !!import.meta.env.DEV;
+
+const orgJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "EraIn AI",
+  url: site,
+  logo: `${site}/logo.svg`,
+  sameAs: [],
+});
+
+const websiteJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "EraIn AI",
+  url: site,
+});
+
+const currentPath = Astro.url.pathname;
+const isActive = (path) => currentPath === path;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0b1220" />
+    <meta name="robots" content="index,follow" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:locale" content="en_US" />
+
+    <script type="application/ld+json" is:inline>{orgJsonLd}</script>
+    <script type="application/ld+json" is:inline>{websiteJsonLd}</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EraIn AI" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${site}/og.png`} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${site}/og.png`} />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <style is:global>
+      :root {
+        /* Brand */
+        --primary: #0b1220;
+        --secondary: #111827;
+        --accent: #2563eb;
+
+        /* Neutrals */
+        --bg: #ffffff;
+        --surface: rgba(255,255,255,0.92);
+        --surface-2: rgba(16, 24, 40, 0.03);
+        --border: rgba(17, 24, 39, 0.10);
+        --muted: rgba(17, 24, 39, 0.66);
+        --muted-2: rgba(17, 24, 39, 0.74);
+
+        /* Radius / shadow */
+        --radius-lg: 20px;
+        --radius-md: 14px;
+        --radius-sm: 12px;
+        --shadow-sm: 0 1px 2px rgba(2, 6, 23, 0.06);
+        --shadow-md: 0 10px 30px rgba(2, 6, 23, 0.10);
+
+        /* Layout */
+        --container: 1200px;
+        --gutter: clamp(18px, 3vw, 28px);
+
+        /* Typography */
+        --text: rgba(2, 6, 23, 0.92);
+        --text-soft: rgba(17, 24, 39, 0.78);
+        --text-size: 16px;
+        --leading: 1.62;
+        --measure: 78ch;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: var(--text-size);
+        color: var(--text);
+        line-height: var(--leading);
+        -webkit-text-size-adjust: 100%;
+        background:
+          radial-gradient(1200px 600px at 18% -10%, rgba(37,99,235,0.10), transparent 60%),
+          radial-gradient(900px 500px at 92% 0%, rgba(15,23,42,0.06), transparent 55%),
+          var(--bg);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: geometricPrecision;
+      }
+
+      ::selection { background: rgba(37, 99, 235, 0.18); }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        text-underline-offset: 3px;
+      }
+      a:hover { text-decoration: underline; }
+
+      :focus-visible {
+        outline: 3px solid rgba(37, 99, 235, 0.22);
+        outline-offset: 2px;
+        border-radius: 10px;
+      }
+
+      .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding-left: var(--gutter);
+        padding-right: var(--gutter);
+      }
+
+      /* ---------- Header / Nav (stable alignment) ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.86);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 74px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--primary);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .brand img { display: block; }
+
+      .logo-full { height: 28px; display: block !important; }
+      .logo-mark { height: 28px; display: none !important; }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .nav-links a {
+        color: rgba(17, 24, 39, 0.72);
+        font-weight: 700;
+        font-size: 14px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(2, 6, 23, 0.04);
+        color: var(--secondary);
+        text-decoration: none;
+      }
+
+      .nav-links a.active {
+        color: var(--secondary);
+        background: rgba(2, 6, 23, 0.04);
+        position: relative;
+      }
+
+      .nav-links a.active::after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 6px;
+        height: 2px;
+        border-radius: 999px;
+        background: rgba(37, 99, 235, 0.55);
+      }
+
+      .nav-links a.cta {
+        padding: 10px 14px;
+        background: linear-gradient(180deg, rgba(37,99,235,1) 0%, rgba(29,78,216,1) 100%);
+        color: #fff;
+        border-radius: 14px;
+        font-weight: 800;
+        line-height: 1;
+        white-space: nowrap;
+        box-shadow: 0 10px 24px rgba(2, 6, 23, 0.10);
+        border: 1px solid rgba(255,255,255,0.22);
+      }
+
+      .nav-links a.cta:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+        box-shadow: 0 16px 34px rgba(2, 6, 23, 0.14);
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 74px;
+          right: 12px;
+          left: 12px;
+          background: rgba(255, 255, 255, 0.94);
+          border: 1px solid var(--border);
+          border-radius: 16px;
+          box-shadow: var(--shadow-md);
+          padding: 14px;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+          z-index: 1000;
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          transform-origin: top right;
+          transform: translateY(-6px) scale(0.98);
+          opacity: 0;
+          transition: transform 160ms ease, opacity 160ms ease;
+        }
+
+        .nav-links.open {
+          display: flex;
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+
+        .menu-toggle { display: block; }
+        .logo-full { display: none !important; }
+        .logo-mark { display: block !important; }
+
+        .nav-links a { margin: 0; padding: 12px 12px; border-radius: 14px; }
+        .nav-links a.active::after { left: 12px; right: 12px; bottom: 7px; }
+      }
+
+      /* ---------- Main / Footer ---------- */
+      /* Make layout resilient even when pages include their own containers */
+      main.main { padding: 64px 0; }
+      main.mainTight { padding: 40px 0; }
+      main.mainNoPad { padding: 0; }
+      .page {
+        padding: 0;
+        width: 100%;
+        min-width: 0;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        margin-top: 72px;
+      }
+
+      .footer {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 34px var(--gutter);
+        font-size: 14px;
+        color: rgba(107, 114, 128, 0.92);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* ---------- Content typography: opt-in only ---------- */
+      /* Use .content when you want readable long-form text measure */
+      .content {
+        max-width: var(--measure);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Use .prose when you want the typography rules but NOT the narrow measure */
+      .prose {
+        max-width: none;
+      }
+
+      .content :where(h1, h2, h3) {
+        color: var(--primary);
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+
+      .prose :where(h1, h2, h3) {
+        color: var(--primary);
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+
+      .prose :where(h1) {
+        font-size: clamp(34px, 3.6vw, 54px);
+        line-height: 1.06;
+        letter-spacing: -0.03em;
+        font-weight: 900;
+        margin-bottom: 10px;
+      }
+
+      .prose :where(h2) {
+        font-size: 24px;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+        font-weight: 800;
+        margin: 24px 0 10px;
+      }
+
+      .prose :where(h3) {
+        font-size: 18px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+        font-weight: 700;
+        margin: 18px 0 8px;
+      }
+
+      .prose :where(p) {
+        margin: 12px 0 0;
+        font-size: 16px;
+        line-height: 1.85;
+        color: var(--muted-2);
+      }
+
+      .prose :where(ul, ol) {
+        margin: 12px 0 0;
+        padding-left: 20px;
+        color: rgba(17, 24, 39, 0.76);
+      }
+
+      .prose :where(li) { margin: 6px 0; line-height: 1.8; }
+
+      .prose :where(hr) {
+        border: 0;
+        height: 1px;
+        background: rgba(17, 24, 39, 0.08);
+        margin: 22px 0;
+      }
+
+      .prose :where(code) {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.95em;
+        background: rgba(2, 6, 23, 0.04);
+        border: 1px solid rgba(2, 6, 23, 0.06);
+        padding: 2px 6px;
+        border-radius: 8px;
+      }
+
+      .prose :where(pre) {
+        overflow: auto;
+        padding: 14px;
+        border-radius: 16px;
+        border: 1px solid rgba(2, 6, 23, 0.08);
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .prose :where(pre code) { background: transparent; border: none; padding: 0; }
+
+      .prose :where(blockquote) {
+        margin: 14px 0 0;
+        padding: 12px 14px;
+        border-left: 4px solid rgba(37, 99, 235, 0.35);
+        background: rgba(37, 99, 235, 0.06);
+        border-radius: 14px;
+        color: rgba(17, 24, 39, 0.74);
+      }
+
+      .content :where(h1) {
+        font-size: clamp(34px, 3.6vw, 54px);
+        line-height: 1.06;
+        letter-spacing: -0.03em;
+        font-weight: 900;
+        margin-bottom: 10px;
+      }
+
+      .content :where(h2) {
+        font-size: 24px;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+        font-weight: 800;
+        margin: 24px 0 10px;
+      }
+
+      .content :where(h3) {
+        font-size: 18px;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+        font-weight: 700;
+        margin: 18px 0 8px;
+      }
+
+      .content :where(p) {
+        margin: 12px 0 0;
+        font-size: 16px;
+        line-height: 1.85;
+        color: var(--muted-2);
+      }
+
+      .content :where(ul, ol) {
+        margin: 12px 0 0;
+        padding-left: 20px;
+        color: rgba(17, 24, 39, 0.76);
+      }
+
+      .content :where(li) { margin: 6px 0; line-height: 1.8; }
+
+      .content :where(hr) {
+        border: 0;
+        height: 1px;
+        background: rgba(17, 24, 39, 0.08);
+        margin: 22px 0;
+      }
+
+      .content :where(code) {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.95em;
+        background: rgba(2, 6, 23, 0.04);
+        border: 1px solid rgba(2, 6, 23, 0.06);
+        padding: 2px 6px;
+        border-radius: 8px;
+      }
+
+      .content :where(pre) {
+        overflow: auto;
+        padding: 14px;
+        border-radius: 16px;
+        border: 1px solid rgba(2, 6, 23, 0.08);
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: var(--shadow-sm);
+      }
+      .content :where(pre code) { background: transparent; border: none; padding: 0; }
+
+      .content :where(blockquote) {
+        margin: 14px 0 0;
+        padding: 12px 14px;
+        border-left: 4px solid rgba(37, 99, 235, 0.35);
+        background: rgba(37, 99, 235, 0.06);
+        border-radius: 14px;
+        color: rgba(17, 24, 39, 0.74);
+      }
+
+      /* ---------- Shared UI System (keep your API stable) ---------- */
+      .section { padding: 28px 0; }
+      .section + .section { border-top: 1px solid rgba(17, 24, 39, 0.06); }
+
+      .kicker {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(17, 24, 39, 0.62);
+      }
+
+      .h1 {
+        margin: 10px 0 0;
+        font-size: clamp(34px, 3.6vw, 54px);
+        line-height: 1.05;
+        font-weight: 900;
+        color: var(--primary);
+        letter-spacing: -0.03em;
+      }
+
+      .h2 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.25;
+        font-weight: 800;
+        color: var(--primary);
+        letter-spacing: -0.02em;
+      }
+
+      .lead {
+        margin: 14px 0 0;
+        font-size: 18px;
+        line-height: 1.85;
+        color: rgba(17, 24, 39, 0.72);
+        max-width: 72ch;
+      }
+
+      .muted { color: rgba(17, 24, 39, 0.64); }
+
+      .badgeRow { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 14px; }
+      .badge {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--primary);
+        border: 1px solid rgba(16, 24, 40, 0.14);
+        background: rgba(255, 255, 255, 0.86);
+        padding: 6px 10px;
+        border-radius: 999px;
+      }
+      .badgeSoft { color: #334155; background: rgba(16, 24, 40, 0.04); }
+
+      .card {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: var(--shadow-sm), 0 18px 36px rgba(2, 6, 23, 0.06);
+      }
+      .cardSoft { background: rgba(16, 24, 40, 0.03); }
+      .cardPro { border-color: rgba(37, 99, 235, 0.26); background: rgba(37, 99, 235, 0.06); }
+
+      .grid { display: grid; gap: 18px; }
+      .grid2 { display: grid; gap: 14px; grid-template-columns: 1fr; }
+      @media (min-width: 720px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        margin-top: 6px;
+      }
+      @media (min-width: 640px) {
+        .actions { flex-direction: row; align-items: center; gap: 14px; }
+      }
+
+      .btn {
+        border-radius: 14px;
+        padding: 12px 18px;
+        font-size: 14px;
+        font-weight: 800;
+        cursor: pointer;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid rgba(17, 24, 39, 0.12);
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--primary);
+        box-shadow: 0 12px 22px rgba(2, 6, 23, 0.06);
+        transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, border-color 140ms ease;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        text-decoration: none;
+        box-shadow: 0 18px 28px rgba(2, 6, 23, 0.10);
+        border-color: rgba(17, 24, 39, 0.18);
+      }
+
+      .btnPrimary {
+        background: linear-gradient(180deg, rgba(37,99,235,1) 0%, rgba(29,78,216,1) 100%);
+        color: #fff;
+        border-color: rgba(255,255,255,0.22);
+        box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
+      }
+      .btnPrimary:hover { box-shadow: 0 18px 36px rgba(37, 99, 235, 0.30); }
+
+      .btnGhost { background: transparent; box-shadow: none; }
+
+      .divider { height: 1px; background: rgba(17, 24, 39, 0.08); border: 0; }
+
+      @media (prefers-reduced-motion: reduce) {
+        * { scroll-behavior: auto !important; }
+        .btn, .nav-links a { transition: none !important; }
+      }
+    </style>
+  </head>
+
+  <body data-dev={isDev ? '1' : '0'}>
+    <header>
+      <nav class="nav container">
+        <a href="/" class="brand" aria-label="EraIn AI">
+          <img class="logo-full" src="/logo.svg" alt="EraIn AI" />
+          <img class="logo-mark" src="/logo-mark.svg" alt="EraIn AI" />
+        </a>
+
+        <button
+          id="menuBtn"
+          type="button"
+          class="menu-toggle"
+          aria-label="Toggle menu"
+          aria-controls="navLinks"
+          aria-expanded="false"
+        >☰</button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="/solutions" class={isActive('/solutions') ? 'active' : ''} aria-current={isActive('/solutions') ? 'page' : undefined}>Solutions</a>
+          <a href="/industries" class={isActive('/industries') ? 'active' : ''} aria-current={isActive('/industries') ? 'page' : undefined}>Industries</a>
+          <a href="/pricing" class={isActive('/pricing') ? 'active' : ''} aria-current={isActive('/pricing') ? 'page' : undefined}>Pricing</a>
+          <a href="/sample-report" class={isActive('/sample-report') ? 'active' : ''} aria-current={isActive('/sample-report') ? 'page' : undefined}>Sample Report</a>
+          <a href="/contact" class={isActive('/contact') ? 'active' : ''} aria-current={isActive('/contact') ? 'page' : undefined}>Contact</a>
+          <a href="/request-assessment" class={`cta ${isActive('/request-assessment') ? 'active' : ''}`} aria-current={isActive('/request-assessment') ? 'page' : undefined}>Start Free AI Audit</a>
+          <a id="adminNav" href="/admin" class={isActive('/admin') ? 'active' : ''} aria-current={isActive('/admin') ? 'page' : undefined} style="display:none">Admin</a>
+        </div>
+      </nav>
+    </header>
+
+    <main
+      class={
+        mainPadding === 'none'
+          ? 'main mainNoPad'
+          : mainPadding === 'tight'
+            ? 'main mainTight'
+            : 'main'
+      }
+    >
+      <div class="container">
+        <!-- IMPORTANT: keep BaseLayout neutral; pages can opt-in to .content/.prose typography if needed -->
+        <div class={`page ${pageClass}`.trim()}>
+          <slot />
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer">
+        <div><strong>EraIn AI</strong> — Profitability AI for Businesses</div>
+        <div>Audit-first intelligence • Execution discipline • Measurable outcomes</div>
+        <div>Email: hello@erainai.com</div>
+        <div><a href="/request-assessment">Start Free AI Audit</a> • <a href="/pricing">See Pricing</a> • <a href="/legal">Legal</a></div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        function $(id) { return document.getElementById(id); }
+
+        // Mobile menu: accessible toggle + close on outside click / Escape / link click
+        try {
+          const btn = $("menuBtn");
+          const links = $("navLinks");
+          if (btn && links) {
+            const isOpen = () => links.classList.contains("open");
+            const setExpanded = (v) => btn.setAttribute("aria-expanded", v ? "true" : "false");
+            const open = () => { links.classList.add("open"); setExpanded(true); };
+            const close = () => { links.classList.remove("open"); setExpanded(false); };
+            const toggle = () => (isOpen() ? close() : open());
+
+            btn.addEventListener("click", (e) => { e.preventDefault(); toggle(); });
+
+            document.addEventListener("click", (e) => {
+              if (!isOpen()) return;
+              const t = e.target;
+              if (!(t instanceof Node)) return;
+              if (links.contains(t) || btn.contains(t)) return;
+              close();
+            });
+
+            document.addEventListener("keydown", (e) => {
+              if (e.key === "Escape" && isOpen()) close();
+            });
+
+            links.addEventListener("click", (e) => {
+              const t = e.target;
+              if (!(t instanceof HTMLElement)) return;
+              if (t.closest("a")) close();
+            });
+          }
+        } catch (_) {}
+
+        // Admin nav visibility: convenience only (never security)
+        try {
+          const isDev = document.body?.dataset?.dev === "1";
+          const tok = localStorage.getItem("ERAIN_ADMIN_TOKEN") || localStorage.getItem("erain_admin_token");
+          const el = $("adminNav");
+          if (el && (isDev || (tok && tok.length > 0))) el.style.display = "";
+        } catch (_) {}
+      })();
+    </script>
+  </body>
+</html>
