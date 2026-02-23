@@ -120,7 +120,7 @@ layout: ../layouts/BaseLayout.astro
 
 <div class="btn-row">
   <a class="btn btnPrimary" href="/sample-report.pdf" download data-track="sample_report_pdf_download">Download Sample Audit (PDF)</a>
-  <a class="btn" href="/request-assessment">Request Free AI Audit</a>
+  <a class="btn" href="/request-assessment" data-track="sample_report_request_audit">Request Free AI Audit</a>
 </div>
 
 ---

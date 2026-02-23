@@ -19,9 +19,9 @@ Built for serious teams that require auditability, decision governance, and clea
 </p>
 
 <div class="btn-row" aria-label="Primary actions">
-<a class="btn btnPrimary" href="/request-assessment">Start Free AI Audit</a>
-<a class="btn" href="/sample-report">View Sample Report</a>
-<a class="btn btnGhost" href="/pricing">See Pricing</a>
+<a class="btn btnPrimary" href="/request-assessment" data-track="home_hero_start_audit">Start Free AI Audit</a>
+<a class="btn" href="/sample-report" data-track="home_hero_view_sample">View Sample Report</a>
+<a class="btn btnGhost" href="/pricing" data-track="home_hero_see_pricing">See Pricing</a>
 </div>
 
 <div class="proofStrip" aria-label="EraIn proof pillars">
@@ -233,6 +233,40 @@ and operating outcomes leadership could verify each month.
 </div>
 </section>
 
+<section class="proofLedger" aria-label="Proof release ledger">
+<div class="proofLedgerHead">
+<div class="proofLedgerKicker">Proof Release Ledger</div>
+<h2 class="h2 proofLedgerTitle">Verification posture for launch-stage client proof.</h2>
+<p class="proofLedgerLead">
+We publish only approved case evidence. Until a client permits public disclosure, we share anonymized metrics and
+retain traceable evidence packs internally with owner sign-off and review date.
+</p>
+</div>
+
+<div class="proofLedgerTable" role="table" aria-label="Proof release matrix">
+<div class="proofLedgerRow proofLedgerRowHead" role="row">
+<div class="proofLedgerCell" role="columnheader">Evidence Pack</div>
+<div class="proofLedgerCell" role="columnheader">Current State</div>
+<div class="proofLedgerCell" role="columnheader">Verification Metadata</div>
+</div>
+<div class="proofLedgerRow" role="row">
+<div class="proofLedgerCell" role="cell">Industrial multi-site recovery</div>
+<div class="proofLedgerCell" role="cell">Anonymized release active</div>
+<div class="proofLedgerCell" role="cell">Reviewed: 2026-02-23 · Owner: Delivery Governance Lead</div>
+</div>
+<div class="proofLedgerRow" role="row">
+<div class="proofLedgerCell" role="cell">Logistics decision-governance sprint</div>
+<div class="proofLedgerCell" role="cell">Client naming pending approval</div>
+<div class="proofLedgerCell" role="cell">Reviewed: 2026-02-23 · Owner: Program Operations</div>
+</div>
+<div class="proofLedgerRow" role="row">
+<div class="proofLedgerCell" role="cell">Enterprise attribution deployment</div>
+<div class="proofLedgerCell" role="cell">Internal evidence complete</div>
+<div class="proofLedgerCell" role="cell">Reviewed: 2026-02-23 · Owner: Impact AI Office</div>
+</div>
+</div>
+</section>
+
 <div class="homeProse prose">
 
 ## What EraIn is
@@ -364,7 +398,7 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 ## Start with truth
 
 <div class="btn-row">
-  <a class="btn btnPrimary" href="/request-assessment">Request Your Free AI Audit</a>
+  <a class="btn btnPrimary" href="/request-assessment" data-track="home_bottom_request_audit">Request Your Free AI Audit</a>
 </div>
 
 </div>
@@ -989,6 +1023,88 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   font-weight: 760;
 }
 
+.proofLedger{
+  max-width: 1260px;
+  margin: 14px auto 0;
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.94) 0%,
+      rgba(245,250,255,0.88) 58%,
+      rgba(241,248,255,0.86) 100%
+    );
+  box-shadow: 0 20px 54px rgba(2, 10, 32, 0.12);
+  padding: 18px;
+}
+
+.proofLedgerHead{
+  max-width: 92ch;
+}
+
+.proofLedgerKicker{
+  display: inline-flex;
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 999px;
+  background: rgba(16, 24, 40, 0.04);
+  color: rgba(7, 20, 48, 0.86);
+  padding: 7px 11px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.proofLedgerTitle{
+  margin-top: 10px;
+  color: rgba(7, 20, 48, 0.95);
+  font-size: clamp(28px, 3vw, 38px);
+  letter-spacing: -0.03em;
+}
+
+.proofLedgerLead{
+  margin-top: 10px;
+  color: rgba(17, 24, 39, 0.70);
+  line-height: 1.72;
+  font-size: 15px;
+  max-width: 90ch;
+}
+
+.proofLedgerTable{
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.proofLedgerRow{
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(11, 31, 66, 0.12);
+  border-radius: 16px;
+  padding: 10px 11px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.proofLedgerRowHead{
+  background: rgba(16, 24, 40, 0.04);
+}
+
+.proofLedgerCell{
+  color: rgba(17, 24, 39, 0.72);
+  font-size: 13px;
+  line-height: 1.56;
+}
+
+.proofLedgerRowHead .proofLedgerCell{
+  color: rgba(7, 20, 48, 0.88);
+  font-weight: 860;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
 @keyframes impactPulse{
   0% { filter: brightness(0.92); }
   50% { filter: brightness(1.06); }
@@ -1122,6 +1238,11 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 
   .caseStudioGrid{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .proofLedgerRow{
+    grid-template-columns: 0.9fr 0.9fr 1.2fr;
+    align-items: start;
   }
 }
 
