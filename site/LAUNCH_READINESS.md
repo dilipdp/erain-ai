@@ -14,6 +14,8 @@ bash /Users/dilipbr/Projects/erain-ai/site/scripts/p2_device_browser_matrix_gate
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p3_analytics_consent_gate.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p4_seo_trust_release_gate.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p5_release_candidate.sh
+bash /Users/dilipbr/Projects/erain-ai/site/scripts/p6_production_smoke_gate.sh --url https://your-domain
+bash /Users/dilipbr/Projects/erain-ai/site/scripts/p6_launch_guardrail.sh --url https://your-domain --skip-step5
 ```
 
 Current status:
@@ -30,6 +32,8 @@ Current status:
 - Analytics consent integrity (no pre-consent tracking, post-consent event flow): pass
 - SEO/trust release integrity (robots, sitemap, canonical/OG/Twitter, trust crawl): pass
 - Release certification manifest + safety/release tags: pass
+- Production smoke gate (live URL route + security header + PDF checks): pass
+- Launch GO/NO-GO guardrail command: pass
 
 ## Quality Gate Config
 
@@ -58,6 +62,11 @@ Release certification artifacts:
 
 - JSON manifest: `/tmp/erain_release_manifest.json`
 - SHA-256 signature: `/tmp/erain_release_manifest.sha256`
+
+Production launch guardrail artifacts:
+
+- JSON smoke report: `/tmp/erain_production_smoke_report.json`
+- JSON guardrail decision report: `/tmp/erain_launch_guardrail_report.json`
 
 Rollback safety automation:
 

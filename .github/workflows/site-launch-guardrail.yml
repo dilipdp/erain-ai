@@ -1,0 +1,54 @@
+name: site-launch-guardrail
+
+on:
+  push:
+    paths:
+      - "site/**"
+      - ".github/workflows/site-launch-guardrail.yml"
+  pull_request:
+    paths:
+      - "site/**"
+      - ".github/workflows/site-launch-guardrail.yml"
+
+jobs:
+  release-candidate-gate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Run Step 5 release candidate checks
+        run: npm run qa:release-candidate:full -- --skip-tags
+
+      - name: Upload guardrail artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-launch-guardrail-artifacts
+          path: |
+            /tmp/erain_release_manifest.json
+            /tmp/erain_release_manifest.sha256
+            /tmp/erain_quality_gate_report.json
+            /tmp/erain_device_browser_matrix_report.json
+            /tmp/erain_analytics_consent_gate_report.json
+            /tmp/erain_seo_trust_gate_report.json
+            /tmp/erain_device_matrix_shots
