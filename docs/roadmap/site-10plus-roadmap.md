@@ -347,3 +347,4 @@ Done when:
 - `4c20ff1` phase 17: launch QA automation + readiness runbook
 - `9c3b273` phase 18: results authority hub and proof CTA routing
 - `e577d9a` phase 19: launch QA checklist expansion
+- `7f59cda` phase 20: cinematic results hero and homepage command rail
