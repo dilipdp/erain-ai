@@ -198,6 +198,28 @@ const isActive = (path) => currentPath === path;
         padding-right: var(--gutter);
       }
 
+      .skipLink {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 120;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(11, 31, 66, 0.2);
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 14px 28px rgba(2, 10, 32, 0.14);
+        transform: translateY(-160%);
+        transition: transform 180ms ease;
+      }
+
+      .skipLink:focus-visible {
+        transform: translateY(0);
+      }
+
       /* ---------- Header / Nav (stable alignment) ---------- */
       header {
         position: sticky;
@@ -503,6 +525,10 @@ const isActive = (path) => currentPath === path;
       @media (max-width: 768px) {
         .mobileQuickCta {
           display: flex;
+        }
+
+        body {
+          padding-bottom: 84px;
         }
       }
 
@@ -846,6 +872,7 @@ const isActive = (path) => currentPath === path;
   </head>
 
   <body data-dev={isDev ? '1' : '0'}>
+    <a href="#main-content" class="skipLink">Skip to main content</a>
     <header>
       <nav class="nav container">
         <a href="/" class="brand" aria-label="EraIn AI">
@@ -875,6 +902,8 @@ const isActive = (path) => currentPath === path;
     </header>
 
     <main
+      id="main-content"
+      tabindex="-1"
       class={
         mainPadding === 'none'
           ? 'main mainNoPad'
