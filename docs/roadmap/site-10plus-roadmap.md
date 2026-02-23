@@ -192,6 +192,48 @@ Done when:
 - Form intent quality improves for launch pipeline
 - Build passes
 
+### Phase 12 - Homepage Case Architecture (2026-02-23)
+
+Scope:
+
+- Add anonymized case-study architecture on homepage
+- Show context, intervention pattern, and measurable deltas
+- Increase enterprise confidence before long-form sections
+
+Done when:
+
+- Homepage has a structured case layer with concrete signals
+- Visitors can map EraIn to real operating contexts quickly
+- Build passes
+
+### Phase 13 - Custom Media Integration (2026-02-23)
+
+Scope:
+
+- Add original command-board visual asset
+- Integrate visual into Solutions authority layer
+- Improve premium perception with custom brand media
+
+Done when:
+
+- Solutions includes custom visual anchor
+- Visual language remains consistent with brand system
+- Build passes
+
+### Phase 14 - Analytics Mapping Completion (2026-02-23)
+
+Scope:
+
+- Add form success/failure events across key funnels
+- Add sample PDF download tracking
+- Ensure launch analytics can support optimization loops
+
+Done when:
+
+- Assessment/contact/client access flows emit measurable events
+- Primary download CTA events are captured
+- Build passes
+
 ## Execution Rules
 
 - One phase = one commit minimum
@@ -213,3 +255,6 @@ Done when:
 - `7d973c9` phase 9: legal assurance matrix upgrade
 - `b458494` phase 10: industries authority narrative upgrade
 - `193675a` phase 11: contact qualification signal upgrade
+- `9761b70` phase 12: homepage case-study architecture
+- `962670b` phase 13: custom command-board media integration
+- `7205b6d` phase 14: launch analytics mapping completion
