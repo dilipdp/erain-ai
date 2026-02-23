@@ -13,6 +13,7 @@ bash /Users/dilipbr/Projects/erain-ai/site/scripts/p1_launch_quality_gate.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p2_device_browser_matrix_gate.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p3_analytics_consent_gate.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p4_seo_trust_release_gate.sh
+bash /Users/dilipbr/Projects/erain-ai/site/scripts/p5_release_candidate.sh
 ```
 
 Current status:
@@ -28,6 +29,7 @@ Current status:
 - Device/browser matrix (Chromium, Firefox, WebKit + mobile profiles): pass
 - Analytics consent integrity (no pre-consent tracking, post-consent event flow): pass
 - SEO/trust release integrity (robots, sitemap, canonical/OG/Twitter, trust crawl): pass
+- Release certification manifest + safety/release tags: pass
 
 ## Quality Gate Config
 
@@ -51,6 +53,17 @@ Analytics consent gate artifact:
 SEO/trust release gate artifact:
 
 - JSON report: `/tmp/erain_seo_trust_gate_report.json`
+
+Release certification artifacts:
+
+- JSON manifest: `/tmp/erain_release_manifest.json`
+- SHA-256 signature: `/tmp/erain_release_manifest.sha256`
+
+Rollback safety automation:
+
+- Plan mode: `bash /Users/dilipbr/Projects/erain-ai/site/scripts/p5_rollback_to_tag.sh --tag <tag>`
+- Safe detach rollback: `bash /Users/dilipbr/Projects/erain-ai/site/scripts/p5_rollback_to_tag.sh --tag <tag> --mode detach --confirm`
+- Branch reset rollback (destructive): `bash /Users/dilipbr/Projects/erain-ai/site/scripts/p5_rollback_to_tag.sh --tag <tag> --mode reset-branch --branch main --confirm --allow-destructive [--push]`
 
 ## Manual Checks (pre-launch)
 

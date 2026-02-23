@@ -14,7 +14,8 @@
     "qa:analytics-consent": "node scripts/analytics_consent_gate.mjs",
     "qa:analytics-consent:full": "bash scripts/p3_analytics_consent_gate.sh",
     "qa:seo-trust": "node scripts/seo_trust_release_gate.mjs",
-    "qa:seo-trust:full": "bash scripts/p4_seo_trust_release_gate.sh"
+    "qa:seo-trust:full": "bash scripts/p4_seo_trust_release_gate.sh",
+    "qa:release-candidate:full": "bash scripts/p5_release_candidate.sh"
   },
   "dependencies": {
     "astro": "^5.17.1"
