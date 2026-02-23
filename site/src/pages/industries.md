@@ -28,6 +28,35 @@ layout: ../layouts/BaseLayout.astro
   </div>
 </div>
 
+<section class="indCommandBoard" aria-label="Cross-industry signal matrix">
+  <div class="indCommandHead">
+    <div class="indCommandKicker">Cross-Industry Signal Matrix</div>
+    <h2 class="h2 indCommandTitle">The same execution failures appear in every sector.</h2>
+    <p class="indCommandLead">
+      EraIn normalizes operating complexity into one decision system:
+      identify leakages, assign owners, run governance cadence, and verify outcomes with measurable impact.
+    </p>
+  </div>
+
+  <div class="indCommandGrid" role="list" aria-label="Signal matrix cards">
+    <article class="indCommandCard" role="listitem">
+      <div class="indCommandLabel">Execution Leakage</div>
+      <div class="indCommandValue">Quality, delay, rework, idle cycle time</div>
+      <div class="indCommandText">Appears in plants, projects, logistics, field operations, and services delivery.</div>
+    </article>
+    <article class="indCommandCard" role="listitem">
+      <div class="indCommandLabel">Decision Friction</div>
+      <div class="indCommandValue">Ownership ambiguity, approval lag, escalation loops</div>
+      <div class="indCommandText">Prevents fast recovery even when teams know what is broken.</div>
+    </article>
+    <article class="indCommandCard" role="listitem">
+      <div class="indCommandLabel">Outcome Blindness</div>
+      <div class="indCommandValue">No action-to-impact attribution</div>
+      <div class="indCommandText">Leadership sees activity, but cannot prove what changed and what value was recovered.</div>
+    </article>
+  </div>
+</section>
+
 ## EraIn is universal by design
 
 EraIn is **industry-agnostic**, because the failure modes are universal:
@@ -407,6 +436,100 @@ Typical proof artifacts include:
     padding: 12px 14px;
     color: rgba(17,24,39,0.74);
     line-height: 1.7;
+  }
+
+  .indCommandBoard{
+    margin: 14px auto 6px;
+    border: 1px solid rgba(11,31,66,0.14);
+    border-radius: 24px;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,0.94) 0%,
+        rgba(245,250,255,0.88) 58%,
+        rgba(241,248,255,0.86) 100%
+      );
+    box-shadow: 0 24px 60px rgba(2,10,32,0.14);
+    padding: 16px;
+  }
+
+  .indCommandHead{
+    max-width: 88ch;
+  }
+
+  .indCommandKicker{
+    display: inline-flex;
+    border: 1px solid rgba(11,31,66,0.14);
+    border-radius: 999px;
+    background: rgba(16,24,40,0.04);
+    color: rgba(7,20,48,0.86);
+    padding: 7px 11px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .indCommandTitle{
+    margin-top: 10px;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .indCommandLead{
+    margin: 10px 0 0;
+    color: rgba(17,24,39,0.7);
+    line-height: 1.72;
+    font-size: 15px;
+    max-width: 90ch;
+  }
+
+  .indCommandGrid{
+    margin-top: 12px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 980px){
+    .indCommandGrid{
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .indCommandCard{
+    border: 1px solid rgba(11,31,66,0.14);
+    border-radius: 18px;
+    background:
+      linear-gradient(145deg, rgba(7,24,56,0.96), rgba(9,39,86,0.92) 56%, rgba(8,27,62,0.94));
+    box-shadow: 0 18px 40px rgba(2,10,32,0.18);
+    padding: 12px 13px;
+    color: #eaf5ff;
+  }
+
+  .indCommandLabel{
+    color: rgba(175,222,255,0.94);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .indCommandValue{
+    margin-top: 6px;
+    color: rgba(241,249,255,0.98);
+    font-size: 21px;
+    line-height: 1.16;
+    letter-spacing: -0.02em;
+    font-weight: 830;
+  }
+
+  .indCommandText{
+    margin-top: 7px;
+    color: rgba(190,216,241,0.9);
+    font-size: 13px;
+    line-height: 1.58;
   }
 
   .indGrid{

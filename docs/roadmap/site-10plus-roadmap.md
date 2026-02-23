@@ -150,6 +150,34 @@ Done when:
 - Download CTA remains clear and high-conversion
 - Build passes
 
+### Phase 9 - Enterprise Assurance Surface (2026-02-23)
+
+Scope:
+
+- Upgrade legal page with a clearer enterprise assurance matrix
+- Map commitments to visible controls and client-facing evidence
+- Strengthen trust for regulated buyers
+
+Done when:
+
+- Legal page communicates controls with less ambiguity
+- Enterprise review teams can quickly map trust posture
+- Build passes
+
+### Phase 10 - Industry Narrative Authority (2026-02-23)
+
+Scope:
+
+- Upgrade industries page with command-board style signal matrix
+- Make cross-industry problem universality explicit
+- Raise perceived strategic maturity before deep-scroll sections
+
+Done when:
+
+- Industries page has stronger above-the-fold authority
+- Cross-sector relevance is obvious within first screen
+- Build passes
+
 ## Execution Rules
 
 - One phase = one commit minimum
@@ -167,3 +195,5 @@ Done when:
 - `eb62915` phase 5: homepage benchmark proof lattice
 - `b6f858b` phase 6: premium evidence bands on solutions/pricing
 - `1bdfe24` phase 7: telemetry + mobile quick CTA rail
+- `c7a1a54` phase 8: sample report proof experience upgrade
+- `7d973c9` phase 9: legal assurance matrix upgrade
