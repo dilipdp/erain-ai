@@ -26,6 +26,21 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
           delivered as an executive-ready audit report within <strong>7–10 days</strong>.
         </p>
 
+        <div class="intakeSteps" aria-label="Assessment process">
+          <div class="intakeStep">
+            <div class="intakeStepN">1</div>
+            <div class="intakeStepText">Submit business baseline in ~60 seconds</div>
+          </div>
+          <div class="intakeStep">
+            <div class="intakeStepN">2</div>
+            <div class="intakeStepText">EraIn team validates leaks, risks, and recovery moves</div>
+          </div>
+          <div class="intakeStep">
+            <div class="intakeStepN">3</div>
+            <div class="intakeStepText">Receive executive-ready PDF with 30/60/90 plan</div>
+          </div>
+        </div>
+
         <div class="section">
           <div class="grid" style="gap:14px">
             <div class="card">
@@ -74,12 +89,17 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
             Takes ~60 seconds. Your data stays private. You’ll receive an executive-ready PDF.
           </p>
 
+          <div class="formSignals" aria-label="Assessment guarantees">
+            <div class="formSignal"><span class="formSignalDot"></span> Private intake, no data resale</div>
+            <div class="formSignal"><span class="formSignalDot"></span> Expert-reviewed before report release</div>
+            <div class="formSignal"><span class="formSignalDot"></span> Action roadmap, not generic AI summary</div>
+          </div>
+
           <form
             id="auditForm"
             class="form"
             data-api-base={apiBase}
             data-support-email={supportEmail}
-            data-is-dev={import.meta.env.DEV ? "1" : "0"}
           >
             <input type="text" name="company_website" tabindex="-1" autocomplete="off" class="hidden" />
 
@@ -257,6 +277,71 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
       line-height: 1.85;
     }
 
+    .intakeSteps{
+      margin-top: 14px;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+    }
+
+    .intakeStep{
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.8);
+      padding: 9px 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .intakeStepN{
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(15,95,240,0.96), rgba(6,182,212,0.94));
+    }
+
+    .intakeStepText{
+      color: rgba(17, 24, 39, 0.74);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 640;
+    }
+
+    .formSignals{
+      margin: 0 0 14px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .formSignal{
+      border: 1px solid rgba(11,31,66,0.10);
+      border-radius: 12px;
+      padding: 8px 10px;
+      background: rgba(16,24,40,0.03);
+      color: rgba(17,24,39,0.7);
+      font-size: 12px;
+      font-weight: 650;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .formSignalDot{
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.9);
+      flex: 0 0 auto;
+    }
+
     /* ---------- Premium form controls (force Apple-grade look) ---------- */
     #auditForm :where(input, textarea, select, button) {
       font: inherit;
@@ -359,6 +444,14 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
       .erainGrid{
         grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
         gap: 44px;
+      }
+
+      .intakeSteps{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .intakeStep{
+        align-items: flex-start;
       }
     }
 
@@ -497,24 +590,48 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
 
         const payload = {
           contact: {
-            name: data.contact_name || "",
-            phone: data.contact_phone || "",
-            email: data.contact_email || "",
-            city: data.contact_city || "",
-            state: data.contact_state || "",
+            name: String(data.contact_name || "").trim(),
+            phone: String(data.contact_phone || "").trim(),
+            email: String(data.contact_email || "").trim(),
+            city: String(data.contact_city || "").trim(),
+            state: String(data.contact_state || "").trim(),
           },
           business: {
-            company_name: data.company_name,
-            industry: data.industry,
+            company_name: String(data.company_name || "").trim(),
+            industry: String(data.industry || "").trim(),
             employee_count: Number(data.employee_count),
             annual_revenue_inr: Number(data.annual_revenue_inr),
           },
           operations: {
-            major_processes: data.major_processes || "",
-            known_issues: data.known_issues || "",
-            systems_used: data.systems_used || "",
+            major_processes: String(data.major_processes || "").trim(),
+            known_issues: String(data.known_issues || "").trim(),
+            systems_used: String(data.systems_used || "").trim(),
           },
         };
+
+        if (!payload.contact.name || !payload.contact.phone || !payload.contact.email) {
+          setStatus("error", "Please complete name, phone, and email.");
+          setLoading(false);
+          return;
+        }
+
+        if (!payload.business.company_name || !payload.business.industry) {
+          setStatus("error", "Please complete company name and industry.");
+          setLoading(false);
+          return;
+        }
+
+        if (!Number.isFinite(payload.business.employee_count) || payload.business.employee_count < 1) {
+          setStatus("error", "Please enter a valid employee count.");
+          setLoading(false);
+          return;
+        }
+
+        if (!Number.isFinite(payload.business.annual_revenue_inr) || payload.business.annual_revenue_inr < 1) {
+          setStatus("error", "Please enter a valid annual revenue estimate.");
+          setLoading(false);
+          return;
+        }
 
         try {
           const res = await fetch(`${apiBase}/audit`, {
@@ -539,13 +656,6 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
               window.gtag("event", "assessment_submitted", { request_id: json.request_id });
             }
           } catch (_) {}
-
-          const isDev = (form.dataset.isDev || "0") === "1";
-          if (isDev) {
-            setTimeout(() => {
-              window.location.href = `/admin/${json.request_id}`;
-            }, 1200);
-          }
           form.reset();
         } catch (_) {
           setStatus("error", `Something went wrong. Please try again or email ${supportEmail}.`);
