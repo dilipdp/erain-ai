@@ -79,6 +79,55 @@ decoding="async"
 </div>
 </div>
 
+<section class="authorityBand" aria-label="EraIn enterprise execution authority">
+<div class="authorityLead">
+<div class="authorityKicker">Launch-Grade Operating Clarity</div>
+<h2 class="h2 authorityTitle">Designed for leaders who need proof before scale.</h2>
+<p class="authorityText">
+EraIn was built for high-consequence operations where a wrong decision is expensive.
+Every recommendation is traceable, every execution motion is governed, and every improvement is attributed to measurable business outcome.
+</p>
+</div>
+
+<div class="authorityGrid" role="list" aria-label="Execution proof layers">
+<div class="authorityCard" role="listitem">
+<div class="authorityCardK">Audit Layer</div>
+<div class="authorityCardV">Source-linked truth baseline</div>
+<div class="authorityCardT">Ranked leakage map + factual 30/60/90 recovery plan.</div>
+</div>
+
+<div class="authorityCard" role="listitem">
+<div class="authorityCardK">Decision Layer</div>
+<div class="authorityCardV">Owner-scoped governance path</div>
+<div class="authorityCardT">Approvals, risk boundaries, and leadership accountability by default.</div>
+</div>
+
+<div class="authorityCard" role="listitem">
+<div class="authorityCardK">Impact Layer</div>
+<div class="authorityCardV">Action-to-outcome value ledger</div>
+<div class="authorityCardT">ROI attribution loops that prove what changed and why it matters.</div>
+</div>
+</div>
+</section>
+
+<section class="operatingRail" aria-label="EraIn operating model">
+<div class="railCard">
+<div class="railStep">01</div>
+<div class="railTitle">Audit Reality</div>
+<p class="railText">Expose execution drag, margin leaks, and decision bottlenecks with evidence-backed diagnostics.</p>
+</div>
+<div class="railCard">
+<div class="railStep">02</div>
+<div class="railTitle">Govern Decisions</div>
+<p class="railText">Prioritize only high-impact moves, map owners, and enforce approval discipline across teams.</p>
+</div>
+<div class="railCard">
+<div class="railStep">03</div>
+<div class="railTitle">Prove Outcomes</div>
+<p class="railText">Track execution to business impact with repeatable attribution cycles leadership can trust.</p>
+</div>
+</section>
+
 <div class="homeProse prose">
 
 ## What EraIn is
@@ -451,6 +500,131 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
     linear-gradient(90deg, rgba(129, 231, 255, 0.94), rgba(99, 157, 255, 0.92) 52%, rgba(104, 236, 206, 0.90));
 }
 
+.authorityBand{
+  margin: 18px auto 0;
+  max-width: 1260px;
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 26px;
+  background:
+    linear-gradient(145deg, rgba(6, 24, 57, 0.95), rgba(9, 39, 86, 0.92) 52%, rgba(8, 28, 65, 0.94));
+  box-shadow: 0 26px 64px rgba(2, 10, 32, 0.22);
+  padding: 20px;
+  color: #e8f4ff;
+}
+
+.authorityLead{
+  max-width: 86ch;
+}
+
+.authorityKicker{
+  display:inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 206, 255, 0.44);
+  background: rgba(10, 49, 104, 0.52);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: rgba(200, 234, 255, 0.94);
+}
+
+.authorityTitle{
+  margin-top: 10px;
+  color: rgba(240, 248, 255, 0.96);
+  font-size: clamp(28px, 3.4vw, 40px);
+  letter-spacing: -0.03em;
+}
+
+.authorityText{
+  margin-top: 10px;
+  color: rgba(193, 220, 245, 0.9);
+  line-height: 1.72;
+  font-size: 15px;
+  max-width: 92ch;
+}
+
+.authorityGrid{
+  margin-top: 14px;
+  display:grid;
+  gap:10px;
+  grid-template-columns: 1fr;
+}
+
+.authorityCard{
+  border: 1px solid rgba(139, 193, 255, 0.36);
+  border-radius: 18px;
+  background: rgba(6, 28, 66, 0.56);
+  padding: 12px 13px;
+}
+
+.authorityCardK{
+  color: rgba(172, 221, 255, 0.92);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.authorityCardV{
+  margin-top: 5px;
+  color: rgba(240, 248, 255, 0.96);
+  font-size: 18px;
+  font-weight: 780;
+  letter-spacing: -0.01em;
+}
+
+.authorityCardT{
+  margin-top: 6px;
+  color: rgba(188, 215, 239, 0.9);
+  font-size: 13px;
+  line-height: 1.56;
+}
+
+.operatingRail{
+  max-width: 1260px;
+  margin: 12px auto 0;
+  display:grid;
+  gap:10px;
+  grid-template-columns: 1fr;
+}
+
+.railCard{
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 18px 40px rgba(2,10,32,0.10);
+  padding: 12px 13px;
+}
+
+.railStep{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(140deg, rgba(15,95,240,0.94), rgba(6,182,212,0.92));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.railTitle{
+  margin-top: 8px;
+  color: rgba(7,20,48,0.94);
+  font-size: 19px;
+  font-weight: 820;
+  letter-spacing: -0.02em;
+}
+
+.railText{
+  margin-top: 7px;
+  color: rgba(30,41,59,0.76);
+  line-height: 1.58;
+  font-size: 14px;
+}
+
 @keyframes heroVisualFloat {
   0% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
@@ -557,6 +731,14 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   }
 
   .proofStrip{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .authorityGrid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .operatingRail{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
