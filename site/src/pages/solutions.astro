@@ -58,6 +58,17 @@ const description =
           <h2 class="solSignalTitle">From operational truth to controlled outcomes.</h2>
         </div>
 
+        <div class="solVisualStage">
+          <img
+            src="/erain-command-board.svg"
+            alt="EraIn command board mapping audit, governance, and ROI signals."
+            width="1600"
+            height="920"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
         <div class="solSignalGrid" role="list" aria-label="Signal modules">
           <article class="solSignalCard" role="listitem">
             <div class="solSignalLabel">Auditability</div>
@@ -392,6 +403,23 @@ const description =
       display: grid;
       gap: 10px;
       grid-template-columns: 1fr;
+    }
+
+    .solVisualStage {
+      margin-top: 12px;
+      border: 1px solid rgba(134, 191, 255, 0.38);
+      border-radius: 22px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(7, 24, 56, 0.98), rgba(9, 39, 86, 0.95) 56%, rgba(8, 27, 62, 0.96));
+      box-shadow: 0 22px 52px rgba(2, 10, 32, 0.26);
+    }
+
+    .solVisualStage img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: saturate(1.04) contrast(1.04);
     }
 
     .solSignalCard {

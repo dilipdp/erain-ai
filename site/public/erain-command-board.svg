@@ -1,0 +1,135 @@
+<svg width="1600" height="920" viewBox="0 0 1600 920" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">EraIn Command Board Visual</title>
+  <desc id="desc">Premium command board visual showing audit, governance, and ROI streams converging in the EraIn operating system.</desc>
+
+  <defs>
+    <linearGradient id="cmdBg" x1="96" y1="44" x2="1498" y2="868" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#040915"/>
+      <stop offset="0.52" stop-color="#0A214B"/>
+      <stop offset="1" stop-color="#06152D"/>
+    </linearGradient>
+
+    <radialGradient id="cmdAmbient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(806 454) rotate(90) scale(368 598)">
+      <stop stop-color="#4EAFFF" stop-opacity="0.30"/>
+      <stop offset="0.66" stop-color="#2F79D6" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#2F79D6" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="cmdGrid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" stroke="#C2E5FF" stroke-opacity="0.08"/>
+    </pattern>
+
+    <linearGradient id="cmdPanel" x1="164" y1="96" x2="1430" y2="816" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"/>
+    </linearGradient>
+
+    <linearGradient id="cmdLaneA" x1="372" y1="274" x2="1228" y2="274" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#84E6FF"/>
+      <stop offset="1" stop-color="#86B6FF"/>
+    </linearGradient>
+
+    <linearGradient id="cmdLaneB" x1="372" y1="458" x2="1228" y2="458" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#88E5FF"/>
+      <stop offset="1" stop-color="#75CFFF"/>
+    </linearGradient>
+
+    <linearGradient id="cmdLaneC" x1="372" y1="644" x2="1228" y2="644" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#70E7E0"/>
+      <stop offset="1" stop-color="#7FC1FF"/>
+    </linearGradient>
+
+    <linearGradient id="cmdCore" x1="674" y1="318" x2="926" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E5BB0"/>
+      <stop offset="1" stop-color="#0C346A"/>
+    </linearGradient>
+
+    <linearGradient id="cmdChipLeft" x1="214" y1="196" x2="484" y2="750" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B2B59"/>
+      <stop offset="1" stop-color="#0A2045"/>
+    </linearGradient>
+
+    <linearGradient id="cmdChipRight" x1="1118" y1="196" x2="1388" y2="750" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C2D5E"/>
+      <stop offset="1" stop-color="#0A2148"/>
+    </linearGradient>
+
+    <filter id="cmdSoftShadow" x="98" y="54" width="1404" height="826" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="14"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.008 0 0 0 0 0.056 0 0 0 0 0.188 0 0 0 0.48 0"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="shape"/>
+    </filter>
+
+    <filter id="cmdGlow" x="322" y="204" width="956" height="516" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="4.6"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="920" fill="url(#cmdBg)"/>
+  <rect width="1600" height="920" fill="url(#cmdGrid)"/>
+  <ellipse cx="806" cy="454" rx="598" ry="332" fill="url(#cmdAmbient)"/>
+
+  <g filter="url(#cmdSoftShadow)">
+    <rect x="124" y="84" width="1352" height="752" rx="42" fill="#071A3D" stroke="#80BDFF" stroke-opacity="0.36"/>
+    <rect x="164" y="124" width="1272" height="672" rx="34" fill="url(#cmdPanel)" stroke="#9ED7FF" stroke-opacity="0.24"/>
+  </g>
+
+  <g opacity="0.72" filter="url(#cmdGlow)">
+    <path d="M372 274C560 286 662 340 752 404" stroke="url(#cmdLaneA)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M372 458C560 458 662 458 752 458" stroke="url(#cmdLaneB)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M372 644C560 632 662 578 752 516" stroke="url(#cmdLaneC)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M848 404C940 340 1042 286 1228 274" stroke="url(#cmdLaneA)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M848 458C940 458 1040 458 1228 458" stroke="url(#cmdLaneB)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M848 516C940 578 1042 632 1228 644" stroke="url(#cmdLaneC)" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <path d="M372 274C560 286 662 340 752 404" stroke="url(#cmdLaneA)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M372 458C560 458 662 458 752 458" stroke="url(#cmdLaneB)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M372 644C560 632 662 578 752 516" stroke="url(#cmdLaneC)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M848 404C940 340 1042 286 1228 274" stroke="url(#cmdLaneA)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M848 458C940 458 1040 458 1228 458" stroke="url(#cmdLaneB)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M848 516C940 578 1042 632 1228 644" stroke="url(#cmdLaneC)" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <rect x="214" y="196" width="270" height="150" rx="20" fill="url(#cmdChipLeft)" stroke="#99D8FF" stroke-opacity="0.40"/>
+  <text x="238" y="232" fill="#AEE2FF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">AUDIT</text>
+  <text x="238" y="272" fill="#EFF9FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">97.4%</text>
+  <text x="238" y="300" fill="#BEDCF6" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Evidence confidence</text>
+
+  <rect x="214" y="386" width="270" height="150" rx="20" fill="url(#cmdChipLeft)" stroke="#93D3FF" stroke-opacity="0.40"/>
+  <text x="238" y="422" fill="#AEE2FF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">GOVERNANCE</text>
+  <text x="238" y="462" fill="#EFF9FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">100%</text>
+  <text x="238" y="490" fill="#BEDCF6" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Owner + approval mapping</text>
+
+  <rect x="214" y="576" width="270" height="150" rx="20" fill="url(#cmdChipLeft)" stroke="#87E0D9" stroke-opacity="0.40"/>
+  <text x="238" y="612" fill="#B3F0E8" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">ROI</text>
+  <text x="238" y="652" fill="#ECFFFC" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">3.8x</text>
+  <text x="238" y="680" fill="#B9ECE4" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Recovery multiplier</text>
+
+  <rect x="1118" y="196" width="270" height="150" rx="20" fill="url(#cmdChipRight)" stroke="#9ED3FF" stroke-opacity="0.40"/>
+  <text x="1142" y="232" fill="#B6E2FF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">ACTION STACK</text>
+  <text x="1142" y="272" fill="#EFF9FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">42</text>
+  <text x="1142" y="300" fill="#BEDCF6" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Priority moves</text>
+
+  <rect x="1118" y="386" width="270" height="150" rx="20" fill="url(#cmdChipRight)" stroke="#94CCFF" stroke-opacity="0.40"/>
+  <text x="1142" y="422" fill="#B2DEFF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">RISK REDUCTION</text>
+  <text x="1142" y="462" fill="#EFF9FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">31%</text>
+  <text x="1142" y="490" fill="#BEDCF6" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Forecast delta</text>
+
+  <rect x="1118" y="576" width="270" height="150" rx="20" fill="url(#cmdChipRight)" stroke="#82DFD6" stroke-opacity="0.40"/>
+  <text x="1142" y="612" fill="#B3F0E8" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">VALUE LEDGER</text>
+  <text x="1142" y="652" fill="#ECFFFC" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">INR 4.6 Cr</text>
+  <text x="1142" y="680" fill="#B9ECE4" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Annualized path</text>
+
+  <path d="M800 322L926 458L800 594L674 458L800 322Z" fill="url(#cmdCore)" stroke="#9CD7FF" stroke-opacity="0.72"/>
+  <path d="M800 366L882 458L800 550L718 458L800 366Z" fill="#0F376D" stroke="#84CBFF" stroke-opacity="0.62"/>
+  <text x="800" y="456" fill="#EEF8FF" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif" font-size="32" font-weight="800" letter-spacing="0.05em">ERAIN</text>
+  <text x="800" y="492" fill="#C1E4FF" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="13" font-weight="700" letter-spacing="0.12em">COMMAND CORE</text>
+
+  <rect x="486" y="748" width="628" height="56" rx="28" fill="#0D4F79" stroke="#92E7E0" stroke-opacity="0.58"/>
+  <text x="800" y="782" fill="#E8FFFB" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif" font-size="18" font-weight="700" letter-spacing="0.08em">
+    AUDIT REALITY · GOVERN DECISIONS · ATTRIBUTE ROI
+  </text>
+</svg>
