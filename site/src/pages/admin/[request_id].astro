@@ -40,7 +40,7 @@ const { request_id } = Astro.params;
         </div>
       </div>
 
-      <div id="content" style="margin-top:22px"></div>
+      <div id="content" data-request-id={request_id} style="margin-top:22px"></div>
     </div>
   </section>
 
@@ -48,8 +48,11 @@ const { request_id } = Astro.params;
     const envApiBase = String(import.meta.env.PUBLIC_API_BASE_URL || ""); // client-side
     const apiBase = envApiBase || (import.meta.env.DEV ? "http://127.0.0.1:8020" : "");
 
-    const requestId = /** @type {string} */ (${JSON.stringify(request_id)});
     const container = document.getElementById("content");
+    const requestId =
+      container instanceof HTMLElement && container.dataset.requestId
+        ? container.dataset.requestId
+        : "";
 
     function getAdminToken() {
       // 1) Allow setting via query param once: /admin/<id>?token=...
