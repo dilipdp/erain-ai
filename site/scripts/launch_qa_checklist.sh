@@ -58,6 +58,12 @@ else
   fail "missing results route"
 fi
 
+if [ -s "public/erain-results-cosmos.svg" ]; then
+  pass "results visual asset exists and is non-empty"
+else
+  fail "missing results visual asset"
+fi
+
 if rg -n 'href="/results"' src/layouts/BaseLayout.astro >/dev/null; then
   pass "navigation points to /results"
 else

@@ -1,0 +1,115 @@
+<svg width="1600" height="940" viewBox="0 0 1600 940" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">EraIn Results Cosmos</title>
+  <desc id="desc">A cinematic visual showing operating signals flowing through a central results engine.</desc>
+
+  <defs>
+    <linearGradient id="bgCos" x1="72" y1="38" x2="1524" y2="902" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#030816"/>
+      <stop offset="0.48" stop-color="#0A2251"/>
+      <stop offset="1" stop-color="#06162F"/>
+    </linearGradient>
+
+    <radialGradient id="coreGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(802 462) rotate(90) scale(362 602)">
+      <stop stop-color="#56B6FF" stop-opacity="0.32"/>
+      <stop offset="0.66" stop-color="#2F7BD7" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#2F7BD7" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="dotMesh" width="46" height="46" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#C7E9FF" fill-opacity="0.16"/>
+    </pattern>
+
+    <linearGradient id="nodeA" x1="210" y1="206" x2="460" y2="734" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A2B5B"/>
+      <stop offset="1" stop-color="#0A2146"/>
+    </linearGradient>
+
+    <linearGradient id="nodeB" x1="1140" y1="206" x2="1390" y2="734" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B2F60"/>
+      <stop offset="1" stop-color="#0A2249"/>
+    </linearGradient>
+
+    <linearGradient id="linkA" x1="360" y1="278" x2="1240" y2="278" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8CE9FF"/>
+      <stop offset="1" stop-color="#89B9FF"/>
+    </linearGradient>
+
+    <linearGradient id="linkB" x1="360" y1="468" x2="1240" y2="468" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#84E6FF"/>
+      <stop offset="1" stop-color="#74D0FF"/>
+    </linearGradient>
+
+    <linearGradient id="linkC" x1="360" y1="656" x2="1240" y2="656" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#72E7E0"/>
+      <stop offset="1" stop-color="#84C2FF"/>
+    </linearGradient>
+
+    <linearGradient id="engine" x1="680" y1="326" x2="922" y2="604" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E5EB3"/>
+      <stop offset="1" stop-color="#0C346A"/>
+    </linearGradient>
+
+    <filter id="shadowSoft" x="94" y="62" width="1412" height="826" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="14"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.008 0 0 0 0 0.054 0 0 0 0 0.184 0 0 0 0.5 0"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="940" fill="url(#bgCos)"/>
+  <rect width="1600" height="940" fill="url(#dotMesh)"/>
+  <ellipse cx="802" cy="462" rx="604" ry="336" fill="url(#coreGlow)"/>
+
+  <g filter="url(#shadowSoft)">
+    <rect x="120" y="86" width="1360" height="768" rx="44" fill="#071A3D" stroke="#7EBEFF" stroke-opacity="0.34"/>
+    <rect x="162" y="126" width="1276" height="690" rx="34" fill="#FFFFFF" fill-opacity="0.08" stroke="#9FD9FF" stroke-opacity="0.22"/>
+  </g>
+
+  <path d="M360 278C556 292 662 340 752 408" stroke="url(#linkA)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M360 468C558 468 664 468 752 468" stroke="url(#linkB)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M360 656C556 642 662 592 752 528" stroke="url(#linkC)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M850 408C940 340 1046 292 1240 278" stroke="url(#linkA)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M850 468C940 468 1046 468 1240 468" stroke="url(#linkB)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M850 528C940 592 1046 642 1240 656" stroke="url(#linkC)" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="210" y="206" width="252" height="144" rx="18" fill="url(#nodeA)" stroke="#98D9FF" stroke-opacity="0.38"/>
+  <text x="234" y="240" fill="#AEE1FF" font-family="Sora, Segoe UI, sans-serif" font-size="11" font-weight="700" letter-spacing="0.13em">EXECUTION DELTA</text>
+  <text x="234" y="280" fill="#EFF9FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">-22%</text>
+  <text x="234" y="308" fill="#BEDCF6" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Delay variance shift</text>
+
+  <rect x="210" y="396" width="252" height="144" rx="18" fill="url(#nodeA)" stroke="#90D3FF" stroke-opacity="0.38"/>
+  <text x="234" y="430" fill="#AEE1FF" font-family="Sora, Segoe UI, sans-serif" font-size="11" font-weight="700" letter-spacing="0.13em">DECISION SPEED</text>
+  <text x="234" y="470" fill="#EFF9FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">3.1x</text>
+  <text x="234" y="498" fill="#BEDCF6" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Approval cycle gain</text>
+
+  <rect x="210" y="586" width="252" height="144" rx="18" fill="url(#nodeA)" stroke="#83E0D7" stroke-opacity="0.38"/>
+  <text x="234" y="620" fill="#B4F0E8" font-family="Sora, Segoe UI, sans-serif" font-size="11" font-weight="700" letter-spacing="0.13em">VALUE LEDGER</text>
+  <text x="234" y="660" fill="#ECFFFC" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">INR 4.6 Cr</text>
+  <text x="234" y="688" fill="#B9ECE4" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Recovery trajectory</text>
+
+  <rect x="1140" y="206" width="252" height="144" rx="18" fill="url(#nodeB)" stroke="#9DD4FF" stroke-opacity="0.38"/>
+  <text x="1164" y="240" fill="#B5E1FF" font-family="Sora, Segoe UI, sans-serif" font-size="11" font-weight="700" letter-spacing="0.13em">OWNER MAPPING</text>
+  <text x="1164" y="280" fill="#EFF9FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">100%</text>
+  <text x="1164" y="308" fill="#BEDCF6" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Governance coverage</text>
+
+  <rect x="1140" y="396" width="252" height="144" rx="18" fill="url(#nodeB)" stroke="#90CCFF" stroke-opacity="0.38"/>
+  <text x="1164" y="430" fill="#B2DEFF" font-family="Sora, Segoe UI, sans-serif" font-size="11" font-weight="700" letter-spacing="0.13em">ACTION CLOSURE</text>
+  <text x="1164" y="470" fill="#EFF9FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">88%</text>
+  <text x="1164" y="498" fill="#BEDCF6" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Cycle closure rate</text>
+
+  <rect x="1140" y="586" width="252" height="144" rx="18" fill="url(#nodeB)" stroke="#82DED6" stroke-opacity="0.38"/>
+  <text x="1164" y="620" fill="#B4F0E8" font-family="Sora, Segoe UI, sans-serif" font-size="11" font-weight="700" letter-spacing="0.13em">FIRST VALUE WINDOW</text>
+  <text x="1164" y="660" fill="#ECFFFC" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">12 Weeks</text>
+  <text x="1164" y="688" fill="#B9ECE4" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Time to verified impact</text>
+
+  <path d="M802 326L924 468L802 610L680 468L802 326Z" fill="url(#engine)" stroke="#9CD8FF" stroke-opacity="0.72"/>
+  <path d="M802 370L884 468L802 566L720 468L802 370Z" fill="#0F386F" stroke="#83CBFF" stroke-opacity="0.6"/>
+  <text x="802" y="468" fill="#EEF8FF" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif" font-size="32" font-weight="800" letter-spacing="0.05em">RESULTS</text>
+  <text x="802" y="504" fill="#C1E4FF" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="13" font-weight="700" letter-spacing="0.12em">EVIDENCE TO EXECUTION TO VALUE</text>
+
+  <rect x="488" y="756" width="628" height="58" rx="29" fill="#0E4F79" stroke="#91E7E0" stroke-opacity="0.58"/>
+  <text x="802" y="792" fill="#E8FFFB" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif" font-size="18" font-weight="700" letter-spacing="0.08em">
+    VERIFIED SIGNALS · GOVERNED ACTIONS · ATTRIBUTED OUTCOMES
+  </text>
+</svg>

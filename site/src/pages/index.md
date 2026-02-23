@@ -74,6 +74,42 @@ decoding="async"
 <div class="heroSignalMeter" style="--meter:84%"></div>
 </div>
 </div>
+
+<div class="heroCommandRail" aria-label="Execution command sequence">
+<div class="heroCommandHead">
+<div class="heroCommandTitle">30-Day Command Sequence</div>
+<div class="heroCommandMeta">From evidence intake to value release</div>
+</div>
+
+<div class="heroCommandTrack" role="list">
+<div class="heroCommandStep" role="listitem">
+<div class="heroCommandDot" aria-hidden="true"></div>
+<div class="heroCommandBody">
+<div class="heroCommandK">Week 1</div>
+<div class="heroCommandV">Reality Baseline Locked</div>
+<div class="heroCommandT">Cross-functional evidence graph assembled with owner-level confidence checks.</div>
+</div>
+</div>
+
+<div class="heroCommandStep" role="listitem">
+<div class="heroCommandDot" aria-hidden="true"></div>
+<div class="heroCommandBody">
+<div class="heroCommandK">Week 2</div>
+<div class="heroCommandV">Governance Routing Activated</div>
+<div class="heroCommandT">Decision pathways mapped with approval boundaries and escalation SLAs.</div>
+</div>
+</div>
+
+<div class="heroCommandStep" role="listitem">
+<div class="heroCommandDot" aria-hidden="true"></div>
+<div class="heroCommandBody">
+<div class="heroCommandK">Week 3+</div>
+<div class="heroCommandV">Attribution Ledger Live</div>
+<div class="heroCommandT">Every approved action linked to measurable recovery and executive review cadence.</div>
+</div>
+</div>
+</div>
+</div>
 </aside>
 </div>
 </div>
@@ -586,6 +622,98 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 .heroSignalStack{
   display:grid;
   gap:10px;
+}
+
+.heroCommandRail{
+  border: 1px solid rgba(125, 184, 255, 0.3);
+  border-radius: 18px;
+  padding: 13px 13px 12px;
+  background:
+    linear-gradient(145deg, rgba(6, 25, 58, 0.9), rgba(10, 43, 96, 0.88) 54%, rgba(8, 28, 66, 0.9));
+  box-shadow: 0 18px 44px rgba(2, 10, 32, 0.22);
+}
+
+.heroCommandHead{
+  display:grid;
+  gap:4px;
+}
+
+.heroCommandTitle{
+  color: rgba(239, 248, 255, 0.97);
+  font-size: 15px;
+  font-weight: 790;
+  letter-spacing: -0.01em;
+}
+
+.heroCommandMeta{
+  color: rgba(184, 213, 240, 0.86);
+  font-size: 11px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-weight: 780;
+}
+
+.heroCommandTrack{
+  margin-top: 11px;
+  display: grid;
+  gap: 10px;
+}
+
+.heroCommandStep{
+  position: relative;
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 8px;
+}
+
+.heroCommandDot{
+  margin-top: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(136, 214, 255, 0.72);
+  background:
+    radial-gradient(circle at 35% 35%, rgba(188, 246, 255, 0.95), rgba(104, 181, 255, 0.9) 56%, rgba(92, 150, 255, 0.18));
+  box-shadow: 0 0 0 0 rgba(112, 190, 255, 0.45);
+  animation: commandPulse 3.4s ease-out infinite;
+}
+
+.heroCommandStep:nth-child(2) .heroCommandDot{
+  animation-delay: .35s;
+}
+
+.heroCommandStep:nth-child(3) .heroCommandDot{
+  animation-delay: .7s;
+}
+
+.heroCommandBody{
+  border: 1px solid rgba(134, 197, 255, 0.28);
+  border-radius: 12px;
+  background: rgba(5, 28, 66, 0.44);
+  padding: 8px 9px;
+}
+
+.heroCommandK{
+  color: rgba(173, 223, 255, 0.92);
+  font-size: 10px;
+  font-weight: 890;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heroCommandV{
+  margin-top: 4px;
+  color: rgba(242, 248, 255, 0.97);
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 760;
+}
+
+.heroCommandT{
+  margin-top: 4px;
+  color: rgba(187, 214, 240, 0.86);
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .heroSignalCard{
@@ -1109,6 +1237,12 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   0% { filter: brightness(0.92); }
   50% { filter: brightness(1.06); }
   100% { filter: brightness(0.92); }
+}
+
+@keyframes commandPulse{
+  0% { box-shadow: 0 0 0 0 rgba(112, 190, 255, 0.45); }
+  70% { box-shadow: 0 0 0 10px rgba(112, 190, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(112, 190, 255, 0); }
 }
 
 @keyframes heroVisualFloat {

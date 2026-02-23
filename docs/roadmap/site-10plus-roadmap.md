@@ -304,6 +304,20 @@ Done when:
 - Launch runbook reflects final flow
 - Checklist passes end-to-end
 
+### Phase 20 - Cinematic Results + Hero Depth (2026-02-23)
+
+Scope:
+
+- Upgrade Results page above-the-fold with cinematic custom visual integration
+- Add richer execution-sequence layer in homepage hero media column
+- Extend launch QA to verify premium results visual asset presence
+
+Done when:
+
+- Results hero has strong visual and signal narrative before case sections
+- Homepage hero right rail has no weak/empty visual gap
+- Build and QA checklist pass
+
 ## Execution Rules
 
 - One phase = one commit minimum

@@ -21,18 +21,52 @@ const resultsJsonLd = JSON.stringify({
 <BaseLayout title={title} description={description}>
   <section class="results">
     <header class="resHero">
-      <div class="badgeRow" aria-label="Results positioning">
-        <span class="badge badgeSoft">Anonymized proof</span>
-        <span class="badge badgeSoft">Owner-mapped execution</span>
-        <span class="badge badgeSoft">ROI attribution</span>
-        <span class="badge badgeSoft">Launch ledger verified</span>
+      <div class="resHeroCopy">
+        <div class="badgeRow" aria-label="Results positioning">
+          <span class="badge badgeSoft">Anonymized proof</span>
+          <span class="badge badgeSoft">Owner-mapped execution</span>
+          <span class="badge badgeSoft">ROI attribution</span>
+          <span class="badge badgeSoft">Launch ledger verified</span>
+        </div>
+
+        <h1 class="h1">Results that leadership can verify.</h1>
+        <p class="lead">
+          EraIn engagements are measured on operating outcomes, not AI activity.
+          The patterns below are anonymized until clients approve public naming, but each item maps to evidence-linked execution records.
+        </p>
+
+        <div class="resHeroSignalRow" role="list" aria-label="Results signal highlights">
+          <div class="resHeroSignal" role="listitem">
+            <div class="resHeroSignalK">Verified Evidence</div>
+            <div class="resHeroSignalV">94%</div>
+            <div class="resHeroSignalT">Average source coverage at decision handoff.</div>
+          </div>
+          <div class="resHeroSignal" role="listitem">
+            <div class="resHeroSignalK">Governance Mapping</div>
+            <div class="resHeroSignalV">100%</div>
+            <div class="resHeroSignalT">Owner path + approval controls defined before rollout.</div>
+          </div>
+          <div class="resHeroSignal" role="listitem">
+            <div class="resHeroSignalK">Recovery Window</div>
+            <div class="resHeroSignalV">12 Weeks</div>
+            <div class="resHeroSignalT">First value trajectory made measurable in-cycle.</div>
+          </div>
+        </div>
       </div>
 
-      <h1 class="h1">Results that leadership can verify.</h1>
-      <p class="lead">
-        EraIn engagements are measured on operating outcomes, not AI activity.
-        The patterns below are anonymized until clients approve public naming, but each item maps to evidence-linked execution records.
-      </p>
+      <aside class="resHeroMedia">
+        <div class="resVisualShell">
+          <img
+            src="/erain-results-cosmos.svg"
+            alt="EraIn results cosmos showing verified outcomes flowing through the execution core."
+            width="1600"
+            height="940"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        <div class="resVisualMeta">Representative operating signal map · February 2026 release</div>
+      </aside>
     </header>
 
     <section class="resBand" aria-label="Outcome bands">
@@ -141,20 +175,103 @@ const resultsJsonLd = JSON.stringify({
     }
 
     .resHero {
-      max-width: 88ch;
-      margin: 0 auto;
-      text-align: center;
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 28px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(246, 251, 255, 0.9) 56%,
+          rgba(243, 249, 255, 0.88) 100%
+        );
+      box-shadow: 0 24px 60px rgba(2, 10, 32, 0.14);
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .resHeroCopy {
+      max-width: 82ch;
     }
 
     .resHero .badgeRow {
-      justify-content: center;
+      justify-content: flex-start;
       margin-bottom: 12px;
     }
 
     .resHero .lead {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 86ch;
+      max-width: 74ch;
+    }
+
+    .resHeroSignalRow {
+      margin-top: 12px;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+    }
+
+    .resHeroSignal {
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 10px 26px rgba(2, 10, 32, 0.08);
+      padding: 9px 10px;
+    }
+
+    .resHeroSignalK {
+      color: rgba(17, 24, 39, 0.56);
+      font-size: 10px;
+      font-weight: 880;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .resHeroSignalV {
+      margin-top: 4px;
+      color: rgba(7, 20, 48, 0.92);
+      font-size: 18px;
+      line-height: 1.14;
+      letter-spacing: -0.01em;
+      font-weight: 830;
+    }
+
+    .resHeroSignalT {
+      margin-top: 4px;
+      color: rgba(17, 24, 39, 0.68);
+      font-size: 12px;
+      line-height: 1.52;
+    }
+
+    .resHeroMedia {
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .resVisualShell {
+      border: 1px solid rgba(120, 181, 255, 0.34);
+      border-radius: 24px;
+      overflow: hidden;
+      padding: 5px;
+      background:
+        linear-gradient(145deg, rgba(7, 26, 64, 0.95), rgba(9, 40, 86, 0.92) 56%, rgba(8, 28, 66, 0.94));
+      box-shadow: 0 24px 56px rgba(2, 10, 32, 0.28);
+    }
+
+    .resVisualShell img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      filter: saturate(1.04) contrast(1.03);
+    }
+
+    .resVisualMeta {
+      color: rgba(17, 24, 39, 0.58);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 760;
     }
 
     .resBand {
@@ -329,6 +446,16 @@ const resultsJsonLd = JSON.stringify({
     }
 
     @media (min-width: 980px) {
+      .resHero {
+        grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+        align-items: start;
+        gap: 16px;
+      }
+
+      .resHeroSignalRow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
       .resBand {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -344,10 +471,6 @@ const resultsJsonLd = JSON.stringify({
     }
 
     @media (max-width: 720px) {
-      .resHero {
-        text-align: left;
-      }
-
       .resHero .badgeRow {
         justify-content: flex-start;
       }
