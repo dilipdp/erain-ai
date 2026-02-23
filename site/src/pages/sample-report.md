@@ -119,7 +119,7 @@ layout: ../layouts/BaseLayout.astro
 **Download the full sample**
 
 <div class="btn-row">
-  <a class="btn btnPrimary" href="/sample-report.pdf" download>Download Sample Audit (PDF)</a>
+  <a class="btn btnPrimary" href="/sample-report.pdf" download data-track="sample_report_pdf_download">Download Sample Audit (PDF)</a>
   <a class="btn" href="/request-assessment">Request Free AI Audit</a>
 </div>
 

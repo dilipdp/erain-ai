@@ -377,6 +377,22 @@ const loginPath = import.meta.env.PUBLIC_CLIENT_LOGIN_API_PATH ?? "/client/acces
         statusEl.textContent = message;
       }
 
+      function emitAnalytics(eventName, payload = {}) {
+        const eventPayload = {
+          page_path: window.location.pathname,
+          ...payload,
+        };
+
+        if (window.gtag) {
+          window.gtag("event", eventName, eventPayload);
+        }
+
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: eventName, ...eventPayload });
+        } catch (_) {}
+      }
+
       try {
         const params = new URLSearchParams(window.location.search);
         const requestId = params.get("request_id");
@@ -452,13 +468,20 @@ const loginPath = import.meta.env.PUBLIC_CLIENT_LOGIN_API_PATH ?? "/client/acces
 
           const redirectUrl = responsePayload?.redirect_url || responsePayload?.portal_url || null;
           if (redirectUrl) {
+            emitAnalytics("client_login_submitted", {
+              has_redirect: true,
+            });
             window.location.href = redirectUrl;
             return;
           }
 
           setStatus("success", "Access request received. If matched, your secure link will be sent shortly.");
+          emitAnalytics("client_login_submitted", {
+            has_redirect: false,
+          });
         } catch (_) {
           setStatus("error", `Could not verify access right now. Please email ${supportEmail}.`);
+          emitAnalytics("client_login_failed");
         } finally {
           setLoading(false);
         }

@@ -550,6 +550,11 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
           pdfLink.href = pdfUrl;
           pdfLink.textContent = "Download Audit PDF";
           pdfLink.classList.remove("hidden");
+          pdfLink.onclick = () => {
+            emitAnalytics("assessment_pdf_download_clicked", {
+              request_id: requestId || null,
+            });
+          };
 
           copyBtn.classList.remove("hidden");
           copyBtn.onclick = async () => {
@@ -568,6 +573,22 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
         }
 
         status.textContent = msg;
+      }
+
+      function emitAnalytics(eventName, payload = {}) {
+        const eventPayload = {
+          page_path: window.location.pathname,
+          ...payload,
+        };
+
+        if (window.gtag) {
+          window.gtag("event", eventName, eventPayload);
+        }
+
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: eventName, ...eventPayload });
+        } catch (_) {}
       }
 
       if (!apiBase) {
@@ -652,13 +673,16 @@ const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com"
 
           try {
             localStorage.setItem("ERAIN_LAST_REQUEST_ID", json.request_id);
-            if (window.gtag) {
-              window.gtag("event", "assessment_submitted", { request_id: json.request_id });
-            }
+            emitAnalytics("assessment_submitted", {
+              request_id: json.request_id,
+              industry: payload.business.industry,
+              employee_count: payload.business.employee_count,
+            });
           } catch (_) {}
           form.reset();
         } catch (_) {
           setStatus("error", `Something went wrong. Please try again or email ${supportEmail}.`);
+          emitAnalytics("assessment_submit_failed");
         } finally {
           setLoading(false);
         }

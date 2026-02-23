@@ -375,6 +375,22 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
         statusEl.textContent = message;
       }
 
+      function emitAnalytics(eventName, payload = {}) {
+        const eventPayload = {
+          page_path: window.location.pathname,
+          ...payload,
+        };
+
+        if (window.gtag) {
+          window.gtag('event', eventName, eventPayload);
+        }
+
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: eventName, ...eventPayload });
+        } catch (_) {}
+      }
+
       try {
         const params = new URLSearchParams(window.location.search);
         if (params.get('upgrade') === 'pro' && intentSelect instanceof HTMLSelectElement) {
@@ -471,9 +487,18 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
             setStatus('success', 'Message sent. Our team will contact you shortly.');
           }
 
+          emitAnalytics('contact_submitted', {
+            intent: payload.intent,
+            has_reference: Boolean(reference),
+            has_request_id: Boolean(payload.request_id),
+          });
+
           form.reset();
         } catch (_) {
           setStatus('error', `Could not submit right now. Please email ${supportEmail}.`);
+          emitAnalytics('contact_submit_failed', {
+            intent: payload.intent,
+          });
         } finally {
           setLoading(false);
         }
