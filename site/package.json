@@ -12,7 +12,9 @@
     "qa:device-matrix": "node scripts/device_browser_matrix_gate.mjs",
     "qa:device-matrix:full": "bash scripts/p2_device_browser_matrix_gate.sh",
     "qa:analytics-consent": "node scripts/analytics_consent_gate.mjs",
-    "qa:analytics-consent:full": "bash scripts/p3_analytics_consent_gate.sh"
+    "qa:analytics-consent:full": "bash scripts/p3_analytics_consent_gate.sh",
+    "qa:seo-trust": "node scripts/seo_trust_release_gate.mjs",
+    "qa:seo-trust:full": "bash scripts/p4_seo_trust_release_gate.sh"
   },
   "dependencies": {
     "astro": "^5.17.1"

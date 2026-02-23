@@ -59,6 +59,17 @@ function withSecurityHeaders(response: Response, url: URL) {
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const { pathname } = context.url;
+  if (pathname === "/sitemap.xml") {
+    const redirected = new Response(null, {
+      status: 308,
+      headers: {
+        Location: "/sitemap-index.xml",
+        "Cache-Control": "public, max-age=300, s-maxage=300",
+      },
+    });
+    return withSecurityHeaders(redirected, context.url);
+  }
+
   const adminPath = pathname.startsWith("/admin");
 
   if (adminPath) {

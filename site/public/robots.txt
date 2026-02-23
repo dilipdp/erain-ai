@@ -5,4 +5,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://erainai.com/sitemap.xml
+Sitemap: https://erainai.com/sitemap-index.xml
