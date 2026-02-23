@@ -318,6 +318,20 @@ Done when:
 - Homepage hero right rail has no weak/empty visual gap
 - Build and QA checklist pass
 
+### Phase 21 - Results Hero Overflow Hotfix (2026-02-23)
+
+Scope:
+
+- Fix desktop grid overflow where the Results hero visual could exceed its media column
+- Add containment sizing constraints for hero child blocks and image shell
+- Revalidate launch build and QA checks after fix
+
+Done when:
+
+- Results visual stays within hero media rail across desktop widths
+- No overlap with adjacent results cards/content
+- Build and QA checklist pass
+
 ## Execution Rules
 
 - One phase = one commit minimum
@@ -348,3 +362,4 @@ Done when:
 - `9c3b273` phase 18: results authority hub and proof CTA routing
 - `e577d9a` phase 19: launch QA checklist expansion
 - `7f59cda` phase 20: cinematic results hero and homepage command rail
+- `c8cb27d` phase 21: results hero overflow containment hotfix
