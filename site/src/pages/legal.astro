@@ -26,7 +26,7 @@ const description =
       <div class="heroMeta" aria-label="Legal page metadata">
         <div class="heroMetaRow">
           <span class="heroMetaK">Last updated</span>
-          <span class="heroMetaV">February 11, 2026</span>
+          <span class="heroMetaV">February 23, 2026</span>
         </div>
         <div class="heroMetaRow">
           <span class="heroMetaK">Note</span>
@@ -50,6 +50,14 @@ const description =
           <div class="enterpriseV">Cloud / VPC / on‑prem</div>
           <div class="enterpriseS">Data residency and network isolation options based on your policy.</div>
         </div>
+      </div>
+
+      <div class="policyHub" aria-label="Policy center links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/security">Security Program</a>
+        <a href="/dpa">Data Processing Addendum</a>
+        <a href="/cookie-policy">Cookie Policy</a>
       </div>
 
       <div class="legalGrid">
@@ -339,6 +347,30 @@ const description =
         font-size: 13px;
         line-height: 1.6;
         color: rgba(17, 24, 39, 0.68);
+      }
+
+      .policyHub {
+        margin: 12px auto 0;
+        max-width: 92ch;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .policyHub a {
+        border: 1px solid rgba(11, 31, 66, 0.14);
+        border-radius: 999px;
+        padding: 7px 11px;
+        font-size: 12px;
+        font-weight: 760;
+        color: rgba(7, 20, 48, 0.84);
+        background: rgba(255, 255, 255, 0.74);
+        text-decoration: none;
+      }
+
+      .policyHub a:hover {
+        border-color: rgba(15, 95, 240, 0.34);
+        color: #0f5ff0;
       }
 
       /* Shared list */

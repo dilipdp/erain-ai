@@ -1,0 +1,7 @@
+Contact: mailto:security@erainai.com
+Contact: mailto:hello@erainai.com
+Expires: 2027-02-23T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://erainai.com/.well-known/security.txt
+Policy: https://erainai.com/security
+Hiring: https://erainai.com/contact

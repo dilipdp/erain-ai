@@ -1,0 +1,205 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Data Processing Addendum (DPA) • EraIn AI";
+const description =
+  "EraIn AI Data Processing Addendum summary for enterprise procurement, legal review, and security governance workflows.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="trustPage">
+    <header class="trustHero trustPanel">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Enterprise procurement</span>
+        <span class="badge badgeSoft">Controller/processor clarity</span>
+        <span class="badge badgeSoft">Legal-ready package</span>
+      </div>
+      <h1 class="h1">Data Processing Addendum (DPA)</h1>
+      <p class="lead">
+        EraIn offers a DPA for customers that require formal data-processing terms. This page summarizes key structures.
+        Signed contracts and legal addendums govern the final obligations.
+      </p>
+      <div class="trustMeta" role="note" aria-label="DPA metadata">
+        <div><strong>Last updated:</strong> February 23, 2026</div>
+        <div><strong>Request DPA:</strong> <a href="mailto:hello@erainai.com?subject=DPA%20Request">hello@erainai.com</a></div>
+      </div>
+    </header>
+
+    <section class="trustPanel trustTable" aria-label="DPA structure table">
+      <div class="trustKicker">DPA Structure</div>
+      <h2 class="h2">What the DPA typically includes</h2>
+      <div class="tableWrap" role="table" aria-label="DPA sections">
+        <div class="tableRow tableHead" role="row">
+          <div role="columnheader">Section</div>
+          <div role="columnheader">Coverage</div>
+          <div role="columnheader">Purpose</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Roles and scope</div>
+          <div role="cell">Controller/processor responsibilities and service boundaries</div>
+          <div role="cell">Defines accountability model for processing operations</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Security controls</div>
+          <div role="cell">Technical and organizational safeguards</div>
+          <div role="cell">Protects confidentiality, integrity, and availability</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Sub-processors and transfer terms</div>
+          <div role="cell">Disclosure model, regional safeguards, and legal mechanisms</div>
+          <div role="cell">Supports compliant cross-border operations</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustGrid" aria-label="DPA details">
+      <article class="trustWide">
+        <h2 class="h2">Supported legal workflows</h2>
+        <ul>
+          <li>DPA review during procurement and security diligence.</li>
+          <li>NDA + DPA package for enterprise onboarding.</li>
+          <li>Contract-linked processing schedules by engagement type.</li>
+        </ul>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Sub-processor and transfer transparency</h2>
+        <p>
+          Sub-processor disclosures and regional processing details are provided through contract channels, with safeguards selected
+          based on customer jurisdiction and deployment model.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Assistance and data subject requests</h2>
+        <p>
+          EraIn supports reasonable assistance for data subject rights requests, security incidents, and compliance evidence workflows
+          as defined in signed agreements.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">How to request</h2>
+        <p>
+          Send your legal entity name, billing region, and procurement contact to
+          <a href="mailto:hello@erainai.com?subject=DPA%20Request">hello@erainai.com</a>. We can provide a review-ready package
+          aligned to your engagement.
+        </p>
+      </article>
+    </section>
+  </section>
+
+  <style>
+    .trustPage {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 0 4px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .trustHero {
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 251, 255, 0.9));
+      box-shadow: 0 24px 60px rgba(2, 10, 32, 0.12);
+      padding: 18px;
+    }
+
+    .trustMeta {
+      margin-top: 10px;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 10px 12px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.65;
+      display: grid;
+      gap: 6px;
+    }
+
+    .trustGrid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .trustWide,
+    .trustPanel {
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.09);
+      padding: 14px;
+    }
+
+    .trustWide p {
+      margin-top: 8px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.72;
+    }
+
+    .trustWide ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.68;
+    }
+
+    .trustKicker {
+      display: inline-flex;
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 999px;
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.86);
+      padding: 7px 11px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .trustTable .h2 {
+      margin-top: 10px;
+    }
+
+    .tableWrap {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .tableRow {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 10px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.56;
+    }
+
+    .tableHead {
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.9);
+      font-weight: 840;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    @media (min-width: 980px) {
+      .trustGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tableRow {
+        grid-template-columns: 0.7fr 1fr 1.2fr;
+        align-items: start;
+      }
+    }
+  </style>
+</BaseLayout>

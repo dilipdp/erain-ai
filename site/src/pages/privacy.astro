@@ -1,0 +1,232 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Privacy Policy • EraIn AI";
+const description =
+  "How EraIn AI collects, processes, secures, and governs data for auditability, decision governance, and ROI attribution engagements.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="trustPage">
+    <header class="trustHero trustPanel">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Privacy-by-design</span>
+        <span class="badge badgeSoft">No training by default</span>
+        <span class="badge badgeSoft">Enterprise-ready</span>
+      </div>
+      <h1 class="h1">Privacy Policy</h1>
+      <p class="lead">
+        EraIn AI is built for organizations that require privacy, accountability, and execution safety. We process only the data
+        needed for your requested engagement and keep human-governed controls around access and usage.
+      </p>
+      <div class="trustMeta" role="note" aria-label="Privacy metadata">
+        <div><strong>Last updated:</strong> February 23, 2026</div>
+        <div><strong>Applies to:</strong> https://erainai.com and client delivery operations</div>
+      </div>
+    </header>
+
+    <section class="trustGrid" aria-label="Privacy scope">
+      <article class="trustCard">
+        <h2 class="h2">What this policy covers</h2>
+        <p>
+          This policy explains what data we collect, how we use it, the controls we apply, and how clients can request access,
+          correction, export, or deletion under applicable law and contract.
+        </p>
+      </article>
+      <article class="trustCard">
+        <h2 class="h2">What we do not do</h2>
+        <ul>
+          <li>No sale of client data.</li>
+          <li>No cross-client data sharing.</li>
+          <li>No model training on client data without explicit written approval.</li>
+          <li>No autonomous execution on sensitive systems without human approval.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="trustPanel trustTable" aria-label="Data categories">
+      <div class="trustKicker">Data Map</div>
+      <h2 class="h2">Data categories and purpose</h2>
+      <div class="tableWrap" role="table" aria-label="Privacy data categories">
+        <div class="tableRow tableHead" role="row">
+          <div role="columnheader">Category</div>
+          <div role="columnheader">Examples</div>
+          <div role="columnheader">Purpose</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Account data</div>
+          <div role="cell">Name, work email, company, role</div>
+          <div role="cell">Onboarding, service communication, account security</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Engagement data</div>
+          <div role="cell">Operational KPIs, process logs, reports, action plans</div>
+          <div role="cell">Auditability, decision governance, and ROI attribution delivery</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">System telemetry</div>
+          <div role="cell">Usage analytics, event logs, performance traces</div>
+          <div role="cell">Reliability, security monitoring, and service quality improvement</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustGrid" aria-label="Privacy details">
+      <article class="trustWide">
+        <h2 class="h2">Legal basis and processing boundaries</h2>
+        <ul>
+          <li>Contract performance for requested services.</li>
+          <li>Legitimate interest for security, fraud prevention, and reliability.</li>
+          <li>Consent where required by law for specific tracking or communications.</li>
+        </ul>
+        <p>
+          Processing scope is controlled by engagement boundaries, role-based access, and retention controls documented in client
+          agreements.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Retention and deletion</h2>
+        <ul>
+          <li>Retention follows contract terms and applicable law.</li>
+          <li>Engagement artifacts can be deleted or returned on request and per legal requirements.</li>
+          <li>Backup deletion follows operational schedules and secure disposal workflows.</li>
+        </ul>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">International transfers and residency</h2>
+        <p>
+          Deployment options include cloud, VPC, and on-prem patterns. When cross-border transfers apply, we use contractual and
+          technical safeguards aligned to jurisdictional requirements.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Your rights and requests</h2>
+        <p>
+          To request access, correction, deletion, export, or processing clarification, contact
+          <a href="mailto:hello@erainai.com">hello@erainai.com</a> with the subject line <code>Privacy Request</code>.
+          We respond according to applicable law and contract timelines.
+        </p>
+      </article>
+    </section>
+  </section>
+
+  <style>
+    .trustPage {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 0 4px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .trustHero {
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 251, 255, 0.9));
+      box-shadow: 0 24px 60px rgba(2, 10, 32, 0.12);
+      padding: 18px;
+    }
+
+    .trustMeta {
+      margin-top: 10px;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 10px 12px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.65;
+      display: grid;
+      gap: 6px;
+    }
+
+    .trustGrid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .trustCard,
+    .trustWide,
+    .trustPanel {
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.09);
+      padding: 14px;
+    }
+
+    .trustCard p,
+    .trustWide p {
+      margin-top: 8px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.72;
+    }
+
+    .trustCard ul,
+    .trustWide ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.68;
+    }
+
+    .trustKicker {
+      display: inline-flex;
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 999px;
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.86);
+      padding: 7px 11px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .trustTable .h2 {
+      margin-top: 10px;
+    }
+
+    .tableWrap {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .tableRow {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 10px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.56;
+    }
+
+    .tableHead {
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.9);
+      font-weight: 840;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    @media (min-width: 980px) {
+      .trustGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tableRow {
+        grid-template-columns: 0.7fr 1fr 1.2fr;
+        align-items: start;
+      }
+    }
+  </style>
+</BaseLayout>

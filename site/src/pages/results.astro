@@ -83,6 +83,7 @@ const resultsJsonLd = JSON.stringify({
       <article class="resBandCard">
         <div class="resBandK">Recovery Path</div>
         <div class="resBandV">INR 1.2 Cr–4.6 Cr</div>
+        <div class="resBandS">Approx USD 145k-554k</div>
         <div class="resBandT">Attributed value window identified in early deployment cycles.</div>
       </article>
     </section>
@@ -155,6 +156,38 @@ const resultsJsonLd = JSON.stringify({
           <div class="resLedgerCell" role="cell">Internal evidence complete</div>
           <div class="resLedgerCell" role="cell">February 23, 2026 · Impact AI Office</div>
         </div>
+      </div>
+    </section>
+
+    <section class="resReference" aria-label="Reference program">
+      <div class="resReferenceHead">
+        <div class="resReferenceKicker">Reference Program</div>
+        <h2 class="h2">Proof access for serious buyers</h2>
+        <p class="resReferenceLead">
+          Public case naming stays anonymized until client approval. For qualified enterprise evaluations, we run a controlled
+          reference desk with NDA-governed proof packs and outcome walkthroughs.
+        </p>
+      </div>
+      <div class="resReferenceGrid" role="list" aria-label="Reference program details">
+        <article class="resReferenceCard" role="listitem">
+          <div class="resReferenceLabel">Reference format</div>
+          <div class="resReferenceValue">NDA-ledger call</div>
+          <div class="resReferenceText">Owner-mapped walkthrough of operating baseline, intervention path, and measurable outcome.</div>
+        </article>
+        <article class="resReferenceCard" role="listitem">
+          <div class="resReferenceLabel">Review window</div>
+          <div class="resReferenceValue">48-72 hours</div>
+          <div class="resReferenceText">Qualification plus legal checks, then evidence-pack scheduling with program owners.</div>
+        </article>
+        <article class="resReferenceCard" role="listitem">
+          <div class="resReferenceLabel">Output package</div>
+          <div class="resReferenceValue">Governance + ROI trail</div>
+          <div class="resReferenceText">Decision map, execution cadence, and attribution method used to validate impact.</div>
+        </article>
+      </div>
+      <div class="resReferenceActions">
+        <a class="btn btnPrimary" href="/contact?topic=reference-program" data-track="results_reference_request">Request reference review</a>
+        <a class="btn" href="/sample-report.pdf" download data-track="results_reference_download_pack">Download sample audit pack</a>
       </div>
     </section>
 
@@ -325,6 +358,15 @@ const resultsJsonLd = JSON.stringify({
       line-height: 1.58;
     }
 
+    .resBandS {
+      margin-top: 4px;
+      color: rgba(186, 214, 242, 0.84);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 780;
+    }
+
     .resCases {
       margin-top: 14px;
       display: grid;
@@ -455,6 +497,81 @@ const resultsJsonLd = JSON.stringify({
       flex-wrap: wrap;
     }
 
+    .resReference {
+      margin-top: 14px;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.09);
+      padding: 14px;
+    }
+
+    .resReferenceKicker {
+      display: inline-flex;
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 999px;
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.86);
+      padding: 7px 11px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .resReferenceLead {
+      margin: 10px 0 0;
+      color: rgba(17, 24, 39, 0.7);
+      line-height: 1.7;
+      font-size: 14px;
+      max-width: 88ch;
+    }
+
+    .resReferenceGrid {
+      margin-top: 12px;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+    }
+
+    .resReferenceCard {
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 10px;
+    }
+
+    .resReferenceLabel {
+      color: rgba(17, 24, 39, 0.56);
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .resReferenceValue {
+      margin-top: 5px;
+      color: rgba(7, 20, 48, 0.92);
+      font-size: 20px;
+      line-height: 1.16;
+      letter-spacing: -0.01em;
+      font-weight: 840;
+    }
+
+    .resReferenceText {
+      margin-top: 6px;
+      color: rgba(17, 24, 39, 0.68);
+      font-size: 13px;
+      line-height: 1.58;
+    }
+
+    .resReferenceActions {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     @media (min-width: 980px) {
       .resHero {
         grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
@@ -471,6 +588,10 @@ const resultsJsonLd = JSON.stringify({
       }
 
       .resCases {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .resReferenceGrid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 

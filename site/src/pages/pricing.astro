@@ -64,6 +64,15 @@ const faqJsonLd = JSON.stringify({
         EraIn is built for leaders who want verified reality, better decisions, and measurable delivery — not vanity dashboards.
       </p>
 
+      <div class="currencySwitchWrap" aria-label="Pricing currency display control">
+        <div class="currencyLabel">Display currency</div>
+        <div class="currencySwitch" role="group" aria-label="Select pricing currency">
+          <button type="button" class="currencyBtn active" data-currency-btn="INR" aria-pressed="true">INR</button>
+          <button type="button" class="currencyBtn" data-currency-btn="USD" aria-pressed="false">USD</button>
+        </div>
+        <div class="currencyHint">Auto-detected by locale, and you can switch any time. Invoices can be issued in INR or USD by region.</div>
+      </div>
+
       <div class="heroSub">
         <div class="heroStat">
           <div class="heroStatK">What you get</div>
@@ -118,7 +127,7 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">Free entry audit</div>
           </div>
           <div class="price">
-            <div class="priceValue">
+            <div class="priceValue jsCurrencyValue" data-main-inr="₹0" data-main-usd="$0" data-alt-inr="USD 0" data-alt-usd="INR 0">
               <span class="moneyMain">₹0</span>
               <span class="moneyAlt">USD 0</span>
             </div>
@@ -150,9 +159,9 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">One-time engagement</div>
           </div>
           <div class="price">
-            <div class="priceValue">
+            <div class="priceValue jsCurrencyValue" data-main-inr="₹75,000" data-main-usd="$900" data-alt-inr="Approx $900" data-alt-usd="Approx ₹75,000">
               <span class="moneyMain">₹75,000</span>
-              <span class="moneyAlt">Approx USD 900</span>
+              <span class="moneyAlt">Approx $900</span>
             </div>
             <div class="priceNote">7–10 days delivery</div>
           </div>
@@ -181,9 +190,9 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">Monthly operating cadence</div>
           </div>
           <div class="price">
-            <div class="priceValue">
+            <div class="priceValue jsCurrencyValue" data-main-inr="₹1,50,000+" data-main-usd="$1,800+" data-alt-inr="Approx $1,800+" data-alt-usd="Approx ₹1,50,000+">
               <span class="moneyMain">₹1,50,000+</span>
-              <span class="moneyAlt">Approx USD 1,800+</span>
+              <span class="moneyAlt">Approx $1,800+</span>
             </div>
             <div class="priceNote">per month</div>
           </div>
@@ -212,7 +221,7 @@ const faqJsonLd = JSON.stringify({
             <div class="tierMeta">Enterprise / Scale</div>
           </div>
           <div class="price">
-            <div class="priceValue">
+            <div class="priceValue jsCurrencyValue" data-main-inr="Custom" data-main-usd="Custom" data-alt-inr="Billing in INR or USD" data-alt-usd="Billing in USD or INR">
               <span class="moneyMain">Custom</span>
               <span class="moneyAlt">Billing in INR or USD</span>
             </div>
@@ -272,7 +281,7 @@ const faqJsonLd = JSON.stringify({
 
         <p class="footnote">
           Prices shown are before GST. USD values are indicative for global comparison at an FX reference of
-          1 USD = INR 83 (February 23, 2026). Final proposals/invoices can be issued in INR or USD by region.
+          1 USD = INR 83 (February 23, 2026). Final proposals and invoices can be issued in INR or USD by region.
           Enterprise pricing varies by plants/sites, integrations (ERP/Tally/Excel), and deployment (cloud/VPC/on-prem).
         </p>
       </div>
@@ -321,6 +330,101 @@ const faqJsonLd = JSON.stringify({
         <a href="/request-assessment" class="btn btnPrimary" data-track="pricing_closing_start_audit">Start Free AI Audit</a>
       </div>
     </div>
+
+    <script is:inline>
+      (function () {
+        const root = document.querySelector(".pricing");
+        if (!root) return;
+
+        const track = (eventName, payload) => {
+          try {
+            if (typeof window.erainTrack === "function") {
+              window.erainTrack(eventName, payload);
+              return;
+            }
+          } catch (_) {}
+          try {
+            if (window.gtag) {
+              window.gtag("event", eventName, payload);
+            }
+          } catch (_) {}
+          try {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: eventName, ...payload });
+          } catch (_) {}
+        };
+
+        const values = Array.from(root.querySelectorAll(".jsCurrencyValue"));
+        const buttons = Array.from(root.querySelectorAll("[data-currency-btn]"));
+        if (!values.length || !buttons.length) return;
+
+        const isSupportedCurrency = (value) => value === "INR" || value === "USD";
+        const normalize = (value) => (value || "").toUpperCase().trim();
+
+        const detectDefaultCurrency = () => {
+          try {
+            const url = new URL(window.location.href);
+            const fromQuery = normalize(url.searchParams.get("currency"));
+            if (isSupportedCurrency(fromQuery)) {
+              return { currency: fromQuery, source: "query" };
+            }
+          } catch (_) {}
+
+          try {
+            const fromStorage = normalize(localStorage.getItem("erain_currency"));
+            if (isSupportedCurrency(fromStorage)) {
+              return { currency: fromStorage, source: "storage" };
+            }
+          } catch (_) {}
+
+          const locale = normalize((Intl.NumberFormat().resolvedOptions().locale || navigator.language || "").replace("_", "-"));
+          const timezone = normalize(Intl.DateTimeFormat().resolvedOptions().timeZone || "");
+          const isIndiaLocale = /(^|-)IN($|-)/.test(locale);
+          const isIndiaTimezone = timezone.includes("KOLKATA") || timezone.includes("CALCUTTA");
+          return { currency: isIndiaLocale || isIndiaTimezone ? "INR" : "USD", source: "auto" };
+        };
+
+        const setCurrency = (currency, source) => {
+          if (!isSupportedCurrency(currency)) return;
+          root.setAttribute("data-currency", currency);
+          for (const valueNode of values) {
+            const mainNode = valueNode.querySelector(".moneyMain");
+            const altNode = valueNode.querySelector(".moneyAlt");
+            const main = valueNode.getAttribute(`data-main-${currency.toLowerCase()}`);
+            const alt = valueNode.getAttribute(`data-alt-${currency.toLowerCase()}`);
+            if (mainNode && main) mainNode.textContent = main;
+            if (altNode && alt) altNode.textContent = alt;
+          }
+
+          for (const button of buttons) {
+            const selected = normalize(button.getAttribute("data-currency-btn")) === currency;
+            button.classList.toggle("active", selected);
+            button.setAttribute("aria-pressed", selected ? "true" : "false");
+          }
+
+          try {
+            localStorage.setItem("erain_currency", currency);
+          } catch (_) {}
+
+          const eventName = source === "manual" ? "pricing_currency_changed" : "pricing_currency_defaulted";
+          track(eventName, {
+            page_path: window.location.pathname,
+            currency,
+            source,
+          });
+        };
+
+        const detected = detectDefaultCurrency();
+        setCurrency(detected.currency, detected.source);
+
+        for (const button of buttons) {
+          button.addEventListener("click", () => {
+            const currency = normalize(button.getAttribute("data-currency-btn"));
+            setCurrency(currency, "manual");
+          });
+        }
+      })();
+    </script>
 
     <script type="application/ld+json" is:inline>{faqJsonLd}</script>
 
@@ -384,6 +488,59 @@ const faqJsonLd = JSON.stringify({
     max-width: 80ch;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .currencySwitchWrap {
+    margin: 14px auto 0;
+    display: grid;
+    gap: 8px;
+    justify-items: center;
+  }
+
+  .currencyLabel {
+    font-size: 11px;
+    font-weight: 820;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(17, 24, 39, 0.56);
+  }
+
+  .currencySwitch {
+    display: inline-grid;
+    grid-template-columns: repeat(2, minmax(82px, 1fr));
+    gap: 6px;
+    border: 1px solid rgba(11, 31, 66, 0.14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 6px;
+    box-shadow: 0 12px 26px rgba(2, 10, 32, 0.1);
+  }
+
+  .currencyBtn {
+    appearance: none;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 800;
+    color: rgba(15, 23, 42, 0.7);
+    background: transparent;
+    cursor: pointer;
+    transition: all 150ms ease;
+  }
+
+  .currencyBtn.active {
+    color: #fff;
+    background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 10px 22px rgba(15, 95, 240, 0.28);
+  }
+
+  .currencyHint {
+    max-width: 72ch;
+    font-size: 12px;
+    color: rgba(17, 24, 39, 0.58);
+    line-height: 1.6;
   }
 
   .heroSub {
@@ -693,6 +850,7 @@ const faqJsonLd = JSON.stringify({
     letter-spacing: -0.02em;
     color: var(--primary);
     white-space: nowrap;
+    transition: color 120ms ease;
   }
 
   .moneyAlt {
@@ -852,6 +1010,16 @@ const faqJsonLd = JSON.stringify({
     }
   }
 
+  @media (max-width: 760px) {
+    .currencySwitchWrap {
+      justify-items: flex-start;
+    }
+
+    .currencyHint {
+      text-align: left;
+    }
+  }
+
   /* After section */
   .after {
     margin-top: 22px;
@@ -983,10 +1151,9 @@ const faqJsonLd = JSON.stringify({
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .tier, .qa { transition: none !important; }
+    .tier, .qa, .currencyBtn { transition: none !important; }
     .tier:hover { transform: none; }
   }
-/* Remove any standalone .tierRibbon definition if present */
 </style>
   </section>
 </BaseLayout>

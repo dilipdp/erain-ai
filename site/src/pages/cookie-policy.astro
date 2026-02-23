@@ -1,0 +1,204 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Cookie Policy • EraIn AI";
+const description =
+  "Cookie and local storage policy for EraIn AI website experience, analytics, and control preferences.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="trustPage">
+    <header class="trustHero trustPanel">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Essential first</span>
+        <span class="badge badgeSoft">Analytics transparency</span>
+        <span class="badge badgeSoft">User controls</span>
+      </div>
+      <h1 class="h1">Cookie Policy</h1>
+      <p class="lead">
+        This policy explains how EraIn uses cookies and similar local storage signals on public web pages to support
+        reliable operation, analytics, and user preference persistence.
+      </p>
+      <div class="trustMeta" role="note" aria-label="Cookie policy metadata">
+        <div><strong>Last updated:</strong> February 23, 2026</div>
+        <div><strong>Policy contact:</strong> <a href="mailto:hello@erainai.com">hello@erainai.com</a></div>
+      </div>
+    </header>
+
+    <section class="trustPanel trustTable" aria-label="Cookie categories">
+      <div class="trustKicker">Cookie Categories</div>
+      <h2 class="h2">How cookies are used</h2>
+      <div class="tableWrap" role="table" aria-label="Cookie category table">
+        <div class="tableRow tableHead" role="row">
+          <div role="columnheader">Category</div>
+          <div role="columnheader">Use</div>
+          <div role="columnheader">Examples</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Essential</div>
+          <div role="cell">Required for baseline site functionality and security behavior.</div>
+          <div role="cell">Session continuity, abuse protection, load controls.</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Analytics</div>
+          <div role="cell">Helps us measure page performance and improve user flows.</div>
+          <div role="cell">Page interaction, event telemetry, web-vitals-style measurements.</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Preferences</div>
+          <div role="cell">Stores non-sensitive choices to improve repeat visits.</div>
+          <div role="cell">Currency display preference, UI state choices.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustGrid" aria-label="Cookie details">
+      <article class="trustWide">
+        <h2 class="h2">Your controls</h2>
+        <ul>
+          <li>Browser settings can block or clear cookies and local storage.</li>
+          <li>Blocking essential cookies may affect core site behavior.</li>
+          <li>You can request policy clarification by emailing our team.</li>
+        </ul>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Third-party services</h2>
+        <p>
+          We may use carefully selected analytics and infrastructure providers to operate and improve the service.
+          Provider usage is governed by our privacy and security controls.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Do Not Track</h2>
+        <p>
+          Browser-level Do Not Track behavior can vary. We treat privacy seriously and focus on minimal, purpose-bound telemetry
+          for service quality and conversion measurement.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Policy updates</h2>
+        <p>
+          We may update this policy as products, legal obligations, or data practices evolve. Material updates will include a revised
+          date on this page.
+        </p>
+      </article>
+    </section>
+  </section>
+
+  <style>
+    .trustPage {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 0 4px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .trustHero {
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 251, 255, 0.9));
+      box-shadow: 0 24px 60px rgba(2, 10, 32, 0.12);
+      padding: 18px;
+    }
+
+    .trustMeta {
+      margin-top: 10px;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 10px 12px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.65;
+      display: grid;
+      gap: 6px;
+    }
+
+    .trustGrid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .trustWide,
+    .trustPanel {
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.09);
+      padding: 14px;
+    }
+
+    .trustWide p {
+      margin-top: 8px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.72;
+    }
+
+    .trustWide ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.68;
+    }
+
+    .trustKicker {
+      display: inline-flex;
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 999px;
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.86);
+      padding: 7px 11px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .trustTable .h2 {
+      margin-top: 10px;
+    }
+
+    .tableWrap {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .tableRow {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 10px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.56;
+    }
+
+    .tableHead {
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.9);
+      font-weight: 840;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    @media (min-width: 980px) {
+      .trustGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tableRow {
+        grid-template-columns: 0.7fr 1fr 1.2fr;
+        align-items: start;
+      }
+    }
+  </style>
+</BaseLayout>

@@ -1,0 +1,220 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Security Program • EraIn AI";
+const description =
+  "EraIn AI security controls for application, infrastructure, governance, access, and incident response.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="trustPage">
+    <header class="trustHero trustPanel">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Least privilege</span>
+        <span class="badge badgeSoft">Audit trails</span>
+        <span class="badge badgeSoft">Incident-ready</span>
+      </div>
+      <h1 class="h1">Security Program</h1>
+      <p class="lead">
+        Security is integrated across product, delivery, and operations. We apply layered controls around access, change management,
+        evidence logging, and response workflows to protect client environments and business-critical execution systems.
+      </p>
+      <div class="trustMeta" role="note" aria-label="Security metadata">
+        <div><strong>Last updated:</strong> February 23, 2026</div>
+        <div><strong>Security contact:</strong> <a href="mailto:security@erainai.com">security@erainai.com</a></div>
+      </div>
+    </header>
+
+    <section class="trustPanel trustTable" aria-label="Security control table">
+      <div class="trustKicker">Control Framework</div>
+      <h2 class="h2">Security domains and control intent</h2>
+      <div class="tableWrap" role="table" aria-label="Security controls">
+        <div class="tableRow tableHead" role="row">
+          <div role="columnheader">Domain</div>
+          <div role="columnheader">Controls</div>
+          <div role="columnheader">Outcome</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Identity & access</div>
+          <div role="cell">Role-scoped permissions, least privilege, access logging</div>
+          <div role="cell">Reduced unauthorized access risk and clear accountability</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Data protection</div>
+          <div role="cell">Scoped data handling, encryption in transit/at rest where applicable</div>
+          <div role="cell">Confidentiality and integrity protection across engagement lifecycle</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Platform assurance</div>
+          <div role="cell">Patch management, monitoring, environment segregation, backup routines</div>
+          <div role="cell">Operational resilience and reduced service disruption</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustGrid" aria-label="Security details">
+      <article class="trustWide">
+        <h2 class="h2">Secure engineering and change controls</h2>
+        <ul>
+          <li>Controlled code changes with review and deployment workflows.</li>
+          <li>Dependency and runtime update discipline with risk prioritization.</li>
+          <li>Separation of development and production contexts.</li>
+        </ul>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Logging and auditability</h2>
+        <ul>
+          <li>Operational logs for access and critical system events.</li>
+          <li>Decision and action trail support for governance reviews.</li>
+          <li>Evidence-linked records for enterprise audit workflows.</li>
+        </ul>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Incident response</h2>
+        <p>
+          We maintain an incident workflow covering triage, containment, remediation, and post-incident review.
+          Notification timelines and obligations follow contractual and regulatory requirements.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Business continuity</h2>
+        <p>
+          Core services are designed with continuity controls, including backup handling and recovery procedures.
+          Client-specific continuity expectations can be formalized in enterprise agreements.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Deployment options</h2>
+        <ul>
+          <li>Cloud-hosted deployment for rapid onboarding.</li>
+          <li>VPC deployment for network isolation requirements.</li>
+          <li>On-prem deployment for controlled enterprise environments.</li>
+        </ul>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">Reporting a vulnerability</h2>
+        <p>
+          Report suspected vulnerabilities to <a href="mailto:security@erainai.com">security@erainai.com</a> with reproducible details,
+          impact estimate, and affected scope. We acknowledge and triage reports promptly.
+        </p>
+      </article>
+    </section>
+  </section>
+
+  <style>
+    .trustPage {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 0 4px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .trustHero {
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 251, 255, 0.9));
+      box-shadow: 0 24px 60px rgba(2, 10, 32, 0.12);
+      padding: 18px;
+    }
+
+    .trustMeta {
+      margin-top: 10px;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 10px 12px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.65;
+      display: grid;
+      gap: 6px;
+    }
+
+    .trustGrid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .trustWide,
+    .trustPanel {
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.09);
+      padding: 14px;
+    }
+
+    .trustWide p {
+      margin-top: 8px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.72;
+    }
+
+    .trustWide ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.68;
+    }
+
+    .trustKicker {
+      display: inline-flex;
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 999px;
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.86);
+      padding: 7px 11px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .trustTable .h2 {
+      margin-top: 10px;
+    }
+
+    .tableWrap {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .tableRow {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 10px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.56;
+    }
+
+    .tableHead {
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.9);
+      font-weight: 840;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    @media (min-width: 980px) {
+      .trustGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tableRow {
+        grid-template-columns: 0.7fr 1fr 1.2fr;
+        align-items: start;
+      }
+    }
+  </style>
+</BaseLayout>

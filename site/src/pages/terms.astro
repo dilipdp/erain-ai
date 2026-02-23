@@ -1,0 +1,233 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Terms of Service • EraIn AI";
+const description =
+  "Service terms for EraIn AI engagements, including scope, responsibilities, commercial terms, and governance boundaries.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="trustPage">
+    <header class="trustHero trustPanel">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Execution-first</span>
+        <span class="badge badgeSoft">Clear responsibilities</span>
+        <span class="badge badgeSoft">Enterprise contract ready</span>
+      </div>
+      <h1 class="h1">Terms of Service</h1>
+      <p class="lead">
+        These terms govern use of EraIn AI services and related deliverables. Enterprise agreements, statements of work,
+        and signed order forms take precedence where they contain specific terms.
+      </p>
+      <div class="trustMeta" role="note" aria-label="Terms metadata">
+        <div><strong>Last updated:</strong> February 23, 2026</div>
+        <div><strong>Contact:</strong> <a href="mailto:hello@erainai.com">hello@erainai.com</a></div>
+      </div>
+    </header>
+
+    <section class="trustPanel trustTable" aria-label="Terms summary table">
+      <div class="trustKicker">Quick Summary</div>
+      <h2 class="h2">Operating terms at a glance</h2>
+      <div class="tableWrap" role="table" aria-label="Terms summary">
+        <div class="tableRow tableHead" role="row">
+          <div role="columnheader">Topic</div>
+          <div role="columnheader">Baseline Term</div>
+          <div role="columnheader">Notes</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Service scope</div>
+          <div role="cell">As defined in proposal / SOW</div>
+          <div role="cell">Deliverables, timelines, and outcomes are engagement-specific.</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Billing</div>
+          <div role="cell">INR or USD by region</div>
+          <div role="cell">Taxes, payment terms, and invoicing currency are contract-defined.</div>
+        </div>
+        <div class="tableRow" role="row">
+          <div role="cell">Confidentiality</div>
+          <div role="cell">Mutual confidentiality obligations</div>
+          <div role="cell">NDA/DPA addendums available for enterprise rollout.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trustGrid" aria-label="Terms details">
+      <article class="trustWide">
+        <h2 class="h2">1. Service scope</h2>
+        <p>
+          EraIn provides auditability, decision governance, and ROI attribution services and platform capabilities as described in
+          the governing commercial documents. Work is performed based on provided data, agreed access boundaries, and stated assumptions.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">2. Customer responsibilities</h2>
+        <ul>
+          <li>Provide accurate and lawful data with required internal permissions.</li>
+          <li>Assign accountable owners for review, decisioning, and approvals.</li>
+          <li>Validate outputs before execution in production environments.</li>
+        </ul>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">3. Acceptable use</h2>
+        <ul>
+          <li>No unlawful, deceptive, or harmful use of services.</li>
+          <li>No attempts to bypass security controls or access restrictions.</li>
+          <li>No reverse engineering except where law explicitly permits.</li>
+        </ul>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">4. Intellectual property</h2>
+        <p>
+          EraIn retains rights to pre-existing tools, methods, and platform IP. Client-owned source data remains client property.
+          Deliverables and usage rights are governed by contract.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">5. Confidentiality and data handling</h2>
+        <p>
+          Both parties protect confidential information. Data handling practices follow our privacy and security commitments and any
+          signed data processing terms.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">6. Warranty and liability boundaries</h2>
+        <p>
+          Services are provided with commercially reasonable care. Except as required by law or explicitly agreed in writing, implied
+          warranties are disclaimed, and liability boundaries are governed by the signed agreement.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">7. Suspension and termination</h2>
+        <p>
+          We may suspend access for security risks, non-payment, or material breach. On termination, data return/deletion follows the
+          agreed contract and legal obligations.
+        </p>
+      </article>
+      <article class="trustWide">
+        <h2 class="h2">8. Governing terms hierarchy</h2>
+        <p>
+          If there is a conflict, order of precedence is: signed master agreement, signed SOW/order form, and then this public terms
+          page.
+        </p>
+      </article>
+    </section>
+  </section>
+
+  <style>
+    .trustPage {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 12px 0 4px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .trustHero {
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 251, 255, 0.9));
+      box-shadow: 0 24px 60px rgba(2, 10, 32, 0.12);
+      padding: 18px;
+    }
+
+    .trustMeta {
+      margin-top: 10px;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 10px 12px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.65;
+      display: grid;
+      gap: 6px;
+    }
+
+    .trustGrid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .trustWide,
+    .trustPanel {
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.09);
+      padding: 14px;
+    }
+
+    .trustWide p {
+      margin-top: 8px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.72;
+    }
+
+    .trustWide ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.68;
+    }
+
+    .trustKicker {
+      display: inline-flex;
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 999px;
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.86);
+      padding: 7px 11px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .trustTable .h2 {
+      margin-top: 10px;
+    }
+
+    .tableWrap {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .tableRow {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 10px;
+      color: rgba(17, 24, 39, 0.72);
+      font-size: 13px;
+      line-height: 1.56;
+    }
+
+    .tableHead {
+      background: rgba(16, 24, 40, 0.04);
+      color: rgba(7, 20, 48, 0.9);
+      font-weight: 840;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    @media (min-width: 980px) {
+      .trustGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tableRow {
+        grid-template-columns: 0.7fr 1fr 1.2fr;
+        align-items: start;
+      }
+    }
+  </style>
+</BaseLayout>

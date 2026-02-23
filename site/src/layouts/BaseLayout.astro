@@ -47,7 +47,7 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#08142f" />
     <meta name="robots" content="index,follow" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="light" />
     <meta property="og:locale" content="en_US" />
 
     <script type="application/ld+json" is:inline>{orgJsonLd}</script>
@@ -116,6 +116,10 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
       }
 
       *, *::before, *::after { box-sizing: border-box; }
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
 
       body {
         margin: 0;
@@ -441,9 +445,25 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
       }
 
       .footerLinks {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr;
+      }
+
+      .footerLinkGroup {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
+        align-items: center;
+      }
+
+      .footerLinkK {
+        flex-basis: 100%;
+        color: rgba(17, 24, 39, 0.56);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
 
       .footerLinks a {
@@ -471,6 +491,12 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
         .footerTop {
           grid-template-columns: 1.2fr 1fr;
           align-items: start;
+        }
+      }
+
+      @media (min-width: 720px) {
+        .footerLinks {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
@@ -934,12 +960,23 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
             </div>
           </div>
           <div class="footerLinks" aria-label="Footer actions">
-            <a href="/request-assessment">Start Free AI Audit</a>
-            <a href="/results">View Results</a>
-            <a href="/client-login">Client Login</a>
-            <a href="/pricing">Pricing</a>
-            <a href="/legal">Legal</a>
-            <a href="/contact">Contact</a>
+            <div class="footerLinkGroup">
+              <div class="footerLinkK">Explore</div>
+              <a href="/request-assessment">Start Free AI Audit</a>
+              <a href="/results">View Results</a>
+              <a href="/client-login">Client Login</a>
+              <a href="/pricing">Pricing</a>
+              <a href="/contact">Contact</a>
+            </div>
+            <div class="footerLinkGroup">
+              <div class="footerLinkK">Trust</div>
+              <a href="/legal">Legal</a>
+              <a href="/security">Security</a>
+              <a href="/privacy">Privacy</a>
+              <a href="/terms">Terms</a>
+              <a href="/dpa">DPA</a>
+              <a href="/cookie-policy">Cookies</a>
+            </div>
           </div>
         </div>
         <div class="footerMeta">Email: hello@erainai.com</div>
@@ -955,6 +992,20 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
       (function () {
         function $(id) { return document.getElementById(id); }
         const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const emitAnalyticsEvent = (eventName, payload = {}) => {
+          try {
+            if (window.gtag) {
+              window.gtag("event", eventName, payload);
+            }
+          } catch (_) {}
+          try {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: eventName, ...payload });
+          } catch (_) {}
+        };
+        try {
+          window.erainTrack = emitAnalyticsEvent;
+        } catch (_) {}
 
         // Mobile menu: accessible toggle + close on outside click / Escape / link click
         try {
@@ -1026,6 +1077,98 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
           }
         } catch (_) {}
 
+        // Core telemetry: page view + web vitals envelope
+        try {
+          const shared = {
+            page_path: window.location.pathname,
+            page_title: document.title,
+            viewport: `${window.innerWidth}x${window.innerHeight}`,
+            language: navigator.language || "unknown",
+          };
+
+          emitAnalyticsEvent("site_page_view", shared);
+
+          const sendVital = (name, value) => {
+            if (!Number.isFinite(value)) return;
+            emitAnalyticsEvent("site_web_vital", {
+              metric_name: name,
+              metric_value: Number(value.toFixed(2)),
+              ...shared,
+            });
+          };
+
+          try {
+            const navEntry = performance.getEntriesByType("navigation")[0];
+            if (navEntry && typeof navEntry.responseStart === "number") {
+              sendVital("TTFB", navEntry.responseStart);
+            }
+          } catch (_) {}
+
+          let clsValue = 0;
+          let lcpValue = null;
+          let inpValue = 0;
+          let flushedVitals = false;
+
+          const flushVitals = () => {
+            if (flushedVitals) return;
+            flushedVitals = true;
+            sendVital("CLS", clsValue);
+            if (lcpValue !== null) sendVital("LCP", lcpValue);
+            if (inpValue > 0) sendVital("INP", inpValue);
+          };
+
+          if ("PerformanceObserver" in window) {
+            try {
+              const poPaint = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                  if (entry.name === "first-contentful-paint") {
+                    sendVital("FCP", entry.startTime);
+                    poPaint.disconnect();
+                    break;
+                  }
+                }
+              });
+              poPaint.observe({ type: "paint", buffered: true });
+            } catch (_) {}
+
+            try {
+              const poLcp = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                const lastEntry = entries[entries.length - 1];
+                if (lastEntry) lcpValue = lastEntry.startTime;
+              });
+              poLcp.observe({ type: "largest-contentful-paint", buffered: true });
+            } catch (_) {}
+
+            try {
+              const poCls = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                  if (!entry.hadRecentInput) {
+                    clsValue += entry.value;
+                  }
+                }
+              });
+              poCls.observe({ type: "layout-shift", buffered: true });
+            } catch (_) {}
+
+            try {
+              const poInp = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                  if (entry.duration > inpValue) {
+                    inpValue = entry.duration;
+                  }
+                }
+              });
+              poInp.observe({ type: "event", buffered: true, durationThreshold: 40 });
+            } catch (_) {}
+          }
+
+          document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "hidden") flushVitals();
+          });
+          window.addEventListener("pagehide", flushVitals);
+        } catch (_) {}
+
         // Launch telemetry for core conversion interactions
         try {
           const trackableTargets = [
@@ -1056,15 +1199,7 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
               href: hrefRaw,
               page_path: window.location.pathname,
             };
-
-            if (window.gtag) {
-              window.gtag("event", eventName, payload);
-            }
-
-            try {
-              window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({ event: eventName, ...payload });
-            } catch (_) {}
+            emitAnalyticsEvent(eventName, payload);
           }, { passive: true });
         } catch (_) {}
 
@@ -1090,6 +1225,11 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
             ".enterpriseItem",
             ".legalCard",
             ".legalWide",
+            ".trustHero",
+            ".trustPanel",
+            ".trustCard",
+            ".trustWide",
+            ".trustTable",
             ".heroTrustItem",
             ".heroVisualShell",
             ".portalSide",
