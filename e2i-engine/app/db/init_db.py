@@ -1,13 +1,17 @@
-from app.db.base import Base
-from app.db.session import engine
+from pathlib import Path
 
-# Import models so SQLAlchemy registers them
-from app.models.core.audit_event import AuditEvent  # noqa: F401
-from app.models.core.decision_record import DecisionRecord  # noqa: F401
-from app.models.core.organization import Organization  # noqa: F401
-from app.models.core.roi_attribution import ROIAttribution  # noqa: F401
-from app.models.core.snapshot import DatasetSnapshot  # noqa: F401
+from alembic import command
+from alembic.config import Config
+
+from app.core.config import settings
 
 
 def init_db() -> None:
-    Base.metadata.create_all(bind=engine)
+    project_root = Path(__file__).resolve().parents[2]
+    alembic_ini = project_root / "alembic.ini"
+    alembic_dir = project_root / "alembic"
+
+    cfg = Config(str(alembic_ini))
+    cfg.set_main_option("script_location", str(alembic_dir))
+    cfg.set_main_option("sqlalchemy.url", settings.database_url)
+    command.upgrade(cfg, "head")

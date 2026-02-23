@@ -9,6 +9,14 @@ from app.models.core.organization import Organization
 from app.models.core.snapshot import DatasetSnapshot
 from app.schemas.core.decision_record import DecisionApproveIn, DecisionCreate
 
+APPROVAL_MATRIX: dict[str, set[str]] = {
+    "FOUNDER": {"FOUNDER"},
+    "ENGAGEMENT_LEAD": {"FOUNDER", "ENGAGEMENT_LEAD", "CLIENT_CXO"},
+    "OPS_LEAD": {"FOUNDER", "ENGAGEMENT_LEAD", "CLIENT_CXO"},
+    "DOMAIN_LEAD": {"FOUNDER", "ENGAGEMENT_LEAD", "CLIENT_CXO"},
+    "CLIENT_CXO": {"FOUNDER", "CLIENT_CXO"},
+}
+
 
 class DecisionService:
     @staticmethod
@@ -36,12 +44,29 @@ class DecisionService:
         return decision
 
     @staticmethod
-    def approve(db: Session, decision_id: UUID, payload: DecisionApproveIn) -> DecisionRecord:
+    def approve(
+        db: Session,
+        decision_id: UUID,
+        payload: DecisionApproveIn,
+        actor_id: str,
+        actor_role: str,
+    ) -> DecisionRecord:
         decision = db.get(DecisionRecord, decision_id)
         if decision is None:
             raise HTTPException(status_code=404, detail="decision not found")
         if decision.status != "PROPOSED":
             raise HTTPException(status_code=409, detail="decision already finalized")
+        if actor_id != payload.approver_id.strip():
+            raise HTTPException(status_code=403, detail="actor id does not match approver_id")
+        if actor_role != payload.approver_role:
+            raise HTTPException(status_code=403, detail="actor role does not match approver_role")
+
+        allowed_roles = APPROVAL_MATRIX.get(decision.authority_tier, {"FOUNDER"})
+        if actor_role not in allowed_roles:
+            raise HTTPException(
+                status_code=403,
+                detail=f"{actor_role} is not allowed to approve {decision.authority_tier} decisions",
+            )
 
         decision.status = "APPROVED" if payload.approved else "REJECTED"
         decision.approved_by = payload.approver_id.strip()

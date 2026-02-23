@@ -3,6 +3,7 @@ from uuid import UUID
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
+from app.api.v1.deps.auth import ActorContext, get_actor_context
 from app.db.deps import get_db
 from app.schemas.core.decision_record import DecisionApproveIn, DecisionCreate, DecisionOut
 from app.services.core.decision_service import DecisionService
@@ -16,8 +17,19 @@ def create_decision(payload: DecisionCreate, db: Session = Depends(get_db)) -> D
 
 
 @router.post("/{decision_id}/approve", response_model=DecisionOut)
-def approve_decision(decision_id: UUID, payload: DecisionApproveIn, db: Session = Depends(get_db)) -> DecisionOut:
-    return DecisionService.approve(db, decision_id=decision_id, payload=payload)
+def approve_decision(
+    decision_id: UUID,
+    payload: DecisionApproveIn,
+    actor: ActorContext = Depends(get_actor_context),
+    db: Session = Depends(get_db),
+) -> DecisionOut:
+    return DecisionService.approve(
+        db,
+        decision_id=decision_id,
+        payload=payload,
+        actor_id=actor.actor_id,
+        actor_role=actor.actor_role,
+    )
 
 
 @router.get("", response_model=list[DecisionOut])
