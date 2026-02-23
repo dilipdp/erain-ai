@@ -190,7 +190,12 @@ const resultsJsonLd = JSON.stringify({
       gap: 14px;
     }
 
+    .resHero > * {
+      min-width: 0;
+    }
+
     .resHeroCopy {
+      min-width: 0;
       max-width: 82ch;
     }
 
@@ -246,6 +251,8 @@ const resultsJsonLd = JSON.stringify({
       display: grid;
       gap: 8px;
       align-content: start;
+      min-width: 0;
+      width: 100%;
     }
 
     .resVisualShell {
@@ -253,6 +260,8 @@ const resultsJsonLd = JSON.stringify({
       border-radius: 24px;
       overflow: hidden;
       padding: 5px;
+      width: 100%;
+      max-width: 100%;
       background:
         linear-gradient(145deg, rgba(7, 26, 64, 0.95), rgba(9, 40, 86, 0.92) 56%, rgba(8, 28, 66, 0.94));
       box-shadow: 0 24px 56px rgba(2, 10, 32, 0.28);
@@ -261,6 +270,7 @@ const resultsJsonLd = JSON.stringify({
     .resVisualShell img {
       display: block;
       width: 100%;
+      max-width: 100%;
       height: auto;
       border-radius: 18px;
       filter: saturate(1.04) contrast(1.03);
