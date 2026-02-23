@@ -211,3 +211,5 @@ Done when:
 - `1bdfe24` phase 7: telemetry + mobile quick CTA rail
 - `c7a1a54` phase 8: sample report proof experience upgrade
 - `7d973c9` phase 9: legal assurance matrix upgrade
+- `b458494` phase 10: industries authority narrative upgrade
+- `193675a` phase 11: contact qualification signal upgrade
