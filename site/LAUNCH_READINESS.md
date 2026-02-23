@@ -10,6 +10,7 @@ Run:
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/launch_qa_checklist.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p0_hardening_checks.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p1_launch_quality_gate.sh
+bash /Users/dilipbr/Projects/erain-ai/site/scripts/p2_device_browser_matrix_gate.sh
 ```
 
 Current status:
@@ -22,6 +23,7 @@ Current status:
 - Security headers + trust routes: pass
 - Lighthouse thresholds: pass
 - Axe blocking violations (critical): pass
+- Device/browser matrix (Chromium, Firefox, WebKit + mobile profiles): pass
 
 ## Quality Gate Config
 
@@ -32,6 +34,11 @@ The Lighthouse + axe gate supports environment overrides:
 - `LH_MIN_BEST_PRACTICES` (default `0.85`)
 - `LH_MIN_SEO` (default `0.90`)
 - `AXE_FAIL_LEVELS` (default `critical`)
+
+Device/browser matrix gate artifacts:
+
+- JSON report: `/tmp/erain_device_browser_matrix_report.json`
+- Screenshots: `/tmp/erain_device_matrix_shots`
 
 ## Manual Checks (pre-launch)
 

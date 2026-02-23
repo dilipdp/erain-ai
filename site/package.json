@@ -8,7 +8,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "qa:quality-gate": "node scripts/lighthouse_axe_gate.mjs",
-    "qa:quality-gate:full": "bash scripts/p1_launch_quality_gate.sh"
+    "qa:quality-gate:full": "bash scripts/p1_launch_quality_gate.sh",
+    "qa:device-matrix": "node scripts/device_browser_matrix_gate.mjs",
+    "qa:device-matrix:full": "bash scripts/p2_device_browser_matrix_gate.sh"
   },
   "dependencies": {
     "astro": "^5.17.1"
@@ -19,6 +21,7 @@
     "axe-core": "^4.11.1",
     "chrome-launcher": "^1.2.1",
     "lighthouse": "^12.8.2",
+    "playwright": "^1.58.2",
     "playwright-core": "^1.58.2"
   }
 }
