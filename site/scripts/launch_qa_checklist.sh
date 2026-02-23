@@ -52,4 +52,16 @@ else
   fail "sample-report.pdf missing or empty"
 fi
 
+if [ -f "src/pages/results.astro" ]; then
+  pass "results route exists"
+else
+  fail "missing results route"
+fi
+
+if rg -n 'href="/results"' src/layouts/BaseLayout.astro >/dev/null; then
+  pass "navigation points to /results"
+else
+  fail "navigation does not include /results"
+fi
+
 printf "Launch QA checklist complete.\n"

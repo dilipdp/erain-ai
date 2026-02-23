@@ -22,6 +22,7 @@ Current status:
 
 1. Desktop visual review:
    - `/`
+   - `/results`
    - `/solutions`
    - `/pricing`
    - `/industries`
@@ -41,6 +42,10 @@ Current status:
    - `assessment_submitted`
    - `contact_submitted`
    - `client_login_submitted`
+
+5. Route consistency:
+   - top navigation includes `/results`
+   - sample PDF still downloads from `/sample-report.pdf`
 
 ## Final practical 10+ note
 

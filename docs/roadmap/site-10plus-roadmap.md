@@ -276,6 +276,34 @@ Done when:
 - Launch runbook is present for final pre-go-live review
 - Build passes
 
+### Phase 18 - Results Authority Hub (2026-02-23)
+
+Scope:
+
+- Add dedicated Results route for proof-first storytelling
+- Route top proof CTAs to Results before artifact download
+- Keep direct sample PDF artifact accessible
+
+Done when:
+
+- Results page is live and linked from top navigation
+- Proof funnel is clearer for enterprise buyers
+- Build and QA checklist pass
+
+### Phase 19 - QA Checklist Expansion (2026-02-23)
+
+Scope:
+
+- Extend launch script with results-route and nav consistency checks
+- Update launch runbook with final route/flow validation
+- Re-run checklist to confirm all pass
+
+Done when:
+
+- Automated checks include results route validations
+- Launch runbook reflects final flow
+- Checklist passes end-to-end
+
 ## Execution Rules
 
 - One phase = one commit minimum
