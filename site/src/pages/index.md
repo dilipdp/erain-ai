@@ -501,8 +501,13 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   align-items: start;
 }
 
+.heroGrid > *{
+  min-width: 0;
+}
+
 .heroCopy{
   text-align: center;
+  min-width: 0;
 }
 
 .heroEyebrow{
@@ -523,11 +528,12 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 
 .heroDisplay{
   margin-top: 0;
-  font-size: clamp(42px, 5.1vw, 72px);
-  line-height: 0.94;
-  letter-spacing: -0.055em;
+  font-size: clamp(36px, 7.6vw, 72px);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
   font-weight: 950;
   text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 .heroLead{
@@ -544,6 +550,7 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   display: grid;
   gap: 12px;
   align-content: start;
+  min-width: 0;
 }
 
 .btn-row {
@@ -1393,9 +1400,19 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 @media (max-width: 760px){
   .hero{ text-align: left; }
   .heroPanel{ text-align: left; padding: 22px 16px 18px; border-radius: 26px; }
-  .heroDisplay{ line-height: 0.95; }
+  .heroDisplay{
+    font-size: clamp(34px, 11.2vw, 52px);
+    line-height: 0.94;
+    letter-spacing: -0.032em;
+    text-wrap: pretty;
+  }
   .btn-row{ justify-content: flex-start; }
+  .btn-row .btn{
+    flex: 1 1 auto;
+    min-width: 148px;
+  }
   .hero .lead{ margin-left: 0; margin-right: 0; }
+  .heroLead{ font-size: 17px; }
   .heroEyebrow{ margin-left: 0; }
   .heroVisualShell{ border-radius: 22px; }
   .proofItem{ padding: 10px 11px; }
