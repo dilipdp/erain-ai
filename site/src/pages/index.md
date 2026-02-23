@@ -20,7 +20,7 @@ Built for serious teams that require auditability, decision governance, and clea
 
 <div class="btn-row" aria-label="Primary actions">
 <a class="btn btnPrimary" href="/request-assessment" data-track="home_hero_start_audit">Start Free AI Audit</a>
-<a class="btn" href="/sample-report" data-track="home_hero_view_sample">View Sample Report</a>
+<a class="btn" href="/results" data-track="home_hero_view_results">View Results</a>
 <a class="btn btnGhost" href="/pricing" data-track="home_hero_see_pricing">See Pricing</a>
 </div>
 

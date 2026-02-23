@@ -34,6 +34,7 @@ const websiteJsonLd = JSON.stringify({
 
 const currentPath = Astro.url.pathname;
 const isActive = (path) => currentPath === path;
+const isResultsActive = currentPath === '/results' || currentPath === '/sample-report';
 ---
 
 <!doctype html>
@@ -893,7 +894,7 @@ const isActive = (path) => currentPath === path;
           <a href="/solutions" class={isActive('/solutions') ? 'active' : ''} aria-current={isActive('/solutions') ? 'page' : undefined}>Solutions</a>
           <a href="/industries" class={isActive('/industries') ? 'active' : ''} aria-current={isActive('/industries') ? 'page' : undefined}>Industries</a>
           <a href="/pricing" class={isActive('/pricing') ? 'active' : ''} aria-current={isActive('/pricing') ? 'page' : undefined}>Pricing</a>
-          <a href="/sample-report" class={isActive('/sample-report') ? 'active' : ''} aria-current={isActive('/sample-report') ? 'page' : undefined}>Sample Report</a>
+          <a href="/results" class={isResultsActive ? 'active' : ''} aria-current={isResultsActive ? 'page' : undefined}>Results</a>
           <a href="/client-login" class={isActive('/client-login') ? 'active' : ''} aria-current={isActive('/client-login') ? 'page' : undefined}>Client Login</a>
           <a href="/contact" class={isActive('/contact') ? 'active' : ''} aria-current={isActive('/contact') ? 'page' : undefined}>Contact</a>
           <a href="/request-assessment" class={`cta ${isActive('/request-assessment') ? 'active' : ''}`} aria-current={isActive('/request-assessment') ? 'page' : undefined}>Start Free AI Audit</a>
@@ -934,7 +935,7 @@ const isActive = (path) => currentPath === path;
           </div>
           <div class="footerLinks" aria-label="Footer actions">
             <a href="/request-assessment">Start Free AI Audit</a>
-            <a href="/sample-report">View Sample Report</a>
+            <a href="/results">View Results</a>
             <a href="/client-login">Client Login</a>
             <a href="/pricing">Pricing</a>
             <a href="/legal">Legal</a>
@@ -947,7 +948,7 @@ const isActive = (path) => currentPath === path;
 
     <div class="mobileQuickCta hiddenRail" id="mobileQuickCta" aria-label="Quick actions">
       <a class="primary" href="/request-assessment" data-track="mobile_quick_audit">Start Free Audit</a>
-      <a class="secondary" href="/sample-report" data-track="mobile_quick_sample">Sample Report</a>
+      <a class="secondary" href="/results" data-track="mobile_quick_results">Results</a>
     </div>
 
     <script is:inline>
@@ -1031,6 +1032,7 @@ const isActive = (path) => currentPath === path;
             "/request-assessment",
             "/sample-report",
             "/sample-report.pdf",
+            "/results",
             "/contact",
             "/pricing",
             "/client-login"
