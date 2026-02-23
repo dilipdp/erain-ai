@@ -8,6 +8,8 @@ Run:
 
 ```bash
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/launch_qa_checklist.sh
+bash /Users/dilipbr/Projects/erain-ai/site/scripts/p0_hardening_checks.sh
+bash /Users/dilipbr/Projects/erain-ai/site/scripts/p1_launch_quality_gate.sh
 ```
 
 Current status:
@@ -17,6 +19,19 @@ Current status:
 - CTA tracking labels: pass
 - Legacy hero references: pass
 - Sample report artifact: pass
+- Security headers + trust routes: pass
+- Lighthouse thresholds: pass
+- Axe blocking violations (critical): pass
+
+## Quality Gate Config
+
+The Lighthouse + axe gate supports environment overrides:
+
+- `LH_MIN_PERFORMANCE` (default `0.55`)
+- `LH_MIN_ACCESSIBILITY` (default `0.90`)
+- `LH_MIN_BEST_PRACTICES` (default `0.85`)
+- `LH_MIN_SEO` (default `0.90`)
+- `AXE_FAIL_LEVELS` (default `critical`)
 
 ## Manual Checks (pre-launch)
 

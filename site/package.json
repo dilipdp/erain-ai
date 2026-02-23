@@ -6,13 +6,19 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "qa:quality-gate": "node scripts/lighthouse_axe_gate.mjs",
+    "qa:quality-gate:full": "bash scripts/p1_launch_quality_gate.sh"
   },
   "dependencies": {
     "astro": "^5.17.1"
   },
   "devDependencies": {
     "@astrojs/node": "^9.5.2",
-    "@astrojs/sitemap": "^3.7.0"
+    "@astrojs/sitemap": "^3.7.0",
+    "axe-core": "^4.11.1",
+    "chrome-launcher": "^1.2.1",
+    "lighthouse": "^12.8.2",
+    "playwright-core": "^1.58.2"
   }
 }
