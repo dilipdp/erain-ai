@@ -1,0 +1,228 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">EraIn Execution Fabric</title>
+  <desc id="desc">A premium data-fabric scene where auditability, governance, and ROI streams converge into the EraIn execution engine.</desc>
+
+  <defs>
+    <linearGradient id="bgGradient" x1="84" y1="54" x2="1516" y2="926" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#020612"/>
+      <stop offset="0.46" stop-color="#061635"/>
+      <stop offset="0.78" stop-color="#0A2350"/>
+      <stop offset="1" stop-color="#041021"/>
+    </linearGradient>
+
+    <radialGradient id="ambientGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(802 470) rotate(90) scale(430 654)">
+      <stop stop-color="#58B9FF" stop-opacity="0.30"/>
+      <stop offset="0.64" stop-color="#2D74CF" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#2D74CF" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="leftAura" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(242 250) rotate(90) scale(240 286)">
+      <stop stop-color="#4AD7FF" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#4AD7FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="rightAura" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1360 248) rotate(90) scale(240 286)">
+      <stop stop-color="#7CB8FF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#7CB8FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="dotGrid" width="52" height="52" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#D3E8FF" fill-opacity="0.16"/>
+    </pattern>
+
+    <linearGradient id="shellGradient" x1="124" y1="112" x2="1458" y2="868" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#153468" stop-opacity="0.44"/>
+      <stop offset="1" stop-color="#0A1B3A" stop-opacity="0.68"/>
+    </linearGradient>
+
+    <linearGradient id="panelGradient" x1="128" y1="112" x2="1476" y2="876" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"/>
+    </linearGradient>
+
+    <linearGradient id="laneA" x1="402" y1="278" x2="1198" y2="278" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8FE5FF"/>
+      <stop offset="1" stop-color="#8AB8FF"/>
+    </linearGradient>
+
+    <linearGradient id="laneB" x1="402" y1="470" x2="1198" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86E6FF"/>
+      <stop offset="1" stop-color="#77CEFF"/>
+    </linearGradient>
+
+    <linearGradient id="laneC" x1="402" y1="662" x2="1198" y2="662" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#73E6E0"/>
+      <stop offset="1" stop-color="#8AC5FF"/>
+    </linearGradient>
+
+    <linearGradient id="leftCardGradient" x1="170" y1="210" x2="432" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A2349" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#0B1C3E" stop-opacity="0.88"/>
+    </linearGradient>
+
+    <linearGradient id="rightCardGradient" x1="1170" y1="210" x2="1432" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C254D" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#0B1E3F" stop-opacity="0.88"/>
+    </linearGradient>
+
+    <linearGradient id="chipGradient" x1="340" y1="782" x2="1260" y2="782" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E4D78"/>
+      <stop offset="0.48" stop-color="#156AA0"/>
+      <stop offset="1" stop-color="#129097"/>
+    </linearGradient>
+
+    <linearGradient id="coreOuter" x1="682" y1="352" x2="918" y2="588" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B56A2"/>
+      <stop offset="1" stop-color="#0C2F62"/>
+    </linearGradient>
+
+    <linearGradient id="coreInner" x1="720" y1="390" x2="880" y2="550" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#123A71"/>
+      <stop offset="1" stop-color="#0E274F"/>
+    </linearGradient>
+
+    <filter id="softBlur24" x="0" y="0" width="1600" height="980" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+
+    <filter id="softBlur3" x="0" y="0" width="1600" height="980" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="2.2"/>
+    </filter>
+
+    <filter id="frameShadow" x="72" y="72" width="1456" height="848" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="14"/>
+      <feGaussianBlur stdDeviation="16"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.006 0 0 0 0 0.035 0 0 0 0 0.129 0 0 0 0.54 0"/>
+      <feBlend mode="normal" in2="SourceGraphic" result="shape"/>
+    </filter>
+
+    <filter id="laneGlow" x="342" y="206" width="916" height="528" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="5.2"/>
+    </filter>
+
+    <clipPath id="panelClip">
+      <rect x="124" y="112" width="1352" height="756" rx="34"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bgGradient)"/>
+  <rect width="1600" height="980" fill="url(#dotGrid)"/>
+  <ellipse cx="802" cy="470" rx="652" ry="358" fill="url(#ambientGlow)"/>
+  <ellipse cx="242" cy="250" rx="240" ry="184" fill="url(#leftAura)" filter="url(#softBlur24)"/>
+  <ellipse cx="1360" cy="248" rx="244" ry="186" fill="url(#rightAura)" filter="url(#softBlur24)"/>
+
+  <g filter="url(#frameShadow)">
+    <rect x="84" y="68" width="1432" height="844" rx="44" fill="#081A3A" stroke="#7CB8FF" stroke-opacity="0.32"/>
+    <rect x="124" y="112" width="1352" height="756" rx="34" fill="url(#shellGradient)" stroke="#8FD3FF" stroke-opacity="0.26"/>
+    <rect x="124" y="112" width="1352" height="756" rx="34" fill="url(#panelGradient)"/>
+  </g>
+
+  <g clip-path="url(#panelClip)">
+    <path d="M124 328L1476 212V164L124 278V328Z" fill="#9CC8FF" fill-opacity="0.03"/>
+    <path d="M124 748L1476 628V580L124 700V748Z" fill="#89D5FF" fill-opacity="0.03"/>
+
+    <path d="M124 240H1476" stroke="#D1EAFF" stroke-opacity="0.10"/>
+    <path d="M124 470H1476" stroke="#D1EAFF" stroke-opacity="0.12"/>
+    <path d="M124 700H1476" stroke="#D1EAFF" stroke-opacity="0.10"/>
+  </g>
+
+  <g opacity="0.66" filter="url(#laneGlow)">
+    <path d="M402 278C560 292 652 336 742 402" stroke="url(#laneA)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M402 470C560 470 650 470 742 470" stroke="url(#laneB)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M402 662C560 648 652 604 742 538" stroke="url(#laneC)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M858 402C948 336 1040 292 1198 278" stroke="url(#laneA)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M858 470C950 470 1040 470 1198 470" stroke="url(#laneB)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M858 538C950 604 1042 648 1198 662" stroke="url(#laneC)" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <path d="M402 278C560 292 652 336 742 402" stroke="url(#laneA)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M402 470C560 470 650 470 742 470" stroke="url(#laneB)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M402 662C560 648 652 604 742 538" stroke="url(#laneC)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M858 402C948 336 1040 292 1198 278" stroke="url(#laneA)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M858 470C950 470 1040 470 1198 470" stroke="url(#laneB)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M858 538C950 604 1042 648 1198 662" stroke="url(#laneC)" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <rect x="170" y="212" width="260" height="132" rx="20" fill="url(#leftCardGradient)" stroke="#94D8FF" stroke-opacity="0.42"/>
+    <text x="194" y="244" fill="#A9DFFF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">AUDITABILITY</text>
+    <text x="194" y="284" fill="#EFF8FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">97.4%</text>
+    <text x="194" y="312" fill="#B9D9F5" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Evidence chain confidence</text>
+    <rect x="194" y="322" width="176" height="6" rx="3" fill="#0D315E"/>
+    <rect x="194" y="322" width="162" height="6" rx="3" fill="#7FD9FF"/>
+
+    <rect x="170" y="404" width="260" height="132" rx="20" fill="url(#leftCardGradient)" stroke="#8FD5FF" stroke-opacity="0.40"/>
+    <text x="194" y="436" fill="#A8DEFF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">DECISION GOVERNANCE</text>
+    <text x="194" y="476" fill="#ECF7FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">100%</text>
+    <text x="194" y="504" fill="#B6D9F5" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Owner + approval path mapped</text>
+    <rect x="194" y="514" width="176" height="6" rx="3" fill="#0D315E"/>
+    <rect x="194" y="514" width="176" height="6" rx="3" fill="#86D7FF"/>
+
+    <rect x="170" y="596" width="260" height="132" rx="20" fill="url(#leftCardGradient)" stroke="#89E6DE" stroke-opacity="0.40"/>
+    <text x="194" y="628" fill="#ADEEE7" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">ROI ATTRIBUTION</text>
+    <text x="194" y="668" fill="#EAFFFB" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">3.8x</text>
+    <text x="194" y="696" fill="#B9ECE4" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Projected recovery multiplier</text>
+    <rect x="194" y="706" width="176" height="6" rx="3" fill="#0E344A"/>
+    <rect x="194" y="706" width="154" height="6" rx="3" fill="#70E0D3"/>
+  </g>
+
+  <g>
+    <rect x="1170" y="212" width="260" height="132" rx="20" fill="url(#rightCardGradient)" stroke="#95D5FF" stroke-opacity="0.42"/>
+    <text x="1194" y="244" fill="#B2DFFF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">ACTION STACK</text>
+    <text x="1194" y="284" fill="#EFF8FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">42</text>
+    <text x="1194" y="312" fill="#BEDAF4" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Prioritized execution moves</text>
+    <rect x="1194" y="322" width="176" height="6" rx="3" fill="#0D315E"/>
+    <rect x="1194" y="322" width="142" height="6" rx="3" fill="#89C8FF"/>
+
+    <rect x="1170" y="404" width="260" height="132" rx="20" fill="url(#rightCardGradient)" stroke="#8CCFFF" stroke-opacity="0.40"/>
+    <text x="1194" y="436" fill="#ABDBFF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">GOVERNANCE CLEARANCE</text>
+    <text x="1194" y="476" fill="#ECF7FF" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">31%</text>
+    <text x="1194" y="504" fill="#B7D8F2" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Risk reduction forecast</text>
+    <rect x="1194" y="514" width="176" height="6" rx="3" fill="#0D315E"/>
+    <rect x="1194" y="514" width="110" height="6" rx="3" fill="#85CAFF"/>
+
+    <rect x="1170" y="596" width="260" height="132" rx="20" fill="url(#rightCardGradient)" stroke="#84E5DA" stroke-opacity="0.40"/>
+    <text x="1194" y="628" fill="#AEEFE7" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.13em">VALUE LEDGER</text>
+    <text x="1194" y="668" fill="#EAFFFB" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800">INR 4.6 Cr</text>
+    <text x="1194" y="696" fill="#B9ECE4" font-family="Inter, Segoe UI, sans-serif" font-size="12" font-weight="600">Annualized impact window</text>
+    <rect x="1194" y="706" width="176" height="6" rx="3" fill="#0E344A"/>
+    <rect x="1194" y="706" width="168" height="6" rx="3" fill="#73DFD3"/>
+  </g>
+
+  <g>
+    <path d="M800 352L918 470L800 588L682 470L800 352Z" fill="url(#coreOuter)" stroke="#9BD6FF" stroke-opacity="0.76"/>
+    <path d="M800 390L880 470L800 550L720 470L800 390Z" fill="url(#coreInner)" stroke="#80CCFF" stroke-opacity="0.64"/>
+    <path d="M800 420L850 470L800 520L750 470L800 420Z" fill="#10366A" stroke="#74BFFF" stroke-opacity="0.6"/>
+
+    <text x="800" y="472" fill="#EAF7FF" text-anchor="middle" font-family="Sora, Segoe UI, sans-serif" font-size="30" font-weight="800" letter-spacing="0.06em">ERAIN</text>
+    <text x="800" y="506" fill="#BEE2FF" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="13" font-weight="700" letter-spacing="0.12em">EXECUTION ENGINE</text>
+  </g>
+
+  <g>
+    <rect x="340" y="750" width="920" height="64" rx="32" fill="url(#chipGradient)" stroke="#8DE3DE" stroke-opacity="0.56"/>
+    <text x="800" y="790" text-anchor="middle" fill="#E8FFFB" font-family="Sora, Segoe UI, sans-serif" font-size="20" font-weight="700" letter-spacing="0.08em">
+      AUDIT REALITY  •  GOVERN DECISIONS  •  ATTRIBUTE ROI
+    </text>
+  </g>
+
+  <g filter="url(#softBlur3)" opacity="0.86">
+    <circle cx="566" cy="310" r="5" fill="#9FE6FF"/>
+    <circle cx="632" cy="336" r="4" fill="#8FD7FF"/>
+    <circle cx="708" cy="376" r="4" fill="#A6E6FF"/>
+    <circle cx="1032" cy="336" r="4" fill="#9CD5FF"/>
+    <circle cx="1088" cy="308" r="5" fill="#AAD7FF"/>
+    <circle cx="572" cy="470" r="4" fill="#8DE5FF"/>
+    <circle cx="654" cy="470" r="4" fill="#9DE4FF"/>
+    <circle cx="948" cy="470" r="4" fill="#8FD5FF"/>
+    <circle cx="1038" cy="470" r="4" fill="#9ED8FF"/>
+    <circle cx="584" cy="636" r="4" fill="#89E2E0"/>
+    <circle cx="668" cy="594" r="4" fill="#8FDCDC"/>
+    <circle cx="940" cy="596" r="4" fill="#8CD7E6"/>
+    <circle cx="1016" cy="638" r="4" fill="#8FCBE8"/>
+  </g>
+
+  <text x="150" y="164" fill="#AEDCFF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.16em">INPUT FABRIC</text>
+  <text x="730" y="164" fill="#BFE3FF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.16em">DECISION CORE</text>
+  <text x="1266" y="164" fill="#B3DEFF" font-family="Sora, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="0.16em">OUTCOME STACK</text>
+</svg>

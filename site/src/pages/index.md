@@ -43,13 +43,36 @@ Built for serious teams that require auditability, decision governance, and clea
 <aside class="heroMedia">
 <div class="heroVisualShell">
 <img
-src="/execution-lens-hero.svg"
-alt="EraIn core linking auditability, decision governance, and ROI attribution."
+src="/erain-fabric-hero.svg"
+alt="EraIn execution fabric where auditability, governance, and ROI streams converge."
 width="1600"
 height="980"
 loading="eager"
 decoding="async"
 />
+</div>
+
+<div class="heroSignalStack" aria-label="Live execution signals">
+<div class="heroSignalCard">
+<div class="heroSignalK">Audit Signal</div>
+<div class="heroSignalV">97.4% Evidence Confidence</div>
+<div class="heroSignalT">Every recommendation is source-linked with an accountable owner.</div>
+<div class="heroSignalMeter" style="--meter:97.4%"></div>
+</div>
+
+<div class="heroSignalCard">
+<div class="heroSignalK">Governance Signal</div>
+<div class="heroSignalV">100% Approval Mapping</div>
+<div class="heroSignalT">Decision paths are role-scoped before execution is triggered.</div>
+<div class="heroSignalMeter" style="--meter:100%"></div>
+</div>
+
+<div class="heroSignalCard">
+<div class="heroSignalK">ROI Signal</div>
+<div class="heroSignalV">3.8x Recovery Window</div>
+<div class="heroSignalT">Action-to-outcome tracking quantifies value delivered every cycle.</div>
+<div class="heroSignalMeter" style="--meter:84%"></div>
+</div>
 </div>
 </aside>
 </div>
@@ -276,7 +299,7 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 
 .heroDisplay{
   margin-top: 0;
-  font-size: clamp(44px, 6vw, 84px);
+  font-size: clamp(42px, 5.1vw, 72px);
   line-height: 0.94;
   letter-spacing: -0.055em;
   font-weight: 950;
@@ -294,7 +317,9 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 }
 
 .heroMedia{
-  display: block;
+  display: grid;
+  gap: 12px;
+  align-content: start;
 }
 
 .btn-row {
@@ -368,6 +393,62 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   height: auto;
   border-radius: 24px;
   filter: saturate(1.06) contrast(1.05);
+}
+
+.heroSignalStack{
+  display:grid;
+  gap:10px;
+}
+
+.heroSignalCard{
+  border: 1px solid rgba(122, 179, 255, 0.34);
+  border-radius: 16px;
+  padding: 11px 12px;
+  background:
+    linear-gradient(145deg, rgba(7, 24, 56, 0.90), rgba(10, 40, 88, 0.88) 54%, rgba(8, 26, 60, 0.90));
+  box-shadow: 0 14px 34px rgba(2, 10, 32, 0.20);
+}
+
+.heroSignalK{
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(188, 226, 255, 0.88);
+}
+
+.heroSignalV{
+  margin-top: 5px;
+  color: rgba(237, 247, 255, 0.96);
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 820;
+}
+
+.heroSignalT{
+  margin-top: 6px;
+  color: rgba(188, 214, 240, 0.88);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 620;
+}
+
+.heroSignalMeter{
+  margin-top: 10px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(138, 190, 255, 0.24);
+  overflow:hidden;
+}
+
+.heroSignalMeter::after{
+  content:"";
+  display:block;
+  width: var(--meter, 75%);
+  height: 100%;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, rgba(129, 231, 255, 0.94), rgba(99, 157, 255, 0.92) 52%, rgba(104, 236, 206, 0.90));
 }
 
 @keyframes heroVisualFloat {
@@ -480,6 +561,12 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   }
 }
 
+@media (min-width: 760px) and (max-width: 1079px){
+  .heroSignalStack{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 760px){
   .hero{ text-align: left; }
   .heroPanel{ text-align: left; padding: 22px 16px 18px; border-radius: 26px; }
@@ -489,6 +576,7 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   .heroEyebrow{ margin-left: 0; }
   .heroVisualShell{ border-radius: 22px; }
   .proofItem{ padding: 10px 11px; }
+  .heroSignalV{ font-size: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce){
