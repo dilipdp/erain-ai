@@ -52,6 +52,36 @@ const description =
         </div>
       </header>
 
+      <section class="solSignalBoard" aria-label="Execution signal board">
+        <div class="solSignalHead">
+          <div class="solSignalKicker">Execution Signal Board</div>
+          <h2 class="solSignalTitle">From operational truth to controlled outcomes.</h2>
+        </div>
+
+        <div class="solSignalGrid" role="list" aria-label="Signal modules">
+          <article class="solSignalCard" role="listitem">
+            <div class="solSignalLabel">Auditability</div>
+            <div class="solSignalValue">97%+ evidence coverage</div>
+            <div class="solSignalText">Findings mapped to source paths before rollout decisions.</div>
+            <div class="solSignalBar"><span style="--solFill:97%"></span></div>
+          </article>
+
+          <article class="solSignalCard" role="listitem">
+            <div class="solSignalLabel">Decision Governance</div>
+            <div class="solSignalValue">100% owner mapping</div>
+            <div class="solSignalText">Approvals, owners, and execution boundaries set pre-deployment.</div>
+            <div class="solSignalBar"><span style="--solFill:100%"></span></div>
+          </article>
+
+          <article class="solSignalCard" role="listitem">
+            <div class="solSignalLabel">ROI Attribution</div>
+            <div class="solSignalValue">Value ledger enabled</div>
+            <div class="solSignalText">Action-to-outcome attribution to prove impact with leadership clarity.</div>
+            <div class="solSignalBar"><span style="--solFill:86%"></span></div>
+          </article>
+        </div>
+      </section>
+
       <!-- Sequence -->
       <section class="solSection">
         <div class="solMeasure">
@@ -319,6 +349,106 @@ const description =
       margin-top: 42px;
     }
 
+    .solSignalBoard {
+      max-width: 1120px;
+      margin: 10px auto 0;
+      border: 1px solid rgba(11, 31, 66, 0.14);
+      border-radius: 26px;
+      background:
+        linear-gradient(145deg, rgba(7, 24, 56, 0.96), rgba(9, 39, 86, 0.92) 56%, rgba(8, 27, 62, 0.94));
+      box-shadow: 0 26px 72px rgba(2, 10, 32, 0.22);
+      color: #eaf5ff;
+      padding: 18px;
+    }
+
+    .solSignalHead {
+      max-width: 86ch;
+    }
+
+    .solSignalKicker {
+      display: inline-flex;
+      border: 1px solid rgba(148, 206, 255, 0.44);
+      border-radius: 999px;
+      background: rgba(10, 49, 104, 0.48);
+      color: rgba(200, 234, 255, 0.94);
+      padding: 7px 11px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .solSignalTitle {
+      margin: 10px 0 0;
+      font-size: clamp(27px, 3.2vw, 38px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+      color: rgba(241, 249, 255, 0.98);
+    }
+
+    .solSignalGrid {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .solSignalCard {
+      border: 1px solid rgba(142, 199, 255, 0.34);
+      border-radius: 18px;
+      background: rgba(6, 28, 66, 0.56);
+      padding: 12px 13px;
+    }
+
+    .solSignalLabel {
+      color: rgba(175, 222, 255, 0.94);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .solSignalValue {
+      margin-top: 6px;
+      color: rgba(241, 249, 255, 0.98);
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-weight: 840;
+    }
+
+    .solSignalText {
+      margin-top: 6px;
+      color: rgba(190, 216, 241, 0.9);
+      font-size: 13px;
+      line-height: 1.56;
+    }
+
+    .solSignalBar {
+      margin-top: 11px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(132, 190, 255, 0.24);
+      overflow: hidden;
+    }
+
+    .solSignalBar span {
+      display: block;
+      width: var(--solFill, 75%);
+      height: 100%;
+      border-radius: inherit;
+      background:
+        linear-gradient(90deg, rgba(132, 230, 255, 0.95), rgba(101, 157, 255, 0.92) 58%, rgba(104, 236, 206, 0.9));
+      animation: solSignalPulse 4.2s ease-in-out infinite;
+    }
+
+    @keyframes solSignalPulse {
+      0% { filter: brightness(0.9); }
+      50% { filter: brightness(1.08); }
+      100% { filter: brightness(0.9); }
+    }
+
     /* Add deliberate spacing between hero and the first content section */
     .solHero + .solSection {
       margin-top: 52px;
@@ -463,6 +593,10 @@ const description =
     @media (min-width: 860px) {
       .solSequence {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .solSignalGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 

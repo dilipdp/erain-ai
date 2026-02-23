@@ -79,6 +79,35 @@ const faqJsonLd = JSON.stringify({
       </div>
     </div>
 
+    <section class="pricingEvidence" aria-label="Pricing value evidence">
+      <div class="pricingEvidenceHead">
+        <div class="pricingEvidenceKicker">Value Evidence</div>
+        <h2 class="h2 pricingEvidenceTitle">Pricing that is designed to fund itself.</h2>
+        <p class="pricingEvidenceLead">
+          The model is built around cost leakage recovery and execution discipline. Typical improvement windows vary by context,
+          but the structure is consistent: audit first, quantify second, scale only when value is provable.
+        </p>
+      </div>
+
+      <div class="pricingEvidenceGrid" role="list" aria-label="Value evidence modules">
+        <article class="pricingEvidenceCard" role="listitem">
+          <div class="pricingEvidenceLabel">Payback Band</div>
+          <div class="pricingEvidenceValue">60-120 days</div>
+          <div class="pricingEvidenceText">Most Pro Audit plans are structured to recover more than engagement cost inside first execution cycle.</div>
+        </article>
+        <article class="pricingEvidenceCard" role="listitem">
+          <div class="pricingEvidenceLabel">Governance Delta</div>
+          <div class="pricingEvidenceValue">2-3x faster decisions</div>
+          <div class="pricingEvidenceText">Owner mapping and approval pathways reduce cycle-time lost in cross-functional escalations.</div>
+        </article>
+        <article class="pricingEvidenceCard" role="listitem">
+          <div class="pricingEvidenceLabel">Attribution Coverage</div>
+          <div class="pricingEvidenceValue">Action-to-Outcome Ledger</div>
+          <div class="pricingEvidenceText">Impact tracking links execution moves to financial and operational outcomes leadership can verify.</div>
+        </article>
+      </div>
+    </section>
+
     <div class="pricingGrid">
       <!-- Free -->
       <article class="tier">
@@ -368,6 +397,102 @@ const faqJsonLd = JSON.stringify({
   .leadSm {
     font-size: 16px;
     line-height: 1.85;
+  }
+
+  .pricingEvidence {
+    max-width: 1320px;
+    margin: 0 auto 18px;
+    border: 1px solid rgba(11, 31, 66, 0.12);
+    border-radius: 26px;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.93) 0%,
+        rgba(245, 250, 255, 0.86) 60%,
+        rgba(240, 247, 255, 0.82) 100%
+      );
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 22px 62px rgba(2, 10, 32, 0.14);
+    padding: 18px;
+  }
+
+  .pricingEvidenceHead {
+    max-width: 90ch;
+  }
+
+  .pricingEvidenceKicker {
+    display: inline-flex;
+    border: 1px solid rgba(11, 31, 66, 0.14);
+    border-radius: 999px;
+    background: rgba(16, 24, 40, 0.04);
+    color: rgba(7, 20, 48, 0.86);
+    padding: 7px 11px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .pricingEvidenceTitle {
+    margin-top: 10px;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .pricingEvidenceLead {
+    margin: 10px 0 0;
+    color: rgba(17, 24, 39, 0.7);
+    line-height: 1.72;
+    font-size: 15px;
+  }
+
+  .pricingEvidenceGrid {
+    margin-top: 14px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  .pricingEvidenceCard {
+    border: 1px solid rgba(11, 31, 66, 0.14);
+    border-radius: 18px;
+    background:
+      linear-gradient(145deg, rgba(7, 24, 56, 0.96), rgba(9, 39, 86, 0.92) 56%, rgba(8, 27, 62, 0.94));
+    box-shadow: 0 18px 40px rgba(2, 10, 32, 0.18);
+    padding: 12px 13px;
+    color: #eaf5ff;
+  }
+
+  .pricingEvidenceLabel {
+    color: rgba(175, 222, 255, 0.94);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .pricingEvidenceValue {
+    margin-top: 6px;
+    color: rgba(241, 249, 255, 0.98);
+    font-size: 25px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 840;
+  }
+
+  .pricingEvidenceText {
+    margin-top: 6px;
+    color: rgba(190, 216, 241, 0.9);
+    font-size: 13px;
+    line-height: 1.58;
+  }
+
+  @media (min-width: 980px) {
+    .pricingEvidenceGrid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
   /* Grid */
