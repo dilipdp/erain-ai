@@ -331,3 +331,5 @@ Done when:
 - `1d7f15d` phase 15: accessibility and mobile polish
 - `365c09c` phase 16: proof ledger and tracking hardening
 - `4c20ff1` phase 17: launch QA automation + readiness runbook
+- `9c3b273` phase 18: results authority hub and proof CTA routing
+- `e577d9a` phase 19: launch QA checklist expansion
