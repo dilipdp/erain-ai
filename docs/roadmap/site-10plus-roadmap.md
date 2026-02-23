@@ -248,6 +248,34 @@ Done when:
 - Mobile viewport maintains comfortable scroll-end spacing
 - Build passes
 
+### Phase 16 - Proof Ledger + Tracking Hygiene (2026-02-23)
+
+Scope:
+
+- Add launch-stage proof ledger section on homepage
+- Standardize CTA tracking labels across major pages
+- Improve conversion attribution quality in analytics data
+
+Done when:
+
+- Proof governance posture is visible above long-form content
+- Major CTA actions include stable tracking labels
+- Build passes
+
+### Phase 17 - Launch QA Automation Pack (2026-02-23)
+
+Scope:
+
+- Add executable launch QA checklist script
+- Add launch readiness runbook for manual validation
+- Run and record pass result before handoff
+
+Done when:
+
+- Script returns all critical checks as pass
+- Launch runbook is present for final pre-go-live review
+- Build passes
+
 ## Execution Rules
 
 - One phase = one commit minimum
@@ -273,3 +301,4 @@ Done when:
 - `962670b` phase 13: custom command-board media integration
 - `7205b6d` phase 14: launch analytics mapping completion
 - `1d7f15d` phase 15: accessibility and mobile polish
+- `365c09c` phase 16: proof ledger and tracking hardening
