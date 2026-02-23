@@ -80,24 +80,26 @@ const isActive = (path) => currentPath === path;
     <style is:global>
       :root {
         /* Brand */
-        --primary: #0a132b;
-        --secondary: #10244a;
+        --primary: #09152f;
+        --secondary: #0f2a57;
         --accent: #0f5ff0;
+        --accent-2: #06b6d4;
 
         /* Neutrals */
-        --bg: #f7faff;
+        --bg: #f5f9ff;
         --surface: rgba(255, 255, 255, 0.9);
-        --surface-2: rgba(16, 24, 40, 0.045);
-        --border: rgba(12, 26, 56, 0.12);
+        --surface-2: rgba(16, 24, 40, 0.05);
+        --border: rgba(11, 31, 66, 0.12);
         --muted: rgba(17, 24, 39, 0.68);
         --muted-2: rgba(17, 24, 39, 0.76);
+        --bg-grid: rgba(12, 26, 56, 0.035);
 
         /* Radius / shadow */
-        --radius-lg: 20px;
-        --radius-md: 14px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
         --radius-sm: 12px;
         --shadow-sm: 0 1px 2px rgba(2, 6, 23, 0.06);
-        --shadow-md: 0 14px 38px rgba(2, 10, 32, 0.12);
+        --shadow-md: 0 16px 44px rgba(2, 10, 32, 0.14);
 
         /* Layout */
         --container: 1200px;
@@ -121,13 +123,51 @@ const isActive = (path) => currentPath === path;
         line-height: var(--leading);
         -webkit-text-size-adjust: 100%;
         background:
-          radial-gradient(900px 420px at 12% -10%, rgba(15, 95, 240, 0.2), transparent 62%),
-          radial-gradient(860px 380px at 90% -12%, rgba(6, 182, 212, 0.16), transparent 64%),
-          linear-gradient(180deg, #f9fbff 0%, #f3f8ff 48%, #f9fbff 100%);
+          radial-gradient(860px 420px at 12% -10%, rgba(15, 95, 240, 0.22), transparent 62%),
+          radial-gradient(760px 360px at 92% -12%, rgba(6, 182, 212, 0.2), transparent 64%),
+          linear-gradient(180deg, #f9fbff 0%, #f2f7ff 45%, #f8fbff 100%);
         background-color: var(--bg);
+        background-attachment: fixed;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: geometricPrecision;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      body::before {
+        inset: 0;
+        background-image:
+          linear-gradient(to right, var(--bg-grid) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--bg-grid) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.26), transparent 74%);
+      }
+
+      body::after {
+        width: 52vw;
+        height: 52vw;
+        right: -18vw;
+        top: -16vw;
+        border-radius: 999px;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(15, 95, 240, 0.2), rgba(15, 95, 240, 0.03) 46%, transparent 72%);
+        filter: blur(6px);
+      }
+
+      body > header,
+      body > main,
+      body > footer {
+        position: relative;
+        z-index: 1;
       }
 
       :where(h1, h2, h3, .h1, .h2, .kicker, .nav-links a, .brand) {
@@ -165,6 +205,13 @@ const isActive = (path) => currentPath === path;
         -webkit-backdrop-filter: blur(12px);
         background: rgba(248, 251, 255, 0.84);
         border-bottom: 1px solid var(--border);
+        transition: background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      header.scrolled {
+        background: rgba(249, 252, 255, 0.95);
+        border-bottom-color: rgba(12, 31, 67, 0.16);
+        box-shadow: 0 8px 30px rgba(5, 17, 44, 0.08);
       }
 
       .nav {
@@ -304,6 +351,10 @@ const isActive = (path) => currentPath === path;
       footer {
         border-top: 1px solid var(--border);
         margin-top: 72px;
+        background:
+          linear-gradient(180deg, rgba(248, 252, 255, 0.8), rgba(241, 247, 255, 0.95));
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
       }
 
       .footer {
@@ -311,7 +362,7 @@ const isActive = (path) => currentPath === path;
         margin: 0 auto;
         padding: 34px var(--gutter);
         font-size: 14px;
-        color: rgba(107, 114, 128, 0.92);
+        color: rgba(84, 97, 123, 0.95);
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -548,10 +599,11 @@ const isActive = (path) => currentPath === path;
 
       .card {
         border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.92);
-        border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82));
+        border-radius: 22px;
         padding: 22px;
-        box-shadow: var(--shadow-sm), 0 18px 36px rgba(2, 6, 23, 0.06);
+        box-shadow: var(--shadow-sm), 0 20px 42px rgba(2, 10, 32, 0.09);
       }
       .cardSoft { background: rgba(16, 24, 40, 0.03); }
       .cardPro { border-color: rgba(37, 99, 235, 0.26); background: rgba(37, 99, 235, 0.06); }
@@ -572,7 +624,7 @@ const isActive = (path) => currentPath === path;
       }
 
       .btn {
-        border-radius: 14px;
+        border-radius: 15px;
         padding: 12px 18px;
         font-size: 14px;
         font-weight: 800;
@@ -582,36 +634,63 @@ const isActive = (path) => currentPath === path;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        border: 1px solid rgba(17, 24, 39, 0.12);
+        border: 1px solid rgba(11, 31, 66, 0.14);
         background: rgba(255, 255, 255, 0.8);
         color: var(--primary);
-        box-shadow: 0 12px 22px rgba(2, 6, 23, 0.06);
+        box-shadow: 0 14px 24px rgba(2, 10, 32, 0.08);
         transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, border-color 140ms ease;
         text-decoration: none;
         white-space: nowrap;
       }
       .btn:hover {
-        transform: translateY(-1px);
+        transform: translateY(-2px);
         text-decoration: none;
-        box-shadow: 0 18px 28px rgba(2, 6, 23, 0.10);
-        border-color: rgba(17, 24, 39, 0.18);
+        box-shadow: 0 24px 36px rgba(2, 10, 32, 0.14);
+        border-color: rgba(11, 31, 66, 0.2);
       }
 
       .btnPrimary {
         background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
         color: #fff;
         border-color: rgba(255, 255, 255, 0.3);
-        box-shadow: 0 16px 32px rgba(15, 95, 240, 0.26);
+        box-shadow: 0 18px 36px rgba(15, 95, 240, 0.3);
       }
-      .btnPrimary:hover { box-shadow: 0 20px 38px rgba(15, 95, 240, 0.34); }
+      .btnPrimary:hover { box-shadow: 0 24px 44px rgba(15, 95, 240, 0.38); }
 
       .btnGhost { background: transparent; box-shadow: none; }
 
       .divider { height: 1px; background: rgba(17, 24, 39, 0.08); border: 0; }
 
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px) scale(0.99);
+        transition:
+          opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+          transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+        will-change: transform, opacity;
+      }
+
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
       @media (prefers-reduced-motion: reduce) {
         * { scroll-behavior: auto !important; }
         .btn, .nav-links a { transition: none !important; }
+        .reveal, .reveal.in {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        body {
+          background-attachment: scroll;
+        }
+        body::before,
+        body::after {
+          display: none;
+        }
       }
     </style>
   </head>
@@ -665,7 +744,7 @@ const isActive = (path) => currentPath === path;
     <footer>
       <div class="footer">
         <div><strong>EraIn AI</strong> — Profitability AI for Businesses</div>
-        <div>Audit-first intelligence • Execution discipline • Measurable outcomes</div>
+        <div>Auditability • Decision governance • ROI attribution</div>
         <div>Email: hello@erainai.com</div>
         <div><a href="/request-assessment">Start Free AI Audit</a> • <a href="/client-login">Client Login</a> • <a href="/pricing">See Pricing</a> • <a href="/legal">Legal</a></div>
       </div>
@@ -674,6 +753,7 @@ const isActive = (path) => currentPath === path;
     <script is:inline>
       (function () {
         function $(id) { return document.getElementById(id); }
+        const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         // Mobile menu: accessible toggle + close on outside click / Escape / link click
         try {
@@ -706,6 +786,67 @@ const isActive = (path) => currentPath === path;
               if (t.closest("a")) close();
             });
           }
+        } catch (_) {}
+
+        // Header refinement on scroll for premium depth
+        try {
+          const header = document.querySelector("header");
+          if (header) {
+            const onScroll = () => {
+              header.classList.toggle("scrolled", window.scrollY > 8);
+            };
+            onScroll();
+            window.addEventListener("scroll", onScroll, { passive: true });
+          }
+        } catch (_) {}
+
+        // Unified reveal animation across premium surfaces
+        try {
+          if (prefersReducedMotion) return;
+
+          const selectors = [
+            ".hero",
+            ".heroPanel",
+            ".solHero",
+            ".card",
+            ".trustCard",
+            ".trustItem",
+            ".heroSub",
+            ".heroMeta",
+            ".enterpriseStrip",
+            ".solStep",
+            ".solCard",
+            ".tier",
+            ".afterCard",
+            ".closingCard",
+            ".enterpriseItem",
+            ".legalCard",
+            ".legalWide",
+            ".heroTrustItem",
+            ".heroVisualShell",
+            ".portalSide",
+            ".portalFormCard",
+            ".portalNote",
+            "details.qa"
+          ];
+
+          const nodes = Array.from(document.querySelectorAll(selectors.join(",")));
+          if (!nodes.length) return;
+
+          nodes.forEach((node, idx) => {
+            node.classList.add("reveal");
+            node.style.setProperty("--reveal-delay", `${Math.min((idx % 6) * 55, 260)}ms`);
+          });
+
+          const io = new IntersectionObserver((entries, observer) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              entry.target.classList.add("in");
+              observer.unobserve(entry.target);
+            }
+          }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+
+          nodes.forEach((node) => io.observe(node));
         } catch (_) {}
 
       })();

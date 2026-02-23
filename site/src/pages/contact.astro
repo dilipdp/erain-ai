@@ -227,13 +227,20 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
       border-radius: 14px;
       padding: 12px 20px;
       font-weight: 900;
-      background: linear-gradient(180deg,#2563eb,#1d4ed8);
+      background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
       color: #fff;
-      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.28);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      box-shadow: 0 16px 34px rgba(15, 95, 240, 0.28);
+      transition: transform 140ms ease, box-shadow 140ms ease;
+    }
+
+    .btnPrimary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 44px rgba(15, 95, 240, 0.36);
     }
 
     .btnPrimary:disabled {

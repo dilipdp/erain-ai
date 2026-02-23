@@ -8,57 +8,88 @@ layout: ../layouts/BaseLayout.astro
 <div class="heroGlow" aria-hidden="true"></div>
 
 <div class="heroPanel">
-  <div class="heroEyebrow">EraIn AI</div>
-  <div class="badgeRow">
-    <span class="badge badgeSoft">Audit‑first Intelligence</span>
-    <span class="badge badgeSoft">Execution‑grade Systems</span>
-    <span class="badge badgeSoft">ROI‑Verified Outcomes</span>
-  </div>
+  <div class="heroGrid">
+    <div class="heroCopy">
+      <div class="heroEyebrow">EraIn AI</div>
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Audit‑first Intelligence</span>
+        <span class="badge badgeSoft">Execution‑grade Systems</span>
+        <span class="badge badgeSoft">ROI‑Verified Outcomes</span>
+      </div>
 
-  <h1 class="h1">Intelligence that audits reality — and runs execution.</h1>
+      <h1 class="h1">Intelligence that audits reality — and runs execution.</h1>
 
-  <p class="lead heroLead">
-    EraIn builds audit-first operational intelligence that exposes what is actually happening inside organizations,
-    across industries, geographies, and operating models.
-    We identify where value is leaking, what decisions matter most, and convert verified reality into
-    disciplined execution with provable ROI.
-  </p>
+      <p class="lead heroLead">
+        EraIn builds audit-first operational intelligence that exposes what is actually happening inside organizations,
+        across industries, geographies, and operating models.
+        We identify where value is leaking, what decisions matter most, and convert verified reality into
+        disciplined execution with provable ROI.
+      </p>
 
-  <p class="lead heroLead heroLeadSm">
-    Built to serve <strong>all industries</strong> — manufacturing, energy, EPC, logistics, retail, healthcare, finance,
-    public sector, technology, and complex multi-site enterprises — across India and worldwide.
-  </p>
+      <p class="lead heroLead heroLeadSm">
+        Built to serve <strong>all industries</strong> — manufacturing, energy, EPC, logistics, retail, healthcare, finance,
+        public sector, technology, and complex multi-site enterprises — across India and worldwide.
+      </p>
 
-  <div class="btn-row" aria-label="Primary actions">
-    <a class="btn btnPrimary" href="/request-assessment">Start Free AI Audit</a>
-    <a class="btn" href="/sample-report">View Sample Report</a>
-    <a class="btn btnGhost" href="/pricing">See Pricing</a>
-  </div>
+      <div class="btn-row" aria-label="Primary actions">
+        <a class="btn btnPrimary" href="/request-assessment">Start Free AI Audit</a>
+        <a class="btn" href="/sample-report">View Sample Report</a>
+        <a class="btn btnGhost" href="/pricing">See Pricing</a>
+      </div>
 
-  <div class="heroVisualShell">
-    <img
-      src="/execution-lens-hero.svg"
-      alt="EraIn core linking auditability, decision governance, and ROI attribution."
-      width="1600"
-      height="980"
-      loading="eager"
-      decoding="async"
-    />
-  </div>
-
-  <div class="heroTrust" aria-label="Trust and privacy">
-    <div class="heroTrustItem">
-      <div class="heroTrustK">Privacy-first</div>
-      <div class="heroTrustV">Start from Excel/Tally/ERP. No invasive access required.</div>
+      <div class="proofStrip" aria-label="EraIn proof pillars">
+        <div class="proofItem">
+          <div class="proofK">Auditability</div>
+          <div class="proofV">Traceable findings and source-grounded decisions.</div>
+        </div>
+        <div class="proofItem">
+          <div class="proofK">Decision Governance</div>
+          <div class="proofV">Human-approved execution boundaries by design.</div>
+        </div>
+        <div class="proofItem">
+          <div class="proofK">ROI Attribution</div>
+          <div class="proofV">Action-to-outcome tracking with measurable impact loops.</div>
+        </div>
+      </div>
     </div>
-    <div class="heroTrustItem">
-      <div class="heroTrustK">Proof before rollout</div>
-      <div class="heroTrustV">We quantify impact and owners before any automation.</div>
-    </div>
-    <div class="heroTrustItem">
-      <div class="heroTrustK">Exec-ready</div>
-      <div class="heroTrustV">Clear findings, decisions, and a 30/60/90 plan leaders can act on.</div>
-    </div>
+
+    <aside class="heroMedia">
+      <div class="heroVisualShell">
+        <img
+          src="/execution-lens-hero.svg"
+          alt="EraIn core linking auditability, decision governance, and ROI attribution."
+          width="1600"
+          height="980"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+      <div class="heroSignalRow" aria-label="Signal cards">
+        <div class="heroSignal">
+          <div class="heroSignalK">Launch-ready</div>
+          <div class="heroSignalV">Start with audit, scale only on proof.</div>
+        </div>
+        <div class="heroSignal">
+          <div class="heroSignalK">Enterprise-safe</div>
+          <div class="heroSignalV">Access controls, governance, and clear owners.</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div class="heroTrust" aria-label="Trust and privacy">
+  <div class="heroTrustItem">
+    <div class="heroTrustK">Privacy-first</div>
+    <div class="heroTrustV">Start from Excel/Tally/ERP. No invasive access required.</div>
+  </div>
+  <div class="heroTrustItem">
+    <div class="heroTrustK">Proof before rollout</div>
+    <div class="heroTrustV">We quantify impact and owners before any automation.</div>
+  </div>
+  <div class="heroTrustItem">
+    <div class="heroTrustK">Exec-ready</div>
+    <div class="heroTrustV">Clear findings, decisions, and a 30/60/90 plan leaders can act on.</div>
   </div>
 </div>
 </div>
@@ -202,42 +233,41 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 <style>
 .hero {
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto 30px;
+  max-width: 1240px;
+  margin: 0 auto 24px;
   padding: 6px 0 0;
 }
 
 .heroGlow{
   position:absolute;
-  inset:-140px -60px auto;
-  height:320px;
+  inset:-150px -70px auto;
+  height:350px;
   pointer-events:none;
   background:
-    radial-gradient(700px 260px at 50% 30%, rgba(37,99,235,0.18), transparent 66%),
-    radial-gradient(620px 260px at 18% 20%, rgba(15,23,42,0.10), transparent 70%),
-    radial-gradient(560px 240px at 84% 10%, rgba(2,6,23,0.06), transparent 70%);
-  filter: blur(2px);
-  opacity: .95;
+    radial-gradient(760px 280px at 48% 30%, rgba(15,95,240,0.24), transparent 66%),
+    radial-gradient(620px 280px at 18% 20%, rgba(6,182,212,0.18), transparent 70%),
+    radial-gradient(580px 240px at 86% 12%, rgba(2,6,23,0.07), transparent 70%);
+  filter: blur(3px);
+  opacity: .98;
 }
 
 .heroPanel{
   position:relative;
-  text-align:center;
-  border: 1px solid rgba(17, 24, 39, 0.10);
-  border-radius: 30px;
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 34px;
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.97) 0%,
-      rgba(255,255,255,0.82) 55%,
-      rgba(255,255,255,0.78) 100%
+      rgba(255,255,255,0.96) 0%,
+      rgba(255,255,255,0.84) 55%,
+      rgba(255,255,255,0.80) 100%
     );
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   box-shadow:
     0 1px 2px rgba(0,0,0,0.05),
-    0 28px 90px rgba(2,6,23,0.11);
-  padding: 34px 34px 26px;
+    0 34px 100px rgba(2,10,32,0.16);
+  padding: 30px 30px 26px;
   overflow:hidden;
 }
 
@@ -245,40 +275,56 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   content:"";
   position:absolute;
   inset:-1px;
-  border-radius: 28px;
+  border-radius: 32px;
   pointer-events:none;
   background:
-    radial-gradient(900px 260px at 50% 0%, rgba(37, 99, 235, 0.10), transparent 60%),
-    radial-gradient(720px 260px at 0% 35%, rgba(15, 23, 42, 0.06), transparent 62%);
-  opacity: .85;
+    radial-gradient(920px 280px at 50% 0%, rgba(37, 99, 235, 0.13), transparent 60%),
+    radial-gradient(720px 260px at 0% 35%, rgba(15, 23, 42, 0.08), transparent 62%);
+  opacity: .92;
 }
 
 .heroPanel > *{ position:relative; }
 
+.heroGrid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.heroCopy{
+  text-align: center;
+}
+
+.heroMedia{
+  display: grid;
+  gap: 10px;
+}
+
 .hero .h1{
   letter-spacing:-0.055em;
   line-height: 1.01;
-  margin-top: 10px;
+  margin-top: 8px;
   font-weight: 950;
-  font-size: clamp(42px, 5.2vw, 68px);
+  font-size: clamp(40px, 5vw, 66px);
 }
 
 .hero .lead{
-  max-width: 88ch;
+  max-width: 74ch;
   margin-left:auto;
   margin-right:auto;
-  color: rgba(17,24,39,0.74);
+  color: rgba(17,24,39,0.75);
 }
 
 .heroEyebrow{
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin: 2px 0 10px;
-  padding: 7px 12px;
+  padding: 8px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(17,24,39,0.10);
-  background: rgba(16,24,40,0.03);
+  border: 1px solid rgba(11,31,66,0.14);
+  background: rgba(16,24,40,0.04);
   color: rgba(2,6,23,0.78);
   font-weight: 900;
   letter-spacing: 0.16em;
@@ -288,18 +334,18 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 
 .heroLead{
   margin-top: 12px;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.8;
 }
 
 .heroLeadSm{
-  font-size: 16px;
+  font-size: 15px;
   color: rgba(17,24,39,0.66);
 }
 
 .heroPanel .badgeSoft{
-  border-color: rgba(17,24,39,0.12);
-  background: rgba(255,255,255,0.78);
+  border-color: rgba(11,31,66,0.14);
+  background: rgba(255,255,255,0.80);
 }
 
 .hero .badgeRow {
@@ -316,16 +362,48 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   flex-wrap: wrap;
 }
 
+.proofStrip{
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.proofItem{
+  border: 1px solid rgba(11, 31, 66, 0.12);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.72);
+  box-shadow: 0 12px 30px rgba(2, 10, 32, 0.08);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.proofK{
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(17,24,39,0.56);
+}
+
+.proofV{
+  margin-top: 6px;
+  color: rgba(2,6,23,0.86);
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: 720;
+}
+
 .heroVisualShell{
-  margin: 20px auto 0;
-  max-width: 1040px;
+  margin: 0 auto;
+  max-width: 100%;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(17, 24, 39, 0.14);
+  border: 1px solid rgba(11, 31, 66, 0.16);
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.06),
-    0 24px 64px rgba(2, 10, 32, 0.2);
-  background: linear-gradient(180deg, rgba(7, 17, 42, 0.16), rgba(7, 17, 42, 0.02));
+    0 30px 76px rgba(2, 10, 32, 0.26);
+  background: linear-gradient(180deg, rgba(7, 17, 42, 0.2), rgba(7, 17, 42, 0.03));
   animation: heroVisualFloat 8s ease-in-out infinite;
 }
 
@@ -335,6 +413,36 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   height: auto;
 }
 
+.heroSignalRow{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.heroSignal{
+  border: 1px solid rgba(11, 31, 66, 0.1);
+  background: rgba(255,255,255,0.74);
+  border-radius: 15px;
+  box-shadow: 0 10px 24px rgba(2, 10, 32, 0.08);
+  padding: 10px 12px;
+}
+
+.heroSignalK{
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 0.56);
+}
+
+.heroSignalV{
+  margin-top: 5px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(2, 6, 23, 0.84);
+  font-weight: 730;
+}
+
 @keyframes heroVisualFloat {
   0% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
@@ -342,10 +450,10 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 }
 
 .heroTrust{
-  margin: 20px auto 0;
-  max-width: 94ch;
+  margin: 14px auto 0;
+  max-width: 1180px;
   display: grid;
-  gap: 10px;
+  gap: 12px;
   grid-template-columns: 1fr;
   text-align: left;
 }
@@ -355,9 +463,9 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 }
 
 .heroTrustItem{
-  border: 1px solid rgba(17, 24, 39, 0.08);
+  border: 1px solid rgba(11, 31, 66, 0.1);
   border-radius: 18px;
-  background: rgba(255,255,255,0.68);
+  background: rgba(255,255,255,0.72);
   box-shadow: 0 1px 2px rgba(0,0,0,0.03);
   padding: 12px 14px;
 }
@@ -459,13 +567,43 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   font-size: 14px;
 }
 
-@media (max-width: 520px){
+@media (min-width: 1080px){
+  .heroGrid{
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 18px;
+  }
+
+  .heroCopy{
+    text-align: left;
+  }
+
+  .hero .badgeRow,
+  .btn-row{
+    justify-content: flex-start;
+  }
+
+  .hero .lead{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .proofStrip{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .heroSignalRow{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px){
   .hero{ text-align: left; }
-  .heroPanel{ text-align: left; padding: 22px 16px 18px; }
-  .btn-row{ justify-content: flex-start; }
+  .heroPanel{ text-align: left; padding: 22px 16px 16px; border-radius: 24px; }
+  .hero .badgeRow, .btn-row{ justify-content: flex-start; }
   .hero .lead{ margin-left: 0; margin-right: 0; }
   .heroEyebrow{ margin-left: 0; }
-  .heroVisualShell{ margin-top: 14px; border-radius: 18px; }
+  .heroVisualShell{ border-radius: 18px; }
+  .proofItem{ padding: 10px 11px; }
 }
 
 @media (prefers-reduced-motion: reduce){
