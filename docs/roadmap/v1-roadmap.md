@@ -239,3 +239,136 @@ You are now READY to go to market
 Not because everything is built —
 but because everything is clear.
 
+
+# EraIn AI — v1 Execution Roadmap (Founder / Internal)
+
+Purpose:
+Lock focus, prevent product sprawl, and convert audits into revenue fast.
+
+---
+
+## North Star (v1)
+Sell, deliver, and scale **EraIn Audit AI™**.
+Everything else exists only to support this.
+
+---
+
+## Phase 1 — Go-To-Market (Days 1–30)
+
+### Objectives
+- Launch public website
+- Run real audits
+- Convert first Pro Audits
+- Build delivery confidence
+
+### Deliverables
+- Website live (Audit + Pro Audit)
+- Request Assessment flow live
+- Admin command center live
+- Audit PDF v1 finalized
+- Pro Audit upsell operational
+
+### KPIs
+- 10–20 audits requested
+- 3–5 Pro Audits closed
+- ≥ ₹2–4L revenue
+- 1 strong testimonial / case narrative
+
+Status: **ACTIVE**
+
+---
+
+## Phase 2 — Delivery Depth (Days 31–60)
+
+### Objectives
+- Improve audit quality
+- Reduce delivery time
+- Increase perceived value
+
+### Build Focus
+- Industry benchmarks (v1 ranges)
+- Confidence scoring
+- Stronger financial impact math
+- Cleaner CXO report framing
+
+### Deliverables
+- Audit PDF v2
+- Pro Audit depth upgrade
+- Repeatable delivery checklist
+
+KPIs:
+- 50%+ Pro Audit conversion
+- Delivery ≤ 7 days
+- Zero scope creep
+
+Status: **PLANNED**
+
+---
+
+## Phase 3 — Recovery AI (Days 61–120)
+
+### Objectives
+- Monetize execution help
+- Move beyond “insight only”
+
+### Product
+**EraIn Recovery AI™** (PRIVATE / PILOT)
+
+What it is:
+- Recovery playbooks
+- Execution steps
+- Optional agent workflows
+- Delivered as workshops + PDFs (no SaaS yet)
+
+KPIs:
+- 30–50% of Pro Audit clients opt-in
+- ₹2–5L / engagement
+
+Status: **ARCHITECTED**
+
+---
+
+## Phase 4 — Control AI (Post Month 4)
+
+### Objectives
+- Retention
+- Recurring revenue
+
+### Product
+**EraIn Control AI™** (Subscription)
+
+What it is:
+- KPI drift detection
+- Alerts
+- Preventive insights
+
+Rules:
+- Built only after repeat Recovery demand
+- No UI until 5+ paying pilots
+
+Status: **FUTURE**
+
+---
+
+## Visibility Rules (Non‑Negotiable)
+
+### Website
+- EraIn Audit AI™
+- EraIn Pro Audit™
+
+### Sales calls
+- Mention Recovery AI as “post‑audit execution support”
+- Mention Control AI as “subscription roadmap”
+
+### Internal builds
+- If it doesn’t help sell or deliver Audit AI, it waits.
+
+---
+
+## Founder Rule (Protects the Company)
+
+> **Clarity beats completeness.**
+>  
+> We win by executing one product extremely well, not by naming ten.
+
+This roadmap is the contract.
