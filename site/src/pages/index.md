@@ -10,25 +10,12 @@ layout: ../layouts/BaseLayout.astro
 <div class="heroPanel">
 <div class="heroGrid">
 <div class="heroCopy">
-<div class="heroEyebrow">EraIn AI</div>
-<div class="badgeRow">
-<span class="badge badgeSoft">Audit-first Intelligence</span>
-<span class="badge badgeSoft">Execution-grade Systems</span>
-<span class="badge badgeSoft">ROI-Verified Outcomes</span>
-</div>
-
-<h1 class="h1">Intelligence that audits reality - and runs execution.</h1>
+<div class="heroEyebrow">EraIn Operating System</div>
+<h1 class="h1 heroDisplay">Truth-first intelligence.<br />Execution leaders can govern.</h1>
 
 <p class="lead heroLead">
-EraIn builds audit-first operational intelligence that exposes what is actually happening inside organizations,
-across industries, geographies, and operating models.
-We identify where value is leaking, what decisions matter most, and convert verified reality into
-disciplined execution with provable ROI.
-</p>
-
-<p class="lead heroLead heroLeadSm">
-Built to serve <strong>all industries</strong> - manufacturing, energy, EPC, logistics, retail, healthcare, finance,
-public sector, technology, and complex multi-site enterprises - across India and worldwide.
+EraIn turns verified operating reality into measurable execution outcomes.
+Built for serious teams that require auditability, decision governance, and clear ROI attribution.
 </p>
 
 <div class="btn-row" aria-label="Primary actions">
@@ -64,33 +51,8 @@ loading="eager"
 decoding="async"
 />
 </div>
-<div class="heroSignalRow" aria-label="Signal cards">
-<div class="heroSignal">
-<div class="heroSignalK">Launch-ready</div>
-<div class="heroSignalV">Start with audit, scale only on proof.</div>
-</div>
-<div class="heroSignal">
-<div class="heroSignalK">Enterprise-safe</div>
-<div class="heroSignalV">Access controls, governance, and clear owners.</div>
-</div>
-</div>
 </aside>
 </div>
-</div>
-
-<div class="heroTrust" aria-label="Trust and privacy">
-  <div class="heroTrustItem">
-    <div class="heroTrustK">Privacy-first</div>
-    <div class="heroTrustV">Start from Excel/Tally/ERP. No invasive access required.</div>
-  </div>
-  <div class="heroTrustItem">
-    <div class="heroTrustK">Proof before rollout</div>
-    <div class="heroTrustV">We quantify impact and owners before any automation.</div>
-  </div>
-  <div class="heroTrustItem">
-    <div class="heroTrustK">Exec-ready</div>
-    <div class="heroTrustV">Clear findings, decisions, and a 30/60/90 plan leaders can act on.</div>
-  </div>
 </div>
 </div>
 
@@ -233,41 +195,41 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 <style>
 .hero {
   position: relative;
-  max-width: 1240px;
-  margin: 0 auto 24px;
-  padding: 6px 0 0;
+  max-width: 1260px;
+  margin: 0 auto 30px;
+  padding: 10px 0 0;
 }
 
 .heroGlow{
   position:absolute;
-  inset:-150px -70px auto;
-  height:350px;
+  inset:-180px -70px auto;
+  height:380px;
   pointer-events:none;
   background:
-    radial-gradient(760px 280px at 48% 30%, rgba(15,95,240,0.24), transparent 66%),
-    radial-gradient(620px 280px at 18% 20%, rgba(6,182,212,0.18), transparent 70%),
-    radial-gradient(580px 240px at 86% 12%, rgba(2,6,23,0.07), transparent 70%);
-  filter: blur(3px);
-  opacity: .98;
+    radial-gradient(760px 300px at 46% 28%, rgba(15,95,240,0.28), transparent 66%),
+    radial-gradient(640px 280px at 16% 18%, rgba(6,182,212,0.16), transparent 70%),
+    radial-gradient(620px 250px at 88% 10%, rgba(2,6,23,0.08), transparent 70%);
+  filter: blur(4px);
+  opacity: .96;
 }
 
 .heroPanel{
   position:relative;
-  border: 1px solid rgba(11, 31, 66, 0.14);
-  border-radius: 34px;
+  border: 1px solid rgba(11, 31, 66, 0.16);
+  border-radius: 36px;
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.96) 0%,
-      rgba(255,255,255,0.84) 55%,
-      rgba(255,255,255,0.80) 100%
+      rgba(255,255,255,0.97) 0%,
+      rgba(255,255,255,0.86) 56%,
+      rgba(255,255,255,0.82) 100%
     );
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   box-shadow:
     0 1px 2px rgba(0,0,0,0.05),
-    0 34px 100px rgba(2,10,32,0.16);
-  padding: 30px 30px 26px;
+    0 36px 108px rgba(2,10,32,0.17);
+  padding: 34px 32px 30px;
   overflow:hidden;
 }
 
@@ -278,9 +240,9 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   border-radius: 32px;
   pointer-events:none;
   background:
-    radial-gradient(920px 280px at 50% 0%, rgba(37, 99, 235, 0.13), transparent 60%),
-    radial-gradient(720px 260px at 0% 35%, rgba(15, 23, 42, 0.08), transparent 62%);
-  opacity: .92;
+    radial-gradient(980px 300px at 50% 0%, rgba(37, 99, 235, 0.14), transparent 60%),
+    radial-gradient(780px 260px at 0% 35%, rgba(15, 23, 42, 0.08), transparent 62%);
+  opacity: .90;
 }
 
 .heroPanel > *{ position:relative; }
@@ -288,7 +250,7 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 .heroGrid{
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 22px;
   align-items: start;
 }
 
@@ -296,66 +258,47 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   text-align: center;
 }
 
-.heroMedia{
-  display: grid;
-  gap: 12px;
-}
-
-.hero .h1{
-  letter-spacing:-0.055em;
-  line-height: 1.01;
-  margin-top: 8px;
-  font-weight: 950;
-  font-size: clamp(40px, 5vw, 66px);
-}
-
-.hero .lead{
-  max-width: 74ch;
-  margin-left:auto;
-  margin-right:auto;
-  color: rgba(17,24,39,0.75);
-}
-
 .heroEyebrow{
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin: 2px 0 10px;
-  padding: 8px 12px;
+  margin: 0 0 12px;
+  padding: 9px 13px;
   border-radius: 999px;
-  border: 1px solid rgba(11,31,66,0.14);
-  background: rgba(16,24,40,0.04);
-  color: rgba(2,6,23,0.78);
+  border: 1px solid rgba(11,31,66,0.16);
+  background: rgba(16,24,40,0.05);
+  color: rgba(2,6,23,0.80);
   font-weight: 900;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 10px;
+}
+
+.heroDisplay{
+  margin-top: 0;
+  font-size: clamp(44px, 6vw, 84px);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  font-weight: 950;
+  text-wrap: balance;
 }
 
 .heroLead{
-  margin-top: 12px;
-  font-size: 17px;
-  line-height: 1.8;
+  margin-top: 14px;
+  max-width: 66ch;
+  margin-left:auto;
+  margin-right:auto;
+  font-size: 18px;
+  line-height: 1.76;
+  color: rgba(17,24,39,0.75);
 }
 
-.heroLeadSm{
-  font-size: 15px;
-  color: rgba(17,24,39,0.66);
-}
-
-.heroPanel .badgeSoft{
-  border-color: rgba(11,31,66,0.14);
-  background: rgba(255,255,255,0.80);
-}
-
-.hero .badgeRow {
-  justify-content: center;
-  margin: 0 0 10px;
-  gap: 10px;
+.heroMedia{
+  display: block;
 }
 
 .btn-row {
-  margin-top: 16px;
+  margin-top: 18px;
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -363,23 +306,23 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 }
 
 .proofStrip{
-  margin-top: 16px;
+  margin-top: 18px;
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr;
 }
 
 .proofItem{
-  border: 1px solid rgba(11, 31, 66, 0.12);
+  border: 1px solid rgba(11, 31, 66, 0.14);
   border-radius: 16px;
-  background: rgba(255,255,255,0.72);
-  box-shadow: 0 12px 30px rgba(2, 10, 32, 0.08);
-  padding: 10px 12px;
+  background: rgba(255,255,255,0.78);
+  box-shadow: 0 14px 28px rgba(2, 10, 32, 0.08);
+  padding: 11px 12px;
   text-align: left;
 }
 
 .proofK{
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -387,118 +330,50 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 }
 
 .proofV{
-  margin-top: 6px;
-  color: rgba(2,6,23,0.86);
-  line-height: 1.5;
-  font-size: 14px;
-  font-weight: 720;
+  margin-top: 5px;
+  color: rgba(2,6,23,0.84);
+  line-height: 1.48;
+  font-size: 13px;
+  font-weight: 730;
 }
 
 .heroVisualShell{
   position: relative;
   margin: 0 auto;
   max-width: 100%;
-  border-radius: 26px;
+  border-radius: 30px;
   padding: 6px;
   overflow: hidden;
-  border: 1px solid rgba(127, 181, 255, 0.34);
+  border: 1px solid rgba(126, 183, 255, 0.36);
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.08),
-    0 34px 90px rgba(2, 10, 32, 0.30);
+    0 1px 2px rgba(0, 0, 0, 0.10),
+    0 38px 94px rgba(2, 10, 32, 0.32);
   background:
-    linear-gradient(145deg, rgba(8, 28, 70, 0.96), rgba(12, 52, 112, 0.9) 45%, rgba(6, 26, 70, 0.92));
-  animation: heroVisualFloat 8s ease-in-out infinite;
+    linear-gradient(145deg, rgba(7, 26, 64, 0.96), rgba(10, 46, 98, 0.92) 46%, rgba(5, 22, 58, 0.94));
+  animation: heroVisualFloat 9s ease-in-out infinite;
 }
 
-.heroVisualShell::before{
+.heroVisualShell::after{
   content: "";
   position: absolute;
-  inset: -20% 18% auto -10%;
-  height: 56%;
+  inset: -24% 16% auto -8%;
+  height: 58%;
   pointer-events: none;
-  background: radial-gradient(600px 180px at 50% 50%, rgba(132, 190, 255, 0.26), transparent 70%);
+  background: radial-gradient(620px 196px at 50% 50%, rgba(132, 190, 255, 0.24), transparent 72%);
 }
 
 .heroVisualShell img{
   display:block;
   width: 100%;
   height: auto;
-  border-radius: 20px;
-  filter: saturate(1.08) contrast(1.03);
-}
-
-.heroSignalRow{
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 1fr;
-}
-
-.heroSignal{
-  border: 1px solid rgba(11, 31, 66, 0.1);
-  background: rgba(255,255,255,0.74);
-  border-radius: 15px;
-  box-shadow: 0 10px 24px rgba(2, 10, 32, 0.08);
-  padding: 10px 12px;
-}
-
-.heroSignalK{
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(17, 24, 39, 0.56);
-}
-
-.heroSignalV{
-  margin-top: 5px;
-  font-size: 13px;
-  line-height: 1.45;
-  color: rgba(2, 6, 23, 0.84);
-  font-weight: 730;
+  border-radius: 24px;
+  filter: saturate(1.06) contrast(1.05);
 }
 
 @keyframes heroVisualFloat {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-4px); }
   100% { transform: translateY(0); }
-}
-
-.heroTrust{
-  margin: 14px auto 0;
-  max-width: 1180px;
-  display: grid;
-  gap: 12px;
-  grid-template-columns: 1fr;
-  text-align: left;
-}
-
-@media (min-width: 840px){
-  .heroTrust{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-.heroTrustItem{
-  border: 1px solid rgba(11, 31, 66, 0.1);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.72);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-  padding: 12px 14px;
-}
-
-.heroTrustK{
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(17, 24, 39, 0.55);
-}
-
-.heroTrustV{
-  margin-top: 6px;
-  font-weight: 750;
-  letter-spacing: -0.01em;
-  color: rgba(2, 6, 23, 0.86);
-  line-height: 1.45;
-  font-size: 14px;
 }
 
 
@@ -583,15 +458,14 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 
 @media (min-width: 1080px){
   .heroGrid{
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 18px;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    gap: 20px;
   }
 
   .heroCopy{
     text-align: left;
   }
 
-  .hero .badgeRow,
   .btn-row{
     justify-content: flex-start;
   }
@@ -604,19 +478,16 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   .proofStrip{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
-  .heroSignalRow{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 760px){
   .hero{ text-align: left; }
-  .heroPanel{ text-align: left; padding: 22px 16px 16px; border-radius: 24px; }
-  .hero .badgeRow, .btn-row{ justify-content: flex-start; }
+  .heroPanel{ text-align: left; padding: 22px 16px 18px; border-radius: 26px; }
+  .heroDisplay{ line-height: 0.95; }
+  .btn-row{ justify-content: flex-start; }
   .hero .lead{ margin-left: 0; margin-right: 0; }
   .heroEyebrow{ margin-left: 0; }
-  .heroVisualShell{ border-radius: 18px; }
+  .heroVisualShell{ border-radius: 22px; }
   .proofItem{ padding: 10px 11px; }
 }
 
