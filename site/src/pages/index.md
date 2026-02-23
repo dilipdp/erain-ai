@@ -298,7 +298,7 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 
 .heroMedia{
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .hero .h1{
@@ -395,22 +395,36 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
 }
 
 .heroVisualShell{
+  position: relative;
   margin: 0 auto;
   max-width: 100%;
-  border-radius: 24px;
+  border-radius: 26px;
+  padding: 6px;
   overflow: hidden;
-  border: 1px solid rgba(11, 31, 66, 0.16);
+  border: 1px solid rgba(127, 181, 255, 0.34);
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.06),
-    0 30px 76px rgba(2, 10, 32, 0.26);
-  background: linear-gradient(180deg, rgba(7, 17, 42, 0.2), rgba(7, 17, 42, 0.03));
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 34px 90px rgba(2, 10, 32, 0.30);
+  background:
+    linear-gradient(145deg, rgba(8, 28, 70, 0.96), rgba(12, 52, 112, 0.9) 45%, rgba(6, 26, 70, 0.92));
   animation: heroVisualFloat 8s ease-in-out infinite;
+}
+
+.heroVisualShell::before{
+  content: "";
+  position: absolute;
+  inset: -20% 18% auto -10%;
+  height: 56%;
+  pointer-events: none;
+  background: radial-gradient(600px 180px at 50% 50%, rgba(132, 190, 255, 0.26), transparent 70%);
 }
 
 .heroVisualShell img{
   display:block;
   width: 100%;
   height: auto;
+  border-radius: 20px;
+  filter: saturate(1.08) contrast(1.03);
 }
 
 .heroSignalRow{
