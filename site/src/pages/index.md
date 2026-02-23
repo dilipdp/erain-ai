@@ -128,6 +128,56 @@ Every recommendation is traceable, every execution motion is governed, and every
 </div>
 </section>
 
+<section class="impactLattice" aria-label="Anonymized execution outcome benchmarks">
+<div class="impactHead">
+<div class="impactKicker">Outcome Benchmarks</div>
+<h2 class="h2 impactTitle">Representative patterns from audit-led engagements.</h2>
+<p class="impactLead">
+These are anonymized execution patterns from early audit cycles across multi-site operations.
+They are shown to indicate what disciplined auditability, governance, and attribution can unlock in real operating environments.
+</p>
+</div>
+
+<div class="impactGrid" role="list" aria-label="Benchmark cards">
+<article class="impactCard" role="listitem">
+<div class="impactCardTop">
+<div class="impactSegment">Manufacturing Network</div>
+<div class="impactTimeline">90-day cycle</div>
+</div>
+<div class="impactMetric">-22% delay variance</div>
+<div class="impactCopy">Execution blockers moved from reactive to planned intervention windows.</div>
+<div class="impactBar"><span style="--fill:78%"></span></div>
+</article>
+
+<article class="impactCard" role="listitem">
+<div class="impactCardTop">
+<div class="impactSegment">Logistics + Services</div>
+<div class="impactTimeline">60-day cycle</div>
+</div>
+<div class="impactMetric">3.1x decision speed</div>
+<div class="impactCopy">Ownership and approval maps cut escalation loops and handoff latency.</div>
+<div class="impactBar"><span style="--fill:86%"></span></div>
+</article>
+
+<article class="impactCard" role="listitem">
+<div class="impactCardTop">
+<div class="impactSegment">Multi-site Enterprise</div>
+<div class="impactTimeline">120-day cycle</div>
+</div>
+<div class="impactMetric">INR 4.6 Cr recovery path</div>
+<div class="impactCopy">Leakage attribution converted disconnected initiatives into one measurable value ledger.</div>
+<div class="impactBar"><span style="--fill:92%"></span></div>
+</article>
+</div>
+
+<div class="deploymentStrip" role="list" aria-label="Enterprise readiness">
+<div class="deploymentItem" role="listitem">NDA-first onboarding</div>
+<div class="deploymentItem" role="listitem">Role-scoped access boundaries</div>
+<div class="deploymentItem" role="listitem">VPC / on-prem deployment options</div>
+<div class="deploymentItem" role="listitem">Audit trail ready outputs</div>
+</div>
+</section>
+
 <div class="homeProse prose">
 
 ## What EraIn is
@@ -625,6 +675,151 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   font-size: 14px;
 }
 
+.impactLattice{
+  max-width: 1260px;
+  margin: 14px auto 0;
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.94) 0%,
+      rgba(245,250,255,0.88) 56%,
+      rgba(241,248,255,0.86) 100%
+    );
+  box-shadow: 0 24px 60px rgba(2, 10, 32, 0.14);
+  padding: 18px;
+}
+
+.impactHead{
+  max-width: 96ch;
+}
+
+.impactKicker{
+  display:inline-flex;
+  align-items:center;
+  border: 1px solid rgba(11, 31, 66, 0.16);
+  border-radius: 999px;
+  background: rgba(16, 24, 40, 0.04);
+  color: rgba(7, 20, 48, 0.84);
+  padding: 7px 11px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.impactTitle{
+  margin-top: 9px;
+  color: rgba(7, 20, 48, 0.95);
+  font-size: clamp(28px, 3.2vw, 40px);
+  letter-spacing: -0.03em;
+}
+
+.impactLead{
+  margin-top: 10px;
+  color: rgba(30, 41, 59, 0.72);
+  line-height: 1.72;
+  font-size: 15px;
+  max-width: 92ch;
+}
+
+.impactGrid{
+  margin-top: 14px;
+  display:grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+
+.impactCard{
+  border: 1px solid rgba(11, 31, 66, 0.14);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(7, 24, 56, 0.96), rgba(9, 36, 82, 0.92) 60%, rgba(9, 27, 62, 0.94));
+  box-shadow: 0 20px 44px rgba(2, 10, 32, 0.2);
+  padding: 12px 13px;
+  color: #e8f4ff;
+}
+
+.impactCardTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 8px;
+}
+
+.impactSegment{
+  color: rgba(197, 228, 255, 0.92);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.impactTimeline{
+  color: rgba(170, 210, 245, 0.84);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.impactMetric{
+  margin-top: 8px;
+  color: rgba(239, 248, 255, 0.98);
+  font-size: 27px;
+  font-weight: 840;
+  letter-spacing: -0.02em;
+}
+
+.impactCopy{
+  margin-top: 5px;
+  color: rgba(188, 214, 241, 0.88);
+  line-height: 1.55;
+  font-size: 13px;
+}
+
+.impactBar{
+  margin-top: 11px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(132, 190, 255, 0.24);
+  overflow: hidden;
+}
+
+.impactBar span{
+  display:block;
+  width: var(--fill, 75%);
+  height: 100%;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, rgba(132, 230, 255, 0.95), rgba(101, 157, 255, 0.92) 58%, rgba(104, 236, 206, 0.9));
+  animation: impactPulse 4.2s ease-in-out infinite;
+}
+
+.deploymentStrip{
+  margin-top: 12px;
+  display:grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+}
+
+.deploymentItem{
+  border: 1px solid rgba(11, 31, 66, 0.12);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.8);
+  color: rgba(7,20,48,0.8);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0.02em;
+  padding: 8px 11px;
+  text-align: center;
+}
+
+@keyframes impactPulse{
+  0% { filter: brightness(0.92); }
+  50% { filter: brightness(1.06); }
+  100% { filter: brightness(0.92); }
+}
+
 @keyframes heroVisualFloat {
   0% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
@@ -741,11 +936,23 @@ EraIn is designed for real businesses — where data is sensitive, decisions are
   .operatingRail{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .impactGrid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .deploymentStrip{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 760px) and (max-width: 1079px){
   .heroSignalStack{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .deploymentStrip{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
