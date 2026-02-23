@@ -10,7 +10,9 @@
     "qa:quality-gate": "node scripts/lighthouse_axe_gate.mjs",
     "qa:quality-gate:full": "bash scripts/p1_launch_quality_gate.sh",
     "qa:device-matrix": "node scripts/device_browser_matrix_gate.mjs",
-    "qa:device-matrix:full": "bash scripts/p2_device_browser_matrix_gate.sh"
+    "qa:device-matrix:full": "bash scripts/p2_device_browser_matrix_gate.sh",
+    "qa:analytics-consent": "node scripts/analytics_consent_gate.mjs",
+    "qa:analytics-consent:full": "bash scripts/p3_analytics_consent_gate.sh"
   },
   "dependencies": {
     "astro": "^5.17.1"

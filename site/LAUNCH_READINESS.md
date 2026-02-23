@@ -11,6 +11,7 @@ bash /Users/dilipbr/Projects/erain-ai/site/scripts/launch_qa_checklist.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p0_hardening_checks.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p1_launch_quality_gate.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p2_device_browser_matrix_gate.sh
+bash /Users/dilipbr/Projects/erain-ai/site/scripts/p3_analytics_consent_gate.sh
 ```
 
 Current status:
@@ -24,6 +25,7 @@ Current status:
 - Lighthouse thresholds: pass
 - Axe blocking violations (critical): pass
 - Device/browser matrix (Chromium, Firefox, WebKit + mobile profiles): pass
+- Analytics consent integrity (no pre-consent tracking, post-consent event flow): pass
 
 ## Quality Gate Config
 
@@ -39,6 +41,10 @@ Device/browser matrix gate artifacts:
 
 - JSON report: `/tmp/erain_device_browser_matrix_report.json`
 - Screenshots: `/tmp/erain_device_matrix_shots`
+
+Analytics consent gate artifact:
+
+- JSON report: `/tmp/erain_analytics_consent_gate_report.json`
 
 ## Manual Checks (pre-launch)
 
