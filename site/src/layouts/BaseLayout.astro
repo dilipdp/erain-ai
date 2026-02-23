@@ -451,6 +451,61 @@ const isActive = (path) => currentPath === path;
         }
       }
 
+      .mobileQuickCta {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 70;
+        display: none;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(11, 31, 66, 0.18);
+        border-radius: 16px;
+        background: rgba(248, 252, 255, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 18px 44px rgba(2, 10, 32, 0.18);
+        padding: 8px;
+        transform: translateY(0);
+        transition: transform 220ms ease, opacity 220ms ease;
+      }
+
+      .mobileQuickCta.hiddenRail {
+        transform: translateY(90px);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .mobileQuickCta a {
+        flex: 1;
+        min-width: 0;
+        text-align: center;
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 820;
+        padding: 10px 10px;
+        text-decoration: none;
+      }
+
+      .mobileQuickCta a.primary {
+        color: #fff;
+        background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+      }
+
+      .mobileQuickCta a.secondary {
+        color: rgba(7, 20, 48, 0.88);
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(11, 31, 66, 0.14);
+      }
+
+      @media (max-width: 768px) {
+        .mobileQuickCta {
+          display: flex;
+        }
+      }
+
       /* ---------- Content typography: opt-in only ---------- */
       /* Use .content when you want readable long-form text measure */
       .content {
@@ -783,6 +838,9 @@ const isActive = (path) => currentPath === path;
         body::after {
           display: none;
         }
+        .mobileQuickCta {
+          transition: none !important;
+        }
       }
     </style>
   </head>
@@ -858,6 +916,11 @@ const isActive = (path) => currentPath === path;
       </div>
     </footer>
 
+    <div class="mobileQuickCta hiddenRail" id="mobileQuickCta" aria-label="Quick actions">
+      <a class="primary" href="/request-assessment" data-track="mobile_quick_audit">Start Free Audit</a>
+      <a class="secondary" href="/sample-report" data-track="mobile_quick_sample">Sample Report</a>
+    </div>
+
     <script is:inline>
       (function () {
         function $(id) { return document.getElementById(id); }
@@ -906,6 +969,71 @@ const isActive = (path) => currentPath === path;
             onScroll();
             window.addEventListener("scroll", onScroll, { passive: true });
           }
+        } catch (_) {}
+
+        // Mobile quick CTA rail
+        try {
+          const rail = $("mobileQuickCta");
+          if (rail && window.innerWidth <= 768) {
+            let lastY = window.scrollY;
+            const onScroll = () => {
+              const y = window.scrollY;
+              const scrollingDown = y > lastY;
+              if (y < 80) {
+                rail.classList.add("hiddenRail");
+              } else {
+                rail.classList.toggle("hiddenRail", scrollingDown);
+              }
+              lastY = y;
+            };
+
+            requestAnimationFrame(() => {
+              rail.classList.remove("hiddenRail");
+            });
+
+            onScroll();
+            window.addEventListener("scroll", onScroll, { passive: true });
+          }
+        } catch (_) {}
+
+        // Launch telemetry for core conversion interactions
+        try {
+          const trackableTargets = [
+            "/request-assessment",
+            "/sample-report",
+            "/contact",
+            "/pricing",
+            "/client-login"
+          ];
+
+          document.addEventListener("click", (event) => {
+            const target = event.target;
+            if (!(target instanceof Element)) return;
+            const anchor = target.closest("a");
+            if (!(anchor instanceof HTMLAnchorElement)) return;
+
+            const hrefRaw = anchor.getAttribute("href") || "";
+            if (!hrefRaw || hrefRaw.startsWith("mailto:") || hrefRaw.startsWith("tel:")) return;
+            const isTracked = trackableTargets.some((prefix) => hrefRaw.startsWith(prefix));
+            if (!isTracked) return;
+
+            const label = anchor.dataset.track || anchor.textContent?.trim() || hrefRaw;
+            const eventName = "site_cta_click";
+            const payload = {
+              cta_label: label,
+              href: hrefRaw,
+              page_path: window.location.pathname,
+            };
+
+            if (window.gtag) {
+              window.gtag("event", eventName, payload);
+            }
+
+            try {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({ event: eventName, ...payload });
+            } catch (_) {}
+          }, { passive: true });
         } catch (_) {}
 
         // Unified reveal animation across premium surfaces
