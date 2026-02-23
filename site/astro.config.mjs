@@ -5,6 +5,9 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://erainai.com',
   trailingSlash: 'never',
+  devToolbar: {
+    enabled: false,
+  },
 
   // Admin pages use headers/auth → needs SSR
   output: 'server',
