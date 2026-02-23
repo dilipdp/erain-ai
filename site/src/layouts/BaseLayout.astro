@@ -80,19 +80,19 @@ const isActive = (path) => currentPath === path;
     <style is:global>
       :root {
         /* Brand */
-        --primary: #09152f;
-        --secondary: #0f2a57;
+        --primary: #071430;
+        --secondary: #0d2b5f;
         --accent: #0f5ff0;
         --accent-2: #06b6d4;
 
         /* Neutrals */
-        --bg: #f5f9ff;
-        --surface: rgba(255, 255, 255, 0.9);
-        --surface-2: rgba(16, 24, 40, 0.05);
-        --border: rgba(11, 31, 66, 0.12);
-        --muted: rgba(17, 24, 39, 0.68);
-        --muted-2: rgba(17, 24, 39, 0.76);
-        --bg-grid: rgba(12, 26, 56, 0.035);
+        --bg: #f3f8ff;
+        --surface: rgba(255, 255, 255, 0.92);
+        --surface-2: rgba(16, 24, 40, 0.04);
+        --border: rgba(11, 31, 66, 0.14);
+        --muted: rgba(15, 23, 42, 0.68);
+        --muted-2: rgba(15, 23, 42, 0.78);
+        --bg-grid: rgba(12, 26, 56, 0.03);
 
         /* Radius / shadow */
         --radius-lg: 22px;
@@ -100,9 +100,10 @@ const isActive = (path) => currentPath === path;
         --radius-sm: 12px;
         --shadow-sm: 0 1px 2px rgba(2, 6, 23, 0.06);
         --shadow-md: 0 16px 44px rgba(2, 10, 32, 0.14);
+        --shadow-lg: 0 28px 68px rgba(2, 10, 32, 0.18);
 
         /* Layout */
-        --container: 1200px;
+        --container: 1240px;
         --gutter: clamp(18px, 3vw, 28px);
 
         /* Typography */
@@ -125,7 +126,8 @@ const isActive = (path) => currentPath === path;
         background:
           radial-gradient(860px 420px at 12% -10%, rgba(15, 95, 240, 0.22), transparent 62%),
           radial-gradient(760px 360px at 92% -12%, rgba(6, 182, 212, 0.2), transparent 64%),
-          linear-gradient(180deg, #f9fbff 0%, #f2f7ff 45%, #f8fbff 100%);
+          radial-gradient(760px 340px at 50% 120%, rgba(14, 53, 120, 0.07), transparent 70%),
+          linear-gradient(180deg, #f9fbff 0%, #f1f7ff 45%, #f8fbff 100%);
         background-color: var(--bg);
         background-attachment: fixed;
         -webkit-font-smoothing: antialiased;
@@ -203,15 +205,15 @@ const isActive = (path) => currentPath === path;
         z-index: 50;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        background: rgba(248, 251, 255, 0.84);
-        border-bottom: 1px solid var(--border);
-        transition: background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        background: rgba(248, 251, 255, 0.8);
+        border-bottom: 1px solid rgba(11, 31, 66, 0.12);
+        transition: background 180ms ease, box-shadow 180ms ease, border-color 180ms ease, transform 180ms ease;
       }
 
       header.scrolled {
-        background: rgba(249, 252, 255, 0.95);
-        border-bottom-color: rgba(12, 31, 67, 0.16);
-        box-shadow: 0 8px 30px rgba(5, 17, 44, 0.08);
+        background: rgba(249, 252, 255, 0.94);
+        border-bottom-color: rgba(12, 31, 67, 0.2);
+        box-shadow: 0 10px 34px rgba(5, 17, 44, 0.1);
       }
 
       .nav {
@@ -241,23 +243,29 @@ const isActive = (path) => currentPath === path;
       }
 
       .nav-links a {
-        color: rgba(12, 28, 58, 0.78);
-        font-weight: 600;
+        color: rgba(10, 28, 60, 0.8);
+        font-weight: 650;
         font-size: 14px;
-        padding: 10px 12px;
+        padding: 10px 13px;
         border-radius: 12px;
-        transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+        border: 1px solid transparent;
+        transition: background 150ms ease, color 150ms ease, transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
       }
 
       .nav-links a:hover {
-        background: rgba(2, 6, 23, 0.04);
+        background: rgba(255, 255, 255, 0.62);
+        border-color: rgba(11, 31, 66, 0.1);
+        box-shadow: 0 10px 24px rgba(2, 10, 32, 0.08);
         color: var(--secondary);
+        transform: translateY(-1px);
         text-decoration: none;
       }
 
       .nav-links a.active {
         color: var(--secondary);
-        background: rgba(2, 6, 23, 0.04);
+        background: rgba(255, 255, 255, 0.74);
+        border-color: rgba(11, 31, 66, 0.12);
+        box-shadow: 0 12px 28px rgba(2, 10, 32, 0.09);
         position: relative;
       }
 
@@ -275,6 +283,7 @@ const isActive = (path) => currentPath === path;
       .nav-links a.cta {
         padding: 10px 14px;
         background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
+        background-size: 160% 160%;
         color: #fff;
         border-radius: 14px;
         font-weight: 700;
@@ -282,6 +291,7 @@ const isActive = (path) => currentPath === path;
         white-space: nowrap;
         box-shadow: 0 14px 30px rgba(15, 95, 240, 0.3);
         border: 1px solid rgba(255, 255, 255, 0.28);
+        animation: ctaGradientShift 9s ease infinite;
       }
 
       .nav-links a.cta:hover {
@@ -352,7 +362,7 @@ const isActive = (path) => currentPath === path;
         border-top: 1px solid var(--border);
         margin-top: 72px;
         background:
-          linear-gradient(180deg, rgba(248, 252, 255, 0.8), rgba(241, 247, 255, 0.95));
+          linear-gradient(180deg, rgba(248, 252, 255, 0.82), rgba(240, 247, 255, 0.95));
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
       }
@@ -360,12 +370,85 @@ const isActive = (path) => currentPath === path;
       .footer {
         max-width: var(--container);
         margin: 0 auto;
-        padding: 34px var(--gutter);
+        padding: 36px var(--gutter);
         font-size: 14px;
         color: rgba(84, 97, 123, 0.95);
+        display: grid;
+        gap: 16px;
+      }
+
+      .footerTop {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr;
+      }
+
+      .footerBrand {
+        display: grid;
+        gap: 8px;
+      }
+
+      .footerBrandLine {
+        color: rgba(7, 20, 48, 0.92);
+        font-size: 15px;
+        font-weight: 760;
+      }
+
+      .footerTagline {
+        color: rgba(31, 41, 55, 0.72);
+        font-size: 14px;
+      }
+
+      .footerPills {
         display: flex;
-        flex-direction: column;
-        gap: 10px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .footerPill {
+        border: 1px solid rgba(11, 31, 66, 0.12);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(13, 43, 95, 0.84);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .footerLinks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .footerLinks a {
+        border: 1px solid rgba(11, 31, 66, 0.12);
+        border-radius: 999px;
+        padding: 8px 12px;
+        color: rgba(7, 20, 48, 0.86);
+        font-size: 12px;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.72);
+        text-decoration: none;
+      }
+
+      .footerLinks a:hover {
+        border-color: rgba(15, 95, 240, 0.34);
+        color: #0f5ff0;
+      }
+
+      .footerMeta {
+        color: rgba(31, 41, 55, 0.66);
+        font-size: 13px;
+      }
+
+      @media (min-width: 920px) {
+        .footerTop {
+          grid-template-columns: 1.2fr 1fr;
+          align-items: start;
+        }
       }
 
       /* ---------- Content typography: opt-in only ---------- */
@@ -635,10 +718,10 @@ const isActive = (path) => currentPath === path;
         justify-content: center;
         gap: 8px;
         border: 1px solid rgba(11, 31, 66, 0.14);
-        background: rgba(255, 255, 255, 0.8);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.78));
         color: var(--primary);
         box-shadow: 0 14px 24px rgba(2, 10, 32, 0.08);
-        transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, border-color 140ms ease;
+        transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, border-color 140ms ease, filter 140ms ease;
         text-decoration: none;
         white-space: nowrap;
       }
@@ -647,13 +730,16 @@ const isActive = (path) => currentPath === path;
         text-decoration: none;
         box-shadow: 0 24px 36px rgba(2, 10, 32, 0.14);
         border-color: rgba(11, 31, 66, 0.2);
+        filter: saturate(1.03);
       }
 
       .btnPrimary {
         background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
+        background-size: 160% 160%;
         color: #fff;
         border-color: rgba(255, 255, 255, 0.3);
         box-shadow: 0 18px 36px rgba(15, 95, 240, 0.3);
+        animation: ctaGradientShift 9s ease infinite;
       }
       .btnPrimary:hover { box-shadow: 0 24px 44px rgba(15, 95, 240, 0.38); }
 
@@ -674,6 +760,12 @@ const isActive = (path) => currentPath === path;
       .reveal.in {
         opacity: 1;
         transform: translateY(0) scale(1);
+      }
+
+      @keyframes ctaGradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -743,10 +835,26 @@ const isActive = (path) => currentPath === path;
 
     <footer>
       <div class="footer">
-        <div><strong>EraIn AI</strong> — Profitability AI for Businesses</div>
-        <div>Auditability • Decision governance • ROI attribution</div>
-        <div>Email: hello@erainai.com</div>
-        <div><a href="/request-assessment">Start Free AI Audit</a> • <a href="/client-login">Client Login</a> • <a href="/pricing">See Pricing</a> • <a href="/legal">Legal</a></div>
+        <div class="footerTop">
+          <div class="footerBrand">
+            <div class="footerBrandLine"><strong>EraIn AI</strong> - Intelligence that runs business execution</div>
+            <div class="footerTagline">Auditability, decision governance, and measurable ROI attribution.</div>
+            <div class="footerPills" aria-label="Trust pillars">
+              <span class="footerPill">Audit-First</span>
+              <span class="footerPill">Governed Decisions</span>
+              <span class="footerPill">ROI Verified</span>
+            </div>
+          </div>
+          <div class="footerLinks" aria-label="Footer actions">
+            <a href="/request-assessment">Start Free AI Audit</a>
+            <a href="/sample-report">View Sample Report</a>
+            <a href="/client-login">Client Login</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/legal">Legal</a>
+            <a href="/contact">Contact</a>
+          </div>
+        </div>
+        <div class="footerMeta">Email: hello@erainai.com</div>
       </div>
     </footer>
 
