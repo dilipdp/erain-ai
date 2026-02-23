@@ -27,6 +27,21 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
           verified clarity, quantified impact, and a disciplined operating plan.
           We work across manufacturing, services, logistics, EPC, healthcare, finance, and multi‑site operations.
         </p>
+
+        <div class="contactSignalGrid" aria-label="Engagement fit signals">
+          <div class="contactSignal">
+            <div class="contactSignalK">Best fit</div>
+            <div class="contactSignalV">Execution leakage or decision bottlenecks</div>
+          </div>
+          <div class="contactSignal">
+            <div class="contactSignalK">Expected output</div>
+            <div class="contactSignalV">Owner-mapped recovery plan with governance checkpoints</div>
+          </div>
+          <div class="contactSignal">
+            <div class="contactSignalK">Response model</div>
+            <div class="contactSignalV">24h qualification and clear next-step recommendation</div>
+          </div>
+        </div>
       </header>
 
       <div class="grid">
@@ -168,6 +183,45 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
       justify-content: center;
       margin: 0 0 14px;
       flex-wrap: wrap;
+    }
+
+    .contactSignalGrid {
+      margin-top: 14px;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+
+    @media (min-width: 760px) {
+      .contactSignalGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .contactSignal {
+      border: 1px solid rgba(11, 31, 66, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 10px 11px;
+      box-shadow: 0 12px 26px rgba(2, 10, 32, 0.08);
+    }
+
+    .contactSignalK {
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(17, 24, 39, 0.58);
+    }
+
+    .contactSignalV {
+      margin-top: 6px;
+      color: rgba(7, 20, 48, 0.88);
+      font-size: 14px;
+      line-height: 1.48;
+      font-weight: 760;
+      letter-spacing: -0.01em;
     }
 
     .grid {

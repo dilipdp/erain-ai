@@ -178,6 +178,20 @@ Done when:
 - Cross-sector relevance is obvious within first screen
 - Build passes
 
+### Phase 11 - Contact Conversion Quality Lift (2026-02-23)
+
+Scope:
+
+- Add fit-signal matrix in contact hero
+- Improve self-qualification quality of inbound requests
+- Keep conversion pathway clear while reducing low-signal submissions
+
+Done when:
+
+- Contact page communicates who should engage and why
+- Form intent quality improves for launch pipeline
+- Build passes
+
 ## Execution Rules
 
 - One phase = one commit minimum
