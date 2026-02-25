@@ -20,12 +20,12 @@
     "qa:launch-guardrail:full": "bash scripts/p6_launch_guardrail.sh"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
+    "@astrojs/sitemap": "^3.7.0",
     "astro": "^5.17.1"
   },
   "devDependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/node": "^9.5.2",
-    "@astrojs/sitemap": "^3.7.0",
     "axe-core": "^4.11.1",
     "chrome-launcher": "^1.2.1",
     "lighthouse": "^12.8.2",
