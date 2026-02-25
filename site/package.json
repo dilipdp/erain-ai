@@ -23,6 +23,7 @@
     "astro": "^5.17.1"
   },
   "devDependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/node": "^9.5.2",
     "@astrojs/sitemap": "^3.7.0",
     "axe-core": "^4.11.1",

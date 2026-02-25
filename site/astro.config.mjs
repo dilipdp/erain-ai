@@ -1,3 +1,4 @@
+import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
@@ -8,8 +9,9 @@ export default defineConfig({
     enabled: false,
   },
 
-  // Admin pages use headers/auth → needs SSR
+  // Cloudflare Pages (Astro v5+: use `output: 'static'`; individual routes can opt out via `export const prerender = false`)
   output: 'static',
+  adapter: cloudflare(),
 
   integrations: [
     sitemap({
