@@ -10,7 +10,7 @@ export default defineConfig({
   },
 
   // Cloudflare Pages (Astro v5+: use `output: 'static'`; individual routes can opt out via `export const prerender = false`)
-  output: 'static',
+  output: 'server',
   adapter: cloudflare(),
 
   integrations: [
