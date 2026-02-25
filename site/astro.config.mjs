@@ -1,4 +1,3 @@
-import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
@@ -10,11 +9,7 @@ export default defineConfig({
   },
 
   // Admin pages use headers/auth → needs SSR
-  output: 'server',
-
-  adapter: node({
-    mode: 'standalone',
-  }),
+  output: 'static',
 
   integrations: [
     sitemap({
