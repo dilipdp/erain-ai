@@ -104,8 +104,9 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
         --shadow-lg: 0 28px 68px rgba(2, 10, 32, 0.18);
 
         /* Layout */
-        --container: 1240px;
-        --gutter: clamp(18px, 3vw, 28px);
+        /* Wider, more “premium” use of space on large screens while keeping safe gutters. */
+        --container: min(1480px, 94vw);
+        --gutter: clamp(18px, 3vw, 32px);
         --safe-bottom: env(safe-area-inset-bottom, 0px);
         --safe-left: env(safe-area-inset-left, 0px);
         --safe-right: env(safe-area-inset-right, 0px);
@@ -121,7 +122,17 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
       *, *::before, *::after { box-sizing: border-box; }
       html, body {
         max-width: 100%;
-        overflow-x: clip;
+        overflow-x: hidden; /* prevent sideways scroll while we harden width constraints */
+      }
+
+      /* Ensure flex/grid children can shrink instead of forcing horizontal overflow */
+      :where(main, section, article, .container, .page, .card, .tier) {
+        min-width: 0;
+      }
+
+      :where(img, video, canvas, svg) {
+        max-width: 100%;
+        height: auto;
       }
 
       body {
@@ -206,6 +217,15 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
         padding-right: var(--gutter);
       }
 
+      /* Full-bleed helper when a page/section truly needs edge-to-edge */
+      .containerFull {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding-left: var(--gutter);
+        padding-right: var(--gutter);
+      }
+
       .skipLink {
         position: fixed;
         top: 10px;
@@ -251,6 +271,8 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
         align-items: center;
         justify-content: space-between;
         height: 74px;
+        position: relative;
+        z-index: 2;
       }
 
       .brand {
@@ -337,6 +359,16 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
         border: none;
         cursor: pointer;
         color: var(--primary);
+        position: relative;
+        z-index: 1002;
+        padding: 10px 12px;
+        border-radius: 12px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .menu-toggle:active {
+        transform: scale(0.98);
       }
 
       @media (max-width: 768px) {
@@ -360,6 +392,7 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
           transform-origin: top right;
           transform: translateY(-6px) scale(0.98);
           opacity: 0;
+          pointer-events: none;
           transition: transform 160ms ease, opacity 160ms ease;
         }
 
@@ -367,6 +400,7 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
           display: flex;
           transform: translateY(0) scale(1);
           opacity: 1;
+          pointer-events: auto;
         }
 
         .menu-toggle { display: block; }
@@ -873,6 +907,27 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
       .grid2 { display: grid; gap: 14px; grid-template-columns: 1fr; }
       @media (min-width: 720px) { .grid2 { grid-template-columns: 1fr 1fr; } }
 
+      /* ---------- Pricing layout guardrails ---------- */
+      :where(.tiers, .pricingTiers, .pricingGrid, .tierGrid) {
+        width: 100%;
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      :where(.tier) {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      /* Prevent big headings/prices from clipping on narrow screens */
+      :where(.tier h1, .tier h2, .tier h3, .tier .price, .tier .amount) {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
       .actions {
         display: flex;
         flex-direction: column;
@@ -1170,6 +1225,9 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
             const toggle = () => (isOpen() ? close() : open());
 
             btn.addEventListener("click", (e) => { e.preventDefault(); toggle(); });
+            window.addEventListener("resize", () => {
+              if (window.innerWidth > 768 && isOpen()) close();
+            });
 
             document.addEventListener("click", (e) => {
               if (!isOpen()) return;
