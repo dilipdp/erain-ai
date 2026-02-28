@@ -188,7 +188,7 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
       body > main,
       body > footer {
         position: relative;
-        z-index: 1;
+        z-index: 0;
       }
 
       :where(h1, h2, h3, .h1, .h2, .kicker, .nav-links a, .brand) {
@@ -252,7 +252,8 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
       header {
         position: sticky;
         top: 0;
-        z-index: 50;
+        z-index: 10000 !important;
+        isolation: isolate;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         background: rgba(248, 251, 255, 0.8);
@@ -360,7 +361,7 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
         cursor: pointer;
         color: var(--primary);
         position: relative;
-        z-index: 1002;
+        z-index: 10002 !important;
         padding: 10px 12px;
         border-radius: 12px;
         touch-action: manipulation;
@@ -374,10 +375,11 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
       @media (max-width: 768px) {
         .nav-links {
           display: none;
-          position: absolute;
+          position: fixed;
           top: 74px;
           right: 12px;
           left: 12px;
+          bottom: auto;
           background: rgba(255, 255, 255, 0.94);
           border: 1px solid var(--border);
           border-radius: 16px;
@@ -386,7 +388,7 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
           flex-direction: column;
           align-items: stretch;
           gap: 10px;
-          z-index: 1000;
+          z-index: 10001 !important;
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
           transform-origin: top right;
@@ -403,7 +405,7 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
           pointer-events: auto;
         }
 
-        .menu-toggle { display: block; }
+        .menu-toggle { display: block; z-index: 10002 !important; }
         .logo-full { display: none !important; }
         .logo-mark { display: block !important; }
 
