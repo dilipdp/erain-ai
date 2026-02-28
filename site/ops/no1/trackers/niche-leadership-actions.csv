@@ -1,0 +1,4 @@
+action_id,week_start_iso,priority,owner,action,due_date,status,reason
+NL-0001,2026-02-24,P1,founder,Publish one named case study with governance and ROI trail,2026-03-07,in_progress,proof inventory compounding
+NL-0002,2026-02-24,P1,delivery_lead,Maintain P50 time-to-value under 21 days across active accounts,2026-03-07,in_progress,delivery velocity moat
+NL-0003,2026-02-24,P1,revenue_ops,Raise reference-call close quality with standardized proof packet,2026-03-07,in_progress,conversion quality moat

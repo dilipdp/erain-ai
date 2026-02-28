@@ -22,7 +22,9 @@
     "ops:no1:gate:full": "bash scripts/p7_no1_operating_system.sh",
     "ops:no1:brief": "node scripts/no1_command_center.mjs",
     "ops:no1:command-center:full": "bash scripts/p8_no1_command_center.sh",
-    "ops:global:gate:full": "bash scripts/p9_global_standard_gate.sh"
+    "ops:global:gate:full": "bash scripts/p9_global_standard_gate.sh",
+    "ops:no1:niche:gate": "node scripts/no1_niche_leadership_gate.mjs",
+    "ops:no1:niche:full": "bash scripts/p10_niche_leadership.sh"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",

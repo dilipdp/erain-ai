@@ -19,6 +19,7 @@ bash /Users/dilipbr/Projects/erain-ai/site/scripts/p6_launch_guardrail.sh --url 
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p7_no1_operating_system.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p8_no1_command_center.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p9_global_standard_gate.sh --url https://your-domain
+bash /Users/dilipbr/Projects/erain-ai/site/scripts/p10_niche_leadership.sh
 ```
 
 Current status:
@@ -40,6 +41,7 @@ Current status:
 - No.1 operating system execution gate: configured (run weekly)
 - No.1 command-center brief generation: configured (run weekly)
 - Global-standard combined gate (launch + command-center): configured
+- Niche-leadership execution gate: configured (run weekly)
 
 ## Quality Gate Config
 
@@ -99,6 +101,7 @@ No.1 operating-system artifact:
 - JSON command-center report: `/tmp/erain_no1_command_center_report.json`
 - Weekly executive brief: `/tmp/erain_no1_weekly_brief.md`
 - JSON global-standard decision report: `/tmp/erain_global_standard_gate_report.json`
+- JSON niche-leadership report: `/tmp/erain_niche_leadership_report.json`
 
 Rollback safety automation:
 

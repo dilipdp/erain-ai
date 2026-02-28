@@ -30,6 +30,7 @@ Report artifact:
 - `/tmp/erain_no1_operating_report.json`
 - `/tmp/erain_no1_command_center_report.json`
 - `/tmp/erain_no1_weekly_brief.md`
+- `/tmp/erain_niche_leadership_report.json`
 
 ## Rule
 
