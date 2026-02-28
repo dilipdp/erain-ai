@@ -3,7 +3,7 @@ export const prerender = false;
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 
-const apiBase = import.meta.env.PUBLIC_API_BASE_URL;
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? "/api";
 const { request_id } = Astro.params;
 ---
 
@@ -35,7 +35,7 @@ const { request_id } = Astro.params;
               <a href={`${apiBase}/admin/leads/${encodeURIComponent(request_id)}/whatsapp`} target="_blank" rel="noopener" class="btn">WhatsApp</a>
               <a href={`${apiBase}/admin/leads/${encodeURIComponent(request_id)}/email`} target="_blank" rel="noopener" class="btn">Email</a>
               <a href={`${apiBase}/admin/audits/${encodeURIComponent(request_id)}`} target="_blank" rel="noopener" class="btn">Audit JSON</a>
-              <a href={`${apiBase}/reports/${encodeURIComponent(request_id)}.pdf`} target="_blank" rel="noopener" class="btn">PDF</a>
+              <a href="/sample-report.pdf" target="_blank" rel="noopener" class="btn">PDF</a>
             </div>
           </div>
         </div>
@@ -46,8 +46,16 @@ const { request_id } = Astro.params;
   </section>
 
   <script is:inline>
-    const envApiBase = String(import.meta.env.PUBLIC_API_BASE_URL || ""); // client-side
-    const apiBase = envApiBase || (import.meta.env.DEV ? "http://127.0.0.1:8020" : "");
+    const loopbackHosts = new Set(["127.0.0.1", "localhost"]);
+    const apiBaseRaw = String(import.meta.env.PUBLIC_API_BASE_URL || "").trim();
+    let apiBase = apiBaseRaw.replace(/\/$/, "");
+    if (!apiBase) apiBase = "/api";
+    try {
+      const parsed = new URL(apiBase, window.location.origin);
+      if (loopbackHosts.has(parsed.hostname) && !loopbackHosts.has(window.location.hostname)) {
+        apiBase = "/api";
+      }
+    } catch (_) {}
 
     const container = document.getElementById("content");
     const requestId =
@@ -102,10 +110,6 @@ const { request_id } = Astro.params;
       `;
 
       try {
-        if (!apiBase) {
-          throw new Error("PUBLIC_API_BASE_URL is not set (and no dev fallback available). Set PUBLIC_API_BASE_URL or use dev fallback.");
-        }
-
         const [leadRes, auditRes] = await Promise.all([
           fetch(`${apiBase}/admin/leads/${requestId}`, { headers: headersWithToken() }),
           fetch(`${apiBase}/admin/audits/${requestId}`, { headers: headersWithToken() }),

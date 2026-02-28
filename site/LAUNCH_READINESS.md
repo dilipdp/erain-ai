@@ -66,6 +66,21 @@ Built-in fallback endpoints:
 - `POST /api/public/audit`
 - `POST /api/public/client/access/request`
 
+Built-in admin fallback endpoints (same-origin):
+
+- `GET /api/admin/leads`
+- `GET /api/admin/leads/:request_id`
+- `PATCH /api/admin/leads/:request_id/status`
+- `POST /api/admin/leads/:request_id/pro-offer`
+- `GET /api/admin/leads/:request_id/whatsapp`
+- `GET /api/admin/leads/:request_id/email`
+- `GET /api/admin/audits/:request_id`
+
+Admin API auth:
+
+- Prefer `ADMIN_API_TOKEN` + `X-Admin-Token` header.
+- Fallback: Basic auth with `ADMIN_USER` + `ADMIN_PASS`.
+
 Optional delivery integrations for fallback endpoints:
 
 - `INTAKE_WEBHOOK_URL` (recommended): forwards each submission event to your CRM/automation endpoint.

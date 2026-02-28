@@ -71,6 +71,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   const adminPath = pathname.startsWith("/admin");
+  const adminApiPath = pathname.startsWith("/api/admin");
 
   if (adminPath) {
     const user = import.meta.env.ADMIN_USER;
@@ -115,7 +116,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   const response = await next();
   const secured = withSecurityHeaders(response, context.url);
-  if (adminPath) {
+  if (adminPath || adminApiPath) {
     secured.headers.set("X-Robots-Tag", "noindex, nofollow");
     if (!secured.headers.has("Cache-Control")) {
       secured.headers.set("Cache-Control", "no-store");

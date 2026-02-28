@@ -27,10 +27,20 @@ interface ClientAccessRecord {
   source: string;
 }
 
+interface LeadMetaRecord {
+  request_id: string;
+  status: string;
+  status_note: string;
+  status_updated_at_utc: string;
+  pro_offer: JsonRecord | null;
+}
+
 interface IntakeMemoryStore {
   audits: Map<string, AuditLeadRecord>;
   contacts: Map<string, ContactRecord>;
   clientAccess: Map<string, ClientAccessRecord>;
+  leadMeta: Map<string, LeadMetaRecord>;
+  auditIndex: Set<string>;
 }
 
 interface KVNamespaceLike {
@@ -39,6 +49,8 @@ interface KVNamespaceLike {
 }
 
 const MEMORY_STORE_KEY = "__ERAIN_INTAKE_MEMORY_STORE__";
+const AUDIT_INDEX_KEY = "audit:index";
+const LEAD_META_PREFIX = "lead-meta:";
 
 function ensureMemoryStore(): IntakeMemoryStore {
   const globalRef = globalThis as typeof globalThis & {
@@ -49,6 +61,8 @@ function ensureMemoryStore(): IntakeMemoryStore {
       audits: new Map(),
       contacts: new Map(),
       clientAccess: new Map(),
+      leadMeta: new Map(),
+      auditIndex: new Set(),
     };
   }
   return globalRef[MEMORY_STORE_KEY]!;
@@ -187,6 +201,28 @@ function getRequestMeta(context: APIContext): JsonRecord {
   };
 }
 
+async function loadAuditIndex(context: APIContext): Promise<string[]> {
+  const kvIndex = await fetchKvIfAvailable<string[]>(context, AUDIT_INDEX_KEY);
+  if (!Array.isArray(kvIndex)) return [];
+  return kvIndex
+    .map((id) => safeString(id, 80))
+    .filter(Boolean);
+}
+
+async function persistAuditIndex(context: APIContext, ids: string[]): Promise<void> {
+  const normalized = ids
+    .map((id) => safeString(id, 80))
+    .filter(Boolean);
+  await persistKvIfAvailable(context, AUDIT_INDEX_KEY, normalized);
+}
+
+function normalizeLeadStatus(value: unknown): string {
+  const status = safeString(value, 60).toLowerCase();
+  const allowed = new Set(["new", "contacted", "pro_offered", "pro_requested", "converted"]);
+  if (allowed.has(status)) return status;
+  return "new";
+}
+
 export async function storeAuditLead(
   context: APIContext,
   requestId: string,
@@ -204,7 +240,26 @@ export async function storeAuditLead(
 
   const memory = ensureMemoryStore();
   memory.audits.set(requestId, record);
+  memory.auditIndex.add(requestId);
   await persistKvIfAvailable(context, `audit:${requestId}`, record);
+  const existingIndex = await loadAuditIndex(context);
+  if (!existingIndex.includes(requestId)) {
+    await persistAuditIndex(context, [...existingIndex, requestId]);
+  }
+  memory.leadMeta.set(requestId, {
+    request_id: requestId,
+    status: "new",
+    status_note: "",
+    status_updated_at_utc: now,
+    pro_offer: null,
+  });
+  await persistKvIfAvailable(context, `${LEAD_META_PREFIX}${requestId}`, {
+    request_id: requestId,
+    status: "new",
+    status_note: "",
+    status_updated_at_utc: now,
+    pro_offer: null,
+  });
   await enqueueWebhook(context, "audit_submission_received", {
     ...record,
     request_meta: getRequestMeta(context),
@@ -286,3 +341,121 @@ export async function findAuditLeadByRequestAndEmail(
   return null;
 }
 
+export async function getAuditLeadByRequestId(
+  context: APIContext,
+  requestId: string,
+): Promise<AuditLeadRecord | null> {
+  const normalizedRequestId = safeString(requestId, 80);
+  if (!normalizedRequestId) return null;
+
+  const memory = ensureMemoryStore();
+  const memoryRecord = memory.audits.get(normalizedRequestId);
+  if (memoryRecord) {
+    return memoryRecord;
+  }
+
+  const kvRecord = await fetchKvIfAvailable<AuditLeadRecord>(context, `audit:${normalizedRequestId}`);
+  if (kvRecord) {
+    memory.audits.set(normalizedRequestId, kvRecord);
+    memory.auditIndex.add(normalizedRequestId);
+    return kvRecord;
+  }
+
+  return null;
+}
+
+export async function listAuditLeads(
+  context: APIContext,
+  limit = 200,
+): Promise<AuditLeadRecord[]> {
+  const memory = ensureMemoryStore();
+
+  const kvIndex = await loadAuditIndex(context);
+  for (const id of kvIndex) {
+    if (id) memory.auditIndex.add(id);
+  }
+
+  const ids = Array.from(memory.auditIndex.values());
+  const records: AuditLeadRecord[] = [];
+  for (const id of ids) {
+    const record = await getAuditLeadByRequestId(context, id);
+    if (record) records.push(record);
+  }
+
+  return records
+    .sort((a, b) => Date.parse(b.created_at_utc || "") - Date.parse(a.created_at_utc || ""))
+    .slice(0, Math.max(1, limit));
+}
+
+export async function getLeadMeta(
+  context: APIContext,
+  requestId: string,
+): Promise<LeadMetaRecord | null> {
+  const normalizedRequestId = safeString(requestId, 80);
+  if (!normalizedRequestId) return null;
+
+  const memory = ensureMemoryStore();
+  const inMemory = memory.leadMeta.get(normalizedRequestId);
+  if (inMemory) {
+    return inMemory;
+  }
+
+  const kvMeta = await fetchKvIfAvailable<LeadMetaRecord>(
+    context,
+    `${LEAD_META_PREFIX}${normalizedRequestId}`,
+  );
+  if (kvMeta) {
+    const normalized: LeadMetaRecord = {
+      request_id: normalizedRequestId,
+      status: normalizeLeadStatus(kvMeta.status),
+      status_note: safeString(kvMeta.status_note, 2000),
+      status_updated_at_utc: safeString(kvMeta.status_updated_at_utc, 80) || getNowIsoUtc(),
+      pro_offer: toPlainObject(kvMeta.pro_offer),
+    };
+    memory.leadMeta.set(normalizedRequestId, normalized);
+    return normalized;
+  }
+
+  return null;
+}
+
+export async function upsertLeadMeta(
+  context: APIContext,
+  requestId: string,
+  patch: {
+    status?: unknown;
+    status_note?: unknown;
+    pro_offer?: unknown;
+  },
+): Promise<LeadMetaRecord | null> {
+  const normalizedRequestId = safeString(requestId, 80);
+  if (!normalizedRequestId) return null;
+
+  const now = getNowIsoUtc();
+  const existing = (await getLeadMeta(context, normalizedRequestId)) ?? {
+    request_id: normalizedRequestId,
+    status: "new",
+    status_note: "",
+    status_updated_at_utc: now,
+    pro_offer: null,
+  };
+
+  const next: LeadMetaRecord = {
+    request_id: normalizedRequestId,
+    status: patch.status === undefined ? existing.status : normalizeLeadStatus(patch.status),
+    status_note:
+      patch.status_note === undefined
+        ? existing.status_note
+        : safeString(patch.status_note, 2000),
+    status_updated_at_utc: now,
+    pro_offer:
+      patch.pro_offer === undefined
+        ? existing.pro_offer
+        : toPlainObject(patch.pro_offer),
+  };
+
+  const memory = ensureMemoryStore();
+  memory.leadMeta.set(normalizedRequestId, next);
+  await persistKvIfAvailable(context, `${LEAD_META_PREFIX}${normalizedRequestId}`, next);
+  return next;
+}
