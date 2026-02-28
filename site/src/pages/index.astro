@@ -26,7 +26,9 @@ const description = "EraIn builds operational AI systems that audit reality, gov
         <a class="btn" href="/results" data-track="home_cinema_view_results">View Results</a>
         <a class="btn btnGhost" href="/pricing" data-track="home_cinema_pricing">See Pricing</a>
       </div>
+    </div>
 
+    <aside class="cinemaSide" aria-label="Live signal controls">
       <div class="kpiRail" role="list" aria-label="Execution signal highlights">
         <article class="kpiCard" role="listitem">
           <div class="kpiK">Evidence confidence</div>
@@ -50,7 +52,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
         <button class="sceneBtn" type="button" data-scene="logistics" aria-pressed="false">Logistics Grid</button>
         <button class="sceneBtn" type="button" data-scene="services" aria-pressed="false">Services Portfolio</button>
       </div>
-    </div>
+    </aside>
 
     <aside class="cinemaStage" aria-label="Interactive execution orbit">
       <div class="stageFrame scene-factory" id="stageFrame">
@@ -341,8 +343,15 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .cinemaCopy,
+  .cinemaSide,
   .cinemaStage {
     min-width: 0;
+  }
+
+  .cinemaSide {
+    display: grid;
+    gap: 12px;
+    align-content: start;
   }
 
   .cinemaEyebrow,
@@ -412,7 +421,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .kpiRail {
-    margin-top: 18px;
+    margin-top: 0;
     display: grid;
     gap: 8px;
     grid-template-columns: 1fr;
@@ -450,7 +459,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .sceneSwitch {
-    margin-top: 16px;
+    margin-top: 2px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -952,13 +961,32 @@ const description = "EraIn builds operational AI systems that audit reality, gov
 
   @media (min-width: 980px) {
     .cinema {
-      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+      grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
+      grid-template-areas:
+        "copy side"
+        "stage stage";
       align-items: start;
       gap: 20px;
     }
 
+    .cinemaCopy {
+      grid-area: copy;
+    }
+
+    .cinemaSide {
+      grid-area: side;
+    }
+
+    .cinemaStage {
+      grid-area: stage;
+    }
+
     .kpiRail {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .cinemaStage .stageFrame {
+      aspect-ratio: 1400 / 560;
     }
 
     .commandStory {
@@ -1028,6 +1056,10 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     .cinemaTitle {
       max-width: 11ch;
       line-height: 0.96;
+    }
+
+    .cinemaSide {
+      gap: 10px;
     }
 
     .cinemaActions .btn,
