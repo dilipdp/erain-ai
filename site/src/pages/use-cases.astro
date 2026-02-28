@@ -1,63 +1,82 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "Use Cases — EraIn AI";
+const title = "Use Cases - EraIn AI";
 const description =
-  "High-value use cases across operations, finance, supply chain, quality, and multi-site governance where auditability and ROI attribution are critical.";
+  "High-value operating use cases where auditability, decision governance, and ROI attribution are mission critical.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="useCasePage">
-    <header class="card hero">
-      <div class="badgeRow">
-        <span class="badge badgeSoft">Use Cases</span>
-        <span class="badge badgeSoft">Operator workflows</span>
-        <span class="badge badgeSoft">Outcome-linked</span>
-      </div>
-      <h1 class="h1">Where EraIn creates measurable value</h1>
-      <p class="lead">
-        EraIn is built for high-consequence execution environments where leadership needs traceable decisions,
-        owner-level accountability, and attributed business outcomes.
+  <section class="useCasesV2">
+    <header class="useCasesHero reveal">
+      <div class="heroEyebrow">Use Cases</div>
+      <h1 class="h1 heroTitle">Where EraIn creates measurable execution value.</h1>
+      <p class="lead heroLead">
+        EraIn is designed for high-consequence environments where decisions must be traceable,
+        owners explicit, and impact verifiable. The patterns below represent common value zones.
       </p>
     </header>
 
-    <section class="caseGrid" aria-label="Use case cards">
-      <article class="card">
-        <div class="kicker">Operations</div>
+    <section class="caseGrid reveal" aria-label="Use-case patterns">
+      <article class="caseCard">
+        <div class="caseK">Operations</div>
         <h2 class="h2">Cycle-time and approval latency recovery</h2>
-        <p>Map bottlenecks, assign owners, and cut decision turnaround in 4-12 weeks.</p>
+        <p>Map bottlenecks, resolve owner ambiguity, and reduce decision turnaround in 4-12 weeks.</p>
       </article>
-      <article class="card">
-        <div class="kicker">Supply Chain</div>
+
+      <article class="caseCard">
+        <div class="caseK">Supply Chain</div>
         <h2 class="h2">Inventory and working-capital discipline</h2>
-        <p>Prioritize leakage interventions and tie inventory actions to financial outcomes.</p>
+        <p>Prioritize leakage interventions and tie inventory actions to cash and margin movement.</p>
       </article>
-      <article class="card">
-        <div class="kicker">Quality</div>
-        <h2 class="h2">Scrap/rework reduction governance</h2>
-        <p>Create threshold-based decision triggers and owner accountability loops.</p>
+
+      <article class="caseCard">
+        <div class="caseK">Quality</div>
+        <h2 class="h2">Scrap and rework governance control</h2>
+        <p>Create threshold-triggered responses with accountable owners and escalation cadence.</p>
       </article>
-      <article class="card">
-        <div class="kicker">Finance</div>
+
+      <article class="caseCard">
+        <div class="caseK">Finance</div>
         <h2 class="h2">Cash conversion and invoicing control</h2>
-        <p>Link operational actions to cash metrics and enforce cadence at leadership level.</p>
+        <p>Link operational interventions to finance outcomes with an attribution-ready review loop.</p>
       </article>
-      <article class="card">
-        <div class="kicker">Enterprise</div>
+
+      <article class="caseCard">
+        <div class="caseK">Enterprise</div>
         <h2 class="h2">Multi-site governance standardization</h2>
-        <p>Deploy one decision governance model across sites, teams, and geographies.</p>
+        <p>Deploy one execution governance model across sites, functions, and operating geographies.</p>
       </article>
-      <article class="card">
-        <div class="kicker">Commercial</div>
-        <h2 class="h2">Proof-led proposal and conversion motion</h2>
-        <p>Use validated case assets and attribution-led narratives to increase close quality.</p>
+
+      <article class="caseCard">
+        <div class="caseK">Commercial</div>
+        <h2 class="h2">Proof-led growth and conversion motion</h2>
+        <p>Increase deal quality with measurable case narratives and reference-driven sales discipline.</p>
       </article>
     </section>
 
-    <section class="card">
-      <h2 class="h2">Need a specific use-case map?</h2>
-      <p>Share your operating context and we’ll scope the highest-value 21-day pilot motion.</p>
-      <div class="btn-row" style="margin-top:12px">
+    <section class="fitBand reveal" aria-label="Engagement fit">
+      <article class="fitCard">
+        <div class="fitK">Best fit profile</div>
+        <div class="fitV">Execution variance, slow approvals, and unclear ownership across functions</div>
+      </article>
+      <article class="fitCard">
+        <div class="fitK">Primary output</div>
+        <div class="fitV">Owner-mapped intervention path with governance cadence and ROI traceability</div>
+      </article>
+      <article class="fitCard">
+        <div class="fitK">Start model</div>
+        <div class="fitV">21-Day Decision Governance Pilot with fixed scope and measurable milestones</div>
+      </article>
+    </section>
+
+    <section class="useCasesCta reveal" aria-label="Use-case CTA">
+      <div>
+        <div class="heroEyebrow">Next step</div>
+        <h2 class="h2">Need a custom use-case map for your context?</h2>
+        <p>Share your operating situation and we will scope the highest-leverage pilot path.</p>
+      </div>
+      <div class="ctaActions">
         <a class="btn btnPrimary" href="/request-assessment">Start Free AI Audit</a>
         <a class="btn" href="/contact?topic=use-case">Discuss Use Case</a>
       </div>
@@ -65,11 +84,159 @@ const description =
   </section>
 
   <style>
-    .useCasePage { display: grid; gap: 18px; }
-    .hero { padding: 24px; }
-    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
-    .caseGrid { display: grid; gap: 12px; grid-template-columns: 1fr; }
-    p { color: rgba(17,24,39,.82); }
-    @media (min-width: 980px) { .caseGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .useCasesV2 {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      padding-bottom: 20px;
+    }
+
+    .useCasesHero,
+    .caseGrid,
+    .fitBand,
+    .useCasesCta {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3.2vw, 30px);
+    }
+
+    .heroEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .heroTitle {
+      margin-top: 14px;
+      max-width: 16ch;
+      font-size: clamp(40px, 7vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 860;
+    }
+
+    .heroLead,
+    .useCasesCta p,
+    .caseCard p,
+    .fitV {
+      margin-top: 14px;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.58;
+    }
+
+    .caseGrid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .caseCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 16px;
+    }
+
+    .caseK,
+    .fitK {
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+    }
+
+    .caseCard h2 {
+      margin-top: 8px;
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .caseCard p {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .fitBand {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .fitCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 12px 14px;
+    }
+
+    .fitV {
+      margin-top: 6px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .useCasesCta {
+      display: grid;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .useCasesCta p {
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .ctaActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (min-width: 980px) {
+      .caseGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .fitBand {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .useCasesCta {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .useCasesHero,
+      .caseGrid,
+      .fitBand,
+      .useCasesCta {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .heroTitle {
+        max-width: 12ch;
+      }
+
+      .ctaActions .btn {
+        width: 100%;
+      }
+    }
   </style>
 </BaseLayout>

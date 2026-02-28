@@ -2,13 +2,92 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Developer Docs — EraIn AI" description="Developer docs moved to /developers.">
-  <section style="max-width:900px;margin:0 auto;display:grid;gap:14px;">
-    <div class="card" style="padding:24px;border:1px solid rgba(11,31,66,.12);border-radius:20px;background:rgba(255,255,255,.9);box-shadow:0 14px 34px rgba(2,10,32,.08);">
-      <div class="badgeRow"><span class="badge badgeSoft">Developer Docs</span></div>
-      <h1 class="h1">Developer docs are now at <code>/developers</code>.</h1>
-      <p class="lead">Use the main docs page for API contracts, auth model, and integration examples.</p>
-      <div class="btn-row"><a class="btn btnPrimary" href="/developers">Open Developer Docs</a></div>
-    </div>
+<BaseLayout title="Developer Docs - EraIn AI" description="Developer docs are consolidated at /developers.">
+  <section class="docsRedirect">
+    <article class="redirectCard reveal">
+      <div class="heroEyebrow">Developer Docs</div>
+      <h1 class="h1">Docs are consolidated at <code>/developers</code>.</h1>
+      <p>
+        Use the main developer page for API contracts, authentication model, status-transition rules,
+        and control-tower integration guidance.
+      </p>
+      <div class="actions">
+        <a class="btn btnPrimary" href="/developers">Open Developers</a>
+        <a class="btn" href="/contact?topic=developer-integration">Talk integration</a>
+      </div>
+    </article>
   </section>
+
+  <style>
+    .docsRedirect {
+      max-width: 960px;
+      margin: 0 auto;
+      padding-bottom: 20px;
+    }
+
+    .redirectCard {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3.2vw, 30px);
+    }
+
+    .heroEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    h1 {
+      margin-top: 14px;
+      max-width: 16ch;
+      font-size: clamp(38px, 6.8vw, 64px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-weight: 860;
+    }
+
+    p {
+      margin: 12px 0 0;
+      color: rgba(15, 23, 42, 0.68);
+      font-size: clamp(16px, 1.7vw, 19px);
+      line-height: 1.58;
+      max-width: 65ch;
+    }
+
+    code {
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 8px;
+      padding: 2px 6px;
+      background: rgba(15, 23, 42, 0.05);
+      font-size: 0.94em;
+    }
+
+    .actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .redirectCard {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </BaseLayout>

@@ -1,300 +1,425 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = 'Contact — EraIn AI';
+const title = 'Contact - EraIn AI';
 const description =
-  'High‑signal contact for leaders seeking audit‑first clarity, quantified impact, and disciplined execution across industries.';
+  'High-signal contact for leaders seeking audit-first clarity, quantified impact, and disciplined execution.';
 const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? '/api/public';
 const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? 'hello@erainai.com';
 const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="contact">
-    <div class="wrap">
-      <!-- Hero -->
-      <header class="hero">
-        <div class="badgeRow" aria-label="Positioning pillars">
-          <span class="badge badgeSoft">Audit → Execution</span>
-          <span class="badge badgeSoft">All industries</span>
-          <span class="badge badgeSoft">ROI‑verified</span>
-          <span class="badge badgeSoft">24h response (if fit)</span>
-        </div>
-
-        <h1 class="h1">Contact EraIn</h1>
-        <p class="lead">
-          This is a <strong>high‑signal contact point</strong> for founders, CXOs, and operators who want
-          verified clarity, quantified impact, and a disciplined operating plan.
-          We work across manufacturing, services, logistics, EPC, healthcare, finance, and multi‑site operations.
+  <section class="contactV2">
+    <header class="contactHero reveal" aria-label="Contact intro">
+      <div class="heroCopy">
+        <div class="heroEyebrow">Contact EraIn</div>
+        <h1 class="h1 heroTitle">Bring one operating bottleneck. We return one governed recovery path.</h1>
+        <p class="lead heroLead">
+          This intake is for operators, CXOs, and transformation leaders who need auditability, decision governance,
+          and measurable ROI attribution. Share context only. No confidential data is required.
         </p>
 
-        <div class="contactSignalGrid" aria-label="Engagement fit signals">
-          <div class="contactSignal">
-            <div class="contactSignalK">Best fit</div>
-            <div class="contactSignalV">Execution leakage or decision bottlenecks</div>
-          </div>
-          <div class="contactSignal">
-            <div class="contactSignalK">Expected output</div>
-            <div class="contactSignalV">Owner-mapped recovery plan with governance checkpoints</div>
-          </div>
-          <div class="contactSignal">
-            <div class="contactSignalK">Response model</div>
-            <div class="contactSignalV">24h qualification and clear next-step recommendation</div>
-          </div>
+        <div class="heroPills" role="list" aria-label="Contact positioning">
+          <span class="pill" role="listitem">Audit to execution</span>
+          <span class="pill" role="listitem">All industries</span>
+          <span class="pill" role="listitem">24h response if fit</span>
+          <span class="pill" role="listitem">INR and USD programs</span>
         </div>
-      </header>
-
-      <div class="grid">
-        <!-- Left: context -->
-        <aside class="side">
-          <div class="card">
-            <div class="kicker">Before you write</div>
-            <ul class="list">
-              <li>We start from <strong>reality</strong>: Excel, Tally, ERP, SOPs — not assumptions.</li>
-              <li>Audits focus on cost leakage, throughput constraints, and decision drift.</li>
-              <li>Execution is recommended only after impact is quantified.</li>
-              <li>If it’s a fit, you’ll hear back within <strong>24 hours</strong>.</li>
-            </ul>
-          </div>
-
-          <div class="card soft">
-            <div class="kicker">Direct</div>
-            <div class="kv">
-              <div><span>Email</span><strong>{supportEmail}</strong></div>
-              <div><span>Response</span><strong>&lt; 24h (if fit)</strong></div>
-            </div>
-            <p class="hint">
-              References:
-              <a href="/results" data-track="contact_reference_results">Results</a> ·
-              <a href="/pricing" data-track="contact_reference_pricing">Pricing</a>
-            </p>
-          </div>
-
-          <div class="card pro">
-            <div class="kicker">Pro Audit</div>
-            <p class="muted">
-              If you’re upgrading a Free Audit, include your Request ID and a preferred time window.
-            </p>
-            <p class="hint">
-              Tip: open with
-              <code>?upgrade=pro&amp;request_id=AR‑…</code>
-              to prefill.
-            </p>
-          </div>
-        </aside>
-
-        <!-- Right: form -->
-        <section class="main">
-          <div class="card">
-            <h2 class="h2">Send a message</h2>
-            <p class="muted">We reply within 24 hours if there’s a strong fit.</p>
-
-            <form
-              id="contactForm"
-              class="form"
-              data-api-base={apiBase}
-              data-support-email={supportEmail}
-              data-contact-path={contactPath}
-              novalidate
-            >
-              <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-label="Leave this field empty" />
-
-              <div class="field">
-                <label for="intent">What do you need?</label>
-                <select id="intent" name="intent" required>
-                  <option value="general_inquiry">General inquiry</option>
-                  <option value="free_audit">Request Free Audit</option>
-                  <option value="pro_audit">Request Pro Audit</option>
-                  <option value="upgrade_existing">Upgrade an existing audit</option>
-                  <option value="deploy_ops">Deploy EraIn in operations</option>
-                </select>
-              </div>
-
-              <div class="row2">
-                <div class="field">
-                  <label for="name">Name</label>
-                  <input id="name" name="name" required placeholder="Your name" autocomplete="name" />
-                </div>
-                <div class="field">
-                  <label for="phone">Phone (optional)</label>
-                  <input id="phone" name="phone" placeholder="+91…" inputmode="tel" autocomplete="tel" />
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email" />
-              </div>
-
-              <div class="row2">
-                <div class="field">
-                  <label for="company">Company</label>
-                  <input id="company" name="company" placeholder="Company name" autocomplete="organization" />
-                </div>
-                <div class="field">
-                  <label for="request_id">Request ID (if any)</label>
-                  <input id="request_id" name="request_id" placeholder="AR‑…" />
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="7"
-                  required
-                  placeholder="What outcome are you aiming for? Where is value leaking today? (No confidential data.)"
-                ></textarea>
-                <p class="help">Share context, not confidential data.</p>
-              </div>
-
-              <div class="actions">
-                <button id="contactSubmitBtn" class="btnPrimary" type="submit">
-                  <span id="contactBtnText">Send message</span>
-                  <span id="contactSpinner" class="hidden" aria-hidden="true">⟳</span>
-                </button>
-                <p class="help">Secure submit. No email app required.</p>
-              </div>
-
-              <div id="contactStatus" class="status hidden" aria-live="polite"></div>
-            </form>
-          </div>
-        </section>
       </div>
+
+      <aside class="heroMeta" aria-label="Qualification signals">
+        <article class="metaCard">
+          <div class="metaK">Best fit</div>
+          <div class="metaV">Execution leakage or decision bottlenecks</div>
+        </article>
+        <article class="metaCard">
+          <div class="metaK">Expected output</div>
+          <div class="metaV">Owner-mapped recovery plan with governance cadence</div>
+        </article>
+        <article class="metaCard">
+          <div class="metaK">Response model</div>
+          <div class="metaV">Qualification, priority, and next-step recommendation</div>
+        </article>
+      </aside>
+    </header>
+
+    <div class="contactGrid reveal">
+      <aside class="infoRail" aria-label="Contact notes">
+        <article class="panel">
+          <div class="panelK">Before you submit</div>
+          <ul>
+            <li>We start from current reality: ERP, Excel, Tally, SOPs, and operator signals.</li>
+            <li>Audit focus: margin leakage, throughput loss, and decision drift.</li>
+            <li>Execution is scoped only after impact and owner path are clear.</li>
+            <li>If aligned, you receive a response within 24 hours.</li>
+          </ul>
+        </article>
+
+        <article class="panel panelSoft">
+          <div class="panelK">Direct channel</div>
+          <div class="kv">
+            <div><span>Email</span><strong>{supportEmail}</strong></div>
+            <div><span>Review window</span><strong>&lt; 24h (if fit)</strong></div>
+          </div>
+          <p class="panelHint">
+            References:
+            <a href="/results" data-track="contact_results_link">Results</a>
+            <span aria-hidden="true"> / </span>
+            <a href="/pricing" data-track="contact_pricing_link">Pricing</a>
+          </p>
+        </article>
+
+        <article class="panel panelPro">
+          <div class="panelK">Existing audit upgrade</div>
+          <p>
+            If upgrading from a Free Audit, include your request ID for faster routing.
+            You can open this page with <code>?upgrade=pro&amp;request_id=AR-...</code>.
+          </p>
+        </article>
+      </aside>
+
+      <section class="formPane" aria-label="Contact form">
+        <article class="panel panelForm">
+          <h2 class="h2">Send message</h2>
+          <p class="formLead">We process high-signal requests first and reply with a practical next step.</p>
+
+          <form
+            id="contactForm"
+            class="form"
+            data-api-base={apiBase}
+            data-support-email={supportEmail}
+            data-contact-path={contactPath}
+            novalidate
+          >
+            <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-label="Leave this field empty" />
+
+            <div class="field">
+              <label for="intent">What do you need?</label>
+              <select id="intent" name="intent" required>
+                <option value="general_inquiry">General inquiry</option>
+                <option value="free_audit">Request Free Audit</option>
+                <option value="pro_audit">Request Pro Audit</option>
+                <option value="upgrade_existing">Upgrade existing audit</option>
+                <option value="deploy_ops">Deploy EraIn in operations</option>
+              </select>
+            </div>
+
+            <div class="row2">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" required placeholder="Your name" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone (optional)</label>
+                <input id="phone" name="phone" placeholder="+91..." inputmode="tel" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email" />
+            </div>
+
+            <div class="row2">
+              <div class="field">
+                <label for="company">Company</label>
+                <input id="company" name="company" placeholder="Company name" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="request_id">Request ID (if any)</label>
+                <input id="request_id" name="request_id" placeholder="AR-..." />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="7"
+                required
+                placeholder="What outcome are you targeting? Where is value leaking now?"
+              ></textarea>
+              <p class="help">Share context, not confidential data.</p>
+            </div>
+
+            <div class="actions">
+              <button id="contactSubmitBtn" class="btnPrimary" type="submit">
+                <span id="contactBtnText">Send message</span>
+                <span id="contactSpinner" class="hidden" aria-hidden="true">...</span>
+              </button>
+              <p class="help">Secure submit. No email app required.</p>
+            </div>
+
+            <div id="contactStatus" class="status hidden" aria-live="polite"></div>
+          </form>
+        </article>
+      </section>
     </div>
   </section>
 
   <style>
-    .contact {
-      background:
-        radial-gradient(900px 420px at 20% 0%, rgba(37,99,235,.08), transparent 60%),
-        radial-gradient(900px 420px at 80% 10%, rgba(99,102,241,.10), transparent 55%);
+    .contactV2 {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      padding-bottom: 24px;
     }
 
-    .hidden { display: none !important; }
-
-    /* BaseLayout already adds vertical padding; keep Contact page balanced */
-    .wrap { max-width: 1280px; margin: 0 auto; padding: 64px 24px 76px; }
-
-    .hero { max-width: 78ch; margin: 0 auto 28px; text-align: center; position: relative; z-index: 1; }
-
-    .hero .badgeRow {
-      justify-content: center;
-      margin: 0 0 14px;
-      flex-wrap: wrap;
+    .contactHero,
+    .panel {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3.2vw, 30px);
     }
 
-    .contactSignalGrid {
+    .contactHero {
+      display: grid;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .heroEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .heroTitle {
       margin-top: 14px;
+      max-width: 16ch;
+      font-size: clamp(40px, 7.2vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 860;
+    }
+
+    .heroLead {
+      margin-top: 14px;
+      max-width: 68ch;
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.58;
+      color: rgba(15, 23, 42, 0.7);
+    }
+
+    .heroPills {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 12px;
+      font-weight: 760;
+      color: rgba(15, 23, 42, 0.72);
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .heroMeta {
       display: grid;
       gap: 8px;
       grid-template-columns: 1fr;
-      text-align: left;
     }
 
-    @media (min-width: 760px) {
-      .contactSignalGrid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+    .metaCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 12px 14px;
     }
 
-    .contactSignal {
-      border: 1px solid rgba(11, 31, 66, 0.12);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.76);
-      padding: 10px 11px;
-      box-shadow: 0 12px 26px rgba(2, 10, 32, 0.08);
-    }
-
-    .contactSignalK {
+    .metaK {
       font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.13em;
+      font-weight: 860;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(17, 24, 39, 0.58);
+      color: rgba(15, 23, 42, 0.56);
     }
 
-    .contactSignalV {
+    .metaV {
       margin-top: 6px;
-      color: rgba(7, 20, 48, 0.88);
-      font-size: 14px;
-      line-height: 1.48;
-      font-weight: 760;
-      letter-spacing: -0.01em;
+      color: rgba(15, 23, 42, 0.9);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 730;
     }
 
-    .grid {
+    .contactGrid {
       display: grid;
-      gap: 28px;
+      gap: 16px;
       grid-template-columns: 1fr;
       align-items: start;
     }
 
-    @media (min-width: 1024px) {
-      .grid { grid-template-columns: 380px 1fr; }
-      /* Keep the sidebar from sliding under the sticky header */
-      .side { position: sticky; top: 112px; }
+    .infoRail,
+    .formPane {
+      min-width: 0;
+      display: grid;
+      gap: 12px;
     }
 
-    .card {
-      border: 1px solid rgba(17,24,39,.10);
-      border-radius: 22px;
-      padding: 22px;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 18px 48px rgba(2,6,23,.08);
+    .panelK {
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
     }
 
-    .soft { background: rgba(16,24,40,.03); }
-    .pro { border-color: rgba(37,99,235,.28); background: rgba(37,99,235,.08); }
-
-    .list { margin: 12px 0 0; padding-left: 18px; line-height: 1.7; }
-    .list li { margin: 8px 0; }
-
-    .kv { display: grid; gap: 10px; margin-top: 12px; }
-    .kv span { color: #64748b; font-size: 13px; }
-
-    .hint, .help, .muted {
-      color: #64748b;
-      font-size: 13px;
+    .panel ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: rgba(15, 23, 42, 0.76);
+      font-size: 14px;
       line-height: 1.6;
+      display: grid;
+      gap: 6px;
     }
 
-    .form { margin-top: 14px; display: grid; gap: 14px; }
-    .field { display: grid; gap: 6px; }
-    .row2 { display: grid; gap: 14px; }
-    @media (min-width: 640px) { .row2 { grid-template-columns: 1fr 1fr; } }
+    .panelSoft {
+      background: rgba(255, 255, 255, 0.74);
+    }
 
-    input, select, textarea {
-      border: 1px solid rgba(17,24,39,.16);
+    .panelPro {
+      border-color: rgba(36, 90, 223, 0.22);
+      background: rgba(36, 90, 223, 0.08);
+    }
+
+    .panelPro p,
+    .panelHint,
+    .panel p,
+    .formLead,
+    .help {
+      color: rgba(15, 23, 42, 0.66);
+      font-size: 14px;
+      line-height: 1.58;
+      margin: 8px 0 0;
+    }
+
+    .kv {
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .kv div {
+      display: grid;
+      gap: 2px;
+    }
+
+    .kv span {
+      color: rgba(15, 23, 42, 0.56);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .kv strong {
+      color: rgba(15, 23, 42, 0.9);
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .panelHint a {
+      color: #1f4dc4;
+      font-weight: 700;
+    }
+
+    .panelForm {
+      border-radius: 24px;
+    }
+
+    .form {
+      margin-top: 14px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .row2 {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+
+    label {
+      color: rgba(15, 23, 42, 0.74);
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    input,
+    select,
+    textarea {
+      border: 1px solid rgba(15, 23, 42, 0.16);
       border-radius: 14px;
       padding: 12px 14px;
       font-size: 14px;
-      background: rgba(255,255,255,.95);
+      background: rgba(255, 255, 255, 0.95);
+      color: rgba(15, 23, 42, 0.9);
     }
 
-    textarea { resize: vertical; min-height: 160px; }
+    textarea {
+      resize: vertical;
+      min-height: 160px;
+    }
 
-    .actions { display: flex; gap: 16px; align-items: center; margin-top: 10px; flex-wrap: wrap; }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: rgba(36, 90, 223, 0.4);
+      box-shadow: 0 0 0 3px rgba(36, 90, 223, 0.12);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
 
     .btnPrimary {
       border-radius: 14px;
       padding: 12px 20px;
-      font-weight: 900;
-      background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
+      font-weight: 800;
+      background: linear-gradient(135deg, #245adf 0%, #0a8cb8 100%);
       color: #fff;
       border: 1px solid rgba(255, 255, 255, 0.28);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 16px 34px rgba(15, 95, 240, 0.28);
+      box-shadow: 0 16px 30px rgba(36, 90, 223, 0.24);
       transition: transform 140ms ease, box-shadow 140ms ease;
     }
 
     .btnPrimary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 22px 44px rgba(15, 95, 240, 0.36);
+      transform: translateY(-1px);
+      box-shadow: 0 20px 36px rgba(36, 90, 223, 0.28);
     }
 
     .btnPrimary:disabled {
@@ -306,32 +431,36 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
       margin-top: 6px;
       padding: 12px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(17,24,39,.12);
+      border: 1px solid rgba(15, 23, 42, 0.12);
       font-size: 13px;
       line-height: 1.6;
-      background: rgba(255,255,255,.9);
+      background: rgba(255, 255, 255, 0.9);
       color: #111827;
     }
 
     .status.info {
-      border-color: rgba(59,130,246,.26);
-      background: rgba(59,130,246,.08);
+      border-color: rgba(59, 130, 246, 0.26);
+      background: rgba(59, 130, 246, 0.08);
       color: #1e3a8a;
     }
 
     .status.success {
-      border-color: rgba(16,185,129,.3);
-      background: rgba(16,185,129,.09);
+      border-color: rgba(16, 185, 129, 0.3);
+      background: rgba(16, 185, 129, 0.09);
       color: #065f46;
     }
 
     .status.error {
-      border-color: rgba(239,68,68,.3);
-      background: rgba(239,68,68,.08);
+      border-color: rgba(239, 68, 68, 0.3);
+      background: rgba(239, 68, 68, 0.08);
       color: #991b1b;
     }
 
-    input[name="company_website"] {
+    .hidden {
+      display: none !important;
+    }
+
+    input[name='company_website'] {
       position: absolute !important;
       left: -9999px !important;
       top: auto !important;
@@ -340,6 +469,44 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
       overflow: hidden !important;
       opacity: 0 !important;
       pointer-events: none !important;
+    }
+
+    @media (min-width: 800px) {
+      .row2 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .heroMeta {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1080px) {
+      .contactGrid {
+        grid-template-columns: 360px minmax(0, 1fr);
+      }
+
+      .infoRail {
+        position: sticky;
+        top: 104px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contactHero,
+      .panel {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .heroTitle {
+        max-width: 12ch;
+      }
+
+      .actions .btnPrimary {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 
@@ -372,7 +539,7 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
 
       function setLoading(isLoading) {
         if (submitBtn instanceof HTMLButtonElement) submitBtn.disabled = isLoading;
-        if (btnText) btnText.textContent = isLoading ? 'Sending…' : 'Send message';
+        if (btnText) btnText.textContent = isLoading ? 'Sending...' : 'Send message';
         if (spinner) spinner.classList.toggle('hidden', !isLoading);
       }
 
@@ -390,7 +557,7 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
         };
 
         try {
-          if (typeof window.erainTrack === "function") {
+          if (typeof window.erainTrack === 'function') {
             window.erainTrack(eventName, eventPayload);
             return;
           }
@@ -461,7 +628,7 @@ const contactPath = import.meta.env.PUBLIC_CONTACT_API_PATH ?? '/contact';
         }
 
         setLoading(true);
-        setStatus('info', 'Sending your message…');
+        setStatus('info', 'Sending your message...');
 
         try {
           let successPayload = null;

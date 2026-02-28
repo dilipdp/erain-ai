@@ -1,98 +1,274 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "Developer Docs — EraIn AI";
+const title = "Developers - EraIn AI";
 const description =
-  "API and integration references for EraIn public intake, admin operations, and control-tower endpoints.";
-
-const auditCurl = `curl -X POST https://erainai.com/api/public/audit \\
-  -H 'content-type: application/json' \\
-  -H 'Idempotency-Key: your-key' \\
-  --data '{
-    "contact": {"name":"A","phone":"+91...","email":"a@company.com"},
-    "business": {"company_name":"Acme","industry":"manufacturing"}
-  }'`;
-
-const statusCurl = `curl -X PATCH https://erainai.com/api/admin/leads/AR-.../status \\
-  -H 'content-type: application/json' \\
-  -H 'x-admin-token: <token>' \\
-  --data '{"status":"contacted","note":"first call done"}'`;
+  "Developer entry for EraIn APIs, governance-aware admin workflows, and control-tower operational interfaces.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="devPage">
-    <header class="card hero">
-      <div class="badgeRow">
-        <span class="badge badgeSoft">Developer Docs</span>
-        <span class="badge badgeSoft">Public + Admin APIs</span>
-        <span class="badge badgeSoft">Governed transitions</span>
-      </div>
-      <h1 class="h1">API reference for EraIn workflows</h1>
-      <p class="lead">
-        These endpoints support intake, lead governance, proposal workflows, and operational control-tower visibility.
+  <section class="devV2">
+    <header class="devHero reveal">
+      <div class="heroEyebrow">Developers</div>
+      <h1 class="h1 heroTitle">Build on EraIn with governed operational APIs.</h1>
+      <p class="lead heroLead">
+        EraIn APIs are built for production operating workflows: idempotent intake, strict status transitions,
+        admin visibility, and control-tower readiness.
       </p>
+
+      <div class="heroActions">
+        <a class="btn btnPrimary" href="/developer-docs">Open Developer Docs</a>
+        <a class="btn" href="/contact?topic=developer-integration">Discuss Integration</a>
+      </div>
     </header>
 
-    <section class="grid two">
-      <article class="card">
-        <h2 class="h2">Public APIs</h2>
+    <section class="surfaceGrid reveal" aria-label="Developer surfaces">
+      <article class="surfaceCard">
+        <div class="surfaceK">Public intake APIs</div>
+        <h2 class="h2">Reliable lead and audit submission endpoints</h2>
+        <p>Idempotency keys and deterministic duplicate handling keep intake consistent under retries.</p>
         <ul>
-          <li><code>POST /api/public/audit</code> with idempotency (24h dedupe).</li>
-          <li><code>POST /api/public/contact</code> with idempotency and ETA response.</li>
-          <li><code>POST /api/public/client/access/request</code> with abuse cooldown fields.</li>
+          <li><code>POST /api/public/audit</code></li>
+          <li><code>POST /api/public/contact</code></li>
+          <li><code>POST /api/public/client/access/request</code></li>
         </ul>
-        <p class="muted">Response contracts include deterministic duplicate handling and request references.</p>
       </article>
 
-      <article class="card">
-        <h2 class="h2">Admin APIs</h2>
+      <article class="surfaceCard">
+        <div class="surfaceK">Admin operations APIs</div>
+        <h2 class="h2">Lead governance and commercial execution controls</h2>
+        <p>Status transitions are policy-enforced and every critical change is logged for traceability.</p>
         <ul>
-          <li><code>GET /api/admin/leads</code> and <code>/api/admin/leads/:request_id</code></li>
-          <li><code>PATCH /api/admin/leads/:request_id/status</code> with strict transition rules.</li>
-          <li><code>POST /api/admin/leads/:request_id/pro-offer</code> for 21-day pilot offer issue.</li>
-          <li><code>GET /api/admin/ops/scoreboard</code> and <code>/api/admin/ops/control-tower</code></li>
+          <li><code>GET /api/admin/leads</code></li>
+          <li><code>PATCH /api/admin/leads/:request_id/status</code></li>
+          <li><code>POST /api/admin/leads/:request_id/pro-offer</code></li>
         </ul>
-        <p class="muted">Auth: <code>X-Admin-Token</code> or Basic auth from configured admin credentials.</p>
+      </article>
+
+      <article class="surfaceCard">
+        <div class="surfaceK">Control tower APIs</div>
+        <h2 class="h2">Weekly leadership GO/NO-GO visibility</h2>
+        <p>Operational gates and commercialization quality outputs are exposed through machine-readable endpoints.</p>
+        <ul>
+          <li><code>GET /api/admin/ops/scoreboard</code></li>
+          <li><code>GET /api/admin/ops/control-tower</code></li>
+          <li>Gate outputs: <code>p11</code>, <code>p12</code>, <code>p13</code></li>
+        </ul>
       </article>
     </section>
 
-    <section class="card">
-      <h2 class="h2">Status Transition Rules</h2>
-      <p><code>new -> contacted|pro_offered|converted</code></p>
-      <p><code>contacted -> pro_offered|pro_requested|converted</code></p>
-      <p><code>pro_offered -> pro_requested|converted</code></p>
-      <p><code>pro_requested -> converted</code></p>
-      <p><code>converted -> converted</code> (idempotent only)</p>
+    <section class="quickStart reveal" aria-label="Quick start">
+      <div class="quickHead">
+        <div class="heroEyebrow">Quick start</div>
+        <h2 class="h2">Integration in four steps</h2>
+      </div>
+
+      <ol>
+        <li>Generate admin credentials and configure API base URL.</li>
+        <li>Integrate public intake with idempotency keys.</li>
+        <li>Enable admin transition workflow with status policy checks.</li>
+        <li>Wire scoreboard and control-tower endpoints into weekly operating cadence.</li>
+      </ol>
+
+      <div class="quickActions">
+        <a class="btn" href="/developer-docs">Read full endpoint contracts</a>
+        <a class="btn" href="/security">View security posture</a>
+      </div>
     </section>
 
-    <section class="card">
-      <h2 class="h2">Examples</h2>
-      <h3>Submit audit</h3>
-      <pre><code>{auditCurl}</code></pre>
-      <h3>Update lead status</h3>
-      <pre><code>{statusCurl}</code></pre>
+    <section class="trustBand reveal" aria-label="Developer trust">
+      <article class="trustCard">
+        <div class="trustK">Operational safety</div>
+        <div class="trustV">Strict state transitions</div>
+      </article>
+      <article class="trustCard">
+        <div class="trustK">Data integrity</div>
+        <div class="trustV">Append-only event chains</div>
+      </article>
+      <article class="trustCard">
+        <div class="trustK">Commercial readiness</div>
+        <div class="trustV">Control tower gate outputs</div>
+      </article>
     </section>
   </section>
 
   <style>
-    .devPage { display: grid; gap: 18px; }
-    .hero { padding: 24px; }
-    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
-    .grid { display: grid; gap: 12px; }
-    .grid.two { grid-template-columns: 1fr; }
-    ul { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: rgba(17,24,39,.82); }
-    p { color: rgba(17,24,39,.82); }
-    pre {
-      margin: 10px 0;
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(11,31,66,.14);
-      background: #08142f;
-      color: #e5eefb;
-      overflow-x: auto;
-      font-size: 12px;
-      line-height: 1.6;
+    .devV2 {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      padding-bottom: 20px;
     }
-    @media (min-width: 980px) { .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+    .devHero,
+    .surfaceGrid,
+    .quickStart,
+    .trustBand {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3.2vw, 30px);
+    }
+
+    .heroEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .heroTitle {
+      margin-top: 14px;
+      max-width: 16ch;
+      font-size: clamp(40px, 7vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 860;
+    }
+
+    .heroLead {
+      margin-top: 14px;
+      max-width: 68ch;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.58;
+    }
+
+    .heroActions,
+    .quickActions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .surfaceGrid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .surfaceCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 16px;
+    }
+
+    .surfaceK,
+    .trustK {
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+    }
+
+    .surfaceCard h2 {
+      margin-top: 8px;
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .surfaceCard p,
+    .quickStart p,
+    .quickStart li {
+      margin-top: 8px;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .surfaceCard ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: rgba(15, 23, 42, 0.76);
+      font-size: 14px;
+    }
+
+    .surfaceCard code,
+    .quickStart code {
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 8px;
+      padding: 2px 6px;
+      background: rgba(15, 23, 42, 0.05);
+      font-size: 13px;
+    }
+
+    .quickHead {
+      margin-bottom: 10px;
+    }
+
+    .quickStart ol {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .trustBand {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .trustCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(15, 23, 42, 0.94), rgba(21, 52, 112, 0.9));
+      color: #e7f3ff;
+      padding: 14px;
+      box-shadow: 0 18px 40px rgba(2, 10, 32, 0.2);
+    }
+
+    .trustK {
+      color: rgba(190, 223, 255, 0.86);
+    }
+
+    .trustV {
+      margin-top: 7px;
+      font-size: 22px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      font-weight: 780;
+    }
+
+    @media (min-width: 980px) {
+      .surfaceGrid,
+      .trustBand {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .devHero,
+      .surfaceGrid,
+      .quickStart,
+      .trustBand {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .heroTitle {
+        max-width: 12ch;
+      }
+
+      .heroActions .btn,
+      .quickActions .btn {
+        width: 100%;
+      }
+    }
   </style>
 </BaseLayout>

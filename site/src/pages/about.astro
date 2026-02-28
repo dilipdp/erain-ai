@@ -3,77 +3,100 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "About EraIn AI";
 const description =
-  "EraIn builds audit-first operational intelligence focused on decision governance, execution discipline, and measurable ROI attribution.";
+  "EraIn builds audit-first operational intelligence with decision governance and measurable ROI attribution.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="companyPage">
-    <header class="hero card">
-      <div class="badgeRow">
-        <span class="badge badgeSoft">About</span>
-        <span class="badge badgeSoft">Audit-first</span>
-        <span class="badge badgeSoft">Execution-grade</span>
-        <span class="badge badgeSoft">Global ambition</span>
-      </div>
-      <h1 class="h1">EraIn is building the execution operating system for AI-era businesses.</h1>
-      <p class="lead">
-        We exist to solve one hard problem: teams run many initiatives, but leadership still lacks traceable decisions,
-        accountable owners, and proof of financial impact. EraIn connects auditability, governance, and ROI attribution
-        into one operating cadence.
+  <section class="aboutV2">
+    <header class="aboutHero reveal">
+      <div class="heroEyebrow">About EraIn</div>
+      <h1 class="h1 heroTitle">We build execution intelligence for leadership teams that require proof.</h1>
+      <p class="lead heroLead">
+        EraIn exists to close the gap between AI activity and business outcomes. We help organizations audit operating reality,
+        govern decisions with accountable owners, and attribute ROI with evidence-linked execution records.
       </p>
+
+      <div class="heroSignals" role="list" aria-label="EraIn mission anchors">
+        <article class="signal" role="listitem">
+          <div class="signalK">Mission</div>
+          <div class="signalV">Truth before scale</div>
+          <p>No initiative scales until findings are evidence-grounded and owner-mapped.</p>
+        </article>
+        <article class="signal" role="listitem">
+          <div class="signalK">Method</div>
+          <div class="signalV">Governed execution loops</div>
+          <p>Decision boundaries, approval paths, and cadence controls are built by default.</p>
+        </article>
+        <article class="signal" role="listitem">
+          <div class="signalK">Outcome</div>
+          <div class="signalV">Attributed business impact</div>
+          <p>Action-to-outcome tracking shows what improved, why, and by how much.</p>
+        </article>
+      </div>
     </header>
 
-    <section class="grid two">
-      <article class="card">
+    <section class="blocks reveal" aria-label="What EraIn does">
+      <article class="blockCard">
         <h2 class="h2">What We Do</h2>
         <ul>
-          <li>Detect value leakage and execution drag from real operating data.</li>
-          <li>Map decisions to accountable owners and governance cadence.</li>
-          <li>Link actions to measurable business outcomes through attribution ledgers.</li>
-          <li>Turn audit findings into disciplined 30/60/90 execution plans.</li>
+          <li>Identify value leakage and execution drift from operating evidence.</li>
+          <li>Map decisions to named owners and governance cadence.</li>
+          <li>Build 30/60/90 recovery plans with accountable actions.</li>
+          <li>Link interventions to financial and operational outcomes.</li>
         </ul>
       </article>
 
-      <article class="card">
+      <article class="blockCard">
         <h2 class="h2">What We Do Not Do</h2>
         <ul>
-          <li>We do not ship vanity dashboards without ownership.</li>
-          <li>We do not run open-ended AI experiments without ROI boundaries.</li>
-          <li>We do not accept scope drift that breaks delivery discipline.</li>
-          <li>We do not claim impact that cannot be traced to action.</li>
+          <li>No dashboard theater without owner accountability.</li>
+          <li>No open-ended AI experimentation without ROI boundaries.</li>
+          <li>No scope drift that breaks delivery discipline.</li>
+          <li>No impact claims without evidence and attribution trace.</li>
         </ul>
       </article>
     </section>
 
-    <section class="card">
-      <h2 class="h2">Operating Principles</h2>
-      <div class="grid four">
-        <div class="mini">
-          <div class="kicker">01 Truth First</div>
-          <p>Evidence before opinion. Every recommendation must be source-grounded.</p>
-        </div>
-        <div class="mini">
-          <div class="kicker">02 Governance by Design</div>
-          <p>Decisions have owners, cadence, escalation, and explicit approval paths.</p>
-        </div>
-        <div class="mini">
-          <div class="kicker">03 ROI or Stop</div>
-          <p>Execution is scaled only when impact is measurable and attributable.</p>
-        </div>
-        <div class="mini">
-          <div class="kicker">04 Reliability Matters</div>
-          <p>Release gates and hardening controls protect quality and commercial trust.</p>
-        </div>
+    <section class="principles reveal" aria-label="Operating principles">
+      <div class="sectionHead">
+        <div class="sectionEyebrow">Operating Principles</div>
+        <h2 class="h2">How we execute</h2>
+      </div>
+
+      <div class="principleGrid" role="list">
+        <article class="principle" role="listitem">
+          <div class="principleIndex">01</div>
+          <h3>Evidence first</h3>
+          <p>Every recommendation must be traceable to source-grounded operating reality.</p>
+        </article>
+        <article class="principle" role="listitem">
+          <div class="principleIndex">02</div>
+          <h3>Governance by design</h3>
+          <p>Material decisions require explicit owners, cadence, and escalation logic.</p>
+        </article>
+        <article class="principle" role="listitem">
+          <div class="principleIndex">03</div>
+          <h3>ROI or pause</h3>
+          <p>Execution is expanded only when measurable value movement is visible.</p>
+        </article>
+        <article class="principle" role="listitem">
+          <div class="principleIndex">04</div>
+          <h3>Reliability is trust</h3>
+          <p>Operational gates and hardening controls protect enterprise confidence.</p>
+        </article>
       </div>
     </section>
 
-    <section class="card">
-      <h2 class="h2">Company Direction</h2>
-      <p>
-        EraIn is services-led today through the 21-Day Decision Governance Pilot, with productized control systems
-        and automation gates deepening each cycle. We are building for India-first adoption and global enterprise readiness.
-      </p>
-      <div class="btn-row" style="margin-top:12px">
+    <section class="direction reveal" aria-label="Company direction">
+      <div>
+        <div class="sectionEyebrow">Direction</div>
+        <h2 class="h2">Services-led now, control-tower platform depth every cycle.</h2>
+        <p>
+          EraIn runs the 21-Day Decision Governance Pilot as the commercial core while continuously strengthening
+          operational reliability, trust posture, and automation gates for global enterprise deployment.
+        </p>
+      </div>
+      <div class="directionActions">
         <a class="btn btnPrimary" href="/request-assessment">Start Free AI Audit</a>
         <a class="btn" href="/careers">View Careers</a>
       </div>
@@ -81,18 +104,198 @@ const description =
   </section>
 
   <style>
-    .companyPage { display: grid; gap: 18px; }
-    .hero { padding: 24px; }
-    .grid { display: grid; gap: 14px; }
-    .grid.two { grid-template-columns: 1fr; }
-    .grid.four { grid-template-columns: 1fr; }
-    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
-    .mini { border: 1px solid rgba(11,31,66,.12); border-radius: 14px; padding: 12px; background: rgba(255,255,255,.72); }
-    p, li { color: rgba(17,24,39,.82); }
-    ul { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; }
+    .aboutV2 {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      padding-bottom: 20px;
+    }
+
+    .aboutHero,
+    .blocks,
+    .principles,
+    .direction {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3.2vw, 30px);
+    }
+
+    .heroEyebrow,
+    .sectionEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .heroTitle {
+      margin-top: 14px;
+      max-width: 16ch;
+      font-size: clamp(40px, 7vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 860;
+    }
+
+    .heroLead {
+      margin-top: 14px;
+      max-width: 70ch;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.58;
+    }
+
+    .heroSignals {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .signal {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 12px 14px;
+    }
+
+    .signalK {
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+    }
+
+    .signalV {
+      margin-top: 5px;
+      font-size: 21px;
+      line-height: 1.12;
+      color: rgba(15, 23, 42, 0.92);
+      font-weight: 780;
+      letter-spacing: -0.02em;
+    }
+
+    .signal p,
+    .direction p,
+    .principle p,
+    .blockCard li {
+      margin: 6px 0 0;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .blocks {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .blockCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 16px;
+    }
+
+    .blockCard ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .sectionHead {
+      margin-bottom: 12px;
+    }
+
+    .principleGrid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .principle {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 14px;
+    }
+
+    .principleIndex {
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+    }
+
+    .principle h3 {
+      margin: 7px 0 0;
+      font-size: 22px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: rgba(15, 23, 42, 0.92);
+    }
+
+    .direction {
+      display: grid;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .directionActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     @media (min-width: 900px) {
-      .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .heroSignals,
+      .principleGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .principleGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .blocks {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .direction {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .aboutHero,
+      .blocks,
+      .principles,
+      .direction {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .heroTitle {
+        max-width: 12ch;
+      }
+
+      .directionActions .btn {
+        width: 100%;
+      }
     }
   </style>
 </BaseLayout>
