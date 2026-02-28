@@ -1,276 +1,659 @@
 ---
-title: EraIn AI — Intelligence That Runs Your Business
+title: EraIn AI - Intelligence That Runs Your Business
 description: EraIn builds operational AI systems that audit reality, govern decisions, and attribute ROI with measurable execution outcomes.
 layout: ../layouts/BaseLayout.astro
 ---
 
-<section class="homeV2" aria-label="EraIn homepage">
-  <header class="homeHero reveal">
-    <div class="heroCopy">
-      <div class="heroEyebrow">EraIn Operating System</div>
-      <h1 class="h1 heroTitle">Evidence first. Decisions governed. Outcomes attributed.</h1>
-      <p class="lead heroLead">
-        EraIn is built for operators, CXOs, and transformation teams that need execution reality before scale.
-        We convert audit findings into governed decisions and measurable business impact.
+<section class="homeX" aria-label="EraIn homepage">
+  <header class="cinema reveal" aria-label="Execution operating system hero">
+    <div class="cinemaCopy">
+      <div class="cinemaEyebrow">EraIn Operating System</div>
+      <h1 class="h1 cinemaTitle">
+        <span class="displaySerif">Command Reality.</span><br />
+        Govern Decisions. Prove Value.
+      </h1>
+      <p class="cinemaLead">
+        EraIn turns operating evidence into disciplined execution. Auditability, decision governance,
+        and ROI attribution are built as one command loop, not disconnected tooling.
       </p>
 
-      <div class="heroActions" aria-label="Primary actions">
-        <a class="btn btnPrimary" href="/request-assessment" data-track="home_start_audit">Start Free AI Audit</a>
-        <a class="btn" href="/results" data-track="home_view_results">View Results</a>
-        <a class="btn btnGhost" href="/pricing" data-track="home_view_pricing">See Pricing</a>
+      <div class="cinemaActions" aria-label="Primary actions">
+        <a class="btn btnPrimary" href="/request-assessment" data-track="home_cinema_start_audit">Start Free AI Audit</a>
+        <a class="btn" href="/results" data-track="home_cinema_view_results">View Results</a>
+        <a class="btn btnGhost" href="/pricing" data-track="home_cinema_pricing">See Pricing</a>
       </div>
 
-      <div class="heroSignals" role="list" aria-label="Primary proof signals">
-        <article class="signal" role="listitem">
-          <div class="signalK">Auditability</div>
-          <div class="signalV">97.4% evidence confidence</div>
-          <p class="signalT">Source-linked findings with owner accountability at handoff.</p>
+      <div class="kpiRail" role="list" aria-label="Execution signal highlights">
+        <article class="kpiCard" role="listitem">
+          <div class="kpiK">Evidence confidence</div>
+          <div class="kpiV" data-scene-field="hero_confidence">97.4%</div>
+          <p>Traceable findings at decision handoff.</p>
         </article>
-        <article class="signal" role="listitem">
-          <div class="signalK">Decision Governance</div>
-          <div class="signalV">100% approval mapping</div>
-          <p class="signalT">Material actions route through role-scoped governance before execution.</p>
+        <article class="kpiCard" role="listitem">
+          <div class="kpiK">Approval mapping</div>
+          <div class="kpiV" data-scene-field="hero_governance">100%</div>
+          <p>Role-scoped governance before execution.</p>
         </article>
-        <article class="signal" role="listitem">
-          <div class="signalK">ROI Attribution</div>
-          <div class="signalV">3.8x recovery window</div>
-          <p class="signalT">Action-to-outcome ledger quantifies value unlocked by each intervention.</p>
+        <article class="kpiCard" role="listitem">
+          <div class="kpiK">Recovery window</div>
+          <div class="kpiV" data-scene-field="hero_recovery">3.8x</div>
+          <p>Action-to-outcome value attribution loop.</p>
         </article>
+      </div>
+
+      <div class="sceneSwitch" role="group" aria-label="Switch operating scenario">
+        <button class="sceneBtn is-active" type="button" data-scene="factory" aria-pressed="true">Manufacturing Network</button>
+        <button class="sceneBtn" type="button" data-scene="logistics" aria-pressed="false">Logistics Grid</button>
+        <button class="sceneBtn" type="button" data-scene="services" aria-pressed="false">Services Portfolio</button>
       </div>
     </div>
 
-    <aside class="heroMedia">
-      <div class="heroVisualShell">
-        <img
-          src="/erain-fabric-hero.svg"
-          alt="EraIn operational fabric connecting auditability, governance, and ROI attribution"
-          width="1600"
-          height="980"
-          loading="eager"
-          decoding="async"
-        />
+    <aside class="cinemaStage" aria-label="Interactive execution orbit">
+      <div class="stageFrame scene-factory" id="stageFrame">
+        <svg class="stageSvg" viewBox="0 0 860 560" aria-hidden="true">
+          <defs>
+            <linearGradient id="arcA" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8ee7ff" stop-opacity="0.75" />
+              <stop offset="100%" stop-color="#4fc3ff" stop-opacity="0.94" />
+            </linearGradient>
+            <linearGradient id="arcB" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#9af6cc" stop-opacity="0.75" />
+              <stop offset="100%" stop-color="#58d8ff" stop-opacity="0.92" />
+            </linearGradient>
+            <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#2e8cff" stop-opacity="0.85" />
+              <stop offset="68%" stop-color="#1c3f9c" stop-opacity="0.62" />
+              <stop offset="100%" stop-color="#04163d" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <rect x="0" y="0" width="860" height="560" fill="rgba(2, 16, 46, 0.56)" />
+          <g opacity="0.18" stroke="#7dc8ff" stroke-width="1">
+            <path d="M0 80 H860" />
+            <path d="M0 160 H860" />
+            <path d="M0 240 H860" />
+            <path d="M0 320 H860" />
+            <path d="M0 400 H860" />
+            <path d="M0 480 H860" />
+            <path d="M120 0 V560" />
+            <path d="M260 0 V560" />
+            <path d="M400 0 V560" />
+            <path d="M540 0 V560" />
+            <path d="M680 0 V560" />
+            <path d="M820 0 V560" />
+          </g>
+
+          <circle cx="430" cy="280" r="128" fill="url(#coreGlow)" />
+          <path class="orbit arc1" d="M142 128 C 290 102, 334 202, 430 280" />
+          <path class="orbit arc2" d="M148 424 C 306 432, 350 346, 430 280" />
+          <path class="orbit arc3" d="M718 126 C 582 102, 526 204, 430 280" />
+          <path class="orbit arc4" d="M714 426 C 560 432, 516 344, 430 280" />
+
+          <g class="nodeCluster">
+            <circle cx="142" cy="128" r="9" class="nodeDot" />
+            <circle cx="148" cy="424" r="9" class="nodeDot" />
+            <circle cx="718" cy="126" r="9" class="nodeDot" />
+            <circle cx="714" cy="426" r="9" class="nodeDot" />
+            <circle cx="430" cy="280" r="13" class="nodeDot coreDot" />
+          </g>
+
+          <g class="coreMark">
+            <rect x="376" y="224" width="108" height="108" rx="9" transform="rotate(45 430 278)" />
+            <text x="430" y="268" text-anchor="middle">ERAIN</text>
+            <text x="430" y="292" text-anchor="middle">EXECUTION ENGINE</text>
+          </g>
+        </svg>
+
+        <div class="stageCall stageCallA">
+          <div class="callK" data-scene-field="node_a_label">Auditability</div>
+          <div class="callV" data-scene-field="node_a_value">97.4%</div>
+          <div class="callT" data-scene-field="node_a_text">Evidence confidence</div>
+        </div>
+
+        <div class="stageCall stageCallB">
+          <div class="callK" data-scene-field="node_b_label">Decision governance</div>
+          <div class="callV" data-scene-field="node_b_value">100%</div>
+          <div class="callT" data-scene-field="node_b_text">Owner path mapped</div>
+        </div>
+
+        <div class="stageCall stageCallC">
+          <div class="callK" data-scene-field="node_c_label">Action closure</div>
+          <div class="callV" data-scene-field="node_c_value">42</div>
+          <div class="callT" data-scene-field="node_c_text">Prioritized moves</div>
+        </div>
+
+        <div class="stageCall stageCallD">
+          <div class="callK" data-scene-field="node_d_label">Value ledger</div>
+          <div class="callV" data-scene-field="node_d_value">INR 4.6 Cr</div>
+          <div class="callT" data-scene-field="node_d_text">Attributed impact path</div>
+        </div>
+
+        <div class="stageRail" data-scene-field="rail_text">AUDIT REALITY  -  GOVERN DECISIONS  -  ATTRIBUTE ROI</div>
       </div>
-      <p class="heroCaption">Representative operating signal map · February 2026 release</p>
+      <p class="stageCaption" data-scene-field="scene_caption">Factory scenario model · representative operating signal map</p>
     </aside>
   </header>
 
-  <section class="proofRow reveal" aria-label="Coverage and fit">
-    <div class="proofItem">
-      <div class="proofK">Built for</div>
-      <div class="proofV">Manufacturing · Services · Logistics · Multi-site enterprises</div>
+  <section class="commandStory reveal" aria-label="Execution control story">
+    <div class="storySticky">
+      <div class="storyEyebrow">Execution Control Tower</div>
+      <h2 class="h2 storyTitle">Three loops. One control discipline.</h2>
+      <p class="storyLead">
+        EraIn runs as a weekly command rhythm. We audit reality, govern high-impact decisions,
+        and verify outcome movement before each scale step.
+      </p>
+
+      <div class="storyProgress" aria-label="Story progress">
+        <div class="storyBar"><span id="storyFill"></span></div>
+        <div class="storyMeta"><span id="storyActive">1</span> / 3 active loop</div>
+      </div>
     </div>
-    <div class="proofItem">
-      <div class="proofK">Pilot model</div>
-      <div class="proofV">21-Day Decision Governance Pilot (scope-fixed)</div>
-    </div>
-    <div class="proofItem">
-      <div class="proofK">Deployment</div>
-      <div class="proofV">Cloud, VPC, or on-prem with audit-ready outputs</div>
+
+    <div class="storyList" aria-label="Control loops">
+      <article class="storyCard" data-story-step="1">
+        <div class="storyK">Loop 1</div>
+        <h3>Reality audit loop</h3>
+        <p>Evidence intake, confidence scoring, and ranked leakage mapping are locked before recommendations move forward.</p>
+        <ul>
+          <li>Source-linked findings</li>
+          <li>Confidence thresholds</li>
+          <li>Owner-level audit notes</li>
+        </ul>
+      </article>
+
+      <article class="storyCard" data-story-step="2">
+        <div class="storyK">Loop 2</div>
+        <h3>Governance decision loop</h3>
+        <p>Material interventions require explicit owners, approval paths, and escalation thresholds prior to execution.</p>
+        <ul>
+          <li>Role-scoped approvals</li>
+          <li>Cadence gates</li>
+          <li>Exception policy</li>
+        </ul>
+      </article>
+
+      <article class="storyCard" data-story-step="3">
+        <div class="storyK">Loop 3</div>
+        <h3>Value attribution loop</h3>
+        <p>Every accepted move is tied to measurable KPI and financial movement so leadership sees what changed and why.</p>
+        <ul>
+          <li>Action-to-outcome linkage</li>
+          <li>Recovery trajectory review</li>
+          <li>Executive proof pack</li>
+        </ul>
+      </article>
     </div>
   </section>
 
-  <section class="systemBlock reveal" aria-label="Core system layers">
-    <div class="sectionHead">
-      <div class="sectionEyebrow">Core Architecture</div>
-      <h2 class="h2 sectionTitle">One execution system across audit, governance, and value.</h2>
-      <p class="sectionLead">
-        EraIn is not another analytics dashboard. It is an operating loop: establish reality, govern decisions,
-        and continuously attribute outcome movement to specific execution actions.
+  <section class="proofBento reveal" aria-label="EraIn proof architecture">
+    <article class="bentoCard bentoLarge">
+      <div class="bentoK">Pilot model</div>
+      <h2 class="h2">21-Day Decision Governance Pilot</h2>
+      <p>
+        Fixed scope, measurable checkpoints, and board-ready outputs. No custom drift during pilot window.
+      </p>
+      <div class="bentoActions">
+        <a class="btn" href="/pricing" data-track="home_bento_pricing">View pricing model</a>
+        <a class="btn" href="/sample-report.pdf" download data-track="home_bento_sample">Download sample report</a>
+      </div>
+    </article>
+
+    <article class="bentoCard">
+      <div class="bentoK">Execution recovery</div>
+      <div class="bentoV">15-31%</div>
+      <p>Cycle-time drift reduction observed in first operating windows.</p>
+    </article>
+
+    <article class="bentoCard">
+      <div class="bentoK">Decision velocity</div>
+      <div class="bentoV">2.3x-3.1x</div>
+      <p>Approval loops shortened with owner-mapped governance.</p>
+    </article>
+
+    <article class="bentoCard">
+      <div class="bentoK">Recovery path</div>
+      <div class="bentoV">INR 1.2-4.6 Cr</div>
+      <p>Attributed value windows from representative engagement records.</p>
+    </article>
+
+    <article class="bentoCard">
+      <div class="bentoK">Deployment</div>
+      <div class="bentoV">Cloud · VPC · On-prem</div>
+      <p>Built for regulated multi-site operations and procurement workflows.</p>
+    </article>
+  </section>
+
+  <section class="launchCta reveal" aria-label="Launch CTA">
+    <div class="launchCopy">
+      <div class="storyEyebrow">Start Here</div>
+      <h2 class="h2">Run the audit. Review the governance path. Execute with proof.</h2>
+      <p>
+        EraIn is built for teams that care about measurable outcomes and operational discipline.
       </p>
     </div>
-
-    <div class="layerGrid" role="list" aria-label="EraIn operating layers">
-      <article class="layerCard" role="listitem">
-        <div class="layerIndex">01</div>
-        <h3 class="layerTitle">Audit Reality</h3>
-        <p class="layerCopy">Map value leakage, confidence level, and root-cause clusters with evidence links.</p>
-        <ul class="layerList">
-          <li>Ranked leakage map</li>
-          <li>Confidence scoring</li>
-          <li>Owner-level evidence log</li>
-        </ul>
-      </article>
-      <article class="layerCard" role="listitem">
-        <div class="layerIndex">02</div>
-        <h3 class="layerTitle">Govern Decisions</h3>
-        <p class="layerCopy">Define approval paths, execution boundaries, and escalation triggers by role.</p>
-        <ul class="layerList">
-          <li>Decision ownership map</li>
-          <li>Cadence + escalation policy</li>
-          <li>Human-in-loop control gates</li>
-        </ul>
-      </article>
-      <article class="layerCard" role="listitem">
-        <div class="layerIndex">03</div>
-        <h3 class="layerTitle">Attribute ROI</h3>
-        <p class="layerCopy">Track intervention-to-impact movement in a measurable value ledger.</p>
-        <ul class="layerList">
-          <li>Action-to-outcome linkage</li>
-          <li>Recovery trajectory window</li>
-          <li>Executive proof artifacts</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="timelineBlock reveal" aria-label="Pilot operating cadence">
-    <div class="sectionHead">
-      <div class="sectionEyebrow">Delivery Cadence</div>
-      <h2 class="h2 sectionTitle">What happens in the first 21 days.</h2>
-    </div>
-
-    <div class="timeline" role="list" aria-label="21 day execution sequence">
-      <article class="timelineStep" role="listitem">
-        <div class="timelineWindow">Day 1-3</div>
-        <h3>Baseline Audit</h3>
-        <p>Evidence intake, confidence checks, and leakage prioritization are locked.</p>
-      </article>
-      <article class="timelineStep" role="listitem">
-        <div class="timelineWindow">Day 4-8</div>
-        <h3>Decision Governance</h3>
-        <p>Owner map, approval boundaries, and escalation cadence are activated.</p>
-      </article>
-      <article class="timelineStep" role="listitem">
-        <div class="timelineWindow">Day 9-14</div>
-        <h3>ROI Modeling</h3>
-        <p>Action sequences are tied to measurable KPI and financial movement.</p>
-      </article>
-      <article class="timelineStep" role="listitem">
-        <div class="timelineWindow">Day 15-21</div>
-        <h3>Executive Readout</h3>
-        <p>Board-ready output pack, owner commitments, and next-cycle controls.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="outcomesBlock reveal" aria-label="Representative outcomes">
-    <div class="sectionHead">
-      <div class="sectionEyebrow">Representative Outcomes</div>
-      <h2 class="h2 sectionTitle">Patterns leadership can verify.</h2>
-      <p class="sectionLead">Anonymized examples from multi-site operating environments. Named publication depends on client approval.</p>
-    </div>
-
-    <div class="outcomeGrid" role="list" aria-label="Outcome cards">
-      <article class="outcomeCard" role="listitem">
-        <div class="outcomeMetric">15-31%</div>
-        <div class="outcomeLabel">Execution recovery</div>
-        <p>Cycle-time drift reduced after owner-path and cadence redesign.</p>
-      </article>
-      <article class="outcomeCard" role="listitem">
-        <div class="outcomeMetric">2.3x-3.1x</div>
-        <div class="outcomeLabel">Decision velocity</div>
-        <p>Approval loops shortened with explicit role boundaries and escalation rules.</p>
-      </article>
-      <article class="outcomeCard" role="listitem">
-        <div class="outcomeMetric">INR 1.2-4.6 Cr</div>
-        <div class="outcomeLabel">Value recovery window</div>
-        <p>Leakage attribution converted disconnected initiatives into one value ledger.</p>
-      </article>
-    </div>
-
-    <div class="outcomeActions">
-      <a class="btn" href="/results" data-track="home_outcomes_view_results">Explore Results</a>
-      <a class="btn" href="/sample-report.pdf" download data-track="home_outcomes_download_pdf">Download Sample Report</a>
-    </div>
-  </section>
-
-  <section class="closingBlock reveal" aria-label="Homepage closing action">
-    <div class="closingCard">
-      <div>
-        <div class="sectionEyebrow">Start Here</div>
-        <h2 class="h2">Run the free audit, then decide with proof.</h2>
-        <p class="sectionLead">No deck theatre. No dashboard theatre. One measurable execution plan tied to governance and ROI.</p>
-      </div>
-      <div class="closingActions">
-        <a class="btn btnPrimary" href="/request-assessment" data-track="home_footer_start">Start Free AI Audit</a>
-        <a class="btn" href="/contact" data-track="home_footer_contact">Contact EraIn</a>
-      </div>
+    <div class="launchActions">
+      <a class="btn btnPrimary" href="/request-assessment" data-track="home_launch_start">Start Free AI Audit</a>
+      <a class="btn" href="/contact" data-track="home_launch_contact">Contact EraIn</a>
     </div>
   </section>
 </section>
 
 <style>
-  .homeV2 {
-    max-width: 1340px;
+  .homeX {
+    max-width: 1360px;
     margin: 0 auto;
     display: grid;
-    gap: 32px;
+    gap: 24px;
     padding-bottom: 24px;
   }
 
-  .homeHero {
-    display: grid;
-    gap: 20px;
-    padding: clamp(24px, 4.4vw, 42px);
+  .cinema,
+  .commandStory,
+  .proofBento,
+  .launchCta {
     border: 1px solid rgba(15, 23, 42, 0.12);
-    border-radius: 32px;
-    background:
-      radial-gradient(1200px 460px at 8% -10%, rgba(36, 90, 223, 0.08), transparent 62%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.82));
-    box-shadow: 0 26px 66px rgba(2, 10, 32, 0.14);
+    border-radius: 30px;
+    box-shadow: 0 24px 62px rgba(2, 10, 32, 0.12);
+    position: relative;
+    overflow: hidden;
   }
 
-  .heroCopy,
-  .heroMedia {
+  .cinema {
+    background:
+      radial-gradient(760px 380px at -12% -22%, rgba(78, 193, 255, 0.24), transparent 62%),
+      radial-gradient(760px 420px at 115% -18%, rgba(74, 115, 255, 0.26), transparent 66%),
+      linear-gradient(164deg, #07132e 0%, #08193f 44%, #092754 100%);
+    border-color: rgba(130, 185, 255, 0.32);
+    padding: clamp(18px, 3.5vw, 34px);
+    display: grid;
+    gap: 16px;
+  }
+
+  .cinema::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(131, 179, 255, 0.11) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(131, 179, 255, 0.08) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55), transparent 88%);
+    pointer-events: none;
+  }
+
+  .cinema > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cinemaCopy,
+  .cinemaStage {
     min-width: 0;
   }
 
-  .heroEyebrow,
-  .sectionEyebrow {
+  .cinemaEyebrow,
+  .storyEyebrow {
     display: inline-flex;
     align-items: center;
-    border: 1px solid rgba(15, 23, 42, 0.16);
+    border: 1px solid rgba(163, 206, 255, 0.28);
     border-radius: 999px;
     padding: 8px 14px;
-    color: rgba(15, 23, 42, 0.72);
+    color: rgba(217, 235, 255, 0.88);
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(13, 34, 77, 0.52);
   }
 
-  .heroTitle {
-    margin-top: 16px;
-    max-width: 18ch;
-    font-size: clamp(42px, 8vw, 86px);
-    line-height: 0.96;
+  .cinemaTitle {
+    margin-top: 14px;
+    color: rgba(243, 250, 255, 0.98);
+    max-width: 14ch;
+    font-size: clamp(42px, 7.8vw, 88px);
+    line-height: 0.93;
     letter-spacing: -0.05em;
     font-weight: 860;
   }
 
-  .heroLead {
-    margin-top: 16px;
-    max-width: 60ch;
-    font-size: clamp(18px, 2.2vw, 25px);
-    line-height: 1.55;
-    color: rgba(15, 23, 42, 0.72);
+  .cinemaTitle .displaySerif {
+    color: #9fe7ff;
+    font-size: 1.02em;
+    letter-spacing: -0.03em;
   }
 
-  .heroActions,
-  .outcomeActions,
-  .closingActions {
-    margin-top: 20px;
+  .cinemaLead {
+    margin: 14px 0 0;
+    max-width: 62ch;
+    color: rgba(205, 227, 252, 0.9);
+    font-size: clamp(17px, 1.95vw, 22px);
+    line-height: 1.58;
+  }
+
+  .cinemaActions,
+  .bentoActions,
+  .launchActions {
+    margin-top: 18px;
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
+    flex-wrap: wrap;
   }
 
-  .heroSignals {
-    margin-top: 20px;
+  .cinema .btn {
+    border-color: rgba(156, 207, 255, 0.28);
+    color: rgba(230, 242, 255, 0.98);
+    background: rgba(11, 31, 66, 0.52);
+    box-shadow: 0 12px 24px rgba(4, 14, 36, 0.26);
+  }
+
+  .cinema .btn:hover {
+    border-color: rgba(164, 214, 255, 0.4);
+    box-shadow: 0 18px 30px rgba(4, 14, 36, 0.34);
+  }
+
+  .cinema .btnPrimary {
+    background: linear-gradient(135deg, #2a74ff 0%, #00a5d8 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+  }
+
+  .kpiRail {
+    margin-top: 18px;
     display: grid;
-    gap: 10px;
+    gap: 8px;
     grid-template-columns: 1fr;
   }
 
-  .signal {
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.72);
-    padding: 12px 14px;
+  .kpiCard {
+    border: 1px solid rgba(158, 207, 255, 0.22);
+    border-radius: 14px;
+    background: rgba(8, 25, 57, 0.58);
+    padding: 12px;
   }
 
-  .signalK {
+  .kpiK {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(176, 216, 255, 0.76);
+    font-weight: 820;
+  }
+
+  .kpiV {
+    margin-top: 5px;
+    color: #f3f9ff;
+    font-size: 28px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 820;
+  }
+
+  .kpiCard p {
+    margin: 6px 0 0;
+    color: rgba(181, 214, 249, 0.84);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .sceneSwitch {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sceneBtn {
+    appearance: none;
+    border: 1px solid rgba(156, 205, 255, 0.26);
+    border-radius: 999px;
+    background: rgba(7, 28, 66, 0.46);
+    color: rgba(201, 227, 255, 0.88);
+    font-size: 12px;
+    font-weight: 760;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 180ms ease;
+  }
+
+  .sceneBtn:hover {
+    border-color: rgba(167, 214, 255, 0.4);
+    color: #f2f8ff;
+  }
+
+  .sceneBtn.is-active {
+    color: #0b1c41;
+    background: linear-gradient(135deg, #8fe2ff 0%, #6cc8ff 100%);
+    border-color: rgba(207, 239, 255, 0.72);
+    box-shadow: 0 12px 24px rgba(20, 94, 167, 0.34);
+  }
+
+  .stageFrame {
+    border: 1px solid rgba(128, 191, 255, 0.3);
+    border-radius: 24px;
+    background: linear-gradient(150deg, rgba(3, 18, 48, 0.9), rgba(6, 35, 79, 0.86));
+    box-shadow: 0 32px 72px rgba(2, 8, 23, 0.42);
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 860 / 560;
+    transform: perspective(1200px) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+
+  .stageFrame.scene-logistics {
+    border-color: rgba(122, 255, 227, 0.36);
+    background: linear-gradient(150deg, rgba(4, 29, 53, 0.9), rgba(4, 53, 73, 0.86));
+  }
+
+  .stageFrame.scene-services {
+    border-color: rgba(166, 192, 255, 0.36);
+    background: linear-gradient(150deg, rgba(22, 20, 64, 0.92), rgba(36, 20, 82, 0.84));
+  }
+
+  .stageSvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 16px;
+  }
+
+  .orbit {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 10 10;
+    animation: orbitFlow 10s linear infinite;
+  }
+
+  .arc1,
+  .arc3 {
+    stroke: url(#arcA);
+  }
+
+  .arc2,
+  .arc4 {
+    stroke: url(#arcB);
+    animation-duration: 12s;
+  }
+
+  .nodeDot {
+    fill: #98deff;
+    filter: drop-shadow(0 0 6px rgba(151, 222, 255, 0.7));
+    animation: nodePulse 3.8s ease-in-out infinite;
+  }
+
+  .coreDot {
+    fill: #d2f2ff;
+    animation-duration: 2.9s;
+  }
+
+  .coreMark rect {
+    fill: rgba(38, 126, 255, 0.28);
+    stroke: rgba(139, 201, 255, 0.72);
+    stroke-width: 1.2;
+  }
+
+  .coreMark text {
+    fill: rgba(233, 245, 255, 0.95);
+    font-family: Manrope, system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-size: 14px;
+  }
+
+  .coreMark text:last-child {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    opacity: 0.85;
+  }
+
+  .stageCall {
+    position: absolute;
+    border: 1px solid rgba(143, 203, 255, 0.32);
+    border-radius: 13px;
+    background: rgba(8, 29, 70, 0.72);
+    padding: 8px 9px;
+    min-width: 138px;
+    box-shadow: 0 12px 30px rgba(2, 8, 23, 0.26);
+  }
+
+  .stageCallA { top: 8%; left: 6%; }
+  .stageCallB { top: 8%; right: 6%; text-align: right; }
+  .stageCallC { bottom: 17%; left: 6%; }
+  .stageCallD { bottom: 17%; right: 6%; text-align: right; }
+
+  .callK {
+    color: rgba(177, 217, 255, 0.8);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 820;
+  }
+
+  .callV {
+    margin-top: 4px;
+    color: #f4f9ff;
+    font-size: clamp(16px, 2vw, 24px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 820;
+  }
+
+  .callT {
+    margin-top: 4px;
+    color: rgba(188, 220, 252, 0.84);
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .stageRail {
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 5%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #2b80ff, #17b8de);
+    color: rgba(238, 248, 255, 0.96);
+    font-size: 10px;
+    font-weight: 760;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 14px;
+    box-shadow: 0 14px 26px rgba(16, 109, 190, 0.32);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .stageCaption {
+    margin: 9px 0 0;
+    color: rgba(182, 217, 252, 0.88);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 740;
+  }
+
+  .commandStory {
+    background: rgba(255, 255, 255, 0.82);
+    display: grid;
+    gap: 14px;
+    padding: clamp(18px, 3.2vw, 30px);
+  }
+
+  .storySticky,
+  .storyList {
+    min-width: 0;
+  }
+
+  .storyTitle {
+    margin-top: 12px;
+    font-size: clamp(32px, 4.4vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    font-weight: 820;
+    color: rgba(15, 23, 42, 0.92);
+    max-width: 14ch;
+  }
+
+  .storyLead {
+    margin: 10px 0 0;
+    color: rgba(15, 23, 42, 0.68);
+    font-size: clamp(16px, 1.75vw, 19px);
+    line-height: 1.6;
+    max-width: 46ch;
+  }
+
+  .storyProgress {
+    margin-top: 18px;
+    max-width: 360px;
+  }
+
+  .storyBar {
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+  }
+
+  .storyBar span {
+    display: block;
+    width: 33.333%;
+    height: 100%;
+    background: linear-gradient(90deg, #245adf, #0a8cb8);
+    transition: width 260ms ease;
+  }
+
+  .storyMeta {
+    margin-top: 8px;
+    color: rgba(15, 23, 42, 0.62);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 780;
+  }
+
+  .storyList {
+    display: grid;
+    gap: 10px;
+  }
+
+  .storyCard {
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.76);
+    padding: 16px;
+    transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .storyCard.is-active {
+    border-color: rgba(36, 90, 223, 0.38);
+    box-shadow: 0 16px 34px rgba(36, 90, 223, 0.14);
+    transform: translateY(-1px);
+  }
+
+  .storyK {
     font-size: 10px;
     font-weight: 860;
     letter-spacing: 0.12em;
@@ -278,292 +661,403 @@ layout: ../layouts/BaseLayout.astro
     color: rgba(15, 23, 42, 0.56);
   }
 
-  .signalV {
-    margin-top: 5px;
-    font-size: 21px;
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-    font-weight: 780;
+  .storyCard h3 {
+    margin: 8px 0 0;
+    font-size: 30px;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
     color: rgba(15, 23, 42, 0.94);
   }
 
-  .signalT {
-    margin: 6px 0 0;
-    font-size: 13px;
-    line-height: 1.58;
+  .storyCard p,
+  .storyCard li {
     color: rgba(15, 23, 42, 0.68);
-  }
-
-  .heroVisualShell {
-    border: 1px solid rgba(120, 181, 255, 0.24);
-    border-radius: 24px;
-    overflow: hidden;
-    padding: 8px;
-    background:
-      linear-gradient(145deg, rgba(8, 26, 64, 0.96), rgba(9, 38, 82, 0.9));
-    box-shadow: 0 30px 64px rgba(2, 10, 32, 0.26);
-  }
-
-  .heroVisualShell img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-  }
-
-  .heroCaption {
-    margin: 8px 0 0;
-    font-size: 11px;
-    font-weight: 760;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(15, 23, 42, 0.58);
-  }
-
-  .proofRow {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr;
-  }
-
-  .proofItem {
-    border: 1px solid rgba(15, 23, 42, 0.1);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.72);
-    padding: 14px 16px;
-  }
-
-  .proofK {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 850;
-    color: rgba(15, 23, 42, 0.56);
-  }
-
-  .proofV {
-    margin-top: 6px;
-    font-size: 16px;
-    line-height: 1.45;
-    color: rgba(15, 23, 42, 0.86);
-    font-weight: 690;
-  }
-
-  .systemBlock,
-  .timelineBlock,
-  .outcomesBlock,
-  .closingBlock {
-    border: 1px solid rgba(15, 23, 42, 0.11);
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.78);
-    padding: clamp(20px, 3.6vw, 30px);
-    box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
-  }
-
-  .sectionHead {
-    max-width: 88ch;
-  }
-
-  .sectionTitle {
-    margin-top: 12px;
-    font-size: clamp(30px, 4.2vw, 50px);
-    line-height: 1.04;
-    letter-spacing: -0.035em;
-    font-weight: 820;
-  }
-
-  .sectionLead {
-    margin: 12px 0 0;
-    color: rgba(15, 23, 42, 0.68);
-    font-size: clamp(16px, 1.9vw, 20px);
-    line-height: 1.65;
-    max-width: 76ch;
-  }
-
-  .layerGrid {
-    margin-top: 18px;
-    display: grid;
-    gap: 12px;
-    grid-template-columns: 1fr;
-  }
-
-  .layerCard {
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 16px;
-  }
-
-  .layerIndex {
-    font-size: 11px;
-    font-weight: 850;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(15, 23, 42, 0.54);
-  }
-
-  .layerTitle {
-    margin: 8px 0 0;
-    font-size: 24px;
-    line-height: 1.14;
-    letter-spacing: -0.02em;
-    color: rgba(15, 23, 42, 0.92);
-  }
-
-  .layerCopy {
-    margin: 8px 0 0;
-    color: rgba(15, 23, 42, 0.68);
-    line-height: 1.62;
     font-size: 14px;
+    line-height: 1.58;
   }
 
-  .layerList {
+  .storyCard p {
+    margin: 8px 0 0;
+  }
+
+  .storyCard ul {
     margin: 10px 0 0;
     padding-left: 18px;
-    color: rgba(15, 23, 42, 0.74);
-    font-size: 13px;
-    line-height: 1.56;
+    display: grid;
+    gap: 6px;
   }
 
-  .timeline {
-    margin-top: 18px;
+  .proofBento {
+    background: rgba(255, 255, 255, 0.82);
     display: grid;
-    gap: 12px;
+    gap: 10px;
+    padding: clamp(18px, 3.2vw, 30px);
     grid-template-columns: 1fr;
   }
 
-  .timelineStep {
-    border: 1px solid rgba(15, 23, 42, 0.1);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.78);
-    padding: 14px 16px;
+  .bentoCard {
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.76);
+    padding: 16px;
   }
 
-  .timelineWindow {
+  .bentoLarge {
+    background:
+      radial-gradient(760px 240px at -12% -16%, rgba(36, 90, 223, 0.08), transparent 66%),
+      rgba(255, 255, 255, 0.8);
+  }
+
+  .bentoK {
     font-size: 10px;
-    font-weight: 840;
+    font-weight: 860;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: rgba(15, 23, 42, 0.56);
   }
 
-  .timelineStep h3 {
-    margin: 8px 0 0;
-    font-size: 22px;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: rgba(15, 23, 42, 0.92);
+  .bentoCard h2 {
+    margin-top: 8px;
+    font-size: 34px;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: rgba(15, 23, 42, 0.94);
   }
 
-  .timelineStep p {
+  .bentoCard p {
     margin: 8px 0 0;
     color: rgba(15, 23, 42, 0.68);
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.58;
   }
 
-  .outcomeGrid {
-    margin-top: 18px;
-    display: grid;
-    gap: 12px;
-    grid-template-columns: 1fr;
-  }
-
-  .outcomeCard {
-    border: 1px solid rgba(15, 23, 42, 0.12);
-    border-radius: 18px;
-    padding: 16px;
-    background:
-      linear-gradient(160deg, rgba(15, 23, 42, 0.94), rgba(21, 52, 112, 0.9));
-    color: #e8f4ff;
-    box-shadow: 0 20px 44px rgba(2, 10, 32, 0.2);
-  }
-
-  .outcomeMetric {
-    font-size: clamp(28px, 5vw, 44px);
+  .bentoV {
+    margin-top: 8px;
+    color: rgba(15, 23, 42, 0.94);
+    font-size: clamp(26px, 4vw, 44px);
     line-height: 1;
     letter-spacing: -0.03em;
     font-weight: 820;
   }
 
-  .outcomeLabel {
-    margin-top: 7px;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(198, 226, 255, 0.84);
-    font-weight: 760;
-  }
-
-  .outcomeCard p {
-    margin: 8px 0 0;
-    color: rgba(209, 231, 252, 0.9);
-    font-size: 13px;
-    line-height: 1.55;
-  }
-
-  .closingCard {
+  .launchCta {
+    background: linear-gradient(140deg, rgba(7, 21, 49, 0.96), rgba(10, 37, 80, 0.92));
+    border-color: rgba(128, 191, 255, 0.28);
+    color: rgba(229, 243, 255, 0.94);
+    padding: clamp(18px, 3.2vw, 30px);
     display: grid;
-    gap: 16px;
+    gap: 14px;
     align-items: center;
   }
 
-  @media (min-width: 960px) {
-    .homeHero {
-      grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
-      gap: 24px;
+  .launchCopy h2 {
+    margin-top: 12px;
+    color: #eff7ff;
+    font-size: clamp(30px, 4.5vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    max-width: 17ch;
+  }
+
+  .launchCopy p {
+    margin: 10px 0 0;
+    color: rgba(198, 224, 252, 0.9);
+    font-size: 15px;
+    line-height: 1.58;
+    max-width: 56ch;
+  }
+
+  .launchCta .btn {
+    border-color: rgba(145, 206, 255, 0.28);
+    color: rgba(228, 242, 255, 0.96);
+    background: rgba(8, 26, 60, 0.5);
+  }
+
+  .launchCta .btnPrimary {
+    background: linear-gradient(135deg, #2a74ff 0%, #00a5d8 100%);
+    border-color: rgba(255, 255, 255, 0.32);
+    color: #fff;
+  }
+
+  @keyframes orbitFlow {
+    to {
+      stroke-dashoffset: -200;
+    }
+  }
+
+  @keyframes nodePulse {
+    0%,
+    100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.12);
+    }
+  }
+
+  @media (min-width: 980px) {
+    .cinema {
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
       align-items: start;
+      gap: 20px;
     }
 
-    .heroSignals {
+    .kpiRail {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .proofRow {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .commandStory {
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
     }
 
-    .layerGrid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .storySticky {
+      position: sticky;
+      top: 98px;
+      align-self: start;
     }
 
-    .timeline {
+    .proofBento {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .outcomeGrid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .bentoLarge {
+      grid-column: span 2;
+      grid-row: span 2;
     }
 
-    .closingCard {
+    .launchCta {
       grid-template-columns: minmax(0, 1fr) auto;
     }
   }
 
+  @media (max-width: 920px) {
+    .stageCall {
+      min-width: 112px;
+      padding: 7px;
+    }
+
+    .callV {
+      font-size: 15px;
+    }
+
+    .callT {
+      font-size: 10px;
+    }
+
+    .stageRail {
+      left: 10%;
+      right: 10%;
+      font-size: 9px;
+      padding: 8px 10px;
+    }
+  }
+
   @media (max-width: 768px) {
-    .homeV2 {
-      gap: 22px;
+    .homeX {
+      gap: 18px;
     }
 
-    .homeHero,
-    .systemBlock,
-    .timelineBlock,
-    .outcomesBlock,
-    .closingBlock {
-      border-radius: 24px;
-      padding: 18px 16px;
+    .cinema,
+    .commandStory,
+    .proofBento,
+    .launchCta {
+      border-radius: 22px;
+      padding: 16px;
     }
 
-    .heroTitle {
-      max-width: 13ch;
-      line-height: 0.98;
-      letter-spacing: -0.045em;
+    .cinemaTitle {
+      max-width: 11ch;
+      line-height: 0.96;
     }
 
-    .heroActions .btn,
-    .outcomeActions .btn,
-    .closingActions .btn {
+    .cinemaActions .btn,
+    .bentoActions .btn,
+    .launchActions .btn {
       flex: 1 1 100%;
+    }
+
+    .storyCard h3 {
+      font-size: 25px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orbit,
+    .nodeDot {
+      animation: none !important;
+    }
+
+    .stageFrame {
+      transform: none !important;
     }
   }
 </style>
+
+<script>
+  (function () {
+    const stage = document.getElementById("stageFrame");
+    if (!(stage instanceof HTMLElement)) return;
+
+    const sceneButtons = Array.from(document.querySelectorAll(".sceneBtn"));
+    const sceneNodes = Array.from(document.querySelectorAll("[data-scene-field]"));
+
+    const scenes = {
+      factory: {
+        hero_confidence: "97.4%",
+        hero_governance: "100%",
+        hero_recovery: "3.8x",
+        node_a_label: "Auditability",
+        node_a_value: "97.4%",
+        node_a_text: "Evidence confidence",
+        node_b_label: "Decision governance",
+        node_b_value: "100%",
+        node_b_text: "Owner path mapped",
+        node_c_label: "Action closure",
+        node_c_value: "42",
+        node_c_text: "Prioritized moves",
+        node_d_label: "Value ledger",
+        node_d_value: "INR 4.6 Cr",
+        node_d_text: "Attributed impact path",
+        rail_text: "AUDIT REALITY  -  GOVERN DECISIONS  -  ATTRIBUTE ROI",
+        scene_caption: "Factory scenario model - representative operating signal map"
+      },
+      logistics: {
+        hero_confidence: "95.8%",
+        hero_governance: "99%",
+        hero_recovery: "3.1x",
+        node_a_label: "Route evidence",
+        node_a_value: "95.8%",
+        node_a_text: "Cross-node signal confidence",
+        node_b_label: "Escalation mapping",
+        node_b_value: "99%",
+        node_b_text: "Regional owner coverage",
+        node_c_label: "Decision speed",
+        node_c_value: "2.9x",
+        node_c_text: "Approval acceleration",
+        node_d_label: "Recovery path",
+        node_d_value: "INR 3.2 Cr",
+        node_d_text: "Leakage conversion window",
+        rail_text: "SIGNAL ROUTING  -  OWNER GOVERNANCE  -  VALUE RECOVERY",
+        scene_caption: "Logistics scenario model - multi-city control grid"
+      },
+      services: {
+        hero_confidence: "96.2%",
+        hero_governance: "100%",
+        hero_recovery: "2.7x",
+        node_a_label: "Service evidence",
+        node_a_value: "96.2%",
+        node_a_text: "Case-level source coverage",
+        node_b_label: "Decision charter",
+        node_b_value: "100%",
+        node_b_text: "Accountability path defined",
+        node_c_label: "Closure cadence",
+        node_c_value: "88%",
+        node_c_text: "Weekly action completion",
+        node_d_label: "Value trajectory",
+        node_d_value: "USD 410k",
+        node_d_text: "Attributed annualized impact",
+        rail_text: "SERVICE SIGNALS  -  DECISION CONTROL  -  OUTCOME LEDGER",
+        scene_caption: "Services scenario model - portfolio execution fabric"
+      }
+    };
+
+    function trackEvent(eventName, payload) {
+      try {
+        if (typeof window.erainTrack === "function") {
+          window.erainTrack(eventName, payload);
+          return;
+        }
+      } catch (_) {}
+    }
+
+    function applyScene(sceneId) {
+      const scene = scenes[sceneId];
+      if (!scene) return;
+
+      stage.classList.remove("scene-factory", "scene-logistics", "scene-services");
+      stage.classList.add(`scene-${sceneId}`);
+
+      for (const node of sceneNodes) {
+        const key = node.getAttribute("data-scene-field");
+        if (!key || !(key in scene)) continue;
+        node.textContent = scene[key];
+      }
+
+      for (const button of sceneButtons) {
+        const selected = button.getAttribute("data-scene") === sceneId;
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-pressed", selected ? "true" : "false");
+      }
+
+      trackEvent("home_scene_switch", {
+        page_path: window.location.pathname,
+        scene: sceneId
+      });
+    }
+
+    sceneButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const sceneId = button.getAttribute("data-scene") || "factory";
+        applyScene(sceneId);
+      });
+    });
+
+    applyScene("factory");
+
+    const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const hoverCapable = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+
+    if (!reducedMotion && hoverCapable) {
+      stage.addEventListener("pointermove", (event) => {
+        const rect = stage.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const tiltX = (x - 0.5) * 5;
+        const tiltY = (0.5 - y) * 4;
+        stage.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
+        stage.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
+      });
+
+      stage.addEventListener("pointerleave", () => {
+        stage.style.setProperty("--tilt-x", "0deg");
+        stage.style.setProperty("--tilt-y", "0deg");
+      });
+    }
+
+    const storyCards = Array.from(document.querySelectorAll(".storyCard[data-story-step]"));
+    const storyFill = document.getElementById("storyFill");
+    const storyActive = document.getElementById("storyActive");
+
+    if (storyCards.length && storyFill instanceof HTMLElement && storyActive instanceof HTMLElement) {
+      const updateStory = (stepNumber) => {
+        const step = Math.max(1, Math.min(3, stepNumber));
+        storyFill.style.width = `${(step / 3) * 100}%`;
+        storyActive.textContent = String(step);
+
+        storyCards.forEach((card) => {
+          const cardStep = Number(card.getAttribute("data-story-step") || "1");
+          card.classList.toggle("is-active", cardStep === step);
+        });
+      };
+
+      updateStory(1);
+
+      if (!reducedMotion && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const step = Number(entry.target.getAttribute("data-story-step") || "1");
+              updateStory(step);
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        storyCards.forEach((card) => observer.observe(card));
+      }
+    }
+  })();
+</script>
