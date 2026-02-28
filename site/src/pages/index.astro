@@ -1,9 +1,11 @@
 ---
-title: EraIn AI - Intelligence That Runs Your Business
-description: EraIn builds operational AI systems that audit reality, govern decisions, and attribute ROI with measurable execution outcomes.
-layout: ../layouts/BaseLayout.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "EraIn AI - Intelligence That Runs Your Business";
+const description = "EraIn builds operational AI systems that audit reality, govern decisions, and attribute ROI with measurable execution outcomes.";
 ---
 
+<BaseLayout title={title} description={description} mainPadding="none">
 <section class="homeX" aria-label="EraIn homepage">
   <header class="cinema reveal" aria-label="Execution operating system hero">
     <canvas class="fieldCanvas" id="fieldCanvas" aria-hidden="true"></canvas>
@@ -1313,3 +1315,4 @@ layout: ../layouts/BaseLayout.astro
     }
   })();
 </script>
+</BaseLayout>
