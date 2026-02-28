@@ -1,9 +1,117 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const title = "Results — EraIn AI";
 const description =
   "Representative operating outcomes from audit-first engagements: governance gains, execution recovery, and ROI attribution patterns.";
+
+const PAGE_DIR = path.dirname(fileURLToPath(import.meta.url));
+const SITE_ROOT = path.resolve(PAGE_DIR, "..", "..");
+const TRACKERS_ROOT = path.join(SITE_ROOT, "ops", "no1", "trackers");
+
+function readCsv(filePath) {
+  try {
+    const raw = fs.readFileSync(filePath, "utf8").trim();
+    if (!raw) return [];
+    const lines = raw.split(/\r?\n/).filter(Boolean);
+    if (lines.length < 2) return [];
+    const headers = lines[0].split(",").map((v) => v.trim());
+    return lines.slice(1).map((line) => {
+      const values = line.split(",");
+      const row = {};
+      for (let i = 0; i < headers.length; i += 1) {
+        row[headers[i]] = (values[i] || "").trim();
+      }
+      return row;
+    });
+  } catch {
+    return [];
+  }
+}
+
+function toNumber(value) {
+  const n = Number(String(value).trim());
+  return Number.isFinite(n) ? n : NaN;
+}
+
+function latestByWeek(rows, field = "week_start_iso") {
+  if (!rows.length) return null;
+  return [...rows].sort((a, b) => Date.parse(a[field] || "") - Date.parse(b[field] || "")).at(-1) || null;
+}
+
+function formatCr(valueInr) {
+  const cr = valueInr / 10000000;
+  return cr.toFixed(cr >= 10 ? 1 : 2).replace(/\.00$/, "").replace(/(\.\d)0$/, "$1");
+}
+
+function formatUsdCompact(usd) {
+  if (usd >= 1000000) {
+    return `$${(usd / 1000000).toFixed(2).replace(/\.00$/, "")}M`;
+  }
+  return `$${Math.round(usd / 1000)}k`;
+}
+
+function formatWeekLabel(weekIso) {
+  if (!weekIso) return "Latest review";
+  const date = new Date(`${weekIso}T00:00:00Z`);
+  if (!Number.isFinite(date.getTime())) return "Latest review";
+  return date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
+
+function extractPercent(text) {
+  const match = String(text || "").match(/-?\d+(\.\d+)?/);
+  if (!match) return NaN;
+  const value = Number(match[0]);
+  return Number.isFinite(value) ? Math.abs(value) : NaN;
+}
+
+const caseRows = readCsv(path.join(TRACKERS_ROOT, "case-studies.csv"));
+const scoreRows = readCsv(path.join(TRACKERS_ROOT, "scoreboard-weekly.csv"));
+const revenueRows = readCsv(path.join(TRACKERS_ROOT, "revenue-weekly.csv"));
+
+const latestScore = latestByWeek(scoreRows);
+const latestRevenue = latestByWeek(revenueRows);
+const latestWeekIso = latestScore?.week_start_iso || latestRevenue?.week_start_iso || "";
+const latestWeekLabel = formatWeekLabel(latestWeekIso);
+
+const caseCount = caseRows.length;
+const namedCaseCount = caseRows.filter((row) => String(row.named_client_approved || "").toLowerCase() === "yes").length;
+
+const proofBadge = namedCaseCount > 0 ? "Named + anonymized proof" : "Anonymized proof";
+const releaseMeta = `Representative operating signal map · ${latestWeekLabel}`;
+
+const pipelineInr = toNumber(latestScore?.weekly_new_pipeline_inr || latestRevenue?.new_pipeline_inr || 0);
+const pipelineLabel = Number.isFinite(pipelineInr) && pipelineInr > 0 ? `INR ${formatCr(pipelineInr)} Cr` : "INR n/a";
+
+const percentValues = caseRows.map((row) => extractPercent(row.measured_delta)).filter((v) => Number.isFinite(v));
+let executionRecoveryLabel = "15–31%";
+if (percentValues.length > 0) {
+  const min = Math.min(...percentValues);
+  const max = Math.max(...percentValues);
+  executionRecoveryLabel = min === max ? `${min}%` : `${min}%–${max}%`;
+}
+
+const impactValues = caseRows
+  .map((row) => toNumber(row.annualized_impact_inr))
+  .filter((v) => Number.isFinite(v) && v > 0);
+let recoveryPathInrLabel = "INR 1.2 Cr–4.6 Cr";
+let recoveryPathUsdLabel = "Approx USD 145k-554k";
+if (impactValues.length > 0) {
+  const min = Math.min(...impactValues);
+  const max = Math.max(...impactValues);
+  const fxRate = 83;
+  const minUsd = min / fxRate;
+  const maxUsd = max / fxRate;
+  recoveryPathInrLabel = min === max ? `INR ${formatCr(min)} Cr` : `INR ${formatCr(min)} Cr-${formatCr(max)} Cr`;
+  recoveryPathUsdLabel = min === max ? `Approx USD ${formatUsdCompact(minUsd)}` : `Approx USD ${formatUsdCompact(minUsd)}-${formatUsdCompact(maxUsd)}`;
+}
+
+const responseSla = toNumber(latestScore?.lead_response_sla_percent);
+const responseSlaLabel = Number.isFinite(responseSla) ? `${responseSla}%` : "n/a";
+const namedRatioLabel = caseCount > 0 ? `${namedCaseCount}/${caseCount}` : "0/0";
 
 const resultsJsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -23,7 +131,7 @@ const resultsJsonLd = JSON.stringify({
     <header class="resHero">
       <div class="resHeroCopy">
         <div class="badgeRow" aria-label="Results positioning">
-          <span class="badge badgeSoft">Anonymized proof</span>
+          <span class="badge badgeSoft">{proofBadge}</span>
           <span class="badge badgeSoft">Owner-mapped execution</span>
           <span class="badge badgeSoft">ROI attribution</span>
           <span class="badge badgeSoft">Launch ledger verified</span>
@@ -37,19 +145,19 @@ const resultsJsonLd = JSON.stringify({
 
         <div class="resHeroSignalRow" role="list" aria-label="Results signal highlights">
           <div class="resHeroSignal" role="listitem">
-            <div class="resHeroSignalK">Verified Evidence</div>
-            <div class="resHeroSignalV">94%</div>
-            <div class="resHeroSignalT">Average source coverage at decision handoff.</div>
+            <div class="resHeroSignalK">Proof Records</div>
+            <div class="resHeroSignalV">{caseCount}</div>
+            <div class="resHeroSignalT">Tracked operating proof packs in the current ledger.</div>
           </div>
           <div class="resHeroSignal" role="listitem">
-            <div class="resHeroSignalK">Governance Mapping</div>
-            <div class="resHeroSignalV">100%</div>
-            <div class="resHeroSignalT">Owner path + approval controls defined before rollout.</div>
+            <div class="resHeroSignalK">Named References</div>
+            <div class="resHeroSignalV">{namedRatioLabel}</div>
+            <div class="resHeroSignalT">Named approvals vs total case records.</div>
           </div>
           <div class="resHeroSignal" role="listitem">
-            <div class="resHeroSignalK">Recovery Window</div>
-            <div class="resHeroSignalV">12 Weeks</div>
-            <div class="resHeroSignalT">First value trajectory made measurable in-cycle.</div>
+            <div class="resHeroSignalK">Latest Pipeline</div>
+            <div class="resHeroSignalV">{pipelineLabel}</div>
+            <div class="resHeroSignalT">Most recent weekly pipeline value from the operating tracker.</div>
           </div>
         </div>
       </div>
@@ -65,25 +173,25 @@ const resultsJsonLd = JSON.stringify({
             decoding="async"
           />
         </div>
-        <div class="resVisualMeta">Representative operating signal map · February 2026 release</div>
+        <div class="resVisualMeta">{releaseMeta}</div>
       </aside>
     </header>
 
     <section class="resBand" aria-label="Outcome bands">
       <article class="resBandCard">
         <div class="resBandK">Execution Recovery</div>
-        <div class="resBandV">15–31%</div>
-        <div class="resBandT">Reduction in cycle-time drift across first operating windows.</div>
+        <div class="resBandV">{executionRecoveryLabel}</div>
+        <div class="resBandT">Observed delay/cycle-time recovery in tracked engagement records.</div>
       </article>
       <article class="resBandCard">
-        <div class="resBandK">Decision Velocity</div>
-        <div class="resBandV">2.3x–3.1x</div>
-        <div class="resBandT">Faster approvals and action closure with governance mapping.</div>
+        <div class="resBandK">Response Discipline</div>
+        <div class="resBandV">{responseSlaLabel}</div>
+        <div class="resBandT">Latest lead-response SLA from the weekly operating scoreboard.</div>
       </article>
       <article class="resBandCard">
         <div class="resBandK">Recovery Path</div>
-        <div class="resBandV">INR 1.2 Cr–4.6 Cr</div>
-        <div class="resBandS">Approx USD 145k-554k</div>
+        <div class="resBandV">{recoveryPathInrLabel}</div>
+        <div class="resBandS">{recoveryPathUsdLabel}</div>
         <div class="resBandT">Attributed value window identified in early deployment cycles.</div>
       </article>
     </section>
@@ -144,17 +252,17 @@ const resultsJsonLd = JSON.stringify({
         <div class="resLedgerRow" role="row">
           <div class="resLedgerCell" role="cell">Industrial execution recovery pack</div>
           <div class="resLedgerCell" role="cell">Anonymized public release</div>
-          <div class="resLedgerCell" role="cell">February 23, 2026 · Delivery Governance</div>
+          <div class="resLedgerCell" role="cell">{latestWeekLabel} · Delivery Governance</div>
         </div>
         <div class="resLedgerRow" role="row">
           <div class="resLedgerCell" role="cell">Logistics governance acceleration pack</div>
-          <div class="resLedgerCell" role="cell">Named release pending client approval</div>
-          <div class="resLedgerCell" role="cell">February 23, 2026 · Program Operations</div>
+          <div class="resLedgerCell" role="cell">{namedCaseCount > 0 ? "Named release approved" : "Named release pending client approval"}</div>
+          <div class="resLedgerCell" role="cell">{latestWeekLabel} · Program Operations</div>
         </div>
         <div class="resLedgerRow" role="row">
           <div class="resLedgerCell" role="cell">Enterprise attribution proof pack</div>
           <div class="resLedgerCell" role="cell">Internal evidence complete</div>
-          <div class="resLedgerCell" role="cell">February 23, 2026 · Impact AI Office</div>
+          <div class="resLedgerCell" role="cell">{latestWeekLabel} · Impact AI Office</div>
         </div>
       </div>
     </section>
