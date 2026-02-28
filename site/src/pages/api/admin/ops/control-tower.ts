@@ -88,8 +88,8 @@ export const GET: APIRoute = async (context) => {
       },
       go_no_go_reasoning: {
         hard_fail_gate: hardFailGate,
-        any_fail,
-        any_attention,
+        any_fail: anyFail,
+        any_attention: anyAttention,
       },
       top_corrective_actions: actions.slice(0, 5),
     },
