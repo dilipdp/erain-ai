@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Engineering at EraIn";
+const description =
+  "How EraIn engineering builds reliable, governed, and commercially accountable AI systems.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="engPage">
+    <header class="card hero">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Engineering at EraIn</span>
+        <span class="badge badgeSoft">Reliability first</span>
+        <span class="badge badgeSoft">Governed releases</span>
+      </div>
+      <h1 class="h1">Engineering for real operations, not demos.</h1>
+      <p class="lead">
+        We optimize for execution reliability, auditability, and measurable business impact.
+        Every release is expected to improve revenue velocity, proof quality, or control discipline.
+      </p>
+    </header>
+
+    <section class="grid two">
+      <article class="card">
+        <h2 class="h2">Current Platform</h2>
+        <ul>
+          <li>Astro SSR runtime on Cloudflare Pages.</li>
+          <li>D1 as source of truth for leads, audits, offers, and weekly metrics.</li>
+          <li>KV for cache/fallback acceleration paths.</li>
+          <li>Ops gate framework from p1 to p13 with weekly control-tower decisions.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2 class="h2">Release Discipline</h2>
+        <ul>
+          <li>Any hard fail in p11 (reliability) or p12 (commercial quality) triggers NO-GO.</li>
+          <li>Every major change is validated through build + gates before deployment.</li>
+          <li>Lead events are tamper-evident through hash-chain event ledger design.</li>
+          <li>Control tower aggregates reliability, revenue, and proof status into one decision.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2 class="h2">Engineering Priorities (Current)</h2>
+      <ol>
+        <li>Reduce time-to-value and improve stage reliability across active pilots.</li>
+        <li>Harden model failover, latency thresholds, and incident prevention paths.</li>
+        <li>Automate commercial policy checks to stop scope/discount drift early.</li>
+        <li>Improve proof publication pipeline with legal-safe speed.</li>
+      </ol>
+      <div class="btn-row" style="margin-top:12px">
+        <a class="btn btnPrimary" href="/careers">Join Engineering</a>
+        <a class="btn" href="/developers">Developer Docs</a>
+      </div>
+    </section>
+  </section>
+
+  <style>
+    .engPage { display: grid; gap: 18px; }
+    .hero { padding: 24px; }
+    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
+    .grid { display: grid; gap: 12px; }
+    .grid.two { grid-template-columns: 1fr; }
+    ul, ol { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: rgba(17,24,39,.82); }
+    p { color: rgba(17,24,39,.82); }
+    @media (min-width: 980px) { .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  </style>
+</BaseLayout>

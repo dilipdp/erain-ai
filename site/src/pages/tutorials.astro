@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Tutorials — EraIn AI";
+const description =
+  "Step-by-step tutorials for prospects, clients, and operators using EraIn workflows from audit intake to execution governance.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="tutorialPage">
+    <header class="card hero">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Tutorials</span>
+        <span class="badge badgeSoft">User guides</span>
+        <span class="badge badgeSoft">Execution playbooks</span>
+      </div>
+      <h1 class="h1">How to use EraIn</h1>
+      <p class="lead">
+        Practical onboarding flows for business leaders and operator teams. Follow these tutorials to move from
+        intake submission to governed execution and ROI tracking.
+      </p>
+    </header>
+
+    <section class="card">
+      <h2 class="h2">Quick Start (7 Steps)</h2>
+      <ol>
+        <li>Open <a href="/request-assessment">Start Free AI Audit</a> and submit business context.</li>
+        <li>Receive request ID and review <a href="/sample-report">sample report structure</a>.</li>
+        <li>Join qualification call and align outcome objective + ownership scope.</li>
+        <li>Review ranked leakage findings and governance map draft.</li>
+        <li>If fit, move to 21-Day Decision Governance Pilot proposal.</li>
+        <li>Track decisions and actions through weekly cadence.</li>
+        <li>Publish proof package (named or anonymized) after approval.</li>
+      </ol>
+    </section>
+
+    <section class="grid three">
+      <article class="card">
+        <h2 class="h2">For Founders/CXOs</h2>
+        <ul>
+          <li>How to define one measurable objective.</li>
+          <li>How to review owner-mapped decision governance.</li>
+          <li>How to evaluate ROI attribution quality.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2 class="h2">For Delivery Teams</h2>
+        <ul>
+          <li>How to run D1-D21 stage gates.</li>
+          <li>How to escalate SLA breaches.</li>
+          <li>How to convert readouts into proof assets.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2 class="h2">For Client Ops</h2>
+        <ul>
+          <li>How to access client portal securely.</li>
+          <li>How to interpret audit and governance outputs.</li>
+          <li>How to align internal owners for execution.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2 class="h2">Need a guided walkthrough?</h2>
+      <p>Book a live onboarding session for your team and we will map your context into the correct operating flow.</p>
+      <div class="btn-row" style="margin-top:12px">
+        <a class="btn btnPrimary" href="/contact?topic=tutorial">Book Walkthrough</a>
+        <a class="btn" href="/developers">Developer Docs</a>
+      </div>
+    </section>
+  </section>
+
+  <style>
+    .tutorialPage { display: grid; gap: 18px; }
+    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
+    .hero { padding: 24px; }
+    .grid { display: grid; gap: 12px; }
+    .grid.three { grid-template-columns: 1fr; }
+    ul, ol { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: rgba(17,24,39,.82); }
+    p { color: rgba(17,24,39,.82); }
+    @media (min-width: 960px) { .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  </style>
+</BaseLayout>

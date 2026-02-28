@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "About EraIn AI";
+const description =
+  "EraIn builds audit-first operational intelligence focused on decision governance, execution discipline, and measurable ROI attribution.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="companyPage">
+    <header class="hero card">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">About</span>
+        <span class="badge badgeSoft">Audit-first</span>
+        <span class="badge badgeSoft">Execution-grade</span>
+        <span class="badge badgeSoft">Global ambition</span>
+      </div>
+      <h1 class="h1">EraIn is building the execution operating system for AI-era businesses.</h1>
+      <p class="lead">
+        We exist to solve one hard problem: teams run many initiatives, but leadership still lacks traceable decisions,
+        accountable owners, and proof of financial impact. EraIn connects auditability, governance, and ROI attribution
+        into one operating cadence.
+      </p>
+    </header>
+
+    <section class="grid two">
+      <article class="card">
+        <h2 class="h2">What We Do</h2>
+        <ul>
+          <li>Detect value leakage and execution drag from real operating data.</li>
+          <li>Map decisions to accountable owners and governance cadence.</li>
+          <li>Link actions to measurable business outcomes through attribution ledgers.</li>
+          <li>Turn audit findings into disciplined 30/60/90 execution plans.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2 class="h2">What We Do Not Do</h2>
+        <ul>
+          <li>We do not ship vanity dashboards without ownership.</li>
+          <li>We do not run open-ended AI experiments without ROI boundaries.</li>
+          <li>We do not accept scope drift that breaks delivery discipline.</li>
+          <li>We do not claim impact that cannot be traced to action.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2 class="h2">Operating Principles</h2>
+      <div class="grid four">
+        <div class="mini">
+          <div class="kicker">01 Truth First</div>
+          <p>Evidence before opinion. Every recommendation must be source-grounded.</p>
+        </div>
+        <div class="mini">
+          <div class="kicker">02 Governance by Design</div>
+          <p>Decisions have owners, cadence, escalation, and explicit approval paths.</p>
+        </div>
+        <div class="mini">
+          <div class="kicker">03 ROI or Stop</div>
+          <p>Execution is scaled only when impact is measurable and attributable.</p>
+        </div>
+        <div class="mini">
+          <div class="kicker">04 Reliability Matters</div>
+          <p>Release gates and hardening controls protect quality and commercial trust.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="h2">Company Direction</h2>
+      <p>
+        EraIn is services-led today through the 21-Day Decision Governance Pilot, with productized control systems
+        and automation gates deepening each cycle. We are building for India-first adoption and global enterprise readiness.
+      </p>
+      <div class="btn-row" style="margin-top:12px">
+        <a class="btn btnPrimary" href="/request-assessment">Start Free AI Audit</a>
+        <a class="btn" href="/careers">View Careers</a>
+      </div>
+    </section>
+  </section>
+
+  <style>
+    .companyPage { display: grid; gap: 18px; }
+    .hero { padding: 24px; }
+    .grid { display: grid; gap: 14px; }
+    .grid.two { grid-template-columns: 1fr; }
+    .grid.four { grid-template-columns: 1fr; }
+    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
+    .mini { border: 1px solid rgba(11,31,66,.12); border-radius: 14px; padding: 12px; background: rgba(255,255,255,.72); }
+    p, li { color: rgba(17,24,39,.82); }
+    ul { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; }
+    @media (min-width: 900px) {
+      .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+  </style>
+</BaseLayout>

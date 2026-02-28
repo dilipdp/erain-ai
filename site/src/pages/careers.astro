@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Careers — EraIn AI";
+const description =
+  "Join EraIn to build audit-first execution intelligence across reliability, governance, and measurable business impact.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="careerPage">
+    <header class="card hero">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Careers</span>
+        <span class="badge badgeSoft">Small team, high ownership</span>
+        <span class="badge badgeSoft">Execution excellence</span>
+      </div>
+      <h1 class="h1">Build the category with us.</h1>
+      <p class="lead">
+        We are building an AI company with operating discipline at its core. If you care about real business outcomes,
+        rigorous systems, and shipping under pressure, we should talk.
+      </p>
+    </header>
+
+    <section class="grid three">
+      <article class="card">
+        <h2 class="h2">How We Work</h2>
+        <ul>
+          <li>Write clearly. Measure what matters. Ship what works.</li>
+          <li>Bias toward reliability, not complexity theatre.</li>
+          <li>Fix root causes, not symptoms.</li>
+          <li>Respect client trust and delivery commitments.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2 class="h2">Hiring Bar</h2>
+        <ul>
+          <li>Strong ownership and independent execution.</li>
+          <li>Ability to reason from first principles.</li>
+          <li>Comfort with ambiguity and customer pressure.</li>
+          <li>High integrity with data and communication.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2 class="h2">Work Model</h2>
+        <ul>
+          <li>Core team: in-office/hybrid with fast iteration.</li>
+          <li>Client-facing roles: cadence aligned to delivery cycles.</li>
+          <li>Engineering: reliability guardrails are non-negotiable.</li>
+          <li>Compensation: role-based + performance-linked upside.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2 class="h2">Current Priority Roles</h2>
+      <div class="roleGrid">
+        <div class="roleCard">
+          <div class="kicker">Engineering</div>
+          <h3>Reliability Engineer</h3>
+          <p>Own p11/p12 hardening, incident prevention, and production safeguards.</p>
+        </div>
+        <div class="roleCard">
+          <div class="kicker">Delivery</div>
+          <h3>Execution Systems Lead</h3>
+          <p>Run 21-day pilot cadence and maintain <=18 day time-to-value trajectory.</p>
+        </div>
+        <div class="roleCard">
+          <div class="kicker">Commercial</div>
+          <h3>Revenue Operations Lead</h3>
+          <p>Scale proof-led proposals and maintain reference-call close quality.</p>
+        </div>
+      </div>
+      <div class="btn-row" style="margin-top:12px">
+        <a class="btn btnPrimary" href="mailto:careers@erainai.com?subject=EraIn%20Careers">Apply via Email</a>
+        <a class="btn" href="/about">About EraIn</a>
+      </div>
+    </section>
+  </section>
+
+  <style>
+    .careerPage { display: grid; gap: 18px; }
+    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
+    .hero { padding: 24px; }
+    .grid { display: grid; gap: 14px; }
+    .grid.three { grid-template-columns: 1fr; }
+    .roleGrid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .roleCard { border: 1px solid rgba(11,31,66,.12); border-radius: 14px; padding: 14px; background: rgba(255,255,255,.76); }
+    ul { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: rgba(17,24,39,.82); }
+    p { color: rgba(17,24,39,.82); }
+    @media (min-width: 980px) {
+      .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .roleGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+  </style>
+</BaseLayout>

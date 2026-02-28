@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Use Cases — EraIn AI";
+const description =
+  "High-value use cases across operations, finance, supply chain, quality, and multi-site governance where auditability and ROI attribution are critical.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="useCasePage">
+    <header class="card hero">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Use Cases</span>
+        <span class="badge badgeSoft">Operator workflows</span>
+        <span class="badge badgeSoft">Outcome-linked</span>
+      </div>
+      <h1 class="h1">Where EraIn creates measurable value</h1>
+      <p class="lead">
+        EraIn is built for high-consequence execution environments where leadership needs traceable decisions,
+        owner-level accountability, and attributed business outcomes.
+      </p>
+    </header>
+
+    <section class="caseGrid" aria-label="Use case cards">
+      <article class="card">
+        <div class="kicker">Operations</div>
+        <h2 class="h2">Cycle-time and approval latency recovery</h2>
+        <p>Map bottlenecks, assign owners, and cut decision turnaround in 4-12 weeks.</p>
+      </article>
+      <article class="card">
+        <div class="kicker">Supply Chain</div>
+        <h2 class="h2">Inventory and working-capital discipline</h2>
+        <p>Prioritize leakage interventions and tie inventory actions to financial outcomes.</p>
+      </article>
+      <article class="card">
+        <div class="kicker">Quality</div>
+        <h2 class="h2">Scrap/rework reduction governance</h2>
+        <p>Create threshold-based decision triggers and owner accountability loops.</p>
+      </article>
+      <article class="card">
+        <div class="kicker">Finance</div>
+        <h2 class="h2">Cash conversion and invoicing control</h2>
+        <p>Link operational actions to cash metrics and enforce cadence at leadership level.</p>
+      </article>
+      <article class="card">
+        <div class="kicker">Enterprise</div>
+        <h2 class="h2">Multi-site governance standardization</h2>
+        <p>Deploy one decision governance model across sites, teams, and geographies.</p>
+      </article>
+      <article class="card">
+        <div class="kicker">Commercial</div>
+        <h2 class="h2">Proof-led proposal and conversion motion</h2>
+        <p>Use validated case assets and attribution-led narratives to increase close quality.</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2 class="h2">Need a specific use-case map?</h2>
+      <p>Share your operating context and we’ll scope the highest-value 21-day pilot motion.</p>
+      <div class="btn-row" style="margin-top:12px">
+        <a class="btn btnPrimary" href="/request-assessment">Start Free AI Audit</a>
+        <a class="btn" href="/contact?topic=use-case">Discuss Use Case</a>
+      </div>
+    </section>
+  </section>
+
+  <style>
+    .useCasePage { display: grid; gap: 18px; }
+    .hero { padding: 24px; }
+    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
+    .caseGrid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+    p { color: rgba(17,24,39,.82); }
+    @media (min-width: 980px) { .caseGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  </style>
+</BaseLayout>

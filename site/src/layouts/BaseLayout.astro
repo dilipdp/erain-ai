@@ -35,6 +35,7 @@ const websiteJsonLd = JSON.stringify({
 const currentPath = Astro.url.pathname;
 const isActive = (path) => currentPath === path;
 const isResultsActive = currentPath === '/results' || currentPath === '/sample-report';
+const isDevelopersActive = currentPath === '/developers' || currentPath === '/developer-docs';
 ---
 
 <!doctype html>
@@ -536,7 +537,7 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
 
       @media (min-width: 720px) {
         .footerLinks {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
       }
 
@@ -1045,10 +1046,12 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
 
         <div class="nav-links" id="navLinks">
           <a href="/solutions" class={isActive('/solutions') ? 'active' : ''} aria-current={isActive('/solutions') ? 'page' : undefined}>Solutions</a>
+          <a href="/use-cases" class={isActive('/use-cases') ? 'active' : ''} aria-current={isActive('/use-cases') ? 'page' : undefined}>Use Cases</a>
           <a href="/industries" class={isActive('/industries') ? 'active' : ''} aria-current={isActive('/industries') ? 'page' : undefined}>Industries</a>
           <a href="/pricing" class={isActive('/pricing') ? 'active' : ''} aria-current={isActive('/pricing') ? 'page' : undefined}>Pricing</a>
           <a href="/results" class={isResultsActive ? 'active' : ''} aria-current={isResultsActive ? 'page' : undefined}>Results</a>
-          <a href="/client-login" class={isActive('/client-login') ? 'active' : ''} aria-current={isActive('/client-login') ? 'page' : undefined}>Client Login</a>
+          <a href="/about" class={isActive('/about') ? 'active' : ''} aria-current={isActive('/about') ? 'page' : undefined}>About</a>
+          <a href="/developers" class={isDevelopersActive ? 'active' : ''} aria-current={isDevelopersActive ? 'page' : undefined}>Developers</a>
           <a href="/contact" class={isActive('/contact') ? 'active' : ''} aria-current={isActive('/contact') ? 'page' : undefined}>Contact</a>
           <a href="/request-assessment" class={`cta ${isActive('/request-assessment') ? 'active' : ''}`} aria-current={isActive('/request-assessment') ? 'page' : undefined}>Start Free AI Audit</a>
         </div>
@@ -1092,8 +1095,18 @@ const isResultsActive = currentPath === '/results' || currentPath === '/sample-r
               <a href="/request-assessment">Start Free AI Audit</a>
               <a href="/results">View Results</a>
               <a href="/client-login">Client Login</a>
+              <a href="/use-cases">Use Cases</a>
+              <a href="/about">About</a>
               <a href="/pricing">Pricing</a>
               <a href="/contact">Contact</a>
+            </div>
+            <div class="footerLinkGroup">
+              <div class="footerLinkK">Company</div>
+              <a href="/careers">Careers</a>
+              <a href="/events">Events</a>
+              <a href="/tutorials">Tutorials</a>
+              <a href="/engineering">Engineering</a>
+              <a href="/developers">Developer Docs</a>
             </div>
             <div class="footerLinkGroup">
               <div class="footerLinkK">Trust</div>

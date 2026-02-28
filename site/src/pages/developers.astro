@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Developer Docs — EraIn AI";
+const description =
+  "API and integration references for EraIn public intake, admin operations, and control-tower endpoints.";
+
+const auditCurl = `curl -X POST https://erainai.com/api/public/audit \\
+  -H 'content-type: application/json' \\
+  -H 'Idempotency-Key: your-key' \\
+  --data '{
+    "contact": {"name":"A","phone":"+91...","email":"a@company.com"},
+    "business": {"company_name":"Acme","industry":"manufacturing"}
+  }'`;
+
+const statusCurl = `curl -X PATCH https://erainai.com/api/admin/leads/AR-.../status \\
+  -H 'content-type: application/json' \\
+  -H 'x-admin-token: <token>' \\
+  --data '{"status":"contacted","note":"first call done"}'`;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="devPage">
+    <header class="card hero">
+      <div class="badgeRow">
+        <span class="badge badgeSoft">Developer Docs</span>
+        <span class="badge badgeSoft">Public + Admin APIs</span>
+        <span class="badge badgeSoft">Governed transitions</span>
+      </div>
+      <h1 class="h1">API reference for EraIn workflows</h1>
+      <p class="lead">
+        These endpoints support intake, lead governance, proposal workflows, and operational control-tower visibility.
+      </p>
+    </header>
+
+    <section class="grid two">
+      <article class="card">
+        <h2 class="h2">Public APIs</h2>
+        <ul>
+          <li><code>POST /api/public/audit</code> with idempotency (24h dedupe).</li>
+          <li><code>POST /api/public/contact</code> with idempotency and ETA response.</li>
+          <li><code>POST /api/public/client/access/request</code> with abuse cooldown fields.</li>
+        </ul>
+        <p class="muted">Response contracts include deterministic duplicate handling and request references.</p>
+      </article>
+
+      <article class="card">
+        <h2 class="h2">Admin APIs</h2>
+        <ul>
+          <li><code>GET /api/admin/leads</code> and <code>/api/admin/leads/:request_id</code></li>
+          <li><code>PATCH /api/admin/leads/:request_id/status</code> with strict transition rules.</li>
+          <li><code>POST /api/admin/leads/:request_id/pro-offer</code> for 21-day pilot offer issue.</li>
+          <li><code>GET /api/admin/ops/scoreboard</code> and <code>/api/admin/ops/control-tower</code></li>
+        </ul>
+        <p class="muted">Auth: <code>X-Admin-Token</code> or Basic auth from configured admin credentials.</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2 class="h2">Status Transition Rules</h2>
+      <p><code>new -> contacted|pro_offered|converted</code></p>
+      <p><code>contacted -> pro_offered|pro_requested|converted</code></p>
+      <p><code>pro_offered -> pro_requested|converted</code></p>
+      <p><code>pro_requested -> converted</code></p>
+      <p><code>converted -> converted</code> (idempotent only)</p>
+    </section>
+
+    <section class="card">
+      <h2 class="h2">Examples</h2>
+      <h3>Submit audit</h3>
+      <pre><code>{auditCurl}</code></pre>
+      <h3>Update lead status</h3>
+      <pre><code>{statusCurl}</code></pre>
+    </section>
+  </section>
+
+  <style>
+    .devPage { display: grid; gap: 18px; }
+    .hero { padding: 24px; }
+    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
+    .grid { display: grid; gap: 12px; }
+    .grid.two { grid-template-columns: 1fr; }
+    ul { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: rgba(17,24,39,.82); }
+    p { color: rgba(17,24,39,.82); }
+    pre {
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(11,31,66,.14);
+      background: #08142f;
+      color: #e5eefb;
+      overflow-x: auto;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    @media (min-width: 980px) { .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  </style>
+</BaseLayout>
