@@ -438,7 +438,7 @@ const faqJsonLd = JSON.stringify({
 
     .plans {
       display: grid;
-      gap: 12px;
+      gap: 14px;
       grid-template-columns: 1fr;
     }
 
@@ -450,6 +450,8 @@ const faqJsonLd = JSON.stringify({
       display: grid;
       gap: 12px;
       align-content: start;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .planFeatured {
@@ -476,10 +478,13 @@ const faqJsonLd = JSON.stringify({
     }
 
     .planHead {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: flex-start;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+    }
+
+    .planHead > div:first-child {
+      min-width: 0;
     }
 
     .planName {
@@ -497,18 +502,22 @@ const faqJsonLd = JSON.stringify({
     }
 
     .planPrice {
-      text-align: right;
+      text-align: left;
       display: grid;
       gap: 3px;
-      min-width: 120px;
+      justify-items: start;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .moneyMain {
-      font-size: clamp(30px, 4.4vw, 46px);
+      font-size: clamp(28px, 2.8vw, 42px);
       line-height: 0.95;
       letter-spacing: -0.035em;
       font-weight: 860;
       color: rgba(15, 23, 42, 0.95);
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .moneyAlt {
@@ -517,6 +526,8 @@ const faqJsonLd = JSON.stringify({
       text-transform: uppercase;
       color: rgba(15, 23, 42, 0.56);
       font-weight: 760;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .planList {
@@ -621,6 +632,18 @@ const faqJsonLd = JSON.stringify({
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .planHead {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 10px;
+      }
+
+      .planPrice {
+        text-align: right;
+        justify-items: end;
+        min-width: 128px;
+      }
+
       .compareRow {
         grid-template-columns: 1.1fr 0.9fr 0.9fr 1.1fr;
         align-items: start;
@@ -634,6 +657,22 @@ const faqJsonLd = JSON.stringify({
     @media (min-width: 1240px) {
       .plans {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      /* In 4-card mode, stack heading + price to avoid collision across dense columns */
+      .planHead {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .planPrice {
+        text-align: left;
+        justify-items: start;
+        min-width: 0;
+      }
+
+      .moneyMain {
+        font-size: clamp(26px, 2.1vw, 38px);
       }
     }
 
