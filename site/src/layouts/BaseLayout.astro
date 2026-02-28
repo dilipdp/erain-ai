@@ -57,7 +57,7 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -82,19 +82,19 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
     <style is:global>
       :root {
         /* Brand */
-        --primary: #071430;
-        --secondary: #0d2b5f;
-        --accent: #0f5ff0;
-        --accent-2: #06b6d4;
+        --primary: #0f172a;
+        --secondary: #1e2f56;
+        --accent: #245adf;
+        --accent-2: #0a8cb8;
 
         /* Neutrals */
-        --bg: #f3f8ff;
-        --surface: rgba(255, 255, 255, 0.92);
-        --surface-2: rgba(16, 24, 40, 0.04);
-        --border: rgba(11, 31, 66, 0.14);
-        --muted: rgba(15, 23, 42, 0.68);
-        --muted-2: rgba(15, 23, 42, 0.78);
-        --bg-grid: rgba(12, 26, 56, 0.03);
+        --bg: #f5f1e8;
+        --surface: rgba(255, 255, 255, 0.88);
+        --surface-2: rgba(15, 23, 42, 0.035);
+        --border: rgba(15, 23, 42, 0.14);
+        --muted: rgba(15, 23, 42, 0.66);
+        --muted-2: rgba(15, 23, 42, 0.8);
+        --bg-grid: rgba(15, 23, 42, 0.018);
 
         /* Radius / shadow */
         --radius-lg: 22px;
@@ -144,10 +144,9 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         line-height: var(--leading);
         -webkit-text-size-adjust: 100%;
         background:
-          radial-gradient(860px 420px at 12% -10%, rgba(15, 95, 240, 0.22), transparent 62%),
-          radial-gradient(760px 360px at 92% -12%, rgba(6, 182, 212, 0.2), transparent 64%),
-          radial-gradient(760px 340px at 50% 120%, rgba(14, 53, 120, 0.07), transparent 70%),
-          linear-gradient(180deg, #f9fbff 0%, #f1f7ff 45%, #f8fbff 100%);
+          radial-gradient(860px 420px at 6% -14%, rgba(36, 90, 223, 0.12), transparent 62%),
+          radial-gradient(760px 320px at 98% -12%, rgba(10, 140, 184, 0.11), transparent 66%),
+          linear-gradient(180deg, #faf7f2 0%, #f5f1e8 42%, #f8f4ec 100%);
         background-color: var(--bg);
         background-attachment: fixed;
         -webkit-font-smoothing: antialiased;
@@ -170,8 +169,8 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         background-image:
           linear-gradient(to right, var(--bg-grid) 1px, transparent 1px),
           linear-gradient(to bottom, var(--bg-grid) 1px, transparent 1px);
-        background-size: 56px 56px;
-        mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.26), transparent 74%);
+        background-size: 68px 68px;
+        mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2), transparent 80%);
       }
 
       body::after {
@@ -181,8 +180,8 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         top: -16vw;
         border-radius: 999px;
         background:
-          radial-gradient(circle at 30% 30%, rgba(15, 95, 240, 0.2), rgba(15, 95, 240, 0.03) 46%, transparent 72%);
-        filter: blur(6px);
+          radial-gradient(circle at 34% 34%, rgba(36, 90, 223, 0.14), rgba(36, 90, 223, 0.02) 46%, transparent 74%);
+        filter: blur(8px);
       }
 
       body > header,
@@ -192,8 +191,12 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         z-index: 0;
       }
 
-      :where(h1, h2, h3, .h1, .h2, .kicker, .nav-links a, .brand) {
-        font-family: Sora, Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      :where(h1, h2, h3, .h1, .h2, .kicker, .nav-links a, .brand, .btn) {
+        font-family: Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      :where(.displaySerif, .sectionSerif) {
+        font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
       }
 
       ::selection { background: rgba(37, 99, 235, 0.18); }
@@ -255,24 +258,24 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         top: 0;
         z-index: 10000 !important;
         isolation: isolate;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        background: rgba(248, 251, 255, 0.8);
-        border-bottom: 1px solid rgba(11, 31, 66, 0.12);
-        transition: background 180ms ease, box-shadow 180ms ease, border-color 180ms ease, transform 180ms ease;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background: rgba(250, 248, 244, 0.86);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+        transition: background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
       }
 
       header.scrolled {
-        background: rgba(249, 252, 255, 0.94);
-        border-bottom-color: rgba(12, 31, 67, 0.2);
-        box-shadow: 0 10px 34px rgba(5, 17, 44, 0.1);
+        background: rgba(252, 250, 246, 0.95);
+        border-bottom-color: rgba(15, 23, 42, 0.14);
+        box-shadow: 0 8px 24px rgba(2, 10, 32, 0.08);
       }
 
       .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 74px;
+        height: 72px;
         position: relative;
         z-index: 2;
       }
@@ -293,65 +296,49 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 4px;
       }
 
       .nav-links a {
-        color: rgba(10, 28, 60, 0.8);
-        font-weight: 650;
+        color: rgba(15, 23, 42, 0.74);
+        font-weight: 680;
         font-size: 14px;
-        padding: 10px 13px;
+        padding: 9px 12px;
         border-radius: 12px;
         border: 1px solid transparent;
-        transition: background 150ms ease, color 150ms ease, transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+        transition: background 150ms ease, color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
       }
 
       .nav-links a:hover {
-        background: rgba(255, 255, 255, 0.62);
-        border-color: rgba(11, 31, 66, 0.1);
-        box-shadow: 0 10px 24px rgba(2, 10, 32, 0.08);
+        background: rgba(255, 255, 255, 0.72);
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 8px 20px rgba(2, 10, 32, 0.08);
         color: var(--secondary);
-        transform: translateY(-1px);
         text-decoration: none;
       }
 
       .nav-links a.active {
         color: var(--secondary);
-        background: rgba(255, 255, 255, 0.74);
-        border-color: rgba(11, 31, 66, 0.12);
-        box-shadow: 0 12px 28px rgba(2, 10, 32, 0.09);
-        position: relative;
-      }
-
-      .nav-links a.active::after {
-        content: "";
-        position: absolute;
-        left: 10px;
-        right: 10px;
-        bottom: 6px;
-        height: 2px;
-        border-radius: 999px;
-        background: rgba(37, 99, 235, 0.55);
+        background: rgba(255, 255, 255, 0.8);
+        border-color: rgba(15, 23, 42, 0.14);
+        box-shadow: 0 8px 18px rgba(2, 10, 32, 0.08);
       }
 
       .nav-links a.cta {
         padding: 10px 14px;
-        background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
-        background-size: 160% 160%;
+        background: linear-gradient(135deg, #245adf 0%, #0a8cb8 100%);
         color: #fff;
         border-radius: 14px;
-        font-weight: 700;
+        font-weight: 760;
         line-height: 1;
         white-space: nowrap;
-        box-shadow: 0 14px 30px rgba(15, 95, 240, 0.3);
+        box-shadow: 0 12px 26px rgba(36, 90, 223, 0.24);
         border: 1px solid rgba(255, 255, 255, 0.28);
-        animation: ctaGradientShift 9s ease infinite;
       }
 
       .nav-links a.cta:hover {
         text-decoration: none;
-        transform: translateY(-1px);
-        box-shadow: 0 16px 34px rgba(2, 6, 23, 0.14);
+        box-shadow: 0 14px 30px rgba(2, 6, 23, 0.16);
       }
 
       .menu-toggle {
@@ -377,7 +364,7 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         .nav-links {
           display: none;
           position: fixed;
-          top: 74px;
+          top: 72px;
           right: 12px;
           left: 12px;
           bottom: auto;
@@ -411,7 +398,6 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         .logo-mark { display: block !important; }
 
         .nav-links a { margin: 0; padding: 12px 12px; border-radius: 14px; }
-        .nav-links a.active::after { left: 12px; right: 12px; bottom: 7px; }
       }
 
       /* ---------- Main / Footer ---------- */
@@ -429,8 +415,7 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
       footer {
         border-top: 1px solid var(--border);
         margin-top: 72px;
-        background:
-          linear-gradient(180deg, rgba(248, 252, 255, 0.82), rgba(240, 247, 255, 0.95));
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(248, 243, 235, 0.92));
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
       }
@@ -438,16 +423,16 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
       .footer {
         max-width: var(--container);
         margin: 0 auto;
-        padding: 36px var(--gutter);
+        padding: 34px var(--gutter);
         font-size: 14px;
-        color: rgba(84, 97, 123, 0.95);
+        color: rgba(15, 23, 42, 0.72);
         display: grid;
-        gap: 16px;
+        gap: 18px;
       }
 
       .footerTop {
         display: grid;
-        gap: 16px;
+        gap: 18px;
         grid-template-columns: 1fr;
       }
 
@@ -457,80 +442,57 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
       }
 
       .footerBrandLine {
-        color: rgba(7, 20, 48, 0.92);
-        font-size: 15px;
-        font-weight: 760;
+        color: rgba(15, 23, 42, 0.92);
+        font-size: 16px;
+        font-weight: 780;
       }
 
       .footerTagline {
-        color: rgba(31, 41, 55, 0.72);
+        color: rgba(15, 23, 42, 0.66);
         font-size: 14px;
-      }
-
-      .footerPills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .footerPill {
-        border: 1px solid rgba(11, 31, 66, 0.12);
-        border-radius: 999px;
-        padding: 6px 10px;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(13, 43, 95, 0.84);
-        background: rgba(255, 255, 255, 0.72);
       }
 
       .footerLinks {
         display: grid;
-        gap: 12px;
+        gap: 14px;
         grid-template-columns: 1fr;
       }
 
       .footerLinkGroup {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
         gap: 8px;
-        align-items: center;
+        align-content: start;
       }
 
       .footerLinkK {
-        flex-basis: 100%;
-        color: rgba(17, 24, 39, 0.56);
-        font-size: 11px;
-        font-weight: 900;
+        color: rgba(15, 23, 42, 0.56);
+        font-size: 10px;
+        font-weight: 860;
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
 
       .footerLinks a {
-        border: 1px solid rgba(11, 31, 66, 0.12);
-        border-radius: 999px;
-        padding: 8px 12px;
-        color: rgba(7, 20, 48, 0.86);
-        font-size: 12px;
-        font-weight: 700;
-        background: rgba(255, 255, 255, 0.72);
+        color: rgba(15, 23, 42, 0.78);
+        font-size: 14px;
+        font-weight: 630;
         text-decoration: none;
+        width: fit-content;
       }
 
       .footerLinks a:hover {
-        border-color: rgba(15, 95, 240, 0.34);
-        color: #0f5ff0;
+        color: #1f4dc4;
+        text-decoration: underline;
       }
 
       .footerMeta {
-        color: rgba(31, 41, 55, 0.66);
+        color: rgba(15, 23, 42, 0.58);
         font-size: 13px;
       }
 
       @media (min-width: 920px) {
         .footerTop {
-          grid-template-columns: 1.2fr 1fr;
+          grid-template-columns: 1.1fr 1.9fr;
           align-items: start;
         }
       }
@@ -539,55 +501,6 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         .footerLinks {
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
-      }
-
-      .mobileQuickCta {
-        position: fixed;
-        left: max(12px, var(--safe-left));
-        right: max(12px, var(--safe-right));
-        bottom: calc(12px + var(--safe-bottom));
-        z-index: 70;
-        display: none;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid rgba(11, 31, 66, 0.18);
-        border-radius: 16px;
-        background: rgba(248, 252, 255, 0.9);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        box-shadow: 0 18px 44px rgba(2, 10, 32, 0.18);
-        padding: 8px;
-        transform: translateY(0);
-        transition: transform 220ms ease, opacity 220ms ease;
-      }
-
-      .mobileQuickCta.hiddenRail {
-        transform: translateY(90px);
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .mobileQuickCta a {
-        flex: 1;
-        min-width: 0;
-        text-align: center;
-        border-radius: 12px;
-        font-size: 13px;
-        font-weight: 820;
-        padding: 10px 10px;
-        text-decoration: none;
-      }
-
-      .mobileQuickCta a.primary {
-        color: #fff;
-        background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
-        border: 1px solid rgba(255, 255, 255, 0.24);
-      }
-
-      .mobileQuickCta a.secondary {
-        color: rgba(7, 20, 48, 0.88);
-        background: rgba(255, 255, 255, 0.82);
-        border: 1px solid rgba(11, 31, 66, 0.14);
       }
 
       .cookieBanner {
@@ -644,25 +557,13 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         padding: 10px 14px;
       }
 
-      body.cookieBannerVisible .mobileQuickCta {
-        display: none !important;
-      }
-
       @media (max-width: 768px) {
-        .mobileQuickCta {
-          display: flex;
-        }
-
         body {
-          padding-bottom: calc(84px + var(--safe-bottom));
+          padding-bottom: calc(18px + var(--safe-bottom));
         }
 
         .cookieBanner {
           bottom: calc(14px + var(--safe-bottom));
-        }
-
-        body.cookieBannerVisible {
-          padding-bottom: calc(138px + var(--safe-bottom));
         }
       }
 
@@ -970,14 +871,12 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
       }
 
       .btnPrimary {
-        background: linear-gradient(135deg, #0f5ff0 0%, #155dfc 52%, #06b6d4 100%);
-        background-size: 160% 160%;
+        background: linear-gradient(135deg, #245adf 0%, #0a8cb8 100%);
         color: #fff;
         border-color: rgba(255, 255, 255, 0.3);
-        box-shadow: 0 18px 36px rgba(15, 95, 240, 0.3);
-        animation: ctaGradientShift 9s ease infinite;
+        box-shadow: 0 16px 30px rgba(36, 90, 223, 0.24);
       }
-      .btnPrimary:hover { box-shadow: 0 24px 44px rgba(15, 95, 240, 0.38); }
+      .btnPrimary:hover { box-shadow: 0 20px 38px rgba(36, 90, 223, 0.3); }
 
       .btnGhost { background: transparent; box-shadow: none; }
 
@@ -998,12 +897,6 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         transform: translateY(0) scale(1);
       }
 
-      @keyframes ctaGradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-
       @media (prefers-reduced-motion: reduce) {
         * { scroll-behavior: auto !important; }
         .btn, .nav-links a { transition: none !important; }
@@ -1018,9 +911,6 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         body::before,
         body::after {
           display: none;
-        }
-        .mobileQuickCta {
-          transition: none !important;
         }
       }
     </style>
@@ -1083,11 +973,6 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
           <div class="footerBrand">
             <div class="footerBrandLine"><strong>EraIn AI</strong> - Intelligence that runs business execution</div>
             <div class="footerTagline">Auditability, decision governance, and measurable ROI attribution.</div>
-            <div class="footerPills" aria-label="Trust pillars">
-              <span class="footerPill">Audit-First</span>
-              <span class="footerPill">Governed Decisions</span>
-              <span class="footerPill">ROI Verified</span>
-            </div>
           </div>
           <div class="footerLinks" aria-label="Footer actions">
             <div class="footerLinkGroup">
@@ -1106,7 +991,7 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
               <a href="/events">Events</a>
               <a href="/tutorials">Tutorials</a>
               <a href="/engineering">Engineering</a>
-              <a href="/developers">Developer Docs</a>
+              <a href="/developer-docs">Developer Docs</a>
             </div>
             <div class="footerLinkGroup">
               <div class="footerLinkK">Trust</div>
@@ -1122,11 +1007,6 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
         <div class="footerMeta">Email: hello@erainai.com</div>
       </div>
     </footer>
-
-    <div class="mobileQuickCta hiddenRail" id="mobileQuickCta" aria-label="Quick actions">
-      <a class="primary" href="/request-assessment" data-track="mobile_quick_audit">Start Free Audit</a>
-      <a class="secondary" href="/results" data-track="mobile_quick_results">Results</a>
-    </div>
 
     <div class="cookieBanner hidden" id="cookieBanner" role="dialog" aria-label="Cookie preferences" aria-live="polite">
       <div class="cookieBannerBody">
@@ -1271,31 +1151,6 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
             const onScroll = () => {
               header.classList.toggle("scrolled", window.scrollY > 8);
             };
-            onScroll();
-            window.addEventListener("scroll", onScroll, { passive: true });
-          }
-        } catch (_) {}
-
-        // Mobile quick CTA rail
-        try {
-          const rail = $("mobileQuickCta");
-          if (rail && window.innerWidth <= 768) {
-            let lastY = window.scrollY;
-            const onScroll = () => {
-              const y = window.scrollY;
-              const scrollingDown = y > lastY;
-              if (y < 80) {
-                rail.classList.add("hiddenRail");
-              } else {
-                rail.classList.toggle("hiddenRail", scrollingDown);
-              }
-              lastY = y;
-            };
-
-            requestAnimationFrame(() => {
-              rail.classList.remove("hiddenRail");
-            });
-
             onScroll();
             window.addEventListener("scroll", onScroll, { passive: true });
           }

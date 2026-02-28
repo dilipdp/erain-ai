@@ -79,17 +79,17 @@ const pipelineInr = toNumber(latestScore?.weekly_new_pipeline_inr || latestReven
 const pipelineLabel = Number.isFinite(pipelineInr) && pipelineInr > 0 ? `INR ${formatCr(pipelineInr)} Cr` : "INR n/a";
 
 const percentValues = caseRows.map((row) => extractPercent(row.measured_delta)).filter((v) => Number.isFinite(v));
-let executionRecoveryLabel = "15–31%";
+let executionRecoveryLabel = "15-31%";
 if (percentValues.length > 0) {
   const min = Math.min(...percentValues);
   const max = Math.max(...percentValues);
-  executionRecoveryLabel = min === max ? `${min}%` : `${min}%–${max}%`;
+  executionRecoveryLabel = min === max ? `${min}%` : `${min}%-${max}%`;
 }
 
 const impactValues = caseRows
   .map((row) => toNumber(row.annualized_impact_inr))
   .filter((v) => Number.isFinite(v) && v > 0);
-let recoveryPathInrLabel = "INR 1.2 Cr–4.6 Cr";
+let recoveryPathInrLabel = "INR 1.2 Cr-4.6 Cr";
 let recoveryPathUsdLabel = "Approx USD 145k-554k";
 if (impactValues.length > 0) {
   const min = Math.min(...impactValues);
@@ -119,591 +119,473 @@ const resultsJsonLd = JSON.stringify({
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="results">
-    <header class="resHero">
-      <div class="resHeroCopy">
-        <div class="badgeRow" aria-label="Results positioning">
+  <section class="resultsV2">
+    <header class="resultsHero reveal">
+      <div class="resultsCopy">
+        <div class="badgeRow">
           <span class="badge badgeSoft">{proofBadge}</span>
           <span class="badge badgeSoft">Owner-mapped execution</span>
           <span class="badge badgeSoft">ROI attribution</span>
-          <span class="badge badgeSoft">Launch ledger verified</span>
         </div>
 
-        <h1 class="h1">Results that leadership can verify.</h1>
-        <p class="lead">
-          EraIn engagements are measured on operating outcomes, not AI activity.
-          The patterns below are anonymized until clients approve public naming, but each item maps to evidence-linked execution records.
+        <h1 class="h1 resultsTitle">Results leadership can verify.</h1>
+        <p class="lead resultsLead">
+          EraIn programs are measured on operating movement, not AI activity. Public pages stay anonymized until client approval,
+          but every result here maps to evidence-linked execution records.
         </p>
 
-        <div class="resHeroSignalRow" role="list" aria-label="Results signal highlights">
-          <div class="resHeroSignal" role="listitem">
-            <div class="resHeroSignalK">Proof Records</div>
-            <div class="resHeroSignalV">{caseCount}</div>
-            <div class="resHeroSignalT">Tracked operating proof packs in the current ledger.</div>
-          </div>
-          <div class="resHeroSignal" role="listitem">
-            <div class="resHeroSignalK">Named References</div>
-            <div class="resHeroSignalV">{namedRatioLabel}</div>
-            <div class="resHeroSignalT">Named approvals vs total case records.</div>
-          </div>
-          <div class="resHeroSignal" role="listitem">
-            <div class="resHeroSignalK">Latest Pipeline</div>
-            <div class="resHeroSignalV">{pipelineLabel}</div>
-            <div class="resHeroSignalT">Most recent weekly pipeline value from the operating tracker.</div>
-          </div>
+        <div class="signalGrid" role="list" aria-label="Results headline signals">
+          <article class="signalCard" role="listitem">
+            <div class="signalK">Proof records</div>
+            <div class="signalV">{caseCount}</div>
+            <div class="signalT">Tracked proof packs in the current ledger.</div>
+          </article>
+          <article class="signalCard" role="listitem">
+            <div class="signalK">Named references</div>
+            <div class="signalV">{namedRatioLabel}</div>
+            <div class="signalT">Named approvals against total evidence packs.</div>
+          </article>
+          <article class="signalCard" role="listitem">
+            <div class="signalK">Latest pipeline</div>
+            <div class="signalV">{pipelineLabel}</div>
+            <div class="signalT">Most recent weekly pipeline reported in the ops tracker.</div>
+          </article>
         </div>
       </div>
 
-      <aside class="resHeroMedia">
-        <div class="resVisualShell">
+      <aside class="resultsMedia">
+        <div class="resultsVisualShell">
           <img
             src="/erain-results-cosmos.svg"
-            alt="EraIn results cosmos showing verified outcomes flowing through the execution core."
+            alt="EraIn results map connecting execution metrics to measurable outcomes"
             width="1600"
             height="940"
             loading="eager"
             decoding="async"
           />
         </div>
-        <div class="resVisualMeta">{releaseMeta}</div>
+        <p class="resultsMeta">{releaseMeta}</p>
       </aside>
     </header>
 
-    <section class="resBand" aria-label="Outcome bands">
-      <article class="resBandCard">
-        <div class="resBandK">Execution Recovery</div>
-        <div class="resBandV">{executionRecoveryLabel}</div>
-        <div class="resBandT">Observed delay/cycle-time recovery in tracked engagement records.</div>
+    <section class="bands reveal" aria-label="Outcome bands">
+      <article class="bandCard">
+        <div class="bandK">Execution recovery</div>
+        <div class="bandV">{executionRecoveryLabel}</div>
+        <p>Observed reduction range in cycle drift and execution volatility.</p>
       </article>
-      <article class="resBandCard">
-        <div class="resBandK">Response Discipline</div>
-        <div class="resBandV">{responseSlaLabel}</div>
-        <div class="resBandT">Latest lead-response SLA from the weekly operating scoreboard.</div>
+      <article class="bandCard">
+        <div class="bandK">Response discipline</div>
+        <div class="bandV">{responseSlaLabel}</div>
+        <p>Current SLA discipline from weekly operating reviews.</p>
       </article>
-      <article class="resBandCard">
-        <div class="resBandK">Recovery Path</div>
-        <div class="resBandV">{recoveryPathInrLabel}</div>
-        <div class="resBandS">{recoveryPathUsdLabel}</div>
-        <div class="resBandT">Attributed value window identified in early deployment cycles.</div>
+      <article class="bandCard">
+        <div class="bandK">Recovery path</div>
+        <div class="bandV">{recoveryPathInrLabel}</div>
+        <div class="bandSub">{recoveryPathUsdLabel}</div>
+        <p>Attributed value window from audited interventions.</p>
       </article>
     </section>
 
-    <section class="resCases" aria-label="Representative cases">
-      <article class="resCase">
-        <div class="resCaseMeta">Industrial network · multi-site · 90-day cycle</div>
-        <h2 class="h2">Delay variance stabilized after owner-path redesign</h2>
-        <p class="resCaseP">
-          Initial audits identified handoff volatility and unresolved approval queues. EraIn installed escalation logic and owner checkpoints.
-        </p>
-        <div class="resCaseStats">
-          <div><strong>-22%</strong><span>delay variance</span></div>
-          <div><strong>94%</strong><span>evidence coverage</span></div>
-          <div><strong>2.7x</strong><span>faster approvals</span></div>
+    <section class="cases reveal" aria-label="Representative case patterns">
+      <article class="caseCard">
+        <div class="caseMeta">Industrial network · 90-day cycle</div>
+        <h2 class="h2">Delay variance stabilized through owner-path governance</h2>
+        <p>Audit signals exposed unstable approval queues. Governance mapping restored execution rhythm.</p>
+        <div class="caseStats">
+          <span>-22% delay variance</span>
+          <span>94% evidence coverage</span>
+          <span>2.7x faster approvals</span>
         </div>
       </article>
-
-      <article class="resCase">
-        <div class="resCaseMeta">Logistics + services · multi-city · 60-day sprint</div>
-        <h2 class="h2">Execution drift reduced with weekly decision briefs</h2>
-        <p class="resCaseP">
-          Teams had fragmented priorities. Structured decision governance and action-to-owner tracking improved resolution cadence.
-        </p>
-        <div class="resCaseStats">
-          <div><strong>-31%</strong><span>escalation latency</span></div>
-          <div><strong>88%</strong><span>closure rate</span></div>
-          <div><strong>3.1x</strong><span>decision velocity</span></div>
+      <article class="caseCard">
+        <div class="caseMeta">Logistics + services · 60-day sprint</div>
+        <h2 class="h2">Decision drift reduced with weekly control cadence</h2>
+        <p>Role accountability and escalation thresholds improved closure speed across cross-functional lanes.</p>
+        <div class="caseStats">
+          <span>-31% escalation latency</span>
+          <span>88% action closure</span>
+          <span>3.1x decision velocity</span>
         </div>
       </article>
-
-      <article class="resCase">
-        <div class="resCaseMeta">Enterprise portfolio · 12 units · 120-day arc</div>
+      <article class="caseCard">
+        <div class="caseMeta">Enterprise portfolio · 120-day arc</div>
         <h2 class="h2">Attribution ledger aligned initiatives to measurable value</h2>
-        <p class="resCaseP">
-          Multiple disconnected initiatives were merged into one accountable value map with recurring executive review loops.
-        </p>
-        <div class="resCaseStats">
-          <div><strong>INR 4.6 Cr</strong><span>value path</span></div>
-          <div><strong>100%</strong><span>owner mapping</span></div>
-          <div><strong>12 weeks</strong><span>first value window</span></div>
+        <p>Disconnected workstreams were merged into one accountable value trajectory with executive checkpoints.</p>
+        <div class="caseStats">
+          <span>INR 4.6 Cr value path</span>
+          <span>100% owner mapping</span>
+          <span>12-week first window</span>
         </div>
       </article>
     </section>
 
-    <section class="resLedger" aria-label="Verification ledger">
-      <div class="resLedgerHead">
-        <div class="resLedgerKicker">Verification Ledger</div>
-        <h2 class="h2">Public-proof release status</h2>
+    <section class="ledger reveal" aria-label="Public proof release ledger">
+      <div class="ledgerHead">
+        <div class="ledgerEyebrow">Verification Ledger</div>
+        <h2 class="h2">Public release status</h2>
       </div>
-
-      <div class="resLedgerTable" role="table" aria-label="Public proof table">
-        <div class="resLedgerRow resLedgerRowHead" role="row">
-          <div class="resLedgerCell" role="columnheader">Evidence Pack</div>
-          <div class="resLedgerCell" role="columnheader">Release State</div>
-          <div class="resLedgerCell" role="columnheader">Last Review</div>
+      <div class="ledgerTable" role="table" aria-label="Proof release table">
+        <div class="ledgerRow ledgerRowHead" role="row">
+          <div class="ledgerCell" role="columnheader">Evidence pack</div>
+          <div class="ledgerCell" role="columnheader">Release state</div>
+          <div class="ledgerCell" role="columnheader">Last review</div>
         </div>
-        <div class="resLedgerRow" role="row">
-          <div class="resLedgerCell" role="cell">Industrial execution recovery pack</div>
-          <div class="resLedgerCell" role="cell">Anonymized public release</div>
-          <div class="resLedgerCell" role="cell">{latestWeekLabel} · Delivery Governance</div>
+        <div class="ledgerRow" role="row">
+          <div class="ledgerCell" role="cell">Industrial execution recovery pack</div>
+          <div class="ledgerCell" role="cell">Anonymized public release</div>
+          <div class="ledgerCell" role="cell">{latestWeekLabel} · Delivery governance</div>
         </div>
-        <div class="resLedgerRow" role="row">
-          <div class="resLedgerCell" role="cell">Logistics governance acceleration pack</div>
-          <div class="resLedgerCell" role="cell">{namedCaseCount > 0 ? "Named release approved" : "Named release pending client approval"}</div>
-          <div class="resLedgerCell" role="cell">{latestWeekLabel} · Program Operations</div>
+        <div class="ledgerRow" role="row">
+          <div class="ledgerCell" role="cell">Logistics governance acceleration pack</div>
+          <div class="ledgerCell" role="cell">{namedCaseCount > 0 ? "Named release approved" : "Named release pending approval"}</div>
+          <div class="ledgerCell" role="cell">{latestWeekLabel} · Program operations</div>
         </div>
-        <div class="resLedgerRow" role="row">
-          <div class="resLedgerCell" role="cell">Enterprise attribution proof pack</div>
-          <div class="resLedgerCell" role="cell">Internal evidence complete</div>
-          <div class="resLedgerCell" role="cell">{latestWeekLabel} · Impact AI Office</div>
+        <div class="ledgerRow" role="row">
+          <div class="ledgerCell" role="cell">Enterprise attribution proof pack</div>
+          <div class="ledgerCell" role="cell">Internal evidence complete</div>
+          <div class="ledgerCell" role="cell">{latestWeekLabel} · Impact office</div>
         </div>
       </div>
     </section>
 
-    <section class="resReference" aria-label="Reference program">
-      <div class="resReferenceHead">
-        <div class="resReferenceKicker">Reference Program</div>
-        <h2 class="h2">Proof access for serious buyers</h2>
-        <p class="resReferenceLead">
-          Public case naming stays anonymized until client approval. For qualified enterprise evaluations, we run a controlled
-          reference desk with NDA-governed proof packs and outcome walkthroughs.
+    <section class="reference reveal" aria-label="Reference process">
+      <div class="referenceCopy">
+        <div class="ledgerEyebrow">Reference Program</div>
+        <h2 class="h2">NDA-governed proof access for qualified buyers.</h2>
+        <p>
+          We provide controlled walkthroughs of governance design, intervention logic, and outcome movement when legal and qualification criteria are met.
         </p>
       </div>
-      <div class="resReferenceGrid" role="list" aria-label="Reference program details">
-        <article class="resReferenceCard" role="listitem">
-          <div class="resReferenceLabel">Reference format</div>
-          <div class="resReferenceValue">NDA-ledger call</div>
-          <div class="resReferenceText">Owner-mapped walkthrough of operating baseline, intervention path, and measurable outcome.</div>
-        </article>
-        <article class="resReferenceCard" role="listitem">
-          <div class="resReferenceLabel">Review window</div>
-          <div class="resReferenceValue">48-72 hours</div>
-          <div class="resReferenceText">Qualification plus legal checks, then evidence-pack scheduling with program owners.</div>
-        </article>
-        <article class="resReferenceCard" role="listitem">
-          <div class="resReferenceLabel">Output package</div>
-          <div class="resReferenceValue">Governance + ROI trail</div>
-          <div class="resReferenceText">Decision map, execution cadence, and attribution method used to validate impact.</div>
-        </article>
-      </div>
-      <div class="resReferenceActions">
+      <div class="referenceActions">
         <a class="btn btnPrimary" href="/contact?topic=reference-program" data-track="results_reference_request">Request reference review</a>
-        <a class="btn" href="/sample-report.pdf" download data-track="results_reference_download_pack">Download sample audit pack</a>
+        <a class="btn" href="/sample-report.pdf" download data-track="results_reference_download">Download sample audit pack</a>
       </div>
-    </section>
-
-    <section class="resActions" aria-label="Results actions">
-      <a class="btn btnPrimary" href="/request-assessment" data-track="results_start_audit">Start Free AI Audit</a>
-      <a class="btn" href="/sample-report.pdf" download data-track="results_download_sample_pdf">Download Sample Audit (PDF)</a>
-      <a class="btn" href="/contact" data-track="results_contact">Discuss your use case</a>
     </section>
   </section>
 
   <script type="application/ld+json" is:inline>{resultsJsonLd}</script>
 
   <style>
-    .results {
-      max-width: 1240px;
+    .resultsV2 {
+      max-width: 1340px;
       margin: 0 auto;
-      padding: 10px 0 4px;
+      display: grid;
+      gap: 24px;
+      padding-bottom: 20px;
     }
 
-    .resHero {
-      border: 1px solid rgba(11, 31, 66, 0.14);
+    .resultsHero,
+    .bands,
+    .cases,
+    .ledger,
+    .reference {
+      border: 1px solid rgba(15, 23, 42, 0.11);
       border-radius: 28px;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.95) 0%,
-          rgba(246, 251, 255, 0.9) 56%,
-          rgba(243, 249, 255, 0.88) 100%
-        );
-      box-shadow: 0 24px 60px rgba(2, 10, 32, 0.14);
-      padding: 18px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3vw, 30px);
+    }
+
+    .resultsHero {
       display: grid;
-      gap: 14px;
+      gap: 18px;
     }
 
-    .resHero > * {
+    .resultsCopy,
+    .resultsMedia {
       min-width: 0;
     }
 
-    .resHeroCopy {
-      min-width: 0;
-      max-width: 82ch;
-    }
-
-    .resHero .badgeRow {
-      justify-content: flex-start;
-      margin-bottom: 12px;
-    }
-
-    .resHero .lead {
-      max-width: 74ch;
-    }
-
-    .resHeroSignalRow {
+    .resultsTitle {
       margin-top: 12px;
-      display: grid;
-      gap: 8px;
-      grid-template-columns: 1fr;
+      max-width: 16ch;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 860;
     }
 
-    .resHeroSignal {
-      border: 1px solid rgba(11, 31, 66, 0.12);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.78);
-      box-shadow: 0 10px 26px rgba(2, 10, 32, 0.08);
-      padding: 9px 10px;
+    .resultsLead {
+      margin-top: 14px;
+      max-width: 70ch;
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.58;
+      color: rgba(15, 23, 42, 0.7);
     }
 
-    .resHeroSignalK {
-      color: rgba(17, 24, 39, 0.56);
-      font-size: 10px;
-      font-weight: 880;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .resHeroSignalV {
-      margin-top: 4px;
-      color: rgba(7, 20, 48, 0.92);
-      font-size: 18px;
-      line-height: 1.14;
-      letter-spacing: -0.01em;
-      font-weight: 830;
-    }
-
-    .resHeroSignalT {
-      margin-top: 4px;
-      color: rgba(17, 24, 39, 0.68);
-      font-size: 12px;
-      line-height: 1.52;
-    }
-
-    .resHeroMedia {
-      display: grid;
-      gap: 8px;
-      align-content: start;
-      min-width: 0;
-      width: 100%;
-    }
-
-    .resVisualShell {
-      border: 1px solid rgba(120, 181, 255, 0.34);
-      border-radius: 24px;
-      overflow: hidden;
-      padding: 5px;
-      width: 100%;
-      max-width: 100%;
-      background:
-        linear-gradient(145deg, rgba(7, 26, 64, 0.95), rgba(9, 40, 86, 0.92) 56%, rgba(8, 28, 66, 0.94));
-      box-shadow: 0 24px 56px rgba(2, 10, 32, 0.28);
-    }
-
-    .resVisualShell img {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      border-radius: 18px;
-      filter: saturate(1.04) contrast(1.03);
-    }
-
-    .resVisualMeta {
-      color: rgba(17, 24, 39, 0.58);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 760;
-    }
-
-    .resBand {
+    .signalGrid {
       margin-top: 16px;
       display: grid;
       gap: 10px;
       grid-template-columns: 1fr;
     }
 
-    .resBandCard {
-      border: 1px solid rgba(11, 31, 66, 0.12);
-      border-radius: 18px;
-      background:
-        linear-gradient(145deg, rgba(7, 24, 56, 0.96), rgba(9, 39, 86, 0.92) 56%, rgba(8, 27, 62, 0.94));
-      box-shadow: 0 18px 40px rgba(2, 10, 32, 0.18);
-      padding: 12px 13px;
-      color: #eaf5ff;
-    }
-
-    .resBandK {
-      color: rgba(175, 222, 255, 0.94);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .resBandV {
-      margin-top: 7px;
-      color: rgba(241, 249, 255, 0.98);
-      font-size: 30px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      font-weight: 840;
-    }
-
-    .resBandT {
-      margin-top: 7px;
-      color: rgba(190, 216, 241, 0.9);
-      font-size: 13px;
-      line-height: 1.58;
-    }
-
-    .resBandS {
-      margin-top: 4px;
-      color: rgba(186, 214, 242, 0.84);
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-weight: 780;
-    }
-
-    .resCases {
-      margin-top: 14px;
-      display: grid;
-      gap: 10px;
-      grid-template-columns: 1fr;
-    }
-
-    .resCase {
-      border: 1px solid rgba(11, 31, 66, 0.12);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.84);
-      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.1);
-      padding: 13px;
-    }
-
-    .resCaseMeta {
-      color: rgba(17, 24, 39, 0.56);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .resCase h2 {
-      margin-top: 8px;
-      font-size: 24px;
-      line-height: 1.16;
-      letter-spacing: -0.02em;
-    }
-
-    .resCaseP {
-      margin-top: 8px;
-      color: rgba(17, 24, 39, 0.72);
-      font-size: 14px;
-      line-height: 1.66;
-    }
-
-    .resCaseStats {
-      margin-top: 10px;
-      display: grid;
-      gap: 8px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .resCaseStats div {
-      border: 1px solid rgba(11, 31, 66, 0.12);
-      border-radius: 12px;
-      background: rgba(16, 24, 40, 0.03);
-      padding: 8px 9px;
-      display: grid;
-      gap: 2px;
-    }
-
-    .resCaseStats strong {
-      color: rgba(7, 20, 48, 0.9);
-      font-size: 16px;
-      line-height: 1.15;
-    }
-
-    .resCaseStats span {
-      color: rgba(17, 24, 39, 0.58);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 760;
-    }
-
-    .resLedger {
-      margin-top: 14px;
-      border: 1px solid rgba(11, 31, 66, 0.12);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.09);
-      padding: 14px;
-    }
-
-    .resLedgerKicker {
-      display: inline-flex;
-      border: 1px solid rgba(11, 31, 66, 0.14);
-      border-radius: 999px;
-      background: rgba(16, 24, 40, 0.04);
-      color: rgba(7, 20, 48, 0.86);
-      padding: 7px 11px;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .resLedgerTable {
-      margin-top: 10px;
-      display: grid;
-      gap: 8px;
-    }
-
-    .resLedgerRow {
-      display: grid;
-      gap: 8px;
-      grid-template-columns: 1fr;
-      border: 1px solid rgba(11, 31, 66, 0.12);
-      border-radius: 14px;
-      padding: 10px;
+    .signalCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
       background: rgba(255, 255, 255, 0.74);
+      padding: 12px 14px;
     }
 
-    .resLedgerRowHead {
-      background: rgba(16, 24, 40, 0.04);
+    .signalK {
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
     }
 
-    .resLedgerCell {
-      color: rgba(17, 24, 39, 0.72);
+    .signalV {
+      margin-top: 5px;
+      color: rgba(15, 23, 42, 0.94);
+      font-size: 23px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-weight: 800;
+    }
+
+    .signalT {
+      margin-top: 6px;
+      color: rgba(15, 23, 42, 0.66);
       font-size: 13px;
       line-height: 1.56;
     }
 
-    .resLedgerRowHead .resLedgerCell {
-      color: rgba(7, 20, 48, 0.88);
-      font-weight: 860;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    .resultsVisualShell {
+      border: 1px solid rgba(120, 181, 255, 0.28);
+      border-radius: 24px;
+      overflow: hidden;
+      padding: 8px;
+      background: linear-gradient(145deg, rgba(8, 26, 64, 0.96), rgba(9, 38, 82, 0.9));
+      box-shadow: 0 30px 64px rgba(2, 10, 32, 0.26);
+    }
+
+    .resultsVisualShell img {
+      display: block;
+      width: 100%;
+      border-radius: 16px;
+      height: auto;
+    }
+
+    .resultsMeta {
+      margin: 8px 0 0;
       font-size: 11px;
-    }
-
-    .resActions {
-      margin-top: 14px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .resReference {
-      margin-top: 14px;
-      border: 1px solid rgba(11, 31, 66, 0.12);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.09);
-      padding: 14px;
-    }
-
-    .resReferenceKicker {
-      display: inline-flex;
-      border: 1px solid rgba(11, 31, 66, 0.14);
-      border-radius: 999px;
-      background: rgba(16, 24, 40, 0.04);
-      color: rgba(7, 20, 48, 0.86);
-      padding: 7px 11px;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.14em;
+      font-weight: 760;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.58);
     }
 
-    .resReferenceLead {
-      margin: 10px 0 0;
-      color: rgba(17, 24, 39, 0.7);
-      line-height: 1.7;
-      font-size: 14px;
-      max-width: 88ch;
-    }
-
-    .resReferenceGrid {
-      margin-top: 12px;
+    .bands {
       display: grid;
-      gap: 8px;
+      gap: 12px;
       grid-template-columns: 1fr;
     }
 
-    .resReferenceCard {
-      border: 1px solid rgba(11, 31, 66, 0.12);
+    .bandCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: linear-gradient(160deg, rgba(15, 23, 42, 0.94), rgba(21, 52, 112, 0.9));
+      color: #e7f3ff;
+      box-shadow: 0 20px 44px rgba(2, 10, 32, 0.2);
+    }
+
+    .bandK {
+      font-size: 10px;
+      font-weight: 840;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(189, 221, 255, 0.9);
+    }
+
+    .bandV {
+      margin-top: 8px;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      font-weight: 820;
+      color: #f2f8ff;
+    }
+
+    .bandSub {
+      margin-top: 4px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(191, 219, 249, 0.82);
+      font-weight: 760;
+    }
+
+    .bandCard p {
+      margin: 8px 0 0;
+      color: rgba(208, 229, 250, 0.9);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .cases {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .caseCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .caseMeta {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+      font-weight: 840;
+    }
+
+    .caseCard h2 {
+      margin-top: 8px;
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .caseCard p {
+      margin: 8px 0 0;
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .caseStats {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .caseStats span {
+      display: inline-flex;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 760;
+      color: rgba(15, 23, 42, 0.78);
+      width: fit-content;
+    }
+
+    .ledgerHead {
+      margin-bottom: 10px;
+    }
+
+    .ledgerEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .ledgerTable {
+      display: grid;
+      gap: 8px;
+    }
+
+    .ledgerRow {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+      border: 1px solid rgba(15, 23, 42, 0.1);
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.74);
       padding: 10px;
     }
 
-    .resReferenceLabel {
-      color: rgba(17, 24, 39, 0.56);
-      font-size: 10px;
-      font-weight: 860;
-      letter-spacing: 0.11em;
+    .ledgerRowHead {
+      background: rgba(15, 23, 42, 0.05);
+    }
+
+    .ledgerCell {
+      color: rgba(15, 23, 42, 0.75);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .ledgerRowHead .ledgerCell {
+      color: rgba(15, 23, 42, 0.9);
+      font-size: 11px;
+      font-weight: 840;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .resReferenceValue {
-      margin-top: 5px;
-      color: rgba(7, 20, 48, 0.92);
-      font-size: 20px;
-      line-height: 1.16;
-      letter-spacing: -0.01em;
-      font-weight: 840;
+    .reference {
+      display: grid;
+      gap: 14px;
+      align-items: center;
     }
 
-    .resReferenceText {
-      margin-top: 6px;
-      color: rgba(17, 24, 39, 0.68);
-      font-size: 13px;
-      line-height: 1.58;
+    .referenceCopy p {
+      margin: 10px 0 0;
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 15px;
+      line-height: 1.62;
+      max-width: 76ch;
     }
 
-    .resReferenceActions {
-      margin-top: 12px;
+    .referenceActions {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
     }
 
     @media (min-width: 980px) {
-      .resHero {
-        grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+      .resultsHero {
+        grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
         align-items: start;
-        gap: 16px;
       }
 
-      .resHeroSignalRow {
+      .signalGrid,
+      .bands,
+      .cases {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .resBand {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .ledgerRow {
+        grid-template-columns: 1fr 0.9fr 1.1fr;
       }
 
-      .resCases {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .resReferenceGrid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .resLedgerRow {
-        grid-template-columns: 0.9fr 0.9fr 1.2fr;
-        align-items: start;
+      .reference {
+        grid-template-columns: minmax(0, 1fr) auto;
       }
     }
 
-    @media (max-width: 720px) {
-      .resHero .badgeRow {
-        justify-content: flex-start;
+    @media (max-width: 768px) {
+      .resultsHero,
+      .bands,
+      .cases,
+      .ledger,
+      .reference {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .resultsTitle {
+        max-width: 12ch;
+      }
+
+      .referenceActions .btn {
+        width: 100%;
       }
     }
   </style>
