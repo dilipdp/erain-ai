@@ -1,0 +1,2 @@
+completed_at_utc,scope,commits,build_status,gates_status,smoke_status,sop_updated,user_tutorial_updated,developer_docs_updated,owner,notes
+2026-02-28T12:15:00Z,week1-week10-acceleration,"aba4926|5a2e531|51b580f|f1f0623",pass,pass,pass,yes,yes,yes,codex,initial accelerated implementation and docs hardening
