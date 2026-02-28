@@ -1,9 +1,9 @@
 import type { APIRoute } from "astro";
 import {
-  createRequestId,
+  createOrGetContactMessage,
+  getIdempotencyKey,
   jsonError,
   safeString,
-  storeContactMessage,
   toPlainObject,
 } from "../../../lib/intake-service";
 
@@ -27,18 +27,20 @@ export const POST: APIRoute = async (context) => {
     return jsonError("contact.name, contact.email and message are required.");
   }
 
-  const referenceId = createRequestId("CT");
-  await storeContactMessage(context, referenceId, {
+  const idempotencyKey = getIdempotencyKey(context, payload);
+  const result = await createOrGetContactMessage(context, {
     ...payload,
     source: "website_contact",
+  }, {
+    idempotencyKey,
   });
 
   return Response.json(
     {
-      reference_id: referenceId,
-      status: "received",
+      reference_id: result.record.reference_id,
+      status: result.status,
+      next_step_eta_minutes: 60,
     },
-    { status: 201 },
+    { status: result.status === "duplicate" ? 200 : 201 },
   );
 };
-

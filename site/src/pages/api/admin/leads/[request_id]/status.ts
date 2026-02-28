@@ -2,10 +2,9 @@ import type { APIRoute } from "astro";
 import { requireAdminApiAccess, buildLeadView } from "../../../../../lib/admin-api";
 import {
   getAuditLeadByRequestId,
-  getLeadMeta,
   safeString,
+  transitionLeadStatus,
   toPlainObject,
-  upsertLeadMeta,
 } from "../../../../../lib/intake-service";
 
 export const prerender = false;
@@ -39,15 +38,29 @@ export const PATCH: APIRoute = async (context) => {
     return Response.json({ error: "status is required" }, { status: 400 });
   }
 
-  const meta = await upsertLeadMeta(context, requestId, {
+  const transition = await transitionLeadStatus(
+    context,
+    requestId,
     status,
-    status_note: note,
-  });
+    note,
+    "admin_status_api",
+  );
+  if (!transition.ok || !transition.lead_meta) {
+    return Response.json(
+      {
+        error: transition.reason,
+      },
+      { status: 409 },
+    );
+  }
 
   return Response.json(
     {
       ok: true,
-      lead: buildLeadView(record as unknown as Record<string, unknown>, meta as unknown as Record<string, unknown> | null),
+      lead: buildLeadView(
+        record as unknown as Record<string, unknown>,
+        transition.lead_meta as unknown as Record<string, unknown> | null,
+      ),
     },
     { status: 200 },
   );

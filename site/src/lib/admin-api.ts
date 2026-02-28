@@ -121,10 +121,19 @@ export function buildAuditView(
   findings.push(`Decision governance design recommended for ${industry} owner paths with weekly execution cadence.`);
 
   const lead = buildLeadView(auditRecord, leadMeta);
+  const leadStatus = safeString(lead.status, 40) || "new";
+  const hasIssuedOffer = !!toPlainObject(lead.pro_offer).offer_code;
+  const recoveryInr = Math.max(Math.round(annualRevenueInr * 0.03), 2500000);
 
   return {
     request_id: lead.request_id,
     generated_at_utc: new Date().toISOString(),
+    proof: {
+      evidence_confidence_percent: Math.min(98, healthScore + 6),
+      governance_owner_paths_percent: leadStatus === "new" ? 72 : 100,
+      roi_recovery_window_inr: recoveryInr,
+      publishable_case_ready: leadStatus === "converted" || hasIssuedOffer,
+    },
     output: {
       pdf_path: "/sample-report.pdf",
       summary: {
@@ -136,7 +145,7 @@ export function buildAuditView(
         owner_mapping_status: "defined",
       },
       roi_attribution: {
-        annualized_value_window_inr: Math.max(Math.round(annualRevenueInr * 0.03), 2500000),
+        annualized_value_window_inr: recoveryInr,
       },
     },
     lead,
@@ -163,15 +172,32 @@ export function buildProOffer(
 
   return {
     request_id: requestId,
-    title: "EraIn Pro Audit",
-    price_inr: 75000,
-    currency: "INR",
-    delivery_window_days: "7-10",
+    offer_code: "21D-DG-PILOT",
+    title: "21-Day Decision Governance Pilot",
+    delivery_window_days: 21,
+    fee_band: {
+      inr_min: 1800000,
+      inr_max: 4000000,
+      usd_min: 25000,
+      usd_max: 50000,
+    },
+    scope_policy: {
+      fixed_scope_only: true,
+      custom_scope_allowed: false,
+      discount_percent_cap: 12,
+    },
     scope: [
-      "Deep leakage quantification",
-      "Owner-mapped governance design",
-      "30/60/90 execution roadmap",
-      "ROI attribution ledger",
+      "Day 1-3 baseline leakage audit",
+      "Day 4-8 decision governance mapping",
+      "Day 9-14 ROI attribution model",
+      "Day 15-18 executive readout",
+      "Day 19-21 board-ready output pack",
+    ],
+    output_commitments: [
+      "Owner-path governance matrix",
+      "Ranked value-leakage ledger",
+      "30-60-90 execution control plan",
+      "Attribution trace to KPI movement",
     ],
     prepared_for: company,
     prepared_at_utc: new Date().toISOString(),
@@ -216,4 +242,52 @@ export function buildEmailTemplate(leadView: Record<string, unknown>): string {
     "Regards,",
     "EraIn AI",
   ].join("\n");
+}
+
+export function buildPilotProposal(
+  leadView: Record<string, unknown>,
+): Record<string, unknown> {
+  const requestId = safeString(leadView.request_id, 80);
+  const contact = toPlainObject(leadView.contact);
+  const business = toPlainObject(leadView.business);
+  const company = safeString(business.company_name, 240) || "Client";
+  const industry = safeString(business.industry, 160) || "multi-site operations";
+  const sponsor = safeString(contact.name, 160) || "Executive Sponsor";
+  const now = new Date().toISOString();
+
+  return {
+    generated_at_utc: now,
+    request_id: requestId,
+    offer_code: "21D-DG-PILOT",
+    title: "21-Day Decision Governance Pilot",
+    client: {
+      company_name: company,
+      sponsor_name: sponsor,
+      contact_email: safeString(contact.email, 320),
+      industry,
+    },
+    commercials: {
+      fee_band: {
+        inr_min: 1800000,
+        inr_max: 4000000,
+        usd_min: 25000,
+        usd_max: 50000,
+      },
+      discount_cap_percent: 12,
+      custom_scope_allowed: false,
+    },
+    timeline: [
+      { window: "Day 1-3", outcome: "Baseline leakage audit" },
+      { window: "Day 4-8", outcome: "Decision governance owner map" },
+      { window: "Day 9-14", outcome: "ROI attribution model" },
+      { window: "Day 15-18", outcome: "Executive readout" },
+      { window: "Day 19-21", outcome: "Board-ready output pack" },
+    ],
+    required_outputs: [
+      "Leakage ledger",
+      "Governance map",
+      "ROI attribution table",
+      "30-60-90 execution roadmap",
+    ],
+  };
 }

@@ -1,9 +1,9 @@
 import type { APIRoute } from "astro";
 import {
-  createRequestId,
+  createOrGetAuditLead,
+  getIdempotencyKey,
   jsonError,
   safeString,
-  storeAuditLead,
   toPlainObject,
 } from "../../../lib/intake-service";
 
@@ -34,19 +34,21 @@ export const POST: APIRoute = async (context) => {
     return jsonError("business.company_name and business.industry are required.");
   }
 
-  const requestId = createRequestId("AR");
-  await storeAuditLead(context, requestId, {
+  const idempotencyKey = getIdempotencyKey(context, payload);
+  const result = await createOrGetAuditLead(context, {
     ...payload,
     source: "website_assessment",
+  }, {
+    idempotencyKey,
   });
 
   return Response.json(
     {
-      request_id: requestId,
-      status: "received",
+      request_id: result.record.request_id,
+      status: result.status,
       pdf_path: "/sample-report.pdf",
+      submitted_at_utc: result.record.created_at_utc,
     },
-    { status: 201 },
+    { status: result.status === "duplicate" ? 200 : 201 },
   );
 };
-

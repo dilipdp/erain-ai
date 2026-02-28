@@ -1,11 +1,9 @@
 import type { APIRoute } from "astro";
 import {
-  createRequestId,
-  findAuditLeadByRequestAndEmail,
   jsonError,
   lowerEmail,
+  registerClientAccessAttempt,
   safeString,
-  storeClientAccessAttempt,
   toPlainObject,
 } from "../../../../../lib/intake-service";
 
@@ -27,33 +25,21 @@ export const POST: APIRoute = async (context) => {
     return jsonError("request_id and email are required.");
   }
 
-  const referenceId = createRequestId("CL");
-  await storeClientAccessAttempt(context, referenceId, requestId, {
+  const result = await registerClientAccessAttempt(context, requestId, email, {
     ...payload,
     request_id: requestId,
     email,
     source: "client_login",
   });
 
-  const matchedLead = await findAuditLeadByRequestAndEmail(context, requestId, email);
-  if (matchedLead) {
-    return Response.json(
-      {
-        status: "matched",
-        reference_id: referenceId,
-        redirect_url: `/sample-report?request_id=${encodeURIComponent(requestId)}`,
-      },
-      { status: 200 },
-    );
-  }
-
   return Response.json(
     {
-      status: "pending",
-      reference_id: referenceId,
-      message: "Access request received. If matched, your secure link will be sent shortly.",
+      status: result.record.status,
+      reference_id: result.record.reference_id,
+      redirect_url: result.redirect_url,
+      attempt_count: result.record.attempt_count,
+      cooldown_seconds: result.record.cooldown_seconds,
     },
     { status: 200 },
   );
 };
-
