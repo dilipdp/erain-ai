@@ -45,6 +45,25 @@ The Lighthouse + axe gate supports environment overrides:
 - `LH_MIN_SEO` (default `0.90`)
 - `AXE_FAIL_LEVELS` (default `critical`)
 
+## Intake Routing (Live)
+
+Public forms now use this routing model:
+
+- If `PUBLIC_API_BASE_URL` is set to a reachable backend, forms post there.
+- If `PUBLIC_API_BASE_URL` is missing (or loopback on a non-loopback host), forms fall back to same-origin endpoints under `/api/public`.
+
+Built-in fallback endpoints:
+
+- `POST /api/public/contact`
+- `POST /api/public/audit`
+- `POST /api/public/client/access/request`
+
+Optional delivery integrations for fallback endpoints:
+
+- `INTAKE_WEBHOOK_URL` (recommended): forwards each submission event to your CRM/automation endpoint.
+- `INTAKE_WEBHOOK_TOKEN` (optional): bearer token for webhook auth.
+- `ERAIN_INTAKE_KV` (optional Cloudflare KV binding): persists intake records for lookup continuity across instances.
+
 Device/browser matrix gate artifacts:
 
 - JSON report: `/tmp/erain_device_browser_matrix_report.json`

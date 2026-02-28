@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const title = "Client Login • EraIn AI";
 const description =
   "Secure client portal access for report download, status tracking, and follow-up actions.";
-const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? "";
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? "/api/public";
 const supportEmail = import.meta.env.PUBLIC_SUPPORT_EMAIL ?? "hello@erainai.com";
 const loginPath = import.meta.env.PUBLIC_CLIENT_LOGIN_API_PATH ?? "/client/access/request";
 ---
@@ -357,8 +357,16 @@ const loginPath = import.meta.env.PUBLIC_CLIENT_LOGIN_API_PATH ?? "/client/acces
       const statusEl = document.getElementById("clientLoginStatus");
       const requestIdInput = document.getElementById("request_id");
 
+      const loopbackHosts = new Set(["127.0.0.1", "localhost"]);
       const apiBaseRaw = (form.dataset.apiBase || "").trim();
-      const apiBase = apiBaseRaw.replace(/\/$/, "");
+      let apiBase = apiBaseRaw.replace(/\/$/, "");
+      if (!apiBase) apiBase = "/api/public";
+      try {
+        const parsed = new URL(apiBase, window.location.origin);
+        if (loopbackHosts.has(parsed.hostname) && !loopbackHosts.has(window.location.hostname)) {
+          apiBase = "/api/public";
+        }
+      } catch (_) {}
       const supportEmail = (form.dataset.supportEmail || "hello@erainai.com").trim();
       const configuredPath = (form.dataset.loginPath || "/client/access/request").trim();
       const normalizedConfiguredPath = configuredPath.startsWith("/") ? configuredPath : `/${configuredPath}`;
