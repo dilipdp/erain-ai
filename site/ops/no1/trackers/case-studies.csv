@@ -1,2 +1,3 @@
 case_id,client_label,industry,baseline_problem,intervention,measured_delta,annualized_impact_inr,named_client_approved,published_date_iso
 CS-0001,Client A,manufacturing,cycle-time variance high,owner-mapped cadence,-22 percent delay variance,46000000,no,
+CS-0002,Atree Solutions,industrial services,approval latency and planning drift,decision-governance weekly council,-18 percent approval cycle delay,31000000,yes,2026-02-28

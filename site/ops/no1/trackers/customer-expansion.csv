@@ -1,2 +1,4 @@
 week_start_iso,account_id,review_window_days,kpi_improved_count,governance_adherence_percent,expansion_recommended,expansion_status,owner
 2026-02-24,AC-0001,30,2,93,yes,pending,delivery_lead
+2026-02-24,AC-0001,60,3,95,yes,in_progress,delivery_lead
+2026-02-24,AC-0001,90,4,96,yes,approved,delivery_lead

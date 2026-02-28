@@ -1,35 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import caseStudiesCsvRaw from "../../ops/no1/trackers/case-studies.csv?raw";
+import scoreboardCsvRaw from "../../ops/no1/trackers/scoreboard-weekly.csv?raw";
+import revenueCsvRaw from "../../ops/no1/trackers/revenue-weekly.csv?raw";
 
 const title = "Results — EraIn AI";
 const description =
   "Representative operating outcomes from audit-first engagements: governance gains, execution recovery, and ROI attribution patterns.";
 
-const PAGE_DIR = path.dirname(fileURLToPath(import.meta.url));
-const SITE_ROOT = path.resolve(PAGE_DIR, "..", "..");
-const TRACKERS_ROOT = path.join(SITE_ROOT, "ops", "no1", "trackers");
-
-function readCsv(filePath) {
-  try {
-    const raw = fs.readFileSync(filePath, "utf8").trim();
-    if (!raw) return [];
-    const lines = raw.split(/\r?\n/).filter(Boolean);
-    if (lines.length < 2) return [];
-    const headers = lines[0].split(",").map((v) => v.trim());
-    return lines.slice(1).map((line) => {
-      const values = line.split(",");
-      const row = {};
-      for (let i = 0; i < headers.length; i += 1) {
-        row[headers[i]] = (values[i] || "").trim();
-      }
-      return row;
-    });
-  } catch {
-    return [];
-  }
+function readCsv(rawCsv = "") {
+  const raw = String(rawCsv || "").trim();
+  if (!raw) return [];
+  const lines = raw.split(/\r?\n/).filter(Boolean);
+  if (lines.length < 2) return [];
+  const headers = lines[0].split(",").map((v) => v.trim());
+  return lines.slice(1).map((line) => {
+    const values = line.split(",");
+    const row = {};
+    for (let i = 0; i < headers.length; i += 1) {
+      row[headers[i]] = (values[i] || "").trim();
+    }
+    return row;
+  });
 }
 
 function toNumber(value) {
@@ -68,9 +60,9 @@ function extractPercent(text) {
   return Number.isFinite(value) ? Math.abs(value) : NaN;
 }
 
-const caseRows = readCsv(path.join(TRACKERS_ROOT, "case-studies.csv"));
-const scoreRows = readCsv(path.join(TRACKERS_ROOT, "scoreboard-weekly.csv"));
-const revenueRows = readCsv(path.join(TRACKERS_ROOT, "revenue-weekly.csv"));
+const caseRows = readCsv(caseStudiesCsvRaw);
+const scoreRows = readCsv(scoreboardCsvRaw);
+const revenueRows = readCsv(revenueCsvRaw);
 
 const latestScore = latestByWeek(scoreRows);
 const latestRevenue = latestByWeek(revenueRows);
