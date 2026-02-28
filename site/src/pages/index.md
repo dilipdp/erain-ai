@@ -6,6 +6,8 @@ layout: ../layouts/BaseLayout.astro
 
 <section class="homeX" aria-label="EraIn homepage">
   <header class="cinema reveal" aria-label="Execution operating system hero">
+    <canvas class="fieldCanvas" id="fieldCanvas" aria-hidden="true"></canvas>
+
     <div class="cinemaCopy">
       <div class="cinemaEyebrow">EraIn Operating System</div>
       <h1 class="h1 cinemaTitle">
@@ -185,6 +187,44 @@ layout: ../layouts/BaseLayout.astro
     </div>
   </section>
 
+  <section class="prismLab reveal" aria-label="EraIn execution prism">
+    <div class="prismHead">
+      <div class="storyEyebrow">Execution Prism</div>
+      <h2 class="h2">One engine. Four force multipliers.</h2>
+      <p>
+        EraIn combines audit evidence, governance logic, recovery economics, and operator cadence into a single execution prism.
+        Hover each module to inspect how signals compound into outcomes.
+      </p>
+    </div>
+
+    <div class="prismGrid" role="list" aria-label="Execution prism modules">
+      <article class="prismCard" role="listitem">
+        <div class="prismK">Signal integrity</div>
+        <h3>Evidence memory graph</h3>
+        <p>Every recommendation stays source-linked, timestamped, and accountable by owner.</p>
+        <div class="prismTag">Auditability</div>
+      </article>
+      <article class="prismCard" role="listitem">
+        <div class="prismK">Control logic</div>
+        <h3>Decision boundary lattice</h3>
+        <p>Role-scoped approvals and escalation checkpoints prevent uncontrolled execution drift.</p>
+        <div class="prismTag">Governance</div>
+      </article>
+      <article class="prismCard" role="listitem">
+        <div class="prismK">Value kinetics</div>
+        <h3>Attribution trajectory engine</h3>
+        <p>Action-to-outcome linkage quantifies financial and operating recovery at cycle level.</p>
+        <div class="prismTag">ROI Attribution</div>
+      </article>
+      <article class="prismCard" role="listitem">
+        <div class="prismK">Execution rhythm</div>
+        <h3>Operator command cadence</h3>
+        <p>Weekly decision scripts maintain alignment from frontline interventions to leadership reviews.</p>
+        <div class="prismTag">Control Tower</div>
+      </article>
+    </div>
+  </section>
+
   <section class="proofBento reveal" aria-label="EraIn proof architecture">
     <article class="bentoCard bentoLarge">
       <div class="bentoK">Pilot model</div>
@@ -284,6 +324,18 @@ layout: ../layouts/BaseLayout.astro
   .cinema > * {
     position: relative;
     z-index: 1;
+  }
+
+  .fieldCanvas {
+    position: absolute;
+    inset: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    pointer-events: none;
+    z-index: 0 !important;
+    opacity: 0.72;
+    mix-blend-mode: screen;
+    border-radius: inherit;
   }
 
   .cinemaCopy,
@@ -695,6 +747,105 @@ layout: ../layouts/BaseLayout.astro
     grid-template-columns: 1fr;
   }
 
+  .prismLab {
+    background: rgba(255, 255, 255, 0.82);
+    padding: clamp(18px, 3.2vw, 30px);
+    display: grid;
+    gap: 14px;
+  }
+
+  .prismHead h2 {
+    margin-top: 12px;
+    font-size: clamp(30px, 4.4vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    color: rgba(15, 23, 42, 0.93);
+  }
+
+  .prismHead p {
+    margin: 10px 0 0;
+    color: rgba(15, 23, 42, 0.68);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 70ch;
+  }
+
+  .prismGrid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+  }
+
+  .prismCard {
+    --mx: 50%;
+    --my: 50%;
+    position: relative;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.76);
+    padding: 16px;
+    overflow: hidden;
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .prismCard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(220px circle at var(--mx) var(--my), rgba(36, 90, 223, 0.18), transparent 60%),
+      radial-gradient(180px circle at calc(var(--mx) + 10%) calc(var(--my) + 8%), rgba(10, 140, 184, 0.14), transparent 64%);
+    opacity: 0.8;
+    transition: opacity 180ms ease;
+  }
+
+  .prismCard > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .prismCard:hover {
+    border-color: rgba(36, 90, 223, 0.36);
+    box-shadow: 0 16px 34px rgba(36, 90, 223, 0.14);
+    transform: translateY(-2px);
+  }
+
+  .prismK {
+    font-size: 10px;
+    font-weight: 860;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(15, 23, 42, 0.56);
+  }
+
+  .prismCard h3 {
+    margin: 8px 0 0;
+    font-size: 30px;
+    line-height: 1.03;
+    letter-spacing: -0.03em;
+    color: rgba(15, 23, 42, 0.94);
+  }
+
+  .prismCard p {
+    margin: 8px 0 0;
+    color: rgba(15, 23, 42, 0.68);
+    font-size: 14px;
+    line-height: 1.58;
+  }
+
+  .prismTag {
+    margin-top: 10px;
+    display: inline-flex;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    border-radius: 999px;
+    padding: 7px 10px;
+    font-size: 11px;
+    font-weight: 760;
+    color: rgba(15, 23, 42, 0.74);
+    background: rgba(255, 255, 255, 0.62);
+  }
+
   .bentoCard {
     border: 1px solid rgba(15, 23, 42, 0.12);
     border-radius: 18px;
@@ -822,6 +973,10 @@ layout: ../layouts/BaseLayout.astro
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
+    .prismGrid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .bentoLarge {
       grid-column: span 2;
       grid-row: span 2;
@@ -861,6 +1016,7 @@ layout: ../layouts/BaseLayout.astro
 
     .cinema,
     .commandStory,
+    .prismLab,
     .proofBento,
     .launchCta {
       border-radius: 22px;
@@ -881,6 +1037,10 @@ layout: ../layouts/BaseLayout.astro
     .storyCard h3 {
       font-size: 25px;
     }
+
+    .prismCard h3 {
+      font-size: 24px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -891,6 +1051,10 @@ layout: ../layouts/BaseLayout.astro
 
     .stageFrame {
       transform: none !important;
+    }
+
+    .fieldCanvas {
+      display: none !important;
     }
   }
 </style>
@@ -1057,6 +1221,94 @@ layout: ../layouts/BaseLayout.astro
         );
 
         storyCards.forEach((card) => observer.observe(card));
+      }
+    }
+
+    const prismCards = Array.from(document.querySelectorAll(".prismCard"));
+    prismCards.forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty("--mx", `${x.toFixed(2)}%`);
+        card.style.setProperty("--my", `${y.toFixed(2)}%`);
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.setProperty("--mx", "50%");
+        card.style.setProperty("--my", "50%");
+      });
+    });
+
+    const canvas = document.getElementById("fieldCanvas");
+    if (canvas instanceof HTMLCanvasElement && !reducedMotion) {
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        let width = 0;
+        let height = 0;
+        const points = [];
+        const POINT_COUNT = 38;
+
+        const resize = () => {
+          const rect = canvas.getBoundingClientRect();
+          width = Math.max(1, Math.floor(rect.width));
+          height = Math.max(1, Math.floor(rect.height));
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = Math.floor(width * dpr);
+          canvas.height = Math.floor(height * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          points.length = 0;
+          for (let i = 0; i < POINT_COUNT; i += 1) {
+            points.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              vx: (Math.random() - 0.5) * 0.35,
+              vy: (Math.random() - 0.5) * 0.35,
+              r: 1.2 + Math.random() * 1.9
+            });
+          }
+        };
+
+        const tick = () => {
+          ctx.clearRect(0, 0, width, height);
+
+          for (const p of points) {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+          }
+
+          for (let i = 0; i < points.length; i += 1) {
+            const a = points[i];
+            for (let j = i + 1; j < points.length; j += 1) {
+              const b = points[j];
+              const dx = a.x - b.x;
+              const dy = a.y - b.y;
+              const dist = Math.hypot(dx, dy);
+              if (dist > 130) continue;
+              const alpha = (1 - dist / 130) * 0.18;
+              ctx.strokeStyle = `rgba(126, 210, 255, ${alpha.toFixed(4)})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
+
+          for (const p of points) {
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(160, 228, 255, 0.56)";
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          requestAnimationFrame(tick);
+        };
+
+        resize();
+        window.addEventListener("resize", resize, { passive: true });
+        requestAnimationFrame(tick);
       }
     }
   })();

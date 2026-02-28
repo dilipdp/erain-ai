@@ -1327,7 +1327,12 @@ const isDevelopersActive = currentPath === '/developers' || currentPath === '/de
             "details.qa"
           ];
 
-          const nodes = Array.from(document.querySelectorAll(selectors.join(",")));
+          const nodes = Array.from(
+            new Set([
+              ...Array.from(document.querySelectorAll(".reveal")),
+              ...Array.from(document.querySelectorAll(selectors.join(",")))
+            ])
+          );
           if (!nodes.length) return;
 
           nodes.forEach((node, idx) => {
