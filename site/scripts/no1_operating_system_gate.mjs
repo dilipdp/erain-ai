@@ -24,6 +24,12 @@ const requiredFiles = [
   "trackers/customer-expansion.csv",
   "trackers/case-studies.csv",
   "trackers/scoreboard-weekly.csv",
+  "trackers/outbound-weekly.csv",
+  "trackers/pilot-pipeline.csv",
+  "trackers/delivery-cadence.csv",
+  "trackers/proof-publishing.csv",
+  "trackers/model_reliability_weekly.csv",
+  "trackers/reference-call-weekly.csv",
   "config/no1-thresholds.json",
 ];
 

@@ -62,6 +62,12 @@ const requiredTrackers = [
   "trackers/customer-expansion.csv",
   "trackers/case-studies.csv",
   "trackers/scoreboard-weekly.csv",
+  "trackers/outbound-weekly.csv",
+  "trackers/pilot-pipeline.csv",
+  "trackers/delivery-cadence.csv",
+  "trackers/proof-publishing.csv",
+  "trackers/model_reliability_weekly.csv",
+  "trackers/reference-call-weekly.csv",
 ];
 
 function pass(msg) {
@@ -193,15 +199,43 @@ const caseRows = fs.existsSync(path.join(OPS_ROOT, "trackers/case-studies.csv"))
 const scoreRows = fs.existsSync(path.join(OPS_ROOT, "trackers/scoreboard-weekly.csv"))
   ? parseCsv(path.join(OPS_ROOT, "trackers/scoreboard-weekly.csv"))
   : [];
+const outboundRows = fs.existsSync(path.join(OPS_ROOT, "trackers/outbound-weekly.csv"))
+  ? parseCsv(path.join(OPS_ROOT, "trackers/outbound-weekly.csv"))
+  : [];
+const pipelineRows = fs.existsSync(path.join(OPS_ROOT, "trackers/pilot-pipeline.csv"))
+  ? parseCsv(path.join(OPS_ROOT, "trackers/pilot-pipeline.csv"))
+  : [];
+const deliveryRows = fs.existsSync(path.join(OPS_ROOT, "trackers/delivery-cadence.csv"))
+  ? parseCsv(path.join(OPS_ROOT, "trackers/delivery-cadence.csv"))
+  : [];
+const proofRows = fs.existsSync(path.join(OPS_ROOT, "trackers/proof-publishing.csv"))
+  ? parseCsv(path.join(OPS_ROOT, "trackers/proof-publishing.csv"))
+  : [];
+const reliabilityRows = fs.existsSync(path.join(OPS_ROOT, "trackers/model_reliability_weekly.csv"))
+  ? parseCsv(path.join(OPS_ROOT, "trackers/model_reliability_weekly.csv"))
+  : [];
+const referenceRows = fs.existsSync(path.join(OPS_ROOT, "trackers/reference-call-weekly.csv"))
+  ? parseCsv(path.join(OPS_ROOT, "trackers/reference-call-weekly.csv"))
+  : [];
 
 if (leadRows.length === 0) addFailure("lead-response tracker has no rows");
 if (revenueRows.length === 0) addFailure("revenue-weekly tracker has no rows");
 if (expansionRows.length === 0) addFailure("customer-expansion tracker has no rows");
 if (caseRows.length === 0) addFailure("case-studies tracker has no rows");
 if (scoreRows.length === 0) addFailure("scoreboard-weekly tracker has no rows");
+if (outboundRows.length === 0) addFailure("outbound-weekly tracker has no rows");
+if (pipelineRows.length === 0) addFailure("pilot-pipeline tracker has no rows");
+if (deliveryRows.length === 0) addFailure("delivery-cadence tracker has no rows");
+if (proofRows.length === 0) addFailure("proof-publishing tracker has no rows");
+if (reliabilityRows.length === 0) addFailure("model-reliability tracker has no rows");
+if (referenceRows.length === 0) addFailure("reference-call tracker has no rows");
 
 const latestScore = latestByWeek(scoreRows);
 const latestRevenue = latestByWeek(revenueRows);
+const latestOutbound = latestByWeek(outboundRows);
+const latestDelivery = latestByWeek(deliveryRows);
+const latestReference = latestByWeek(referenceRows);
+const latestReliability = latestByWeek(reliabilityRows);
 
 const leadLatestWeek = latestScore?.week_start_iso || null;
 const leadInWeek = leadRows.filter((r) => (r.week_start_iso || "") === leadLatestWeek);
@@ -215,6 +249,10 @@ report.metrics.revenue = latestRevenue || null;
 report.metrics.lead_sla_computed_percent = Number.isFinite(leadSlaComputed)
   ? Number(leadSlaComputed.toFixed(2))
   : null;
+report.metrics.outbound = latestOutbound || null;
+report.metrics.delivery = latestDelivery || null;
+report.metrics.reference = latestReference || null;
+report.metrics.reliability = latestReliability || null;
 
 if (latestScore) {
   const metricChecks = [
@@ -301,6 +339,36 @@ if (latestRevenue) {
   }
 }
 
+if (latestOutbound) {
+  const sent = parseNumber(latestOutbound.messages_sent);
+  if (!(sent >= Number(thresholds.outbound_messages_weekly_min || 125))) {
+    addWarning("outbound volume below weekly floor", {
+      actual: sent,
+      threshold: Number(thresholds.outbound_messages_weekly_min || 125),
+    });
+  }
+}
+
+if (latestDelivery) {
+  const ttv = parseNumber(latestDelivery.time_to_value_days);
+  if (!(ttv <= Number(thresholds.p50_time_to_value_days_max || 18))) {
+    addWarning("time-to-value above compressed target", {
+      actual: ttv,
+      threshold: Number(thresholds.p50_time_to_value_days_max || 18),
+    });
+  }
+}
+
+if (latestReference) {
+  const closeRate = parseNumber(latestReference.close_rate_percent);
+  if (!(closeRate >= Number(thresholds.commercial_reference_call_close_percent_min || 35))) {
+    addWarning("reference close rate below target", {
+      actual: closeRate,
+      threshold: Number(thresholds.commercial_reference_call_close_percent_min || 35),
+    });
+  }
+}
+
 const expansionWindows = new Set(
   expansionRows
     .map((r) => parseNumber(r.review_window_days))
@@ -381,6 +449,18 @@ if (latestScore) {
   lines.push(`- Delivery median: ${latestScore.delivery_days_median || "n/a"} days`);
   lines.push(`- Named case studies: ${latestScore.named_case_studies_count || "n/a"}`);
   lines.push(`- New pipeline: INR ${latestScore.weekly_new_pipeline_inr || "n/a"}`);
+  if (latestOutbound) {
+    lines.push(`- Outbound messages: ${latestOutbound.messages_sent || "n/a"}`);
+  }
+  if (latestDelivery) {
+    lines.push(`- Time-to-value (days): ${latestDelivery.time_to_value_days || "n/a"}`);
+  }
+  if (latestReference) {
+    lines.push(`- Reference-call close rate: ${latestReference.close_rate_percent || "n/a"}%`);
+  }
+  if (latestReliability) {
+    lines.push(`- Availability: ${latestReliability.availability_percent || "n/a"}%`);
+  }
   lines.push("");
 }
 
