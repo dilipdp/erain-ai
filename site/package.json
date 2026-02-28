@@ -19,7 +19,9 @@
     "qa:production-smoke:full": "bash scripts/p6_production_smoke_gate.sh",
     "qa:launch-guardrail:full": "bash scripts/p6_launch_guardrail.sh",
     "ops:no1:gate": "node scripts/no1_operating_system_gate.mjs",
-    "ops:no1:gate:full": "bash scripts/p7_no1_operating_system.sh"
+    "ops:no1:gate:full": "bash scripts/p7_no1_operating_system.sh",
+    "ops:no1:brief": "node scripts/no1_command_center.mjs",
+    "ops:no1:command-center:full": "bash scripts/p8_no1_command_center.sh"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",

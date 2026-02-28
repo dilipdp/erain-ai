@@ -17,6 +17,7 @@ bash /Users/dilipbr/Projects/erain-ai/site/scripts/p5_release_candidate.sh
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p6_production_smoke_gate.sh --url https://your-domain
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p6_launch_guardrail.sh --url https://your-domain --skip-step5
 bash /Users/dilipbr/Projects/erain-ai/site/scripts/p7_no1_operating_system.sh
+bash /Users/dilipbr/Projects/erain-ai/site/scripts/p8_no1_command_center.sh
 ```
 
 Current status:
@@ -36,6 +37,7 @@ Current status:
 - Production smoke gate (live URL route + security header + PDF checks): pass
 - Launch GO/NO-GO guardrail command: pass
 - No.1 operating system execution gate: configured (run weekly)
+- No.1 command-center brief generation: configured (run weekly)
 
 ## Quality Gate Config
 
@@ -92,6 +94,8 @@ Production launch guardrail artifacts:
 No.1 operating-system artifact:
 
 - JSON operating report: `/tmp/erain_no1_operating_report.json`
+- JSON command-center report: `/tmp/erain_no1_command_center_report.json`
+- Weekly executive brief: `/tmp/erain_no1_weekly_brief.md`
 
 Rollback safety automation:
 

@@ -28,6 +28,8 @@ npm run ops:no1:gate:full
 Report artifact:
 
 - `/tmp/erain_no1_operating_report.json`
+- `/tmp/erain_no1_command_center_report.json`
+- `/tmp/erain_no1_weekly_brief.md`
 
 ## Rule
 
