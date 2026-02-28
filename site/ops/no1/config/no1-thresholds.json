@@ -11,5 +11,14 @@
   "niche_reference_call_to_close_percent_min": 35,
   "niche_expansion_rate_percent_min": 40,
   "niche_platform_availability_percent_min": 99.5,
-  "niche_p0_incidents_max": 0
+  "niche_p0_incidents_max": 0,
+  "outbound_messages_weekly_min": 125,
+  "p50_time_to_value_days_max": 18,
+  "commercial_discount_percent_max": 12,
+  "commercial_scope_exception_unapproved_max": 0,
+  "commercial_reference_call_close_percent_min": 35,
+  "reliability_availability_percent_min": 99.5,
+  "reliability_fallback_success_percent_min": 99,
+  "reliability_p95_latency_ms_max": 3800,
+  "reliability_p0_incidents_max": 0
 }

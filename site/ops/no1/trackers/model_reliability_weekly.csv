@@ -1,0 +1,2 @@
+week_start_iso,primary_provider,fallback_provider,requests_total,primary_timeout_count,failover_trigger_count,fallback_success_percent,p95_latency_ms,availability_percent,p0_incidents,owner
+2026-02-24,provider_a,provider_b,410,6,6,100,3100,99.92,0,reliability_engineer

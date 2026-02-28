@@ -1,0 +1,3 @@
+pilot_id,week_start_iso,account_name,stage,proposal_fee_inr,proposal_fee_usd,discount_percent,discount_approved,scope_exception_requested,scope_exception_approved,status,owner
+PL-0001,2026-02-24,Atree Solutions,proposal,2500000,30000,8,yes,no,no,signed,founder
+PL-0002,2026-02-24,Client B,proposal,1800000,25000,0,yes,no,no,in_review,founder

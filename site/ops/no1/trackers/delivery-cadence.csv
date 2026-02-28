@@ -1,0 +1,2 @@
+pilot_id,week_start_iso,baseline_completed_day,governance_completed_day,roi_completed_day,readout_completed_day,board_pack_completed_day,time_to_value_days,sla_breach,escalation_owner
+PL-0001,2026-02-24,3,8,14,17,21,17,no,delivery_lead
