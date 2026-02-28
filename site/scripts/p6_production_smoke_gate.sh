@@ -106,7 +106,13 @@ for route in "${ROUTES[@]}"; do
     continue
   fi
 
-  read -r http_code time_total content_type <"$meta_file"
+  meta_raw="$(cat "$meta_file" 2>/dev/null || true)"
+  http_code="0"
+  time_total="0"
+  content_type=""
+  if [[ -n "$meta_raw" ]]; then
+    read -r http_code time_total content_type <<<"$meta_raw" || true
+  fi
   size_bytes="$(wc -c <"$body_file" | tr -d ' ')"
   route_status="pass"
   reason="ok"
