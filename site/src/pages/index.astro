@@ -854,11 +854,18 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   @media (min-width: 980px) {
     .cinema {
       grid-template-columns: minmax(0, 1fr);
+      justify-items: start;
       align-items: start;
       gap: 20px;
     }
 
+    .cinemaCopy {
+      width: min(980px, 100%);
+      max-width: 100%;
+    }
+
     .kpiRail {
+      width: min(980px, 100%);
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
