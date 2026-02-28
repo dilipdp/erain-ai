@@ -1,0 +1,4 @@
+industry,function,metric_name,p25,p50,p75,unit,last_updated_utc,data_source,confidence
+manufacturing,planning,otif,88,93,97,percent,2026-02-28,internal_launch_dataset,medium
+manufacturing,inventory,inventory_cover_days,42,58,76,days,2026-02-28,internal_launch_dataset,medium
+services,delivery,cycle_time_variance,4,9,15,percent,2026-02-28,internal_launch_dataset,low

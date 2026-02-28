@@ -1,0 +1,9 @@
+{
+  "lead_response_sla_percent_min": 95,
+  "request_conversion_percent_min": 1.5,
+  "pro_conversion_percent_min": 50,
+  "delivery_days_median_max": 7,
+  "named_case_studies_count_min": 0,
+  "named_case_studies_count_target": 1,
+  "weekly_new_pipeline_inr_min": 4000000
+}

@@ -1,0 +1,2 @@
+case_id,client_label,industry,baseline_problem,intervention,measured_delta,annualized_impact_inr,named_client_approved,published_date_iso
+CS-0001,Client A,manufacturing,cycle-time variance high,owner-mapped cadence,-22 percent delay variance,46000000,no,

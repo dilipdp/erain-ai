@@ -17,7 +17,9 @@
     "qa:seo-trust:full": "bash scripts/p4_seo_trust_release_gate.sh",
     "qa:release-candidate:full": "bash scripts/p5_release_candidate.sh",
     "qa:production-smoke:full": "bash scripts/p6_production_smoke_gate.sh",
-    "qa:launch-guardrail:full": "bash scripts/p6_launch_guardrail.sh"
+    "qa:launch-guardrail:full": "bash scripts/p6_launch_guardrail.sh",
+    "ops:no1:gate": "node scripts/no1_operating_system_gate.mjs",
+    "ops:no1:gate:full": "bash scripts/p7_no1_operating_system.sh"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
