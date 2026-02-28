@@ -26,26 +26,115 @@ const description = "EraIn builds operational AI systems that audit reality, gov
         <a class="btn" href="/results" data-track="home_cinema_view_results">View Results</a>
         <a class="btn btnGhost" href="/pricing" data-track="home_cinema_pricing">See Pricing</a>
       </div>
-    </div>
 
-    <aside class="cinemaSide" aria-label="Execution signal highlights">
       <div class="kpiRail" role="list" aria-label="Execution signal highlights">
         <article class="kpiCard" role="listitem">
           <div class="kpiK">Evidence confidence</div>
-          <div class="kpiV">97.4%</div>
+          <div class="kpiV" data-scene-field="hero_confidence">97.4%</div>
           <p>Traceable findings at decision handoff.</p>
         </article>
         <article class="kpiCard" role="listitem">
           <div class="kpiK">Approval mapping</div>
-          <div class="kpiV">100%</div>
+          <div class="kpiV" data-scene-field="hero_governance">100%</div>
           <p>Role-scoped governance before execution.</p>
         </article>
         <article class="kpiCard" role="listitem">
           <div class="kpiK">Recovery window</div>
-          <div class="kpiV">3.8x</div>
+          <div class="kpiV" data-scene-field="hero_recovery">3.8x</div>
           <p>Action-to-outcome value attribution loop.</p>
         </article>
       </div>
+
+      <div class="sceneSwitch" role="group" aria-label="Switch operating scenario">
+        <button class="sceneBtn is-active" type="button" data-scene="factory" aria-pressed="true">Manufacturing Network</button>
+        <button class="sceneBtn" type="button" data-scene="logistics" aria-pressed="false">Logistics Grid</button>
+        <button class="sceneBtn" type="button" data-scene="services" aria-pressed="false">Services Portfolio</button>
+      </div>
+    </div>
+
+    <aside class="cinemaStage" aria-label="Interactive execution orbit">
+      <div class="stageFrame scene-factory" id="stageFrame">
+        <svg class="stageSvg" viewBox="0 0 860 560" aria-hidden="true">
+          <defs>
+            <linearGradient id="arcA" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8ee7ff" stop-opacity="0.75" />
+              <stop offset="100%" stop-color="#4fc3ff" stop-opacity="0.94" />
+            </linearGradient>
+            <linearGradient id="arcB" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#9af6cc" stop-opacity="0.75" />
+              <stop offset="100%" stop-color="#58d8ff" stop-opacity="0.92" />
+            </linearGradient>
+            <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#2e8cff" stop-opacity="0.85" />
+              <stop offset="68%" stop-color="#1c3f9c" stop-opacity="0.62" />
+              <stop offset="100%" stop-color="#04163d" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <rect x="0" y="0" width="860" height="560" fill="rgba(2, 16, 46, 0.56)" />
+          <g opacity="0.18" stroke="#7dc8ff" stroke-width="1">
+            <path d="M0 80 H860" />
+            <path d="M0 160 H860" />
+            <path d="M0 240 H860" />
+            <path d="M0 320 H860" />
+            <path d="M0 400 H860" />
+            <path d="M0 480 H860" />
+            <path d="M120 0 V560" />
+            <path d="M260 0 V560" />
+            <path d="M400 0 V560" />
+            <path d="M540 0 V560" />
+            <path d="M680 0 V560" />
+            <path d="M820 0 V560" />
+          </g>
+
+          <circle cx="430" cy="280" r="128" fill="url(#coreGlow)" />
+          <path class="orbit arc1" d="M142 128 C 290 102, 334 202, 430 280" />
+          <path class="orbit arc2" d="M148 424 C 306 432, 350 346, 430 280" />
+          <path class="orbit arc3" d="M718 126 C 582 102, 526 204, 430 280" />
+          <path class="orbit arc4" d="M714 426 C 560 432, 516 344, 430 280" />
+
+          <g class="nodeCluster">
+            <circle cx="142" cy="128" r="9" class="nodeDot" />
+            <circle cx="148" cy="424" r="9" class="nodeDot" />
+            <circle cx="718" cy="126" r="9" class="nodeDot" />
+            <circle cx="714" cy="426" r="9" class="nodeDot" />
+            <circle cx="430" cy="280" r="13" class="nodeDot coreDot" />
+          </g>
+
+          <g class="coreMark">
+            <rect x="376" y="224" width="108" height="108" rx="9" transform="rotate(45 430 278)" />
+            <text x="430" y="268" text-anchor="middle">ERAIN</text>
+            <text x="430" y="292" text-anchor="middle">EXECUTION ENGINE</text>
+          </g>
+        </svg>
+
+        <div class="stageCall stageCallA">
+          <div class="callK" data-scene-field="node_a_label">Auditability</div>
+          <div class="callV" data-scene-field="node_a_value">97.4%</div>
+          <div class="callT" data-scene-field="node_a_text">Evidence confidence</div>
+        </div>
+
+        <div class="stageCall stageCallB">
+          <div class="callK" data-scene-field="node_b_label">Decision governance</div>
+          <div class="callV" data-scene-field="node_b_value">100%</div>
+          <div class="callT" data-scene-field="node_b_text">Owner path mapped</div>
+        </div>
+
+        <div class="stageCall stageCallC">
+          <div class="callK" data-scene-field="node_c_label">Action closure</div>
+          <div class="callV" data-scene-field="node_c_value">42</div>
+          <div class="callT" data-scene-field="node_c_text">Prioritized moves</div>
+        </div>
+
+        <div class="stageCall stageCallD">
+          <div class="callK" data-scene-field="node_d_label">Value ledger</div>
+          <div class="callV" data-scene-field="node_d_value">INR 4.6 Cr</div>
+          <div class="callT" data-scene-field="node_d_text">Attributed impact path</div>
+        </div>
+
+        <div class="stageRail" data-scene-field="rail_text">AUDIT REALITY  -  GOVERN DECISIONS  -  ATTRIBUTE ROI</div>
+      </div>
+      <p class="stageCaption" data-scene-field="scene_caption">Factory scenario model · representative operating signal map</p>
     </aside>
   </header>
 
@@ -249,25 +338,11 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     opacity: 0.72;
     mix-blend-mode: screen;
     border-radius: inherit;
-    mask-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.95) 0%,
-      rgba(0, 0, 0, 0.72) 36%,
-      rgba(0, 0, 0, 0.32) 68%,
-      transparent 100%
-    );
   }
 
   .cinemaCopy,
-  .cinemaSide,
   .cinemaStage {
     min-width: 0;
-  }
-
-  .cinemaSide {
-    display: grid;
-    gap: 12px;
-    align-content: start;
   }
 
   .cinemaEyebrow,
@@ -337,7 +412,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .kpiRail {
-    margin-top: 0;
+    margin-top: 18px;
     display: grid;
     gap: 8px;
     grid-template-columns: 1fr;
@@ -375,7 +450,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .sceneSwitch {
-    margin-top: 2px;
+    margin-top: 16px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -877,36 +952,13 @@ const description = "EraIn builds operational AI systems that audit reality, gov
 
   @media (min-width: 980px) {
     .cinema {
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      grid-template-areas: "copy side";
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
       align-items: start;
       gap: 20px;
     }
 
-    .fieldCanvas {
-      inset: -1px -1px -1px auto;
-      width: 50%;
-      border-radius: 0 30px 30px 0;
-      opacity: 0.78;
-      mask-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.98) 0%,
-        rgba(0, 0, 0, 0.95) 56%,
-        rgba(0, 0, 0, 0.45) 84%,
-        transparent 100%
-      );
-    }
-
-    .cinemaCopy {
-      grid-area: copy;
-    }
-
-    .cinemaSide {
-      grid-area: side;
-    }
-
     .kpiRail {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .commandStory {
@@ -978,10 +1030,6 @@ const description = "EraIn builds operational AI systems that audit reality, gov
       line-height: 0.96;
     }
 
-    .cinemaSide {
-      gap: 10px;
-    }
-
     .cinemaActions .btn,
     .bentoActions .btn,
     .launchActions .btn {
@@ -1015,7 +1063,134 @@ const description = "EraIn builds operational AI systems that audit reality, gov
 
 <script>
   (function () {
+    const stage = document.getElementById("stageFrame");
+    if (!(stage instanceof HTMLElement)) return;
+
+    const sceneButtons = Array.from(document.querySelectorAll(".sceneBtn"));
+    const sceneNodes = Array.from(document.querySelectorAll("[data-scene-field]"));
+
+    const scenes = {
+      factory: {
+        hero_confidence: "97.4%",
+        hero_governance: "100%",
+        hero_recovery: "3.8x",
+        node_a_label: "Auditability",
+        node_a_value: "97.4%",
+        node_a_text: "Evidence confidence",
+        node_b_label: "Decision governance",
+        node_b_value: "100%",
+        node_b_text: "Owner path mapped",
+        node_c_label: "Action closure",
+        node_c_value: "42",
+        node_c_text: "Prioritized moves",
+        node_d_label: "Value ledger",
+        node_d_value: "INR 4.6 Cr",
+        node_d_text: "Attributed impact path",
+        rail_text: "AUDIT REALITY  -  GOVERN DECISIONS  -  ATTRIBUTE ROI",
+        scene_caption: "Factory scenario model - representative operating signal map"
+      },
+      logistics: {
+        hero_confidence: "95.8%",
+        hero_governance: "99%",
+        hero_recovery: "3.1x",
+        node_a_label: "Route evidence",
+        node_a_value: "95.8%",
+        node_a_text: "Cross-node signal confidence",
+        node_b_label: "Escalation mapping",
+        node_b_value: "99%",
+        node_b_text: "Regional owner coverage",
+        node_c_label: "Decision speed",
+        node_c_value: "2.9x",
+        node_c_text: "Approval acceleration",
+        node_d_label: "Recovery path",
+        node_d_value: "INR 3.2 Cr",
+        node_d_text: "Leakage conversion window",
+        rail_text: "SIGNAL ROUTING  -  OWNER GOVERNANCE  -  VALUE RECOVERY",
+        scene_caption: "Logistics scenario model - multi-city control grid"
+      },
+      services: {
+        hero_confidence: "96.2%",
+        hero_governance: "100%",
+        hero_recovery: "2.7x",
+        node_a_label: "Service evidence",
+        node_a_value: "96.2%",
+        node_a_text: "Case-level source coverage",
+        node_b_label: "Decision charter",
+        node_b_value: "100%",
+        node_b_text: "Accountability path defined",
+        node_c_label: "Closure cadence",
+        node_c_value: "88%",
+        node_c_text: "Weekly action completion",
+        node_d_label: "Value trajectory",
+        node_d_value: "USD 410k",
+        node_d_text: "Attributed annualized impact",
+        rail_text: "SERVICE SIGNALS  -  DECISION CONTROL  -  OUTCOME LEDGER",
+        scene_caption: "Services scenario model - portfolio execution fabric"
+      }
+    };
+
+    function trackEvent(eventName, payload) {
+      try {
+        if (typeof window.erainTrack === "function") {
+          window.erainTrack(eventName, payload);
+          return;
+        }
+      } catch (_) {}
+    }
+
+    function applyScene(sceneId) {
+      const scene = scenes[sceneId];
+      if (!scene) return;
+
+      stage.classList.remove("scene-factory", "scene-logistics", "scene-services");
+      stage.classList.add(`scene-${sceneId}`);
+
+      for (const node of sceneNodes) {
+        const key = node.getAttribute("data-scene-field");
+        if (!key || !(key in scene)) continue;
+        node.textContent = scene[key];
+      }
+
+      for (const button of sceneButtons) {
+        const selected = button.getAttribute("data-scene") === sceneId;
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-pressed", selected ? "true" : "false");
+      }
+
+      trackEvent("home_scene_switch", {
+        page_path: window.location.pathname,
+        scene: sceneId
+      });
+    }
+
+    sceneButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const sceneId = button.getAttribute("data-scene") || "factory";
+        applyScene(sceneId);
+      });
+    });
+
+    applyScene("factory");
+
     const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const hoverCapable = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+
+    if (!reducedMotion && hoverCapable) {
+      stage.addEventListener("pointermove", (event) => {
+        const rect = stage.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const tiltX = (x - 0.5) * 5;
+        const tiltY = (0.5 - y) * 4;
+        stage.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
+        stage.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
+      });
+
+      stage.addEventListener("pointerleave", () => {
+        stage.style.setProperty("--tilt-x", "0deg");
+        stage.style.setProperty("--tilt-y", "0deg");
+      });
+    }
 
     const storyCards = Array.from(document.querySelectorAll(".storyCard[data-story-step]"));
     const storyFill = document.getElementById("storyFill");
@@ -1072,7 +1247,6 @@ const description = "EraIn builds operational AI systems that audit reality, gov
       if (ctx) {
         let width = 0;
         let height = 0;
-        let topBand = 0;
         const points = [];
         const POINT_COUNT = 38;
 
@@ -1080,7 +1254,6 @@ const description = "EraIn builds operational AI systems that audit reality, gov
           const rect = canvas.getBoundingClientRect();
           width = Math.max(1, Math.floor(rect.width));
           height = Math.max(1, Math.floor(rect.height));
-          topBand = Math.max(180, Math.floor(height * 0.6));
           const dpr = Math.min(window.devicePixelRatio || 1, 2);
           canvas.width = Math.floor(width * dpr);
           canvas.height = Math.floor(height * dpr);
@@ -1089,7 +1262,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
           for (let i = 0; i < POINT_COUNT; i += 1) {
             points.push({
               x: Math.random() * width,
-              y: Math.random() * topBand,
+              y: Math.random() * height,
               vx: (Math.random() - 0.5) * 0.35,
               vy: (Math.random() - 0.5) * 0.35,
               r: 1.2 + Math.random() * 1.9
@@ -1104,7 +1277,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
             p.x += p.vx;
             p.y += p.vy;
             if (p.x < 0 || p.x > width) p.vx *= -1;
-            if (p.y < 0 || p.y > topBand) p.vy *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
           }
 
           for (let i = 0; i < points.length; i += 1) {
