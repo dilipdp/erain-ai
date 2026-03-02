@@ -938,41 +938,39 @@ const engineeringActive = isInGroup(['/developers', '/developer-docs', '/enginee
         right: max(14px, var(--safe-right));
         bottom: calc(14px + var(--safe-bottom));
         z-index: 84;
-        width: 36px;
-        height: 36px;
-        padding: 0;
+        min-height: 36px;
+        padding: 8px 12px;
         border-radius: 999px;
         border: 1px solid rgba(11, 31, 66, 0.18);
         background: rgba(248, 252, 255, 0.94);
-        color: transparent;
-        font-size: 0;
-        font-weight: 700;
+        color: rgba(11, 31, 66, 0.86);
+        font-size: 12px;
+        font-weight: 720;
         line-height: 1;
         box-shadow: 0 8px 20px rgba(2, 10, 32, 0.12);
         cursor: pointer;
-        display: grid;
-        place-items: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(0);
+        opacity: 1;
+        transition: opacity 180ms ease, transform 180ms ease, box-shadow 160ms ease, border-color 160ms ease, color 160ms ease;
       }
 
       .cookieManageBtn.hidden {
         display: none;
       }
 
-      .cookieManageBtn::before {
-        content: "C";
-        color: rgba(11, 31, 66, 0.78);
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
+      .cookieManageBtn.dormant {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
       }
 
       .cookieManageBtn:hover {
         border-color: rgba(36, 90, 223, 0.26);
-        box-shadow: 0 10px 22px rgba(36, 90, 223, 0.18);
-      }
-
-      .cookieManageBtn:hover::before {
         color: #1f4dc4;
+        box-shadow: 0 10px 22px rgba(36, 90, 223, 0.18);
       }
 
       @media (max-width: 768px) {
@@ -1002,6 +1000,9 @@ const engineeringActive = isInGroup(['/developers', '/developer-docs', '/enginee
         .cookieManageBtn {
           right: max(12px, var(--safe-right));
           bottom: calc(14px + var(--safe-bottom));
+          min-height: 34px;
+          padding: 7px 10px;
+          font-size: 11px;
         }
       }
 
@@ -1642,7 +1643,7 @@ const engineeringActive = isInGroup(['/developers', '/developer-docs', '/enginee
         <button type="button" class="btn btnPrimary" id="cookieAcceptBtn">Accept analytics</button>
       </div>
     </div>
-    <button type="button" class="cookieManageBtn hidden" id="cookieManageBtn" aria-label="Open cookie settings">Cookie</button>
+    <button type="button" class="cookieManageBtn hidden" id="cookieManageBtn" aria-label="Open cookie settings">Cookie settings</button>
 
     <script is:inline>
       (function () {
@@ -1661,6 +1662,10 @@ const engineeringActive = isInGroup(['/developers', '/developer-docs', '/enginee
         const btnEssential = $("cookieEssentialBtn");
         const btnAccept = $("cookieAcceptBtn");
         const btnManage = $("cookieManageBtn");
+        const MANAGE_IDLE_MS = 4200;
+        const MANAGE_WAKE_SCROLL_Y = 420;
+        const MANAGE_NEAR_FOOTER_PX = 220;
+        let manageDormantTimer = 0;
 
         let consentState = "";
         try {
@@ -1669,12 +1674,58 @@ const engineeringActive = isInGroup(['/developers', '/developer-docs', '/enginee
           consentState = "";
         }
 
+        const clearManageDormantTimer = () => {
+          if (!manageDormantTimer) return;
+          window.clearTimeout(manageDormantTimer);
+          manageDormantTimer = 0;
+        };
+
+        const setManageDormant = (dormant) => {
+          if (!btnManage) return;
+          btnManage.classList.toggle("dormant", !!dormant);
+        };
+
+        const hideManage = () => {
+          if (!btnManage) return;
+          clearManageDormantTimer();
+          setManageDormant(false);
+          btnManage.classList.add("hidden");
+        };
+
+        const showManageTemporarily = () => {
+          if (!btnManage || !consentState) return;
+          btnManage.classList.remove("hidden");
+          setManageDormant(false);
+          clearManageDormantTimer();
+          manageDormantTimer = window.setTimeout(() => {
+            setManageDormant(true);
+          }, MANAGE_IDLE_MS);
+        };
+
+        const isNearFooter = () => {
+          const footer = document.querySelector("footer");
+          if (!(footer instanceof HTMLElement)) return false;
+          const rect = footer.getBoundingClientRect();
+          return rect.top <= window.innerHeight + MANAGE_NEAR_FOOTER_PX;
+        };
+
+        const maybeWakeManage = () => {
+          if (!btnManage || !consentState) return;
+          if (banner && !banner.classList.contains("hidden")) return;
+          if (window.scrollY > MANAGE_WAKE_SCROLL_Y || isNearFooter()) {
+            showManageTemporarily();
+          }
+        };
+
         const setBannerVisibility = (show) => {
           if (!banner) return;
           banner.classList.toggle("hidden", !show);
-          if (btnManage) {
-            const showManage = !show && !!consentState;
-            btnManage.classList.toggle("hidden", !showManage);
+          if (show) {
+            hideManage();
+          } else if (consentState) {
+            showManageTemporarily();
+          } else {
+            hideManage();
           }
         };
 
@@ -1733,6 +1784,16 @@ const engineeringActive = isInGroup(['/developers', '/developer-docs', '/enginee
           btnEssential?.addEventListener("click", () => saveConsent(CONSENT_ESSENTIAL, "banner"));
           btnAccept?.addEventListener("click", () => saveConsent(CONSENT_GRANTED, "banner"));
           btnManage?.addEventListener("click", () => setBannerVisibility(true));
+          btnManage?.addEventListener("focus", () => {
+            if (btnManage.classList.contains("hidden")) return;
+            setManageDormant(false);
+          });
+          btnManage?.addEventListener("blur", () => {
+            if (btnManage.classList.contains("hidden")) return;
+            showManageTemporarily();
+          });
+          window.addEventListener("scroll", maybeWakeManage, { passive: true });
+          window.addEventListener("resize", maybeWakeManage, { passive: true });
         } catch (_) {}
 
         // Mobile menu: accessible toggle + close on outside click / Escape / link click
