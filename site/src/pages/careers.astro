@@ -7,89 +7,302 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="careerPage">
-    <header class="card hero">
-      <div class="badgeRow">
-        <span class="badge badgeSoft">Careers</span>
-        <span class="badge badgeSoft">Small team, high ownership</span>
-        <span class="badge badgeSoft">Execution excellence</span>
+  <section class="careersV2">
+    <header class="careersHero reveal">
+      <div class="heroCopy">
+        <div class="heroEyebrow">Careers</div>
+        <h1 class="h1 heroTitle">Build systems that are trusted when stakes are real.</h1>
+        <p class="lead heroLead">
+          EraIn is for operators and builders who care about disciplined execution. We are building a category where
+          auditability, decision governance, and measurable business impact are non-negotiable.
+        </p>
+
+        <div class="heroPills" role="list" aria-label="Team positioning">
+          <span class="pill" role="listitem">Small team, high ownership</span>
+          <span class="pill" role="listitem">Reliability before scale</span>
+          <span class="pill" role="listitem">Customer truth over opinion</span>
+          <span class="pill" role="listitem">Execution intensity</span>
+        </div>
       </div>
-      <h1 class="h1">Build the category with us.</h1>
-      <p class="lead">
-        We are building an AI company with operating discipline at its core. If you care about real business outcomes,
-        rigorous systems, and shipping under pressure, we should talk.
-      </p>
+
+      <aside class="heroSignals" role="list" aria-label="Hiring signals">
+        <article class="signalCard" role="listitem">
+          <div class="signalK">Operating model</div>
+          <div class="signalV">Services-led + control tower</div>
+          <p>Every role is tied to delivery outcomes and weekly operating metrics.</p>
+        </article>
+        <article class="signalCard" role="listitem">
+          <div class="signalK">Team bar</div>
+          <div class="signalV">Independent execution</div>
+          <p>We hire people who can structure ambiguity and close loops without hand-holding.</p>
+        </article>
+        <article class="signalCard" role="listitem">
+          <div class="signalK">Quality gate</div>
+          <div class="signalV">No vanity shipping</div>
+          <p>Changes are expected to move revenue, proof quality, or system reliability.</p>
+        </article>
+      </aside>
     </header>
 
-    <section class="grid three">
-      <article class="card">
-        <h2 class="h2">How We Work</h2>
+    <section class="workGrid reveal" aria-label="How we work">
+      <article class="workCard">
+        <div class="workK">How we work</div>
+        <h2 class="h2">Execution principles</h2>
         <ul>
-          <li>Write clearly. Measure what matters. Ship what works.</li>
-          <li>Bias toward reliability, not complexity theatre.</li>
-          <li>Fix root causes, not symptoms.</li>
-          <li>Respect client trust and delivery commitments.</li>
+          <li>Write clearly, measure hard, and ship what actually works.</li>
+          <li>Bias toward reliability over complexity theater.</li>
+          <li>Fix root causes, not only visible symptoms.</li>
+          <li>Protect client trust as a core engineering requirement.</li>
         </ul>
       </article>
-      <article class="card">
-        <h2 class="h2">Hiring Bar</h2>
+      <article class="workCard">
+        <div class="workK">Hiring bar</div>
+        <h2 class="h2">What we evaluate</h2>
         <ul>
-          <li>Strong ownership and independent execution.</li>
-          <li>Ability to reason from first principles.</li>
-          <li>Comfort with ambiguity and customer pressure.</li>
-          <li>High integrity with data and communication.</li>
+          <li>Strong ownership and self-directed execution under pressure.</li>
+          <li>First-principles reasoning with practical judgment.</li>
+          <li>Clear communication across technical and business contexts.</li>
+          <li>High integrity with data, scope, and commitments.</li>
         </ul>
       </article>
-      <article class="card">
-        <h2 class="h2">Work Model</h2>
+      <article class="workCard">
+        <div class="workK">Team design</div>
+        <h2 class="h2">Work model</h2>
         <ul>
-          <li>Core team: in-office/hybrid with fast iteration.</li>
-          <li>Client-facing roles: cadence aligned to delivery cycles.</li>
-          <li>Engineering: reliability guardrails are non-negotiable.</li>
-          <li>Compensation: role-based + performance-linked upside.</li>
+          <li>Core roles run in-office/hybrid with fast decision cycles.</li>
+          <li>Client-facing roles align to delivery cadence and ownership maps.</li>
+          <li>Engineering follows hard release guardrails and incident readiness.</li>
+          <li>Compensation is role-based with outcome-linked upside.</li>
         </ul>
       </article>
     </section>
 
-    <section class="card">
-      <h2 class="h2">Current Priority Roles</h2>
-      <div class="roleGrid">
-        <div class="roleCard">
-          <div class="kicker">Engineering</div>
-          <h3>Reliability Engineer</h3>
-          <p>Own p11/p12 hardening, incident prevention, and production safeguards.</p>
-        </div>
-        <div class="roleCard">
-          <div class="kicker">Delivery</div>
-          <h3>Execution Systems Lead</h3>
-          <p>Run 21-day pilot cadence and maintain <=18 day time-to-value trajectory.</p>
-        </div>
-        <div class="roleCard">
-          <div class="kicker">Commercial</div>
-          <h3>Revenue Operations Lead</h3>
-          <p>Scale proof-led proposals and maintain reference-call close quality.</p>
-        </div>
+    <section class="rolesBoard reveal" aria-label="Priority roles">
+      <div class="rolesHead">
+        <div class="heroEyebrow">Priority Roles</div>
+        <h2 class="h2">Current openings with immediate business impact</h2>
       </div>
-      <div class="btn-row" style="margin-top:12px">
+      <div class="rolesGrid">
+        <article class="roleCard">
+          <div class="roleK">Engineering</div>
+          <h3>Reliability Engineer</h3>
+          <p>Own p11/p12 hardening, P0 prevention, SLO enforcement, and release safety workflows.</p>
+        </article>
+        <article class="roleCard">
+          <div class="roleK">Delivery</div>
+          <h3>Execution Systems Lead</h3>
+          <p>Run 21-day pilot cadence and maintain a <=18 day time-to-value trajectory across active programs.</p>
+        </article>
+        <article class="roleCard">
+          <div class="roleK">Commercial</div>
+          <h3>Revenue Operations Lead</h3>
+          <p>Scale proof-led proposals and improve reference-call close rates through disciplined pipeline execution.</p>
+        </article>
+      </div>
+      <div class="rolesActions">
         <a class="btn btnPrimary" href="mailto:careers@erainai.com?subject=EraIn%20Careers">Apply via Email</a>
-        <a class="btn" href="/about">About EraIn</a>
+        <a class="btn" href="/engineering">Engineering at EraIn</a>
       </div>
     </section>
   </section>
 
   <style>
-    .careerPage { display: grid; gap: 18px; }
-    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
-    .hero { padding: 24px; }
-    .grid { display: grid; gap: 14px; }
-    .grid.three { grid-template-columns: 1fr; }
-    .roleGrid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .roleCard { border: 1px solid rgba(11,31,66,.12); border-radius: 14px; padding: 14px; background: rgba(255,255,255,.76); }
-    ul { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: rgba(17,24,39,.82); }
-    p { color: rgba(17,24,39,.82); }
-    @media (min-width: 980px) {
-      .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .roleGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .careersV2 {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      padding-bottom: 20px;
+    }
+
+    .careersHero,
+    .workGrid,
+    .rolesBoard {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3.2vw, 30px);
+    }
+
+    .careersHero {
+      display: grid;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .heroEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .heroTitle {
+      margin-top: 14px;
+      max-width: 16ch;
+      font-size: clamp(40px, 7vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 860;
+    }
+
+    .heroLead {
+      margin-top: 14px;
+      max-width: 68ch;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.58;
+    }
+
+    .heroPills {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 12px;
+      font-weight: 760;
+      color: rgba(15, 23, 42, 0.72);
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .heroSignals {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+    }
+
+    .signalCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 12px 14px;
+    }
+
+    .signalK,
+    .workK,
+    .roleK {
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+    }
+
+    .signalV {
+      margin-top: 6px;
+      color: rgba(15, 23, 42, 0.9);
+      font-size: 16px;
+      line-height: 1.28;
+      font-weight: 760;
+      letter-spacing: -0.01em;
+    }
+
+    .signalCard p {
+      margin: 6px 0 0;
+      color: rgba(15, 23, 42, 0.66);
+      font-size: 13px;
+      line-height: 1.54;
+    }
+
+    .workGrid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .workCard,
+    .roleCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 16px;
+    }
+
+    .workCard h2,
+    .roleCard h3 {
+      margin-top: 8px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: rgba(15, 23, 42, 0.93);
+    }
+
+    .workCard ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: rgba(15, 23, 42, 0.74);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .rolesHead {
+      margin-bottom: 12px;
+    }
+
+    .rolesGrid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .roleCard p {
+      margin: 8px 0 0;
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .rolesActions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (min-width: 960px) {
+      .careersHero {
+        grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+      }
+
+      .workGrid,
+      .rolesGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .careersHero,
+      .workGrid,
+      .rolesBoard {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .heroTitle {
+        max-width: 12ch;
+      }
+
+      .rolesActions .btn {
+        width: 100%;
+      }
     }
   </style>
 </BaseLayout>

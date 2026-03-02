@@ -7,78 +7,241 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="tutorialPage">
-    <header class="card hero">
-      <div class="badgeRow">
-        <span class="badge badgeSoft">Tutorials</span>
-        <span class="badge badgeSoft">User guides</span>
-        <span class="badge badgeSoft">Execution playbooks</span>
-      </div>
-      <h1 class="h1">How to use EraIn</h1>
-      <p class="lead">
-        Practical onboarding flows for business leaders and operator teams. Follow these tutorials to move from
-        intake submission to governed execution and ROI tracking.
+  <section class="tutorialsV2">
+    <header class="tutorialHero reveal">
+      <div class="heroEyebrow">Tutorials</div>
+      <h1 class="h1 heroTitle">From first intake to governed execution in one learning path.</h1>
+      <p class="lead heroLead">
+        These guides are designed for founders, delivery leaders, and client operators who need a predictable path
+        from audit submission to measurable execution outcomes.
       </p>
+      <div class="heroPills" role="list" aria-label="Tutorial posture">
+        <span class="pill" role="listitem">Step-by-step playbooks</span>
+        <span class="pill" role="listitem">Business + technical clarity</span>
+        <span class="pill" role="listitem">Operator-ready workflows</span>
+      </div>
     </header>
 
-    <section class="card">
-      <h2 class="h2">Quick Start (7 Steps)</h2>
+    <section class="quickStart reveal" aria-label="Quick start steps">
+      <div class="sectionHead">
+        <div class="heroEyebrow">Quick Start</div>
+        <h2 class="h2">Seven-step onboarding sequence</h2>
+      </div>
       <ol>
-        <li>Open <a href="/request-assessment">Start Free AI Audit</a> and submit business context.</li>
+        <li>Open <a href="/request-assessment">Start Free AI Audit</a> and submit operating context.</li>
         <li>Receive request ID and review <a href="/sample-report">sample report structure</a>.</li>
-        <li>Join qualification call and align outcome objective + ownership scope.</li>
+        <li>Join qualification call to lock objective, boundary, and owner scope.</li>
         <li>Review ranked leakage findings and governance map draft.</li>
-        <li>If fit, move to 21-Day Decision Governance Pilot proposal.</li>
-        <li>Track decisions and actions through weekly cadence.</li>
-        <li>Publish proof package (named or anonymized) after approval.</li>
+        <li>If fit, move to the 21-Day Decision Governance Pilot proposal.</li>
+        <li>Run weekly cadence with explicit actions, owners, and thresholds.</li>
+        <li>Publish proof package (named/anonymized) after legal approval.</li>
       </ol>
     </section>
 
-    <section class="grid three">
-      <article class="card">
-        <h2 class="h2">For Founders/CXOs</h2>
+    <section class="personaGrid reveal" aria-label="Tutorial tracks">
+      <article class="personaCard">
+        <div class="personaK">For founders / CXOs</div>
+        <h2 class="h2">Executive decision track</h2>
         <ul>
-          <li>How to define one measurable objective.</li>
-          <li>How to review owner-mapped decision governance.</li>
-          <li>How to evaluate ROI attribution quality.</li>
+          <li>Define one measurable objective with clear owner accountability.</li>
+          <li>Review governance maps before execution commitments.</li>
+          <li>Evaluate attribution quality and proof-readiness cadence.</li>
         </ul>
       </article>
-      <article class="card">
-        <h2 class="h2">For Delivery Teams</h2>
+      <article class="personaCard">
+        <div class="personaK">For delivery teams</div>
+        <h2 class="h2">Execution operator track</h2>
         <ul>
-          <li>How to run D1-D21 stage gates.</li>
-          <li>How to escalate SLA breaches.</li>
-          <li>How to convert readouts into proof assets.</li>
+          <li>Run D1-D21 stage transitions with breach handling discipline.</li>
+          <li>Escalate SLA variance with owner-scoped intervention rules.</li>
+          <li>Convert readouts into legal-safe proof artifacts quickly.</li>
         </ul>
       </article>
-      <article class="card">
-        <h2 class="h2">For Client Ops</h2>
+      <article class="personaCard">
+        <div class="personaK">For client ops</div>
+        <h2 class="h2">Client control track</h2>
         <ul>
-          <li>How to access client portal securely.</li>
-          <li>How to interpret audit and governance outputs.</li>
-          <li>How to align internal owners for execution.</li>
+          <li>Access client portal and retrieve engagement materials securely.</li>
+          <li>Interpret audit/governance outputs for internal action routing.</li>
+          <li>Align internal owners to accelerate decision closure.</li>
         </ul>
       </article>
     </section>
 
-    <section class="card">
-      <h2 class="h2">Need a guided walkthrough?</h2>
-      <p>Book a live onboarding session for your team and we will map your context into the correct operating flow.</p>
-      <div class="btn-row" style="margin-top:12px">
+    <section class="tutorialCta reveal" aria-label="Tutorial CTA">
+      <div>
+        <div class="heroEyebrow">Need help?</div>
+        <h2 class="h2">Book a guided walkthrough for your operating context.</h2>
+        <p>We map your team structure and target outcome to the correct execution track.</p>
+      </div>
+      <div class="ctaActions">
         <a class="btn btnPrimary" href="/contact?topic=tutorial">Book Walkthrough</a>
-        <a class="btn" href="/developers">Developer Docs</a>
+        <a class="btn" href="/developers">Developer APIs</a>
       </div>
     </section>
   </section>
 
   <style>
-    .tutorialPage { display: grid; gap: 18px; }
-    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
-    .hero { padding: 24px; }
-    .grid { display: grid; gap: 12px; }
-    .grid.three { grid-template-columns: 1fr; }
-    ul, ol { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: rgba(17,24,39,.82); }
-    p { color: rgba(17,24,39,.82); }
-    @media (min-width: 960px) { .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .tutorialsV2 {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      padding-bottom: 20px;
+    }
+
+    .tutorialHero,
+    .quickStart,
+    .personaGrid,
+    .tutorialCta {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3.2vw, 30px);
+    }
+
+    .heroEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .heroTitle {
+      margin-top: 14px;
+      max-width: 16ch;
+      font-size: clamp(40px, 7vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 860;
+    }
+
+    .heroLead {
+      margin-top: 14px;
+      max-width: 68ch;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.58;
+    }
+
+    .heroPills {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 12px;
+      font-weight: 760;
+      color: rgba(15, 23, 42, 0.72);
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .sectionHead {
+      margin-bottom: 10px;
+    }
+
+    .quickStart ol,
+    .personaCard ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .quickStart li,
+    .personaCard li,
+    .tutorialCta p {
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .personaGrid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .personaCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 16px;
+    }
+
+    .personaK {
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+    }
+
+    .personaCard h2 {
+      margin-top: 8px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: rgba(15, 23, 42, 0.93);
+    }
+
+    .tutorialCta {
+      display: grid;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .tutorialCta p {
+      margin: 10px 0 0;
+    }
+
+    .ctaActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (min-width: 960px) {
+      .personaGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .tutorialCta {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tutorialHero,
+      .quickStart,
+      .personaGrid,
+      .tutorialCta {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .heroTitle {
+        max-width: 12ch;
+      }
+
+      .ctaActions .btn {
+        width: 100%;
+      }
+    }
   </style>
 </BaseLayout>

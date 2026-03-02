@@ -7,64 +7,235 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="engPage">
-    <header class="card hero">
-      <div class="badgeRow">
-        <span class="badge badgeSoft">Engineering at EraIn</span>
-        <span class="badge badgeSoft">Reliability first</span>
-        <span class="badge badgeSoft">Governed releases</span>
+  <section class="engineeringV2">
+    <header class="engHero reveal">
+      <div class="heroCopy">
+        <div class="heroEyebrow">Engineering at EraIn</div>
+        <h1 class="h1 heroTitle">Build for failure modes first, then scale velocity.</h1>
+        <p class="lead heroLead">
+          EraIn engineering exists to run production operating systems, not demo-grade interfaces. Every release is
+          measured against reliability, governance compliance, and commercial quality outcomes.
+        </p>
       </div>
-      <h1 class="h1">Engineering for real operations, not demos.</h1>
-      <p class="lead">
-        We optimize for execution reliability, auditability, and measurable business impact.
-        Every release is expected to improve revenue velocity, proof quality, or control discipline.
-      </p>
+
+      <aside class="heroSignals" role="list" aria-label="Engineering signal strip">
+        <article class="signalCard" role="listitem">
+          <div class="signalK">Release control</div>
+          <div class="signalV">p1-p13 gated</div>
+          <p>Hard fails in reliability/commercial quality force automatic NO-GO.</p>
+        </article>
+        <article class="signalCard" role="listitem">
+          <div class="signalK">Data integrity</div>
+          <div class="signalV">D1 + hash-chain ledger</div>
+          <p>Critical lead events are append-only and tamper-evident by design.</p>
+        </article>
+        <article class="signalCard" role="listitem">
+          <div class="signalK">Operating rhythm</div>
+          <div class="signalV">Weekly control-tower</div>
+          <p>Revenue, proof, and risk are evaluated through one shared command report.</p>
+        </article>
+      </aside>
     </header>
 
-    <section class="grid two">
-      <article class="card">
-        <h2 class="h2">Current Platform</h2>
+    <section class="platformGrid reveal" aria-label="Platform details">
+      <article class="platformCard">
+        <div class="platformK">Runtime stack</div>
+        <h2 class="h2">Current architecture</h2>
         <ul>
-          <li>Astro SSR runtime on Cloudflare Pages.</li>
-          <li>D1 as source of truth for leads, audits, offers, and weekly metrics.</li>
-          <li>KV for cache/fallback acceleration paths.</li>
-          <li>Ops gate framework from p1 to p13 with weekly control-tower decisions.</li>
+          <li>Astro SSR runtime deployed on Cloudflare Pages.</li>
+          <li>D1 as system-of-record for leads, audits, offers, and weekly metrics.</li>
+          <li>KV for acceleration and fallback index paths.</li>
+          <li>Ops gate framework with automation from p1 to p13.</li>
         </ul>
       </article>
-      <article class="card">
-        <h2 class="h2">Release Discipline</h2>
+      <article class="platformCard">
+        <div class="platformK">Release discipline</div>
+        <h2 class="h2">How shipping decisions are made</h2>
         <ul>
-          <li>Any hard fail in p11 (reliability) or p12 (commercial quality) triggers NO-GO.</li>
-          <li>Every major change is validated through build + gates before deployment.</li>
-          <li>Lead events are tamper-evident through hash-chain event ledger design.</li>
-          <li>Control tower aggregates reliability, revenue, and proof status into one decision.</li>
+          <li>Reliability or commercial hard fail triggers immediate release stop.</li>
+          <li>Build + gate checks run before deployment and weekly go/no-go cycles.</li>
+          <li>Status transitions and admin actions remain policy-constrained.</li>
+          <li>Control-tower output is treated as the final executive release signal.</li>
         </ul>
       </article>
     </section>
 
-    <section class="card">
-      <h2 class="h2">Engineering Priorities (Current)</h2>
+    <section class="priorities reveal" aria-label="Current priorities">
+      <div class="prioritiesHead">
+        <div class="heroEyebrow">Current Priorities</div>
+        <h2 class="h2">Execution focus for this cycle</h2>
+      </div>
       <ol>
-        <li>Reduce time-to-value and improve stage reliability across active pilots.</li>
-        <li>Harden model failover, latency thresholds, and incident prevention paths.</li>
-        <li>Automate commercial policy checks to stop scope/discount drift early.</li>
-        <li>Improve proof publication pipeline with legal-safe speed.</li>
+        <li>Cut time-to-value variance and strengthen day-level stage predictability across active pilots.</li>
+        <li>Harden multi-model failover thresholds and bounded-latency response paths.</li>
+        <li>Automate discount/scope policy enforcement before proposals leave admin workflow.</li>
+        <li>Increase proof publication speed without compromising legal and data safety controls.</li>
       </ol>
-      <div class="btn-row" style="margin-top:12px">
+      <div class="priorityActions">
         <a class="btn btnPrimary" href="/careers">Join Engineering</a>
-        <a class="btn" href="/developers">Developer Docs</a>
+        <a class="btn" href="/developers">View Developer APIs</a>
       </div>
     </section>
   </section>
 
   <style>
-    .engPage { display: grid; gap: 18px; }
-    .hero { padding: 24px; }
-    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
-    .grid { display: grid; gap: 12px; }
-    .grid.two { grid-template-columns: 1fr; }
-    ul, ol { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: rgba(17,24,39,.82); }
-    p { color: rgba(17,24,39,.82); }
-    @media (min-width: 980px) { .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .engineeringV2 {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      padding-bottom: 20px;
+    }
+
+    .engHero,
+    .platformGrid,
+    .priorities {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3.2vw, 30px);
+    }
+
+    .engHero {
+      display: grid;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .heroEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .heroTitle {
+      margin-top: 14px;
+      max-width: 16ch;
+      font-size: clamp(40px, 7vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 860;
+    }
+
+    .heroLead {
+      margin-top: 14px;
+      max-width: 68ch;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.58;
+    }
+
+    .heroSignals {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+    }
+
+    .signalCard,
+    .platformCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 12px 14px;
+    }
+
+    .signalK,
+    .platformK {
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+    }
+
+    .signalV {
+      margin-top: 6px;
+      color: rgba(15, 23, 42, 0.9);
+      font-size: 16px;
+      line-height: 1.28;
+      font-weight: 760;
+      letter-spacing: -0.01em;
+    }
+
+    .signalCard p,
+    .platformCard li,
+    .priorities li {
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .signalCard p {
+      margin: 6px 0 0;
+    }
+
+    .platformGrid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .platformCard h2 {
+      margin-top: 8px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: rgba(15, 23, 42, 0.93);
+    }
+
+    .platformCard ul,
+    .priorities ol {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .prioritiesHead {
+      margin-bottom: 10px;
+    }
+
+    .priorityActions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (min-width: 960px) {
+      .engHero {
+        grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+      }
+
+      .platformGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .engHero,
+      .platformGrid,
+      .priorities {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .heroTitle {
+        max-width: 12ch;
+      }
+
+      .priorityActions .btn {
+        width: 100%;
+      }
+    }
   </style>
 </BaseLayout>

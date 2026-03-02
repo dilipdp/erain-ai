@@ -1,31 +1,85 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const sampleCurl = `curl -X POST https://erainai.com/api/public/audit \\
+  -H "content-type: application/json" \\
+  -H "Idempotency-Key: 4ec0a393-2d8f-4cda-9bc1-49ab1d5b8a92" \\
+  -d '{"contact":{"name":"Alex","email":"alex@company.com"},"context":"Execution variance in plant ops"}'`;
 ---
 
-<BaseLayout title="Developer Docs - EraIn AI" description="Developer docs are consolidated at /developers.">
-  <section class="docsRedirect">
-    <article class="redirectCard reveal">
+<BaseLayout title="Developer Docs - EraIn AI" description="Endpoint contracts, integration flows, and control-tower wiring for EraIn APIs.">
+  <section class="docsV2">
+    <header class="docsHero reveal">
       <div class="heroEyebrow">Developer Docs</div>
-      <h1 class="h1">Docs are consolidated at <code>/developers</code>.</h1>
-      <p>
-        Use the main developer page for API contracts, authentication model, status-transition rules,
-        and control-tower integration guidance.
+      <h1 class="h1 heroTitle">Production-first API contracts for governed operations.</h1>
+      <p class="heroLead">
+        This page is the quick contract index. For broader integration context and architecture notes, see
+        <a href="/developers"><code>/developers</code></a>.
       </p>
-      <div class="actions">
-        <a class="btn btnPrimary" href="/developers">Open Developers</a>
-        <a class="btn" href="/contact?topic=developer-integration">Talk integration</a>
+      <div class="heroPills" role="list" aria-label="Docs highlights">
+        <span class="pill" role="listitem">Idempotent public intake</span>
+        <span class="pill" role="listitem">Policy-bound status transitions</span>
+        <span class="pill" role="listitem">Control-tower endpoints</span>
       </div>
-    </article>
+    </header>
+
+    <section class="docsGrid reveal" aria-label="Endpoint groups">
+      <article class="docCard">
+        <div class="docK">Public APIs</div>
+        <h2 class="h2">Lead and audit intake</h2>
+        <ul>
+          <li><code>POST /api/public/audit</code> — idempotent audit request intake.</li>
+          <li><code>POST /api/public/contact</code> — contact capture with duplicate suppression.</li>
+          <li><code>POST /api/public/client/access/request</code> — secure client access request flow.</li>
+        </ul>
+      </article>
+
+      <article class="docCard">
+        <div class="docK">Admin APIs</div>
+        <h2 class="h2">Commercial and delivery controls</h2>
+        <ul>
+          <li><code>GET /api/admin/leads</code> — normalized lead list.</li>
+          <li><code>PATCH /api/admin/leads/:request_id/status</code> — guarded transition policy.</li>
+          <li><code>POST /api/admin/leads/:request_id/pro-offer</code> — fixed-scope pilot offer creation.</li>
+        </ul>
+      </article>
+
+      <article class="docCard">
+        <div class="docK">Ops APIs</div>
+        <h2 class="h2">Control-tower visibility</h2>
+        <ul>
+          <li><code>GET /api/admin/ops/scoreboard</code> — weekly logos/revenue/proof metrics.</li>
+          <li><code>GET /api/admin/ops/control-tower</code> — GO/NO-GO decision payload.</li>
+          <li>Gate artifacts from <code>p11</code>, <code>p12</code>, and <code>p13</code>.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="exampleBand reveal" aria-label="Integration example">
+      <div>
+        <div class="heroEyebrow">Sample Request</div>
+        <h2 class="h2">Public audit intake with idempotency key</h2>
+      </div>
+      <pre><code>{sampleCurl}</code></pre>
+      <div class="docsActions">
+        <a class="btn btnPrimary" href="/developers">Open full developer page</a>
+        <a class="btn" href="/contact?topic=developer-integration">Discuss integration</a>
+      </div>
+    </section>
   </section>
 
   <style>
-    .docsRedirect {
-      max-width: 960px;
+    .docsV2 {
+      max-width: 1320px;
       margin: 0 auto;
+      display: grid;
+      gap: 22px;
       padding-bottom: 20px;
     }
 
-    .redirectCard {
+    .docsHero,
+    .docsGrid,
+    .exampleBand {
       border: 1px solid rgba(15, 23, 42, 0.11);
       border-radius: 28px;
       background: rgba(255, 255, 255, 0.82);
@@ -47,24 +101,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       background: rgba(255, 255, 255, 0.72);
     }
 
-    h1 {
+    .heroTitle {
       margin-top: 14px;
       max-width: 16ch;
-      font-size: clamp(38px, 6.8vw, 64px);
-      line-height: 0.98;
-      letter-spacing: -0.045em;
+      font-size: clamp(40px, 7vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
       font-weight: 860;
     }
 
-    p {
-      margin: 12px 0 0;
-      color: rgba(15, 23, 42, 0.68);
-      font-size: clamp(16px, 1.7vw, 19px);
+    .heroLead {
+      margin: 14px 0 0;
+      max-width: 72ch;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: clamp(16px, 1.8vw, 20px);
       line-height: 1.58;
-      max-width: 65ch;
     }
 
-    code {
+    .heroLead code,
+    .docCard code,
+    pre code {
       border: 1px solid rgba(15, 23, 42, 0.14);
       border-radius: 8px;
       padding: 2px 6px;
@@ -72,20 +128,116 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       font-size: 0.94em;
     }
 
-    .actions {
+    .heroPills {
       margin-top: 16px;
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 12px;
+      font-weight: 760;
+      color: rgba(15, 23, 42, 0.72);
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .docsGrid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .docCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 16px;
+    }
+
+    .docK {
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+    }
+
+    .docCard h2 {
+      margin-top: 8px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: rgba(15, 23, 42, 0.93);
+    }
+
+    .docCard ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .exampleBand {
+      display: grid;
+      gap: 14px;
+    }
+
+    pre {
+      margin: 0;
+      overflow-x: auto;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 16px;
+      background: rgba(8, 18, 42, 0.96);
+      padding: 14px;
+      box-shadow: 0 16px 34px rgba(2, 10, 32, 0.2);
+    }
+
+    pre code {
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      padding: 0;
+      color: rgba(218, 235, 255, 0.94);
+      font-size: 12px;
+      line-height: 1.58;
+      display: block;
+      white-space: pre;
+    }
+
+    .docsActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (min-width: 960px) {
+      .docsGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 768px) {
-      .redirectCard {
+      .docsHero,
+      .docsGrid,
+      .exampleBand {
         border-radius: 22px;
         padding: 16px;
       }
 
-      .actions .btn {
+      .heroTitle {
+        max-width: 12ch;
+      }
+
+      .docsActions .btn {
         width: 100%;
       }
     }

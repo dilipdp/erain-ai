@@ -7,66 +7,225 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="eventsPage">
-    <header class="card hero">
-      <div class="badgeRow">
-        <span class="badge badgeSoft">Events</span>
-        <span class="badge badgeSoft">Operator-focused</span>
-        <span class="badge badgeSoft">No hype, only execution</span>
-      </div>
-      <h1 class="h1">Events and briefings</h1>
-      <p class="lead">
-        Sessions for founders, CXOs, and operators who need practical frameworks for AI auditability,
-        decision governance, and measurable ROI.
+  <section class="eventsV2">
+    <header class="eventsHero reveal">
+      <div class="heroEyebrow">Events</div>
+      <h1 class="h1 heroTitle">Operator briefings for teams that ship real outcomes.</h1>
+      <p class="lead heroLead">
+        Live and recorded sessions for founders, CXOs, and operating leaders who care about auditability,
+        decision governance, and measurable value movement.
       </p>
+
+      <div class="heroPills" role="list" aria-label="Event posture">
+        <span class="pill" role="listitem">No hype, no fluff</span>
+        <span class="pill" role="listitem">Execution-focused</span>
+        <span class="pill" role="listitem">Leadership-ready frameworks</span>
+        <span class="pill" role="listitem">Live Q&A with operators</span>
+      </div>
     </header>
 
-    <section class="card">
-      <h2 class="h2">Upcoming</h2>
+    <section class="upcoming reveal" aria-label="Upcoming events">
+      <div class="sectionHead">
+        <div class="heroEyebrow">Upcoming</div>
+        <h2 class="h2">Current session lineup</h2>
+      </div>
       <div class="eventGrid">
         <article class="eventCard">
-          <div class="kicker">Web Briefing</div>
-          <h3>21-Day Pilot: From Audit to Board Pack</h3>
-          <p>Format: 45 minutes. Audience: COO/CFO/Strategy leaders.</p>
-          <p>Date: March 12, 2026</p>
+          <div class="eventMeta">Web Briefing · March 12, 2026</div>
+          <h3>21-Day Pilot: from audit to board pack</h3>
+          <p>45 minutes for COO/CFO/strategy leaders designing the first governed execution loop.</p>
+          <div class="eventTag">Live virtual briefing</div>
         </article>
         <article class="eventCard">
-          <div class="kicker">Workshop</div>
-          <h3>Decision Governance Map Design Lab</h3>
-          <p>Format: 90 minutes. Build owner-path escalation maps live.</p>
-          <p>Date: March 19, 2026</p>
+          <div class="eventMeta">Workshop · March 19, 2026</div>
+          <h3>Decision governance map design lab</h3>
+          <p>90-minute applied workshop to build owner-path escalation design with real operating triggers.</p>
+          <div class="eventTag">Hands-on session</div>
         </article>
         <article class="eventCard">
-          <div class="kicker">Case Session</div>
-          <h3>Proof-Led Conversion: Reference Calls that Close</h3>
-          <p>Format: 60 minutes. Commercial operators and founders.</p>
-          <p>Date: March 26, 2026</p>
+          <div class="eventMeta">Case Session · March 26, 2026</div>
+          <h3>Proof-led conversion and reference call discipline</h3>
+          <p>60-minute commercial execution session for founders and revenue operators.</p>
+          <div class="eventTag">Case-led walkthrough</div>
         </article>
       </div>
-      <div class="btn-row" style="margin-top:12px">
+      <div class="eventActions">
         <a class="btn btnPrimary" href="/contact?topic=events">Request Invite</a>
       </div>
     </section>
 
-    <section class="card">
-      <h2 class="h2">Recorded Sessions</h2>
+    <section class="recordings reveal" aria-label="Recorded sessions">
+      <div class="sectionHead">
+        <div class="heroEyebrow">Recorded</div>
+        <h2 class="h2">On-demand sessions</h2>
+      </div>
       <ul>
-        <li>Execution leakage diagnostics for multi-site teams.</li>
-        <li>Governed decision paths: reducing approval cycle time.</li>
-        <li>ROI attribution ledgers: proving impact to leadership.</li>
+        <li>Execution leakage diagnostics for multi-site operating teams.</li>
+        <li>Governed decision paths for reducing approval cycle drag.</li>
+        <li>ROI attribution ledger design for executive confidence.</li>
       </ul>
-      <p class="muted">Recorded access is shared with qualified prospects and clients.</p>
+      <p>Recorded access is shared with qualified prospects and active clients.</p>
     </section>
   </section>
 
   <style>
-    .eventsPage { display: grid; gap: 18px; }
-    .card { padding: 20px; border: 1px solid rgba(11,31,66,.12); border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 14px 34px rgba(2,10,32,.08); }
-    .hero { padding: 24px; }
-    .eventGrid { display: grid; gap: 12px; grid-template-columns: 1fr; }
-    .eventCard { border: 1px solid rgba(11,31,66,.12); border-radius: 14px; padding: 14px; background: rgba(255,255,255,.76); }
-    ul { margin: 10px 0 0; padding-left: 18px; line-height: 1.7; color: rgba(17,24,39,.82); }
-    p { color: rgba(17,24,39,.82); }
-    @media (min-width: 960px) { .eventGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .eventsV2 {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      padding-bottom: 20px;
+    }
+
+    .eventsHero,
+    .upcoming,
+    .recordings {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 3.2vw, 30px);
+    }
+
+    .heroEyebrow {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.16);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .heroTitle {
+      margin-top: 14px;
+      max-width: 16ch;
+      font-size: clamp(40px, 7vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 860;
+    }
+
+    .heroLead {
+      margin-top: 14px;
+      max-width: 68ch;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.58;
+    }
+
+    .heroPills {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 12px;
+      font-weight: 760;
+      color: rgba(15, 23, 42, 0.72);
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .sectionHead {
+      margin-bottom: 12px;
+    }
+
+    .eventGrid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+
+    .eventCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 16px;
+    }
+
+    .eventMeta {
+      font-size: 10px;
+      font-weight: 860;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(15, 23, 42, 0.56);
+    }
+
+    .eventCard h3 {
+      margin: 8px 0 0;
+      font-size: clamp(24px, 2.8vw, 32px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      color: rgba(15, 23, 42, 0.93);
+    }
+
+    .eventCard p,
+    .recordings li,
+    .recordings p {
+      margin: 8px 0 0;
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .eventTag {
+      margin-top: 10px;
+      display: inline-flex;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 11px;
+      font-weight: 760;
+      background: rgba(255, 255, 255, 0.66);
+    }
+
+    .eventActions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .recordings ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    @media (min-width: 960px) {
+      .eventGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .eventsHero,
+      .upcoming,
+      .recordings {
+        border-radius: 22px;
+        padding: 16px;
+      }
+
+      .heroTitle {
+        max-width: 12ch;
+      }
+
+      .eventActions .btn {
+        width: 100%;
+      }
+    }
   </style>
 </BaseLayout>

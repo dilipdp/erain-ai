@@ -7,294 +7,516 @@ const faqJsonLd = JSON.stringify({
   mainEntity: [
     {
       "@type": "Question",
-      name: "What do I get in the Free Audit?",
+      name: "Can we contract in INR and USD?",
       acceptedAnswer: {
         "@type": "Answer",
-        text:
-          "A structured audit summary with ranked findings, operating risks, and a 30/60/90 recovery outline in an executive-ready format.",
+        text: "Yes. EraIn supports INR and USD billing. Currency display is switchable on this page for planning conversations.",
       },
     },
     {
       "@type": "Question",
-      name: "When should I upgrade to Pro Audit?",
+      name: "What is the fastest path to measurable value?",
       acceptedAnswer: {
         "@type": "Answer",
-        text:
-          "Upgrade when you need quantified impact, governance mapping, and an owner-ready execution plan.",
+        text: "Most teams start with EraIn Pro Audit to get quantified leakage recovery, governance mapping, and an owner-ready execution plan in 7 to 10 days.",
       },
     },
     {
       "@type": "Question",
-      name: "Is OpsMind software or service?",
+      name: "How should enterprise buyers evaluate plans?",
       acceptedAnswer: {
         "@type": "Answer",
-        text:
-          "OpsMind is an operating cadence engagement that combines product surfaces with governance routines and outcome tracking.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can EraIn work with messy data?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text:
-          "Yes. We start from current systems (ERP, Excel, Tally, exports) and harden data quality as part of delivery.",
+        text: "Choose by operating complexity, governance burden, and procurement requirements. Start with proof and scale after measurable outcomes are validated.",
       },
     },
   ],
 });
 ---
 
-<BaseLayout title="Pricing • EraIn AI" description="Outcome-led pricing in INR and USD for auditability, decision governance, and ROI attribution.">
-  <section class="pricingV2">
-    <header class="pricingHero reveal">
-      <div class="pricingEyebrow">Pricing</div>
-      <h1 class="h1 pricingTitle">Simple pricing. Serious execution outcomes.</h1>
-      <p class="lead pricingLead">
-        Start with truth, upgrade only when measurable value is visible. EraIn pricing is designed for decision quality,
-        governed execution, and provable ROI, not dashboard volume.
-      </p>
+<BaseLayout
+  title="Pricing • EraIn AI"
+  description="Outcome-first pricing for auditability, decision governance, and measurable ROI attribution."
+  pageClass="pricingPageWrap"
+>
+  <section class="pricingPage" aria-label="EraIn pricing">
+    <header class="hero panel reveal" aria-label="Pricing hero">
+      <div class="heroLeft">
+        <div class="eyebrow">EraIn Pricing System</div>
+        <h1 class="heroTitle">
+          Command reality.<br />
+          <span class="displaySerif">Price by outcomes.</span>
+        </h1>
+        <p class="heroLead">
+          EraIn pricing is built for operators, not vanity dashboards. You buy measurable execution progress: auditability,
+          governance, and attributed business value.
+        </p>
 
-      <div class="currencySwitchWrap" aria-label="Currency display control">
-        <div class="currencyLabel">Display currency</div>
-        <div class="currencySwitch" role="group" aria-label="Choose currency">
-          <button type="button" class="currencyBtn active" data-currency-btn="INR" aria-pressed="true">INR</button>
-          <button type="button" class="currencyBtn" data-currency-btn="USD" aria-pressed="false">USD</button>
+        <div class="heroStats" role="list" aria-label="Pricing highlights">
+          <article class="stat" role="listitem">
+            <div class="k">P50 time-to-value</div>
+            <div class="v">18 days target</div>
+          </article>
+          <article class="stat" role="listitem">
+            <div class="k">Primary paid motion</div>
+            <div class="v">21-day pilot</div>
+          </article>
+          <article class="stat" role="listitem">
+            <div class="k">Expansion rule</div>
+            <div class="v">Proof before scale</div>
+          </article>
         </div>
-        <div class="currencyHint">Auto-selected by locale and always switchable. Billing can be INR or USD by region.</div>
       </div>
 
-      <div class="heroMeta" role="list" aria-label="Pricing principles">
-        <div class="metaCard" role="listitem">
-          <div class="metaK">Commercial model</div>
-          <div class="metaV">Outcomes, not AI hours</div>
+      <aside class="heroRight" aria-label="Pricing controls">
+        <div class="heroControl">
+          <div class="controlRow">
+            <span>Currency</span>
+            <div class="switch" role="group" aria-label="Currency switch">
+              <button type="button" class="switchBtn active" data-currency-btn="INR" aria-pressed="true">INR</button>
+              <button type="button" class="switchBtn" data-currency-btn="USD" aria-pressed="false">USD</button>
+            </div>
+          </div>
+          <div class="controlRow">
+            <span>Billing view</span>
+            <div class="switch" role="group" aria-label="Billing switch">
+              <button type="button" class="switchBtn active" data-billing-btn="MONTHLY" aria-pressed="true">Monthly</button>
+              <button type="button" class="switchBtn" data-billing-btn="ANNUAL" aria-pressed="false">Annual</button>
+            </div>
+          </div>
+          <p>Annual view applies to recurring plans. One-time pilot plans remain fixed.</p>
         </div>
-        <div class="metaCard" role="listitem">
-          <div class="metaK">Engagement start</div>
-          <div class="metaV">Free entry audit</div>
-        </div>
-        <div class="metaCard" role="listitem">
-          <div class="metaK">Primary motion</div>
-          <div class="metaV">21-day pilot cadence</div>
-        </div>
-      </div>
-    </header>
 
-    <section class="plans reveal" aria-label="Pricing plans">
-      <article class="planCard">
-        <div class="planHead">
-          <div>
-            <div class="planName">EraIn Audit AI</div>
-            <div class="planMeta">Entry audit</div>
-          </div>
-          <div class="planPrice jsCurrencyValue" data-main-inr="₹0" data-main-usd="$0" data-alt-inr="No card required" data-alt-usd="No card required">
-            <span class="moneyMain">₹0</span>
-            <span class="moneyAlt">No card required</span>
-          </div>
-        </div>
-        <ul class="planList">
-          <li>Business health audit with ranked leakage map</li>
-          <li>Auditability baseline and confidence lens</li>
-          <li>30/60/90 action roadmap</li>
-          <li>Executive-ready summary report</li>
-        </ul>
-        <a href="/request-assessment" class="btn btnPrimary" data-track="pricing_free_start">Start Free Audit</a>
-      </article>
-
-      <article class="planCard planFeatured" aria-label="Recommended plan">
-        <div class="planRibbon">Recommended</div>
-        <div class="planHead">
-          <div>
-            <div class="planName">EraIn Pro Audit</div>
-            <div class="planMeta">Fixed-scope engagement</div>
-          </div>
-          <div class="planPrice jsCurrencyValue" data-main-inr="₹75,000" data-main-usd="$900" data-alt-inr="7-10 day delivery" data-alt-usd="7-10 day delivery">
+        <div class="recommended">
+          <div class="k">Recommended Start</div>
+          <h2>EraIn Pro Audit</h2>
+          <div class="price jsPlanPrice" data-price-type="one-time" data-inr="₹75,000" data-usd="$900" data-sub-inr="7-10 day delivery" data-sub-usd="7-10 day delivery">
             <span class="moneyMain">₹75,000</span>
             <span class="moneyAlt">7-10 day delivery</span>
           </div>
+          <p>Quantified leakage recovery + owner-mapped execution plan with governance boundaries.</p>
+          <a href="/contact" class="btn btnPrimary" data-track="pricing_hero_pro">Talk to EraIn</a>
         </div>
-        <ul class="planList">
-          <li>Root-cause mapping for top value leaks</li>
-          <li>Quantified impact and recovery potential</li>
-          <li>Owner-mapped 90-day execution plan</li>
-          <li>Leadership readout and rollout alignment</li>
-        </ul>
-        <a href="/contact" class="btn btnPrimary" data-track="pricing_pro_contact">Talk to EraIn</a>
-      </article>
+      </aside>
+    </header>
 
-      <article class="planCard">
-        <div class="planHead">
-          <div>
-            <div class="planName">EraIn OpsMind</div>
-            <div class="planMeta">Monthly operating cadence</div>
-          </div>
-          <div class="planPrice jsCurrencyValue" data-main-inr="₹1,50,000+" data-main-usd="$1,800+" data-alt-inr="Per month" data-alt-usd="Per month">
-            <span class="moneyMain">₹1,50,000+</span>
-            <span class="moneyAlt">Per month</span>
-          </div>
-        </div>
-        <ul class="planList">
-          <li>Weekly decision briefs and anomaly watch</li>
-          <li>Cadence governance and action discipline</li>
-          <li>KPI movement tracking with attribution cues</li>
-          <li>Execution coaching for owner teams</li>
-        </ul>
-        <a href="/contact" class="btn" data-track="pricing_opsmind_contact">Discuss OpsMind</a>
-      </article>
-
-      <article class="planCard">
-        <div class="planHead">
-          <div>
-            <div class="planName">EraIn Impact AI</div>
-            <div class="planMeta">Enterprise scale</div>
-          </div>
-          <div class="planPrice jsCurrencyValue" data-main-inr="Custom" data-main-usd="Custom" data-alt-inr="INR or USD billing" data-alt-usd="USD or INR billing">
-            <span class="moneyMain">Custom</span>
-            <span class="moneyAlt">INR or USD billing</span>
-          </div>
-        </div>
-        <ul class="planList">
-          <li>Multi-site governance architecture</li>
-          <li>Role-scoped control paths and audit trails</li>
-          <li>VPC/on-prem deployment options</li>
-          <li>Procurement-ready trust package</li>
-        </ul>
-        <a href="/contact" class="btn" data-track="pricing_enterprise_contact">Talk Enterprise</a>
-      </article>
-    </section>
-
-    <section class="compare reveal" aria-label="Commercial comparison">
-      <div class="compareHead">
-        <h2 class="h2">How leaders choose the right tier</h2>
-        <p>Progress from clarity to repeatable execution. Upgrade only after evidence and governance are in place.</p>
+    <section class="plans panel reveal" aria-label="Plans">
+      <div class="sectionHead">
+        <div class="eyebrow">Plans</div>
+        <h2 class="h2">Choose the right operating motion</h2>
       </div>
 
-      <div class="compareGrid" role="table" aria-label="Pricing comparison table">
-        <div class="compareRow compareRowHead" role="row">
-          <div class="compareCell" role="columnheader">Dimension</div>
-          <div class="compareCell" role="columnheader">Free Audit</div>
-          <div class="compareCell" role="columnheader">Pro Audit</div>
-          <div class="compareCell" role="columnheader">OpsMind / Impact</div>
+      <div class="planGrid">
+        <article class="planCard">
+          <div class="tier">Entry</div>
+          <div class="top">
+            <div>
+              <h3>EraIn Audit AI</h3>
+              <p>Audit baseline</p>
+            </div>
+            <div class="price jsPlanPrice" data-price-type="one-time" data-inr="₹0" data-usd="$0" data-sub-inr="No card required" data-sub-usd="No card required">
+              <span class="moneyMain">₹0</span>
+              <span class="moneyAlt">No card required</span>
+            </div>
+          </div>
+          <ul>
+            <li>Leakage map in under 60 seconds</li>
+            <li>Auditability confidence baseline</li>
+            <li>30/60/90 first-action outline</li>
+          </ul>
+          <a href="/request-assessment" class="btn btnPrimary" data-track="pricing_plan_free">Start Free Audit</a>
+        </article>
+
+        <article class="planCard featured">
+          <div class="tier">Recommended</div>
+          <div class="top">
+            <div>
+              <h3>EraIn Pro Audit</h3>
+              <p>Fixed-scope pilot</p>
+            </div>
+            <div class="price jsPlanPrice" data-price-type="one-time" data-inr="₹75,000" data-usd="$900" data-sub-inr="7-10 day delivery" data-sub-usd="7-10 day delivery">
+              <span class="moneyMain">₹75,000</span>
+              <span class="moneyAlt">7-10 day delivery</span>
+            </div>
+          </div>
+          <ul>
+            <li>Quantified value recovery model</li>
+            <li>Owner-mapped decision governance</li>
+            <li>Board-ready execution readout</li>
+          </ul>
+          <a href="/contact" class="btn btnPrimary" data-track="pricing_plan_pro">Talk to EraIn</a>
+        </article>
+
+        <article class="planCard">
+          <div class="tier">Scale</div>
+          <div class="top">
+            <div>
+              <h3>EraIn OpsMind</h3>
+              <p>Monthly operating cadence</p>
+            </div>
+            <div class="price jsPlanPrice" data-price-type="recurring" data-month-inr="₹1,50,000" data-month-usd="$1,800" data-year-inr="₹16,20,000" data-year-usd="$19,440" data-sub-monthly="per month" data-sub-annual="annual contract view">
+              <span class="moneyMain">₹1,50,000</span>
+              <span class="moneyAlt">per month</span>
+            </div>
+          </div>
+          <ul>
+            <li>Weekly decision cadence and anomaly control</li>
+            <li>KPI-linked action closure discipline</li>
+            <li>Leadership execution coaching</li>
+          </ul>
+          <a href="/contact" class="btn" data-track="pricing_plan_opsmind">Discuss OpsMind</a>
+        </article>
+
+        <article class="planCard">
+          <div class="tier">Enterprise</div>
+          <div class="top">
+            <div>
+              <h3>EraIn Impact AI</h3>
+              <p>Enterprise control layer</p>
+            </div>
+            <div class="price jsPlanPrice" data-price-type="enterprise" data-inr="Custom" data-usd="Custom" data-sub-inr="INR or USD billing" data-sub-usd="USD or INR billing">
+              <span class="moneyMain">Custom</span>
+              <span class="moneyAlt">INR or USD billing</span>
+            </div>
+          </div>
+          <ul>
+            <li>Multi-site governance architecture</li>
+            <li>Role-scoped control and audit trails</li>
+            <li>Procurement-ready trust pack</li>
+          </ul>
+          <a href="/contact" class="btn" data-track="pricing_plan_enterprise">Talk Enterprise</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="decision panel reveal" aria-label="Decision lens">
+      <div class="sectionHead">
+        <div class="eyebrow">Decision Lens</div>
+        <h2 class="h2">Role-based commercial guidance</h2>
+      </div>
+
+      <div class="lensGrid">
+        <div class="buyerTabs" role="tablist" aria-label="Buyer role selector">
+          <button type="button" class="buyerTab active" data-buyer="cfo" role="tab" aria-selected="true">CFO</button>
+          <button type="button" class="buyerTab" data-buyer="coo" role="tab" aria-selected="false">COO</button>
+          <button type="button" class="buyerTab" data-buyer="cto" role="tab" aria-selected="false">CTO</button>
+          <button type="button" class="buyerTab" data-buyer="procurement" role="tab" aria-selected="false">Procurement</button>
         </div>
-        <div class="compareRow" role="row">
-          <div class="compareCell" role="cell">Primary objective</div>
-          <div class="compareCell" role="cell">Visibility</div>
-          <div class="compareCell" role="cell">Decision-ready plan</div>
-          <div class="compareCell" role="cell">Execution at scale</div>
+
+        <article class="buyerResult" id="buyerResult" aria-live="polite"></article>
+      </div>
+    </section>
+
+    <section class="preview panel reveal" aria-label="Value preview">
+      <div class="sectionHead">
+        <div class="eyebrow">Value Preview</div>
+        <h2 class="h2">Estimate your recoverable window</h2>
+      </div>
+
+      <div class="previewGrid">
+        <div class="sliderWrap">
+          <label for="leakSlider">Annual value leakage estimate</label>
+          <input id="leakSlider" type="range" min="10" max="500" step="5" value="120" />
+          <p><span id="leakOut">₹1,20,00,000</span> estimated annual leakage profile</p>
         </div>
-        <div class="compareRow" role="row">
-          <div class="compareCell" role="cell">Output artifact</div>
-          <div class="compareCell" role="cell">Ranked findings</div>
-          <div class="compareCell" role="cell">Quantified roadmap</div>
-          <div class="compareCell" role="cell">Operating control loop</div>
+
+        <article class="previewCard">
+          <div class="k">Indicative recommendation</div>
+          <h3 id="previewPlan">EraIn Pro Audit</h3>
+          <p id="previewReason">Strong candidate for quantified pilot before recurring cadence.</p>
+          <div class="previewMetrics" role="list">
+            <div class="m" role="listitem"><span>90-day recovery window</span><strong id="previewRecovery">₹26,40,000</strong></div>
+            <div class="m" role="listitem"><span>Expected payback</span><strong id="previewPayback">9-12 weeks</strong></div>
+          </div>
+          <a href="/contact" class="btn btnPrimary" data-track="pricing_preview_cta">Request tailored recommendation</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="proof panel reveal" aria-label="Proof and trust">
+      <div class="sectionHead">
+        <div class="eyebrow">Proof + Trust</div>
+        <h2 class="h2">Commercial confidence for buyers and procurement</h2>
+      </div>
+
+      <div class="proofGrid">
+        <article class="proofCard">
+          <div class="k">Manufacturing</div>
+          <h3>2.7x to 3.3x recovery trajectory</h3>
+          <p>12-week execution window with owner-mapped controls and value attribution cadence.</p>
+        </article>
+        <article class="proofCard">
+          <div class="k">Logistics</div>
+          <h3>22% faster decision closure</h3>
+          <p>Approval path bottlenecks reduced through role-scoped governance thresholds.</p>
+        </article>
+        <article class="proofCard">
+          <div class="k">Services</div>
+          <h3>94% evidence confidence</h3>
+          <p>Recommendation handoff linked to traceable evidence and accountable owners.</p>
+        </article>
+      </div>
+
+      <div class="trustBar" role="list" aria-label="Trust artifacts">
+        <a href="/security" role="listitem">Security controls</a>
+        <a href="/dpa" role="listitem">DPA template</a>
+        <a href="/privacy" role="listitem">Privacy policy</a>
+        <a href="/legal" role="listitem">Legal terms</a>
+        <a href="/developer-docs" role="listitem">Integration docs</a>
+      </div>
+    </section>
+
+    <section class="comparison panel reveal" aria-label="Comparison">
+      <div class="sectionHead">
+        <div class="eyebrow">Comparison</div>
+        <h2 class="h2">Compare by execution need</h2>
+      </div>
+
+      <div class="table" role="table" aria-label="Pricing comparison matrix">
+        <div class="row head" role="row">
+          <div class="cell" role="columnheader">Dimension</div>
+          <div class="cell" role="columnheader">Audit AI</div>
+          <div class="cell" role="columnheader">Pro Audit</div>
+          <div class="cell" role="columnheader">OpsMind / Impact</div>
         </div>
-        <div class="compareRow" role="row">
-          <div class="compareCell" role="cell">Decision governance</div>
-          <div class="compareCell" role="cell">Baseline</div>
-          <div class="compareCell" role="cell">Mapped owners + cadence</div>
-          <div class="compareCell" role="cell">Enforced governance system</div>
+        <div class="row" role="row">
+          <div class="cell">Primary objective</div>
+          <div class="cell">Find leakage</div>
+          <div class="cell">Quantify and govern</div>
+          <div class="cell">Run at enterprise cadence</div>
         </div>
-        <div class="compareRow" role="row">
-          <div class="compareCell" role="cell">ROI attribution</div>
-          <div class="compareCell" role="cell">Directional</div>
-          <div class="compareCell" role="cell">Modeled recovery bands</div>
-          <div class="compareCell" role="cell">Live attribution ledger</div>
+        <div class="row" role="row">
+          <div class="cell">ROI attribution</div>
+          <div class="cell">Directional</div>
+          <div class="cell">Modeled 90-day window</div>
+          <div class="cell">Recurring attribution loop</div>
+        </div>
+        <div class="row" role="row">
+          <div class="cell">Typical timeline</div>
+          <div class="cell">Immediate</div>
+          <div class="cell">7-10 days</div>
+          <div class="cell">Monthly / enterprise term</div>
         </div>
       </div>
     </section>
 
-    <section class="faqBand reveal" aria-label="Pricing FAQ">
-      <h2 class="h2">FAQ</h2>
+    <section class="faq panel reveal" aria-label="FAQ">
+      <div class="sectionHead">
+        <div class="eyebrow">FAQ</div>
+        <h2 class="h2">Commercial questions</h2>
+      </div>
+
       <details class="qa" open>
-        <summary>What do I get in the Free Audit?</summary>
-        <p>A structured audit summary, ranked risks, and a practical recovery outline for leadership review.</p>
+        <summary>Can we contract in INR and USD?</summary>
+        <p>Yes. Both currencies are supported and selectable for planning on this page.</p>
       </details>
       <details class="qa">
-        <summary>When should I upgrade to Pro Audit?</summary>
-        <p>When you need quantified value, owner-path governance, and a deployment-ready plan.</p>
+        <summary>What is the fastest way to measurable value?</summary>
+        <p>For most teams, Pro Audit is the fastest structured path to quantified outcomes.</p>
       </details>
       <details class="qa">
-        <summary>Can EraIn work with existing messy systems?</summary>
-        <p>Yes. Most engagements begin with mixed-quality exports and still produce governance-grade execution outputs.</p>
-      </details>
-      <details class="qa">
-        <summary>Do you support INR and USD commercially?</summary>
-        <p>Yes. Pricing is visible in INR and USD, and invoicing follows your contracting region.</p>
+        <summary>Can we start small and scale later?</summary>
+        <p>Yes. The commercial model is explicitly proof-first and scale-second.</p>
       </details>
     </section>
 
-    <section class="pricingCta reveal" aria-label="Pricing CTA">
+    <section class="finalCta panel reveal" aria-label="Pricing CTA">
       <div>
-        <div class="pricingEyebrow">Next step</div>
-        <h2 class="h2">Start with the free audit and decide with proof.</h2>
+        <div class="eyebrow">Next Step</div>
+        <h2 class="h2">Start with proof. Scale with confidence.</h2>
       </div>
-      <div class="ctaActions">
-        <a class="btn btnPrimary" href="/request-assessment" data-track="pricing_footer_start">Start Free AI Audit</a>
-        <a class="btn" href="/contact" data-track="pricing_footer_contact">Speak with EraIn</a>
+      <div class="actions">
+        <a href="/request-assessment" class="btn btnPrimary" data-track="pricing_footer_start">Start Free AI Audit</a>
+        <a href="/contact" class="btn" data-track="pricing_footer_contact">Speak with EraIn</a>
       </div>
     </section>
 
     <script is:inline>
       (function () {
-        const root = document.querySelector(".pricingV2");
+        const root = document.querySelector(".pricingPage");
         if (!root) return;
 
-        const values = Array.from(root.querySelectorAll(".jsCurrencyValue"));
-        const buttons = Array.from(root.querySelectorAll("[data-currency-btn]"));
-        if (!values.length || !buttons.length) return;
-
         const normalize = (v) => String(v || "").trim().toUpperCase();
-        const supported = (v) => v === "INR" || v === "USD";
+        const isCurrency = (v) => v === "INR" || v === "USD";
 
-        const detectDefault = () => {
+        const priceNodes = Array.from(root.querySelectorAll(".jsPlanPrice"));
+        const currencyButtons = Array.from(root.querySelectorAll("[data-currency-btn]"));
+        const billingButtons = Array.from(root.querySelectorAll("[data-billing-btn]"));
+
+        let currency = "INR";
+        let billing = "MONTHLY";
+
+        const detectCurrency = () => {
           try {
-            const byQuery = normalize(new URL(window.location.href).searchParams.get("currency"));
-            if (supported(byQuery)) return { currency: byQuery, source: "query" };
+            const query = normalize(new URL(window.location.href).searchParams.get("currency"));
+            if (isCurrency(query)) return query;
           } catch (_) {}
 
           try {
-            const byStorage = normalize(localStorage.getItem("erain_currency"));
-            if (supported(byStorage)) return { currency: byStorage, source: "storage" };
+            const stored = normalize(localStorage.getItem("erain_currency"));
+            if (isCurrency(stored)) return stored;
           } catch (_) {}
 
           const locale = normalize((Intl.NumberFormat().resolvedOptions().locale || navigator.language || "").replace("_", "-"));
           const tz = normalize(Intl.DateTimeFormat().resolvedOptions().timeZone || "");
           const indiaLocale = /(^|-)IN($|-)/.test(locale);
           const indiaTimezone = tz.includes("KOLKATA") || tz.includes("CALCUTTA");
-          return { currency: indiaLocale || indiaTimezone ? "INR" : "USD", source: "auto" };
+          return indiaLocale || indiaTimezone ? "INR" : "USD";
         };
 
-        const applyCurrency = (currency) => {
-          for (const node of values) {
-            const mainNode = node.querySelector(".moneyMain");
-            const altNode = node.querySelector(".moneyAlt");
-            const main = node.getAttribute(`data-main-${currency.toLowerCase()}`);
-            const alt = node.getAttribute(`data-alt-${currency.toLowerCase()}`);
-            if (mainNode && main) mainNode.textContent = main;
-            if (altNode && alt) altNode.textContent = alt;
+        const formatMoney = (value) => {
+          const n = Math.max(0, Math.round(value));
+          if (currency === "USD") {
+            return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
           }
+          return new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
+        };
 
-          for (const button of buttons) {
+        const applyPrices = () => {
+          priceNodes.forEach((node) => {
+            const main = node.querySelector(".moneyMain");
+            const alt = node.querySelector(".moneyAlt");
+            if (!main || !alt) return;
+
+            const type = String(node.getAttribute("data-price-type") || "one-time");
+            if (type === "recurring") {
+              if (billing === "ANNUAL") {
+                main.textContent = node.getAttribute(currency === "INR" ? "data-year-inr" : "data-year-usd") || "-";
+                alt.textContent = node.getAttribute("data-sub-annual") || "annual contract";
+              } else {
+                main.textContent = node.getAttribute(currency === "INR" ? "data-month-inr" : "data-month-usd") || "-";
+                alt.textContent = node.getAttribute("data-sub-monthly") || "per month";
+              }
+              return;
+            }
+
+            main.textContent = node.getAttribute(currency === "INR" ? "data-inr" : "data-usd") || "-";
+            alt.textContent = node.getAttribute(currency === "INR" ? "data-sub-inr" : "data-sub-usd") || "";
+          });
+
+          currencyButtons.forEach((button) => {
             const on = normalize(button.getAttribute("data-currency-btn")) === currency;
             button.classList.toggle("active", on);
             button.setAttribute("aria-pressed", on ? "true" : "false");
-          }
+          });
+
+          billingButtons.forEach((button) => {
+            const on = normalize(button.getAttribute("data-billing-btn")) === billing;
+            button.classList.toggle("active", on);
+            button.setAttribute("aria-pressed", on ? "true" : "false");
+          });
 
           try {
             localStorage.setItem("erain_currency", currency);
           } catch (_) {}
         };
 
-        const detected = detectDefault();
-        applyCurrency(detected.currency);
+        currency = detectCurrency();
 
-        for (const button of buttons) {
+        currencyButtons.forEach((button) => {
           button.addEventListener("click", () => {
-            const currency = normalize(button.getAttribute("data-currency-btn"));
-            if (!supported(currency)) return;
-            applyCurrency(currency);
+            const next = normalize(button.getAttribute("data-currency-btn"));
+            if (!isCurrency(next)) return;
+            currency = next;
+            applyPrices();
+            runPreview();
           });
-        }
+        });
+
+        billingButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const next = normalize(button.getAttribute("data-billing-btn"));
+            if (next !== "MONTHLY" && next !== "ANNUAL") return;
+            billing = next;
+            applyPrices();
+          });
+        });
+
+        applyPrices();
+
+        const buyerData = {
+          cfo: {
+            title: "CFO Lens",
+            text: "Prioritize payback speed and attribution confidence before scaling recurring spend.",
+            items: ["Modeled value window", "Owner-linked accountability", "Controlled expansion trigger"],
+          },
+          coo: {
+            title: "COO Lens",
+            text: "Prioritize cycle-time recovery and disciplined weekly action closure.",
+            items: ["Governed decision cadence", "Execution owner mapping", "Cross-functional drift control"],
+          },
+          cto: {
+            title: "CTO Lens",
+            text: "Prioritize integration reliability, traceability, and deployment fit.",
+            items: ["System-to-decision trace", "Role-scoped controls", "Deployment flexibility"],
+          },
+          procurement: {
+            title: "Procurement Lens",
+            text: "Prioritize legal clarity, controls posture, and contract readiness.",
+            items: ["Security artifacts", "DPA and legal template", "Global billing model"],
+          },
+        };
+
+        const buyerTabs = Array.from(root.querySelectorAll(".buyerTab"));
+        const buyerResult = root.querySelector("#buyerResult");
+
+        const renderBuyer = (key) => {
+          const data = buyerData[key] || buyerData.cfo;
+          if (!buyerResult) return;
+          buyerResult.innerHTML = `
+            <h3>${data.title}</h3>
+            <p>${data.text}</p>
+            <ul>${data.items.map((item) => `<li>${item}</li>`).join("")}</ul>
+          `;
+        };
+
+        buyerTabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const key = String(tab.getAttribute("data-buyer") || "cfo");
+            buyerTabs.forEach((node) => {
+              const active = node === tab;
+              node.classList.toggle("active", active);
+              node.setAttribute("aria-selected", active ? "true" : "false");
+            });
+            renderBuyer(key);
+          });
+        });
+
+        renderBuyer("cfo");
+
+        const leakSlider = root.querySelector("#leakSlider");
+        const leakOut = root.querySelector("#leakOut");
+        const previewPlan = root.querySelector("#previewPlan");
+        const previewReason = root.querySelector("#previewReason");
+        const previewRecovery = root.querySelector("#previewRecovery");
+        const previewPayback = root.querySelector("#previewPayback");
+
+        const runPreview = () => {
+          const units = Number(leakSlider && leakSlider.value ? leakSlider.value : 120);
+          const base = currency === "USD" ? units * 10000 : units * 100000;
+
+          if (leakOut) leakOut.textContent = formatMoney(base);
+
+          let plan = "EraIn Pro Audit";
+          let reason = "Strong candidate for quantified pilot before recurring cadence.";
+          if (base < (currency === "USD" ? 120000 : 15000000)) {
+            plan = "EraIn Audit AI";
+            reason = "Start with fast visibility and prioritize the first recovery moves.";
+          } else if (base > (currency === "USD" ? 900000 : 90000000)) {
+            plan = "EraIn OpsMind";
+            reason = "Recovery potential justifies recurring operating cadence and governance controls.";
+          }
+
+          const recovery = base * 0.22;
+          const payback = base > (currency === "USD" ? 900000 : 90000000) ? "8-10 weeks" : "9-12 weeks";
+
+          if (previewPlan) previewPlan.textContent = plan;
+          if (previewReason) previewReason.textContent = reason;
+          if (previewRecovery) previewRecovery.textContent = formatMoney(recovery);
+          if (previewPayback) previewPayback.textContent = payback;
+        };
+
+        leakSlider && leakSlider.addEventListener("input", runPreview);
+        runPreview();
       })();
     </script>
 
@@ -302,258 +524,537 @@ const faqJsonLd = JSON.stringify({
   </section>
 
   <style>
-    .pricingV2 {
-      max-width: 1340px;
+    .pricingPageWrap {
+      width: 100%;
+    }
+
+    .pricingPage {
+      max-width: 1380px;
       margin: 0 auto;
       display: grid;
-      gap: 24px;
-      padding-bottom: 20px;
+      gap: 20px;
+      padding-bottom: 30px;
     }
 
-    .pricingHero,
-    .plans,
-    .compare,
-    .faqBand,
-    .pricingCta {
-      border: 1px solid rgba(15, 23, 42, 0.11);
+    .panel {
+      border: 1px solid rgba(15, 23, 42, 0.12);
       border-radius: 28px;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 18px 44px rgba(2, 10, 32, 0.08);
-      padding: clamp(18px, 3vw, 30px);
+      background: rgba(255, 255, 255, 0.84);
+      box-shadow: 0 16px 42px rgba(2, 10, 32, 0.08);
+      padding: clamp(18px, 2.4vw, 30px);
     }
 
-    .pricingEyebrow {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      border: 1px solid rgba(15, 23, 42, 0.16);
+      width: fit-content;
+      border: 1px solid rgba(15, 23, 42, 0.14);
       border-radius: 999px;
-      padding: 8px 14px;
-      color: rgba(15, 23, 42, 0.72);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.13em;
+      padding: 6px 12px;
+      color: rgba(15, 23, 42, 0.62);
+      font-size: 10px;
+      font-weight: 840;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       background: rgba(255, 255, 255, 0.72);
     }
 
-    .pricingTitle {
-      margin-top: 14px;
-      max-width: 20ch;
-      font-size: clamp(40px, 7vw, 78px);
-      line-height: 0.96;
+    .hero {
+      display: grid;
+      gap: 16px;
+      align-items: start;
+      background:
+        radial-gradient(980px 360px at -10% -28%, rgba(36, 90, 223, 0.12), transparent 72%),
+        radial-gradient(980px 360px at 110% -20%, rgba(10, 140, 184, 0.12), transparent 72%),
+        rgba(255, 255, 255, 0.84);
+    }
+
+    .heroTitle {
+      margin: 12px 0 0;
+      color: rgba(15, 23, 42, 0.96);
+      font-size: clamp(44px, 6vw, 82px);
+      line-height: 0.92;
       letter-spacing: -0.05em;
       font-weight: 860;
+      max-width: 11ch;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
-    .pricingLead {
+    .heroTitle .displaySerif {
+      font-size: 1.03em;
+      letter-spacing: -0.02em;
+      color: #173d88;
+    }
+
+    .heroLead {
+      margin: 14px 0 0;
+      color: rgba(15, 23, 42, 0.72);
+      font-size: clamp(17px, 1.8vw, 21px);
+      line-height: 1.56;
+      max-width: 66ch;
+    }
+
+    .heroStats {
       margin-top: 14px;
-      max-width: 70ch;
-      font-size: clamp(17px, 2vw, 22px);
-      line-height: 1.58;
-      color: rgba(15, 23, 42, 0.7);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
     }
 
-    .currencySwitchWrap {
-      margin-top: 16px;
+    .stat {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 10px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .k {
+      color: rgba(15, 23, 42, 0.58);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 820;
+    }
+
+    .v {
+      color: rgba(15, 23, 42, 0.9);
+      font-size: 16px;
+      font-weight: 760;
+      line-height: 1.3;
+    }
+
+    .heroRight {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .heroControl,
+    .recommended {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 12px;
       display: grid;
       gap: 8px;
-      max-width: 520px;
     }
 
-    .currencyLabel {
-      font-size: 11px;
-      font-weight: 840;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(15, 23, 42, 0.56);
+    .recommended {
+      border-color: rgba(36, 90, 223, 0.26);
+      background:
+        radial-gradient(620px 220px at -8% -26%, rgba(36, 90, 223, 0.08), transparent 76%),
+        rgba(255, 255, 255, 0.9);
     }
 
-    .currencySwitch {
+    .recommended h2 {
+      margin: 2px 0 0;
+      color: rgba(15, 23, 42, 0.92);
+      font-size: clamp(24px, 2.2vw, 32px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+
+    .recommended p,
+    .heroControl p {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.66);
+      font-size: 13px;
+      line-height: 1.52;
+    }
+
+    .controlRow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .controlRow span {
+      color: rgba(15, 23, 42, 0.72);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .switch {
       display: inline-grid;
-      grid-template-columns: repeat(2, minmax(82px, 1fr));
-      gap: 6px;
-      border: 1px solid rgba(15, 23, 42, 0.14);
+      grid-template-columns: repeat(2, minmax(74px, 1fr));
+      gap: 4px;
+      border: 1px solid rgba(15, 23, 42, 0.13);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.84);
-      padding: 6px;
-      width: fit-content;
+      padding: 4px;
+      background: rgba(255, 255, 255, 0.9);
     }
 
-    .currencyBtn {
+    .switchBtn {
       appearance: none;
       border: 1px solid transparent;
       border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 13px;
-      font-weight: 800;
-      color: rgba(15, 23, 42, 0.68);
       background: transparent;
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 7px 11px;
       cursor: pointer;
       transition: all 150ms ease;
     }
 
-    .currencyBtn.active {
+    .switchBtn.active {
       color: #fff;
-      background: linear-gradient(135deg, #245adf, #0a8cb8);
       border-color: rgba(255, 255, 255, 0.24);
-      box-shadow: 0 10px 22px rgba(36, 90, 223, 0.24);
+      background: linear-gradient(135deg, #245adf, #0a8cb8);
+      box-shadow: 0 10px 20px rgba(36, 90, 223, 0.24);
     }
 
-    .currencyHint {
-      font-size: 12px;
-      color: rgba(15, 23, 42, 0.62);
-      line-height: 1.55;
+    .price {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-width: 0;
     }
 
-    .heroMeta {
-      margin-top: 16px;
-      display: grid;
-      gap: 10px;
-      grid-template-columns: 1fr;
+    .moneyMain {
+      color: rgba(15, 23, 42, 0.95);
+      font-size: clamp(34px, 2.8vw, 50px);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      font-weight: 850;
+      overflow-wrap: anywhere;
     }
 
-    .metaCard {
-      border: 1px solid rgba(15, 23, 42, 0.1);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 12px 14px;
-    }
-
-    .metaK {
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 840;
+    .moneyAlt {
       color: rgba(15, 23, 42, 0.56);
-    }
-
-    .metaV {
-      margin-top: 5px;
-      color: rgba(15, 23, 42, 0.9);
-      font-size: 17px;
-      line-height: 1.28;
-      letter-spacing: -0.02em;
+      font-size: 11px;
       font-weight: 760;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
     }
 
-    .plans {
+    .sectionHead {
       display: grid;
-      gap: 14px;
+      gap: 8px;
+    }
+
+    /* Defensive guard against stale dev/HMR styles causing vertical plan label rail */
+    .plans {
+      display: block;
+    }
+
+    .plans > .sectionHead {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+      margin-bottom: 12px;
+      max-width: 760px;
+    }
+
+    .plans > .sectionHead .eyebrow {
+      writing-mode: horizontal-tb !important;
+      text-orientation: mixed !important;
+      transform: none !important;
+      width: fit-content !important;
+      height: auto !important;
+      align-self: start !important;
+      white-space: nowrap !important;
+      max-width: 100% !important;
+      overflow: visible !important;
+      border-radius: 999px !important;
+      padding: 6px 12px !important;
+    }
+
+    .h2 {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.95);
+      font-size: clamp(30px, 3vw, 44px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      font-weight: 840;
+      max-width: 22ch;
+    }
+
+    .planGrid {
+      margin-top: 12px;
+      display: grid;
       grid-template-columns: 1fr;
+      gap: 12px;
     }
 
     .planCard {
       border: 1px solid rgba(15, 23, 42, 0.12);
       border-radius: 20px;
+      background: rgba(255, 255, 255, 0.84);
       padding: 16px;
-      background: rgba(255, 255, 255, 0.82);
       display: grid;
       gap: 12px;
       align-content: start;
       min-width: 0;
-      overflow: hidden;
     }
 
-    .planFeatured {
-      border-color: rgba(36, 90, 223, 0.28);
+    .planCard.featured {
+      border-color: rgba(36, 90, 223, 0.3);
       background:
-        radial-gradient(680px 220px at 0% -10%, rgba(36, 90, 223, 0.08), transparent 70%),
-        rgba(255, 255, 255, 0.88);
-      box-shadow: 0 20px 48px rgba(36, 90, 223, 0.12);
-      position: relative;
+        radial-gradient(620px 220px at -8% -26%, rgba(36, 90, 223, 0.09), transparent 76%),
+        rgba(255, 255, 255, 0.9);
+      box-shadow: 0 16px 34px rgba(36, 90, 223, 0.11);
     }
 
-    .planRibbon {
+    .tier {
       display: inline-flex;
       width: fit-content;
-      border: 1px solid rgba(36, 90, 223, 0.22);
+      border: 1px solid rgba(15, 23, 42, 0.14);
       border-radius: 999px;
-      padding: 6px 10px;
+      padding: 5px 10px;
+      color: rgba(15, 23, 42, 0.63);
       font-size: 10px;
-      font-weight: 850;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #1f4dc4;
-      background: rgba(36, 90, 223, 0.1);
+      font-weight: 820;
     }
 
-    .planHead {
+    .top {
       display: grid;
-      gap: 8px;
-      grid-template-columns: 1fr;
-    }
-
-    .planHead > div:first-child {
+      gap: 10px;
       min-width: 0;
     }
 
-    .planName {
-      font-size: 24px;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      font-weight: 800;
-      color: rgba(15, 23, 42, 0.93);
-    }
-
-    .planMeta {
-      margin-top: 4px;
-      font-size: 13px;
-      color: rgba(15, 23, 42, 0.62);
-    }
-
-    .planPrice {
-      text-align: left;
-      display: grid;
-      gap: 3px;
-      justify-items: start;
-      min-width: 0;
-      max-width: 100%;
-    }
-
-    .moneyMain {
-      font-size: clamp(28px, 2.8vw, 42px);
-      line-height: 0.95;
-      letter-spacing: -0.035em;
-      font-weight: 860;
-      color: rgba(15, 23, 42, 0.95);
+    .top h3 {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.94);
+      font-size: clamp(28px, 2.2vw, 36px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      font-weight: 820;
       overflow-wrap: anywhere;
-      word-break: break-word;
     }
 
-    .moneyAlt {
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(15, 23, 42, 0.56);
-      font-weight: 760;
-      overflow-wrap: anywhere;
-      word-break: break-word;
+    .top p {
+      margin: 6px 0 0;
+      color: rgba(15, 23, 42, 0.63);
+      font-size: 14px;
+      font-weight: 600;
     }
 
-    .planList {
+    .planCard ul {
       margin: 0;
       padding-left: 18px;
-      color: rgba(15, 23, 42, 0.78);
-      font-size: 14px;
-      line-height: 1.58;
+      color: rgba(15, 23, 42, 0.8);
+      font-size: 17px;
+      line-height: 1.5;
       display: grid;
       gap: 6px;
     }
 
-    .compareHead p {
-      margin: 8px 0 0;
-      color: rgba(15, 23, 42, 0.68);
-      line-height: 1.6;
-      font-size: 15px;
+    .planCard .btn {
+      width: 100%;
     }
 
-    .compareGrid {
-      margin-top: 12px;
+    .lensGrid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .buyerTabs {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .buyerTab {
+      appearance: none;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.78);
+      color: rgba(15, 23, 42, 0.75);
+      font-size: 14px;
+      font-weight: 760;
+      padding: 10px 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 140ms ease;
+    }
+
+    .buyerTab.active {
+      border-color: rgba(36, 90, 223, 0.28);
+      color: #1f4dc4;
+      background: rgba(36, 90, 223, 0.1);
+    }
+
+    .buyerResult {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 12px;
       display: grid;
       gap: 8px;
     }
 
-    .compareRow {
+    .buyerResult h3 {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.92);
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .buyerResult p {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 14px;
+      line-height: 1.56;
+    }
+
+    .buyerResult ul {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(15, 23, 42, 0.8);
+      font-size: 15px;
+      line-height: 1.5;
+      display: grid;
+      gap: 6px;
+    }
+
+    .previewGrid {
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .sliderWrap,
+    .previewCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .sliderWrap label {
+      color: rgba(15, 23, 42, 0.74);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .sliderWrap input {
+      width: 100%;
+    }
+
+    .sliderWrap p,
+    .previewCard p {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.68);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .previewCard h3 {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.94);
+      font-size: 30px;
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+    }
+
+    .previewMetrics {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .m {
+      border: 1px solid rgba(15, 23, 42, 0.11);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 9px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .m span {
+      color: rgba(15, 23, 42, 0.6);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 790;
+    }
+
+    .m strong {
+      color: rgba(15, 23, 42, 0.9);
+      font-size: 22px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .proofGrid {
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr;
+    }
+
+    .proofCard {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.78);
+      padding: 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .proofCard h3 {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.92);
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+
+    .proofCard p {
+      margin: 0;
+      color: rgba(15, 23, 42, 0.7);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .trustBar {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .trustBar a {
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: rgba(15, 23, 42, 0.74);
+      font-size: 12px;
+      font-weight: 740;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.7);
+      transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+    }
+
+    .trustBar a:hover {
+      border-color: rgba(36, 90, 223, 0.3);
+      color: #1f4dc4;
+      background: rgba(36, 90, 223, 0.08);
+    }
+
+    .table {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .row {
       display: grid;
       gap: 8px;
       grid-template-columns: 1fr;
@@ -563,25 +1064,25 @@ const faqJsonLd = JSON.stringify({
       padding: 10px;
     }
 
-    .compareRowHead {
+    .row.head {
       background: rgba(15, 23, 42, 0.05);
     }
 
-    .compareCell {
-      color: rgba(15, 23, 42, 0.75);
+    .cell {
+      color: rgba(15, 23, 42, 0.78);
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.46;
     }
 
-    .compareRowHead .compareCell {
+    .row.head .cell {
       color: rgba(15, 23, 42, 0.9);
-      font-size: 11px;
-      font-weight: 840;
-      letter-spacing: 0.08em;
+      font-size: 10px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      font-weight: 840;
     }
 
-    .faqBand {
+    .faq {
       display: grid;
       gap: 10px;
     }
@@ -595,9 +1096,9 @@ const faqJsonLd = JSON.stringify({
 
     .qa summary {
       cursor: pointer;
+      list-style: none;
       font-weight: 760;
       color: rgba(15, 23, 42, 0.9);
-      list-style: none;
     }
 
     .qa summary::-webkit-details-marker {
@@ -608,100 +1109,92 @@ const faqJsonLd = JSON.stringify({
       margin: 8px 0 0;
       color: rgba(15, 23, 42, 0.68);
       font-size: 14px;
-      line-height: 1.58;
+      line-height: 1.56;
     }
 
-    .pricingCta {
-      display: grid;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .ctaActions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
     @media (min-width: 900px) {
-      .heroMeta {
+      .hero {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      }
+
+      .heroStats {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .plans {
+      .planGrid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .planHead {
+      .top {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .lensGrid {
+        grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      }
+
+      .previewGrid {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      }
+
+      .previewMetrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .proofGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .row {
+        grid-template-columns: 1.08fr 1fr 1fr 1.2fr;
+      }
+
+      .finalCta {
+        display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
-        align-items: start;
-        gap: 10px;
-      }
-
-      .planPrice {
-        text-align: right;
-        justify-items: end;
-        min-width: 128px;
-      }
-
-      .compareRow {
-        grid-template-columns: 1.1fr 0.9fr 0.9fr 1.1fr;
-        align-items: start;
-      }
-
-      .pricingCta {
-        grid-template-columns: minmax(0, 1fr) auto;
-      }
-    }
-
-    @media (min-width: 1240px) {
-      .plans {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      /* In 4-card mode, stack heading + price to avoid collision across dense columns */
-      .planHead {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .planPrice {
-        text-align: left;
-        justify-items: start;
-        min-width: 0;
-      }
-
-      .moneyMain {
-        font-size: clamp(26px, 2.1vw, 38px);
+        align-items: center;
       }
     }
 
     @media (max-width: 768px) {
-      .pricingHero,
-      .plans,
-      .compare,
-      .faqBand,
-      .pricingCta {
+      .panel {
         border-radius: 22px;
         padding: 16px;
       }
 
-      .pricingTitle {
-        max-width: 12ch;
+      .heroTitle {
+        max-width: 100%;
+        font-size: clamp(31px, 8.7vw, 43px);
+        line-height: 0.95;
       }
 
-      .planHead {
-        display: grid;
-        gap: 8px;
+      .heroTitle br {
+        display: none;
       }
 
-      .planPrice {
-        text-align: left;
+      .heroLead {
+        font-size: 17px;
       }
 
-      .ctaActions .btn,
-      .planCard .btn {
+      .planCard ul {
+        font-size: 16px;
+      }
+
+      .recommended .btn,
+      .planCard .btn,
+      .previewCard .btn,
+      .actions .btn {
         width: 100%;
+      }
+
+      .switch {
+        grid-template-columns: repeat(2, minmax(64px, 1fr));
       }
     }
   </style>

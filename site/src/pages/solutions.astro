@@ -53,42 +53,47 @@ const description =
       </header>
 
       <section class="solSignalBoard" aria-label="Execution signal board">
-        <div class="solSignalHead">
-          <div class="solSignalKicker">Execution Signal Board</div>
-          <h2 class="solSignalTitle">From operational truth to controlled outcomes.</h2>
-        </div>
+        <div class="solSignalLayout">
+          <div class="solSignalCopy">
+            <div class="solSignalHead">
+              <div class="solSignalKicker">Execution Signal Board</div>
+              <h2 class="solSignalTitle">From operational truth to controlled outcomes.</h2>
+            </div>
 
-        <div class="solVisualStage">
-          <img
-            src="/erain-command-board.svg"
-            alt="EraIn command board mapping audit, governance, and ROI signals."
-            width="1600"
-            height="920"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div class="solSignalGrid" role="list" aria-label="Signal modules">
-          <article class="solSignalCard" role="listitem">
-            <div class="solSignalLabel">Auditability</div>
-            <div class="solSignalValue">97%+ evidence coverage</div>
-            <div class="solSignalText">Findings mapped to source paths before rollout decisions.</div>
-            <div class="solSignalBar"><span style="--solFill:97%"></span></div>
-          </article>
+            <div class="solSignalGrid" role="list" aria-label="Signal modules">
+              <article class="solSignalCard" role="listitem">
+                <div class="solSignalLabel">Auditability</div>
+                <div class="solSignalValue">97%+ evidence coverage</div>
+                <div class="solSignalText">Findings mapped to source paths before rollout decisions.</div>
+                <div class="solSignalBar"><span style="--solFill:97%"></span></div>
+              </article>
 
-          <article class="solSignalCard" role="listitem">
-            <div class="solSignalLabel">Decision Governance</div>
-            <div class="solSignalValue">100% owner mapping</div>
-            <div class="solSignalText">Approvals, owners, and execution boundaries set pre-deployment.</div>
-            <div class="solSignalBar"><span style="--solFill:100%"></span></div>
-          </article>
+              <article class="solSignalCard" role="listitem">
+                <div class="solSignalLabel">Decision Governance</div>
+                <div class="solSignalValue">100% owner mapping</div>
+                <div class="solSignalText">Approvals, owners, and execution boundaries set pre-deployment.</div>
+                <div class="solSignalBar"><span style="--solFill:100%"></span></div>
+              </article>
 
-          <article class="solSignalCard" role="listitem">
-            <div class="solSignalLabel">ROI Attribution</div>
-            <div class="solSignalValue">Value ledger enabled</div>
-            <div class="solSignalText">Action-to-outcome attribution to prove impact with leadership clarity.</div>
-            <div class="solSignalBar"><span style="--solFill:86%"></span></div>
-          </article>
+              <article class="solSignalCard" role="listitem">
+                <div class="solSignalLabel">ROI Attribution</div>
+                <div class="solSignalValue">Value ledger enabled</div>
+                <div class="solSignalText">Action-to-outcome attribution to prove impact with leadership clarity.</div>
+                <div class="solSignalBar"><span style="--solFill:86%"></span></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="solVisualStage">
+            <img
+              src="/erain-command-board.svg"
+              alt="EraIn command board mapping audit, governance, and ROI signals."
+              width="1600"
+              height="920"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
       </section>
 
@@ -375,6 +380,17 @@ const description =
       max-width: 86ch;
     }
 
+    .solSignalLayout {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .solSignalCopy {
+      min-width: 0;
+    }
+
     .solSignalKicker {
       display: inline-flex;
       border: 1px solid rgba(148, 206, 255, 0.44);
@@ -405,7 +421,6 @@ const description =
     }
 
     .solVisualStage {
-      margin-top: 12px;
       border: 1px solid rgba(134, 191, 255, 0.38);
       border-radius: 22px;
       overflow: hidden;
@@ -624,6 +639,16 @@ const description =
 
       .solSignalGrid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 980px) {
+      .solSignalLayout {
+        grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      }
+
+      .solSignalGrid {
+        grid-template-columns: 1fr;
       }
     }
 

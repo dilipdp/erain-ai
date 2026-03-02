@@ -8,43 +8,158 @@ const description = "EraIn builds operational AI systems that audit reality, gov
 <BaseLayout title={title} description={description} mainPadding="none">
 <section class="homeX" aria-label="EraIn homepage">
   <header class="cinema reveal" aria-label="Execution operating system hero">
-    <canvas class="fieldCanvas" id="fieldCanvas" aria-hidden="true"></canvas>
+    <div class="heroTop">
+      <div class="cinemaCopy">
+        <div class="cinemaEyebrow">EraIn Operating System</div>
+        <h1 class="h1 cinemaTitle">
+          <span class="displaySerif">Command Reality.</span><br />
+          Govern Decisions. Prove Value.
+        </h1>
+        <p class="cinemaLead">
+          EraIn turns operating evidence into disciplined execution. Auditability, decision governance,
+          and ROI attribution are built as one command loop, not disconnected tooling.
+        </p>
 
-    <div class="cinemaCopy">
-      <div class="cinemaEyebrow">EraIn Operating System</div>
-      <h1 class="h1 cinemaTitle">
-        <span class="displaySerif">Command Reality.</span><br />
-        Govern Decisions. Prove Value.
-      </h1>
-      <p class="cinemaLead">
-        EraIn turns operating evidence into disciplined execution. Auditability, decision governance,
-        and ROI attribution are built as one command loop, not disconnected tooling.
-      </p>
+        <div class="cinemaSignalRow" aria-label="EraIn core signals">
+          <span class="cinemaSignalTag">Audit-first intelligence</span>
+          <span class="cinemaSignalTag">Decision-governed execution</span>
+          <span class="cinemaSignalTag">ROI attribution loop</span>
+        </div>
 
-      <div class="cinemaActions" aria-label="Primary actions">
-        <a class="btn btnPrimary" href="/request-assessment" data-track="home_cinema_start_audit">Start Free AI Audit</a>
-        <a class="btn" href="/results" data-track="home_cinema_view_results">View Results</a>
-        <a class="btn btnGhost" href="/pricing" data-track="home_cinema_pricing">See Pricing</a>
+        <div class="cinemaActions" aria-label="Primary actions">
+          <a class="btn btnPrimary" href="/request-assessment" data-track="home_cinema_start_audit">Start Free AI Audit</a>
+          <a class="btn" href="/results" data-track="home_cinema_view_results">View Results</a>
+          <a class="btn btnGhost" href="/pricing" data-track="home_cinema_pricing">See Pricing</a>
+        </div>
       </div>
 
-      <div class="kpiRail" role="list" aria-label="Execution signal highlights">
-        <article class="kpiCard" role="listitem">
-          <div class="kpiK">Evidence confidence</div>
-          <div class="kpiV" data-scene-field="hero_confidence">97.4%</div>
-          <p>Traceable findings at decision handoff.</p>
-        </article>
-        <article class="kpiCard" role="listitem">
-          <div class="kpiK">Approval mapping</div>
-          <div class="kpiV" data-scene-field="hero_governance">100%</div>
-          <p>Role-scoped governance before execution.</p>
-        </article>
-        <article class="kpiCard" role="listitem">
-          <div class="kpiK">Recovery window</div>
-          <div class="kpiV" data-scene-field="hero_recovery">3.8x</div>
-          <p>Action-to-outcome value attribution loop.</p>
-        </article>
-      </div>
+      <aside class="cinemaStage" aria-label="Interactive execution orbit">
+        <div class="stageFrame scene-factory" id="stageFrame">
+          <svg class="stageSvg" viewBox="0 0 860 560" aria-hidden="true">
+            <defs>
+              <linearGradient id="arcA" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#8ee7ff" stop-opacity="0.75" />
+                <stop offset="100%" stop-color="#4fc3ff" stop-opacity="0.94" />
+              </linearGradient>
+              <linearGradient id="arcB" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#9af6cc" stop-opacity="0.75" />
+                <stop offset="100%" stop-color="#58d8ff" stop-opacity="0.92" />
+              </linearGradient>
+              <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#2e8cff" stop-opacity="0.85" />
+                <stop offset="68%" stop-color="#1c3f9c" stop-opacity="0.62" />
+                <stop offset="100%" stop-color="#04163d" stop-opacity="0" />
+              </radialGradient>
+            </defs>
 
+            <rect x="0" y="0" width="860" height="560" fill="rgba(2, 16, 46, 0.56)" />
+            <g opacity="0.18" stroke="#7dc8ff" stroke-width="1">
+              <path d="M0 80 H860" />
+              <path d="M0 160 H860" />
+              <path d="M0 240 H860" />
+              <path d="M0 320 H860" />
+              <path d="M0 400 H860" />
+              <path d="M0 480 H860" />
+              <path d="M120 0 V560" />
+              <path d="M260 0 V560" />
+              <path d="M400 0 V560" />
+              <path d="M540 0 V560" />
+              <path d="M680 0 V560" />
+              <path d="M820 0 V560" />
+            </g>
+
+            <circle cx="430" cy="280" r="128" fill="url(#coreGlow)" />
+            <path class="orbit arc1" d="M142 128 C 290 102, 334 202, 430 280" />
+            <path class="orbit arc2" d="M148 424 C 306 432, 350 346, 430 280" />
+            <path class="orbit arc3" d="M718 126 C 582 102, 526 204, 430 280" />
+            <path class="orbit arc4" d="M714 426 C 560 432, 516 344, 430 280" />
+
+            <g class="nodeCluster">
+              <circle cx="142" cy="128" r="9" class="nodeDot" />
+              <circle cx="148" cy="424" r="9" class="nodeDot" />
+              <circle cx="718" cy="126" r="9" class="nodeDot" />
+              <circle cx="714" cy="426" r="9" class="nodeDot" />
+              <circle cx="430" cy="280" r="13" class="nodeDot coreDot" />
+            </g>
+
+            <g class="coreMark">
+              <rect x="376" y="224" width="108" height="108" rx="9" transform="rotate(45 430 278)" />
+              <text x="430" y="268" text-anchor="middle">ERAIN</text>
+              <text x="430" y="292" text-anchor="middle">EXECUTION ENGINE</text>
+            </g>
+          </svg>
+
+          <div class="stageCall stageCallA">
+            <div class="callK" data-scene-field="node_a_label">Auditability</div>
+            <div class="callV" data-scene-field="node_a_value">97.4%</div>
+            <div class="callT" data-scene-field="node_a_text">Evidence confidence</div>
+          </div>
+
+          <div class="stageCall stageCallB">
+            <div class="callK" data-scene-field="node_b_label">Decision governance</div>
+            <div class="callV" data-scene-field="node_b_value">100%</div>
+            <div class="callT" data-scene-field="node_b_text">Owner path mapped</div>
+          </div>
+
+          <div class="stageCall stageCallC">
+            <div class="callK" data-scene-field="node_c_label">Action closure</div>
+            <div class="callV" data-scene-field="node_c_value">42</div>
+            <div class="callT" data-scene-field="node_c_text">Prioritized moves</div>
+          </div>
+
+          <div class="stageCall stageCallD">
+            <div class="callK" data-scene-field="node_d_label">Value ledger</div>
+            <div class="callV" data-scene-field="node_d_value">INR 4.6 Cr</div>
+            <div class="callT" data-scene-field="node_d_text">Attributed impact path</div>
+          </div>
+
+          <div class="stageRail" data-scene-field="rail_text">AUDIT REALITY  -  GOVERN DECISIONS  -  ATTRIBUTE ROI</div>
+        </div>
+
+        <div class="stageToolbar" aria-label="Scenario controls and signal highlights">
+          <div class="sceneSwitch" role="group" aria-label="Switch operating scenario">
+            <button class="sceneBtn is-active" type="button" data-scene="factory" aria-pressed="true">Manufacturing Network</button>
+            <button class="sceneBtn" type="button" data-scene="logistics" aria-pressed="false">Logistics Grid</button>
+            <button class="sceneBtn" type="button" data-scene="services" aria-pressed="false">Services Portfolio</button>
+          </div>
+
+          <div class="kpiRail" role="list" aria-label="Execution signal highlights">
+            <article class="kpiCard" role="listitem">
+              <div class="kpiK">Evidence confidence</div>
+              <div class="kpiV" data-scene-field="hero_confidence">97.4%</div>
+              <p>Traceable findings at decision handoff.</p>
+            </article>
+            <article class="kpiCard" role="listitem">
+              <div class="kpiK">Approval mapping</div>
+              <div class="kpiV" data-scene-field="hero_governance">100%</div>
+              <p>Role-scoped governance before execution.</p>
+            </article>
+            <article class="kpiCard" role="listitem">
+              <div class="kpiK">Recovery window</div>
+              <div class="kpiV" data-scene-field="hero_recovery">3.8x</div>
+              <p>Action-to-outcome value attribution loop.</p>
+            </article>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="heroBand" role="list" aria-label="Current operating signals">
+      <article class="heroBandCard" role="listitem">
+        <div class="heroBandK">Execution recovery</div>
+        <div class="heroBandV" data-scene-field="band_recovery">15-31%</div>
+        <p data-scene-field="band_recovery_text">Cycle variance compression in first control window.</p>
+      </article>
+      <article class="heroBandCard" role="listitem">
+        <div class="heroBandK">Owner response SLA</div>
+        <div class="heroBandV" data-scene-field="band_sla">96%</div>
+        <p data-scene-field="band_sla_text">Decision paths responding within defined cadence.</p>
+      </article>
+      <article class="heroBandCard" role="listitem">
+        <div class="heroBandK">Value trajectory</div>
+        <div class="heroBandV" data-scene-field="band_value">INR 1.2 Cr-4.6 Cr</div>
+        <p data-scene-field="band_value_text">Attributed range across representative launch scenarios.</p>
+      </article>
     </div>
   </header>
 
@@ -195,28 +310,31 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     max-width: 1360px;
     margin: 0 auto;
     display: grid;
-    gap: 24px;
+    gap: 26px;
     padding-bottom: 24px;
   }
 
   .cinema,
   .commandStory,
+  .prismLab,
   .proofBento,
   .launchCta {
-    border: 1px solid rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(15, 23, 42, 0.1);
     border-radius: 30px;
-    box-shadow: 0 24px 62px rgba(2, 10, 32, 0.12);
+    box-shadow: 0 28px 72px rgba(2, 10, 32, 0.12);
     position: relative;
     overflow: hidden;
   }
 
   .cinema {
+    direction: ltr;
     background:
-      radial-gradient(760px 380px at -12% -22%, rgba(78, 193, 255, 0.24), transparent 62%),
-      radial-gradient(760px 420px at 115% -18%, rgba(74, 115, 255, 0.26), transparent 66%),
+      radial-gradient(780px 380px at -12% -24%, rgba(92, 203, 255, 0.28), transparent 62%),
+      radial-gradient(760px 460px at 112% -16%, rgba(87, 124, 255, 0.33), transparent 66%),
+      radial-gradient(620px 360px at 92% 66%, rgba(34, 120, 214, 0.2), transparent 70%),
       linear-gradient(164deg, #07132e 0%, #08193f 44%, #092754 100%);
-    border-color: rgba(130, 185, 255, 0.32);
-    padding: clamp(18px, 3.5vw, 34px);
+    border-color: rgba(148, 204, 255, 0.34);
+    padding: clamp(16px, 2.8vw, 26px);
     display: grid;
     gap: 16px;
   }
@@ -233,26 +351,48 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     pointer-events: none;
   }
 
+  .cinema::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(520px 220px at 72% 14%, rgba(141, 220, 255, 0.12), transparent 78%),
+      linear-gradient(120deg, transparent 0%, rgba(124, 180, 255, 0.04) 48%, transparent 100%);
+    pointer-events: none;
+  }
+
   .cinema > * {
     position: relative;
     z-index: 1;
   }
 
-  .fieldCanvas {
-    position: absolute;
-    inset: -1px;
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    pointer-events: none;
-    z-index: 0 !important;
-    opacity: 0.72;
-    mix-blend-mode: screen;
-    border-radius: inherit;
+  .heroTop {
+    display: grid;
+    gap: 14px;
+    align-items: start;
   }
 
   .cinemaCopy,
   .cinemaStage {
     min-width: 0;
+  }
+
+  .cinemaStage {
+    display: grid;
+    gap: 10px;
+    align-content: start;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .stageToolbar {
+    border: 1px solid rgba(152, 212, 255, 0.22);
+    border-radius: 16px;
+    background: linear-gradient(152deg, rgba(8, 31, 71, 0.62), rgba(7, 22, 56, 0.52));
+    padding: 10px;
+    display: grid;
+    gap: 10px;
   }
 
   .cinemaEyebrow,
@@ -273,11 +413,12 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   .cinemaTitle {
     margin-top: 14px;
     color: rgba(243, 250, 255, 0.98);
-    max-width: 14ch;
-    font-size: clamp(42px, 7.8vw, 88px);
-    line-height: 0.93;
+    max-width: 11.8ch;
+    font-size: clamp(48px, 8.6vw, 98px);
+    line-height: 0.88;
     letter-spacing: -0.05em;
     font-weight: 860;
+    text-shadow: 0 10px 32px rgba(3, 10, 30, 0.34);
   }
 
   .cinemaTitle .displaySerif {
@@ -288,16 +429,35 @@ const description = "EraIn builds operational AI systems that audit reality, gov
 
   .cinemaLead {
     margin: 14px 0 0;
-    max-width: 62ch;
-    color: rgba(205, 227, 252, 0.9);
-    font-size: clamp(17px, 1.95vw, 22px);
-    line-height: 1.58;
+    max-width: 42ch;
+    color: rgba(206, 226, 250, 0.92);
+    font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.52;
+  }
+
+  .cinemaSignalRow {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cinemaSignalTag {
+    border: 1px solid rgba(153, 210, 255, 0.3);
+    border-radius: 999px;
+    padding: 7px 11px;
+    background: rgba(8, 28, 66, 0.48);
+    color: rgba(212, 236, 255, 0.92);
+    font-size: 11px;
+    font-weight: 760;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .cinemaActions,
   .bentoActions,
   .launchActions {
-    margin-top: 18px;
+    margin-top: 20px;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -322,17 +482,25 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .kpiRail {
-    margin-top: 18px;
+    margin-top: 0;
     display: grid;
-    gap: 8px;
+    gap: 10px;
     grid-template-columns: 1fr;
   }
 
   .kpiCard {
-    border: 1px solid rgba(158, 207, 255, 0.22);
-    border-radius: 14px;
-    background: rgba(8, 25, 57, 0.58);
-    padding: 12px;
+    border: 1px solid rgba(160, 214, 255, 0.24);
+    border-radius: 16px;
+    background: linear-gradient(155deg, rgba(9, 31, 70, 0.66), rgba(6, 22, 52, 0.54));
+    padding: 13px 14px;
+    backdrop-filter: blur(2px);
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .kpiCard:hover {
+    transform: translateY(-2px);
+    border-color: rgba(172, 222, 255, 0.36);
+    box-shadow: 0 14px 28px rgba(3, 15, 40, 0.28);
   }
 
   .kpiK {
@@ -346,7 +514,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   .kpiV {
     margin-top: 5px;
     color: #f3f9ff;
-    font-size: 28px;
+    font-size: clamp(30px, 3vw, 38px);
     line-height: 1.02;
     letter-spacing: -0.03em;
     font-weight: 820;
@@ -360,7 +528,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .sceneSwitch {
-    margin-top: 16px;
+    margin-top: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -368,10 +536,10 @@ const description = "EraIn builds operational AI systems that audit reality, gov
 
   .sceneBtn {
     appearance: none;
-    border: 1px solid rgba(156, 205, 255, 0.26);
+    border: 1px solid rgba(169, 215, 255, 0.28);
     border-radius: 999px;
-    background: rgba(7, 28, 66, 0.46);
-    color: rgba(201, 227, 255, 0.88);
+    background: rgba(7, 28, 66, 0.54);
+    color: rgba(215, 235, 255, 0.9);
     font-size: 12px;
     font-weight: 760;
     padding: 8px 12px;
@@ -392,16 +560,24 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .stageFrame {
-    border: 1px solid rgba(128, 191, 255, 0.3);
-    border-radius: 24px;
-    background: linear-gradient(150deg, rgba(3, 18, 48, 0.9), rgba(6, 35, 79, 0.86));
-    box-shadow: 0 32px 72px rgba(2, 8, 23, 0.42);
-    padding: 10px;
+    border: 1px solid rgba(153, 212, 255, 0.36);
+    border-radius: 26px;
+    background: linear-gradient(150deg, rgba(4, 20, 54, 0.92), rgba(8, 40, 86, 0.88));
+    box-shadow: 0 36px 82px rgba(2, 8, 23, 0.5);
+    padding: 12px;
     position: relative;
     overflow: hidden;
     aspect-ratio: 860 / 560;
     transform: perspective(1200px) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
     transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+
+  .stageFrame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(420px 180px at 52% 8%, rgba(132, 219, 255, 0.14), transparent 78%);
+    pointer-events: none;
   }
 
   .stageFrame.scene-logistics {
@@ -473,12 +649,13 @@ const description = "EraIn builds operational AI systems that audit reality, gov
 
   .stageCall {
     position: absolute;
-    border: 1px solid rgba(143, 203, 255, 0.32);
+    border: 1px solid rgba(155, 214, 255, 0.36);
     border-radius: 13px;
-    background: rgba(8, 29, 70, 0.72);
+    background: rgba(6, 29, 70, 0.76);
     padding: 8px 9px;
     min-width: 138px;
-    box-shadow: 0 12px 30px rgba(2, 8, 23, 0.26);
+    box-shadow: 0 14px 36px rgba(2, 8, 23, 0.34);
+    backdrop-filter: blur(3px);
   }
 
   .stageCallA { top: 8%; left: 6%; }
@@ -516,7 +693,7 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     right: 18%;
     bottom: 5%;
     border-radius: 999px;
-    background: linear-gradient(90deg, #2b80ff, #17b8de);
+    background: linear-gradient(90deg, #2f85ff, #16c0df);
     color: rgba(238, 248, 255, 0.96);
     font-size: 10px;
     font-weight: 760;
@@ -530,11 +707,77 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     text-overflow: ellipsis;
   }
 
+  .heroBand {
+    grid-column: 1 / -1;
+    border: 1px solid rgba(155, 214, 255, 0.26);
+    border-radius: 18px;
+    background:
+      radial-gradient(520px 180px at 5% -22%, rgba(142, 223, 255, 0.15), transparent 70%),
+      linear-gradient(150deg, rgba(7, 29, 68, 0.74), rgba(6, 23, 54, 0.66));
+    box-shadow: 0 18px 42px rgba(2, 10, 32, 0.28);
+    padding: 12px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr;
+  }
+
+  .heroBandCard {
+    border: 1px solid rgba(157, 214, 255, 0.22);
+    border-radius: 12px;
+    background: rgba(7, 30, 70, 0.58);
+    padding: 9px 10px;
+  }
+
+  .heroBandK {
+    color: rgba(179, 221, 255, 0.82);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 820;
+  }
+
+  .heroBandV {
+    margin-top: 4px;
+    color: rgba(240, 248, 255, 0.98);
+    font-size: clamp(18px, 2vw, 26px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    font-weight: 820;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .heroBandCard p {
+    margin: 5px 0 0;
+    color: rgba(190, 220, 250, 0.86);
+    font-size: 12px;
+    line-height: 1.42;
+  }
+
   .commandStory {
-    background: rgba(255, 255, 255, 0.82);
+    background:
+      radial-gradient(560px 220px at -10% -12%, rgba(92, 151, 255, 0.16), transparent 68%),
+      linear-gradient(145deg, rgba(244, 249, 255, 0.96), rgba(233, 241, 252, 0.9));
     display: grid;
     gap: 14px;
     padding: clamp(18px, 3.2vw, 30px);
+  }
+
+  .commandStory::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(80, 128, 196, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(80, 128, 196, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55), transparent 84%);
+    pointer-events: none;
+  }
+
+  .commandStory > * {
+    position: relative;
+    z-index: 1;
   }
 
   .storySticky,
@@ -595,9 +838,9 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .storyCard {
-    border: 1px solid rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(18, 49, 98, 0.12);
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.76);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(245, 250, 255, 0.74));
     padding: 16px;
     transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
   }
@@ -643,7 +886,9 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .proofBento {
-    background: rgba(255, 255, 255, 0.82);
+    background:
+      radial-gradient(640px 240px at 102% -8%, rgba(104, 172, 255, 0.2), transparent 66%),
+      linear-gradient(145deg, rgba(246, 251, 255, 0.95), rgba(236, 245, 255, 0.9));
     display: grid;
     gap: 10px;
     padding: clamp(18px, 3.2vw, 30px);
@@ -651,7 +896,9 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .prismLab {
-    background: rgba(255, 255, 255, 0.82);
+    background:
+      radial-gradient(560px 230px at 6% -14%, rgba(125, 186, 255, 0.18), transparent 68%),
+      linear-gradient(150deg, rgba(244, 249, 255, 0.96), rgba(233, 242, 254, 0.9));
     padding: clamp(18px, 3.2vw, 30px);
     display: grid;
     gap: 14px;
@@ -683,9 +930,9 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     --mx: 50%;
     --my: 50%;
     position: relative;
-    border: 1px solid rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(20, 53, 106, 0.12);
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.76);
+    background: linear-gradient(148deg, rgba(255, 255, 255, 0.9), rgba(244, 250, 255, 0.78));
     padding: 16px;
     overflow: hidden;
     transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
@@ -750,10 +997,11 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .bentoCard {
-    border: 1px solid rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(17, 47, 96, 0.12);
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.76);
+    background: linear-gradient(148deg, rgba(255, 255, 255, 0.88), rgba(245, 250, 255, 0.76));
     padding: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
   }
 
   .bentoLarge {
@@ -795,8 +1043,10 @@ const description = "EraIn builds operational AI systems that audit reality, gov
   }
 
   .launchCta {
-    background: linear-gradient(140deg, rgba(7, 21, 49, 0.96), rgba(10, 37, 80, 0.92));
-    border-color: rgba(128, 191, 255, 0.28);
+    background:
+      radial-gradient(520px 180px at 82% -8%, rgba(107, 202, 255, 0.2), transparent 72%),
+      linear-gradient(140deg, rgba(7, 21, 49, 0.97), rgba(10, 37, 80, 0.93));
+    border-color: rgba(141, 203, 255, 0.3);
     color: rgba(229, 243, 255, 0.94);
     padding: clamp(18px, 3.2vw, 30px);
     display: grid;
@@ -831,7 +1081,28 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     background: linear-gradient(135deg, #2a74ff 0%, #00a5d8 100%);
     border-color: rgba(255, 255, 255, 0.32);
     color: #fff;
+    box-shadow: 0 14px 30px rgba(22, 124, 222, 0.34);
   }
+
+  .cinemaCopy > * {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroRise 620ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  .stageToolbar > * {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroRise 620ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  .cinemaEyebrow { animation-delay: 40ms; }
+  .cinemaTitle { animation-delay: 120ms; }
+  .cinemaLead { animation-delay: 190ms; }
+  .cinemaSignalRow { animation-delay: 250ms; }
+  .cinemaActions { animation-delay: 320ms; }
+  .sceneSwitch { animation-delay: 390ms; }
+  .kpiRail { animation-delay: 460ms; }
 
   @keyframes orbitFlow {
     to {
@@ -851,21 +1122,57 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     }
   }
 
+  @keyframes heroRise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes stageIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
   @media (min-width: 980px) {
     .cinema {
-      grid-template-columns: minmax(0, 1fr);
-      justify-items: start;
       align-items: start;
+      gap: 14px;
+    }
+
+    .heroTop {
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
       gap: 20px;
     }
 
     .cinemaCopy {
-      width: min(980px, 100%);
-      max-width: 100%;
+      align-self: start;
+    }
+
+    .cinemaStage {
+      align-self: start;
+      gap: 12px;
+    }
+
+    .stageFrame {
+      min-height: 350px;
     }
 
     .kpiRail {
-      width: min(980px, 100%);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .heroBand {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
@@ -917,6 +1224,16 @@ const description = "EraIn builds operational AI systems that audit reality, gov
       font-size: 9px;
       padding: 8px 10px;
     }
+
+    .heroBand {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 1240px) {
+    .kpiRail {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
   @media (max-width: 768px) {
@@ -934,8 +1251,28 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     }
 
     .cinemaTitle {
-      max-width: 11ch;
-      line-height: 0.96;
+      max-width: 100%;
+      font-size: clamp(34px, 10vw, 48px);
+      line-height: 0.94;
+    }
+
+    .cinemaLead {
+      max-width: 100%;
+      font-size: 17px;
+      line-height: 1.58;
+    }
+
+    .heroTop {
+      gap: 0;
+    }
+
+    .cinemaStage {
+      display: none;
+    }
+
+    .cinemaSignalTag {
+      font-size: 10px;
+      padding: 6px 10px;
     }
 
     .cinemaActions .btn,
@@ -951,11 +1288,18 @@ const description = "EraIn builds operational AI systems that audit reality, gov
     .prismCard h3 {
       font-size: 24px;
     }
+
+    .stageToolbar {
+      padding: 9px;
+      gap: 9px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .orbit,
-    .nodeDot {
+    .nodeDot,
+    .cinemaCopy > *,
+    .stageToolbar > * {
       animation: none !important;
     }
 
@@ -963,15 +1307,174 @@ const description = "EraIn builds operational AI systems that audit reality, gov
       transform: none !important;
     }
 
-    .fieldCanvas {
-      display: none !important;
+    .cinemaCopy > *,
+    .stageToolbar > * {
+      opacity: 1 !important;
+      transform: none !important;
     }
   }
 </style>
 
 <script>
   (function () {
+    const stage = document.getElementById("stageFrame");
+    if (!(stage instanceof HTMLElement)) return;
+
+    const sceneButtons = Array.from(document.querySelectorAll(".sceneBtn"));
+    const sceneNodes = Array.from(document.querySelectorAll("[data-scene-field]"));
+
+    const scenes = {
+      factory: {
+        hero_confidence: "97.4%",
+        hero_governance: "100%",
+        hero_recovery: "3.8x",
+        node_a_label: "Auditability",
+        node_a_value: "97.4%",
+        node_a_text: "Evidence confidence",
+        node_b_label: "Decision governance",
+        node_b_value: "100%",
+        node_b_text: "Owner path mapped",
+        node_c_label: "Action closure",
+        node_c_value: "42",
+        node_c_text: "Prioritized moves",
+        node_d_label: "Value ledger",
+        node_d_value: "INR 4.6 Cr",
+        node_d_text: "Attributed impact path",
+        rail_text: "AUDIT REALITY  -  GOVERN DECISIONS  -  ATTRIBUTE ROI",
+        console_status: "Factory lane stable",
+        console_text: "Owner-mapped triggers are active and all gates are green.",
+        console_owner_sla: "96%",
+        console_decision_cycle: "8.5 days",
+        console_value_window: "12 weeks",
+        band_recovery: "15-31%",
+        band_recovery_text: "Cycle variance compression in first control window.",
+        band_sla: "96%",
+        band_sla_text: "Decision paths responding within defined cadence.",
+        band_value: "INR 1.2 Cr-4.6 Cr",
+        band_value_text: "Attributed range across representative launch scenarios."
+      },
+      logistics: {
+        hero_confidence: "95.8%",
+        hero_governance: "99%",
+        hero_recovery: "3.1x",
+        node_a_label: "Route evidence",
+        node_a_value: "95.8%",
+        node_a_text: "Cross-node signal confidence",
+        node_b_label: "Escalation mapping",
+        node_b_value: "99%",
+        node_b_text: "Regional owner coverage",
+        node_c_label: "Decision speed",
+        node_c_value: "2.9x",
+        node_c_text: "Approval acceleration",
+        node_d_label: "Recovery path",
+        node_d_value: "INR 3.2 Cr",
+        node_d_text: "Leakage conversion window",
+        rail_text: "SIGNAL ROUTING  -  OWNER GOVERNANCE  -  VALUE RECOVERY",
+        console_status: "Logistics variance recovering",
+        console_text: "Escalation paths tightened and delay volatility is dropping week over week.",
+        console_owner_sla: "94%",
+        console_decision_cycle: "6.2 days",
+        console_value_window: "9 weeks",
+        band_recovery: "18-27%",
+        band_recovery_text: "Dispatch and escalation lag reduced in recent cycles.",
+        band_sla: "94%",
+        band_sla_text: "Owner acknowledgments stabilized in weekly cadences.",
+        band_value: "INR 0.9 Cr-3.2 Cr",
+        band_value_text: "Recovery window projected from logistics bottleneck removal."
+      },
+      services: {
+        hero_confidence: "96.2%",
+        hero_governance: "100%",
+        hero_recovery: "2.7x",
+        node_a_label: "Service evidence",
+        node_a_value: "96.2%",
+        node_a_text: "Case-level source coverage",
+        node_b_label: "Decision charter",
+        node_b_value: "100%",
+        node_b_text: "Accountability path defined",
+        node_c_label: "Closure cadence",
+        node_c_value: "88%",
+        node_c_text: "Weekly action completion",
+        node_d_label: "Value trajectory",
+        node_d_value: "USD 410k",
+        node_d_text: "Attributed annualized impact",
+        rail_text: "SERVICE SIGNALS  -  DECISION CONTROL  -  OUTCOME LEDGER",
+        console_status: "Portfolio control active",
+        console_text: "Service backlog decisions are now closed on a governed weekly cadence.",
+        console_owner_sla: "98%",
+        console_decision_cycle: "4.8 days",
+        console_value_window: "7 weeks",
+        band_recovery: "12-19%",
+        band_recovery_text: "Backlog variance and case-latency drift compressed.",
+        band_sla: "98%",
+        band_sla_text: "Approvals and owner updates operating on schedule.",
+        band_value: "USD 210k-410k",
+        band_value_text: "Annualized attribution range from service portfolio actions."
+      }
+    };
+
+    function trackEvent(eventName, payload) {
+      try {
+        if (typeof window.erainTrack === "function") {
+          window.erainTrack(eventName, payload);
+          return;
+        }
+      } catch (_) {}
+    }
+
+    function applyScene(sceneId) {
+      const scene = scenes[sceneId];
+      if (!scene) return;
+
+      stage.classList.remove("scene-factory", "scene-logistics", "scene-services");
+      stage.classList.add(`scene-${sceneId}`);
+
+      for (const node of sceneNodes) {
+        const key = node.getAttribute("data-scene-field");
+        if (!key || !(key in scene)) continue;
+        node.textContent = scene[key];
+      }
+
+      for (const button of sceneButtons) {
+        const selected = button.getAttribute("data-scene") === sceneId;
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-pressed", selected ? "true" : "false");
+      }
+
+      trackEvent("home_scene_switch", {
+        page_path: window.location.pathname,
+        scene: sceneId
+      });
+    }
+
+    sceneButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const sceneId = button.getAttribute("data-scene") || "factory";
+        applyScene(sceneId);
+      });
+    });
+
+    applyScene("factory");
+
     const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const hoverCapable = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+
+    if (!reducedMotion && hoverCapable) {
+      stage.addEventListener("pointermove", (event) => {
+        const rect = stage.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const tiltX = (x - 0.5) * 5;
+        const tiltY = (0.5 - y) * 4;
+        stage.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
+        stage.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
+      });
+
+      stage.addEventListener("pointerleave", () => {
+        stage.style.setProperty("--tilt-x", "0deg");
+        stage.style.setProperty("--tilt-y", "0deg");
+      });
+    }
 
     const storyCards = Array.from(document.querySelectorAll(".storyCard[data-story-step]"));
     const storyFill = document.getElementById("storyFill");
@@ -1022,78 +1525,6 @@ const description = "EraIn builds operational AI systems that audit reality, gov
       });
     });
 
-    const canvas = document.getElementById("fieldCanvas");
-    if (canvas instanceof HTMLCanvasElement && !reducedMotion) {
-      const ctx = canvas.getContext("2d");
-      if (ctx) {
-        let width = 0;
-        let height = 0;
-        const points = [];
-        const POINT_COUNT = 38;
-
-        const resize = () => {
-          const rect = canvas.getBoundingClientRect();
-          width = Math.max(1, Math.floor(rect.width));
-          height = Math.max(1, Math.floor(rect.height));
-          const dpr = Math.min(window.devicePixelRatio || 1, 2);
-          canvas.width = Math.floor(width * dpr);
-          canvas.height = Math.floor(height * dpr);
-          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-          points.length = 0;
-          for (let i = 0; i < POINT_COUNT; i += 1) {
-            points.push({
-              x: Math.random() * width,
-              y: Math.random() * height,
-              vx: (Math.random() - 0.5) * 0.35,
-              vy: (Math.random() - 0.5) * 0.35,
-              r: 1.2 + Math.random() * 1.9
-            });
-          }
-        };
-
-        const tick = () => {
-          ctx.clearRect(0, 0, width, height);
-
-          for (const p of points) {
-            p.x += p.vx;
-            p.y += p.vy;
-            if (p.x < 0 || p.x > width) p.vx *= -1;
-            if (p.y < 0 || p.y > height) p.vy *= -1;
-          }
-
-          for (let i = 0; i < points.length; i += 1) {
-            const a = points[i];
-            for (let j = i + 1; j < points.length; j += 1) {
-              const b = points[j];
-              const dx = a.x - b.x;
-              const dy = a.y - b.y;
-              const dist = Math.hypot(dx, dy);
-              if (dist > 130) continue;
-              const alpha = (1 - dist / 130) * 0.18;
-              ctx.strokeStyle = `rgba(126, 210, 255, ${alpha.toFixed(4)})`;
-              ctx.lineWidth = 1;
-              ctx.beginPath();
-              ctx.moveTo(a.x, a.y);
-              ctx.lineTo(b.x, b.y);
-              ctx.stroke();
-            }
-          }
-
-          for (const p of points) {
-            ctx.beginPath();
-            ctx.fillStyle = "rgba(160, 228, 255, 0.56)";
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fill();
-          }
-
-          requestAnimationFrame(tick);
-        };
-
-        resize();
-        window.addEventListener("resize", resize, { passive: true });
-        requestAnimationFrame(tick);
-      }
-    }
   })();
 </script>
 </BaseLayout>
